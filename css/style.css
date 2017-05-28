@@ -14,43 +14,29 @@
 body,
 html {
     font-size: 100%;
+    height: 100%;
+    width: 100%;
     padding: 0;
     margin: 0;
-    height: 100%;
+    background: #DB0A5B; 
 }
 
 body {
-    background: #fff;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 #page {
     z-index: 10;
     position: relative;
-    opacity: 0;
-    margin-top: 20px;
-    background: #fff;
     transition: all 1s ease 1s;
     -webkit-transition: all 1s ease 1s;
     -moz-transition: all 1s ease 1s;
     -o-transition: all 1s ease 1s;
 }
 
-#page.displayed {
-    opacity: 1;
-    margin: 0;
-}
-
-hr {
-    height: 1px;
-    background-color: #e9e9e9;
-    border: 0px;
-}
-
 p {
-    color: #666666;
     margin-bottom: 34px;
-    font-size: 13px;
+    font-size: 17px;
     line-height: 26px;
     font-weight: 300;
     letter-spacing: 0.6px;
@@ -58,8 +44,8 @@ p {
 
 a {
     outline: none;
+    color: #fff;
     text-decoration: none;
-    color: #ccc;
     transition: 500ms ease;
     -moz-transition: 500ms ease;
     -webkit-transition: 500ms ease;
@@ -71,6 +57,13 @@ a {
 
 a:hover {
     opacity: 0.5;
+}
+
+canvas {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: -10;
 }
 
 header {
@@ -95,17 +88,15 @@ header {
     display: block;
     margin-left: 40px;
     margin-top: 50px;
-    color: #666;
     font-size: 15px;
     font-weight: 300;
     letter-spacing: 2px;
-    color: #000;
     text-transform: uppercase;
     border-bottom: 0px;
     padding-bottom: 0px;
 }
 
-header .logo {
+header #logo {
     height: 90px;
     margin-top: 25px;
     float: left;
@@ -117,7 +108,7 @@ header .logo {
     -o-transition: 500ms ease;
 }
 
-header img:hover {
+#logo:hover {
     opacity: 0.7;
 }
 
@@ -127,13 +118,12 @@ header .instagram-header-icon {
 }
 
 #nav ul li .selected {
-    border-bottom: 1px solid #bbbbbb;
+    border-bottom: 1px solid #fff;
 }
 
 .hero-image-home {
     width: 100%;
     height: 50%;
-    background-color: #f3f3f3;
     background-image: url('../img/hero-image-home.jpg');
     background-position: center;
     background-attachment: fixed;
@@ -142,40 +132,19 @@ header .instagram-header-icon {
     overflow: hidden;
 }
 
-.hero-image-menu {
-    width: 100%;
-    height: 350px;
-    background-color: #f3f3f3;
-    background-image: url('../img/hero-image-menu.jpg');
-    background-position: center;
-    background-size: cover;
-    overflow: hidden;
-}
-
-.hero-image-gallery {
-    width: 100%;
-    height: 350px;
-    background-color: #f3f3f3;
-    background-image: url('../img/hero-image-gallery.jpg');
-    background-position: center;
-    background-size: cover;
-    overflow: hidden;
-}
-
-.hero-image-contact {
-    width: 100%;
-    height: 350px;
-    background-color: #f3f3f3;
-    background-image: url('../img/hero-image-contact.jpg');
-    background-position: center;
-    background-size: cover;
-    overflow: hidden;
-}
-
 .main {
-    margin: 25px auto;
-    width: 650px;
+    margin: 70px auto;
+    width: 700px;
     text-align: justify;
+}
+
+.container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.price {
+    margin-top: 10px;
 }
 
 h1 {
@@ -184,66 +153,45 @@ h1 {
     margin-bottom: 50px;
 }
 
-th,
-td {
-    padding: 4px 20px 0 25px;
-    height: 45px;
-    text-align: left;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-    line-height: 26px;
-    font-weight: 300;
-    letter-spacing: 0.6px;
-    color: #666666;
-}
-
-th {
-    color: #666;
-    height: 45px;
-    font-size: 13px;
-    line-height: 26px;
-    font-weight: 300;
-    letter-spacing: 0.6px;
-}
-
-td:nth-of-type(even) {
-    text-align: right;
-    padding: 0 25px 0 20px;
-    min-width: 90px;
-}
-
 .example-image {
     width: 150px;
     height: 150px;
 }
 
-.example-image-link {
-    width: 150px;
-    height: 150px;
+.example-image-holder:hover {
+    opacity: 0.5;
+}
+
+.shop-item,
+.example-image-holder {
     margin: 0;
+    margin: 10px;
+    cursor: pointer;
     display: inline-block;
     margin-bottom: 20px;
     margin-right: 20px;
+    transition: 500ms ease;
+    -moz-transition: 500ms ease;
+    -webkit-transition: 500ms ease;
+    -ms-transition: 500ms ease;
+    -o-transition: 500ms ease;
 }
 
-.example-image-link:nth-of-type(4n+0) {
+.shop-item,
+.example-image-holder:nth-of-type(4n+0) {
     margin-right: 0px;
 }
 
 form input,
 form textarea {
-    font-family: 'Roboto', sans-serif;
+    background-color: transparent;
     width: 100%;
     max-width: 100%;
-    border: 1px solid #c7c7c7;
+    border: 1px solid #fff;
     height: 35px;
     margin-bottom: 20px;
     padding-left: 14px;
-    font-size: 12px;
+    font-size: 15px;
     border-radius: 1px;
     font-weight: 300;
     letter-spacing: 0.6px;
@@ -258,7 +206,7 @@ form input:active,
 form textarea:active,
 form input:focus,
 form textarea:focus {
-    border: 1px solid #343638;
+    border: 1px dashed;
     outline: none;
     transition: 500ms ease;
     -moz-transition: 500ms ease;
@@ -268,7 +216,7 @@ form textarea:focus {
 }
 
 form textarea {
-    height: 100px;
+    height: 70px;
     padding: 10px 0 0 14px;
     transition: 500ms ease;
     -moz-transition: 500ms ease;
@@ -281,7 +229,7 @@ form textarea {
 }
 
 form textarea:focus {
-    height: 200px;
+    height: 140px;
     transition: 500ms ease;
     -moz-transition: 500ms ease;
     -webkit-transition: 500ms ease;
@@ -289,13 +237,13 @@ form textarea:focus {
     -o-transition: 500ms ease;
 }
 
-form input:last-of-type {
-    color: #fff;
+form input:last-of-type,
+.button {
     display: block;
     width: 160px;
-    border: 1px solid #343638;
     padding-left: 0;
-    background-color: #343638;
+    margin: 0 auto;
+    border: 1px solid #fff;
     height: 40px;
     line-height: 36px;
     transition: 500ms ease;
@@ -307,10 +255,12 @@ form input:last-of-type {
 
 form input:last-of-type:hover,
 form input:last-of-type:focus,
-form input:last-of-type:active {
-    background-color: #fff;
+form input:last-of-type:active,
+.button:hover {
+    opacity: 1;
+    border: 1px solid #fff;
     color: #000;
-    border: 1px solid #343638;
+    background-color: #fff;
     cursor: pointer;
     transition: 500ms ease;
     -moz-transition: 500ms ease;
@@ -319,21 +269,27 @@ form input:last-of-type:active {
     -o-transition: 500ms ease;
 }
 
-input {
+input, 
+textarea {
     -webkit-appearance: none;
     -webkit-border-radius: 0;
     border-radius: 0;
+    display: inline-block;
+    color: #fff;
+}
+
+.button {
+    margin: 20px auto;
 }
 
 footer {
     text-align: center;
-    background-color: #f3f3f3;
     height: 80px;
+    width: 100%;
 }
 
 footer p {
-    font-size: 13px;
-    color: #aaa;
+    font-size: 15px;
     letter-spacing: 0;
     line-height: 80px;
     margin-bottom: 0;
@@ -359,11 +315,9 @@ footer p {
         top: -82px;
         line-height: 27px;
         font-size: 20px;
-        color: #323232;
         cursor: pointer;
     }
     #nav ul {
-        background-color: #343638;
         width: 100%;
         text-align: center;
         margin: 0 auto;
@@ -374,7 +328,6 @@ footer p {
     #nav ul li a {
         line-height: 60px;
         margin: 0;
-        color: #fff;
         z-index: 10;
         height: 60px;
         transition: 500ms ease;
@@ -385,8 +338,6 @@ footer p {
     }
     #nav ul li a:last-of-type {}
     #nav ul li a:hover {
-        background-color: #fff;
-        color: #000;
         text-decoration: none;
         opacity: 1;
     }
@@ -436,8 +387,9 @@ footer p {
         width: 100%;
         height: auto;
     }
-    .example-image-link,
-    .example-image-link:nth-of-type(4n+0) {
+    .shop-item,
+    .example-image-holder,
+    .example-image-holder:nth-of-type(4n+0) {
         width: 48%;
         height: auto;
         margin-bottom: 20px;
@@ -445,7 +397,8 @@ footer p {
         border-bottom: 0;
         padding-bottom: 0;
     }
-    .example-image-link:nth-of-type(even) {
+    .shop-item,
+    .example-image-holder:nth-of-type(even) {
         margin-right: 0px;
     }
 }

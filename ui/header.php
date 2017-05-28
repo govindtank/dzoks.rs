@@ -1,24 +1,24 @@
+<canvas id="canvas"></canvas>
+
 <header>
     <div id="wrap">
-        <a href="home.php" title="Home"><img class="logo" src="img/logo.png" alt="Logo" />
+        <a href="home.php" title="Home"><img id="logo" src="img/logo.png" alt="<?php echo $string['header']['logo']; ?>" />
         </a>
         <nav id="nav">
             <ul>
                 <?php
-                    $items = ["home", "gallery", "contact"];
+                    $items = ["home", "gallery", "shop", "contact"];
                     
                     foreach($items as $item) {
-                        echo '<li>';
-                        echo '<a ';
+                        echo '<li><a ';
                         
                         if(strcmp($item, $page) == 0) {
                             echo 'class="selected" ';
                         }
                         
                         echo 'href="' . $item .'.php" title="' . ucfirst($item) . '">';
-                        echo $string[$item];
-                        echo '</a>';
-                        echo '</li>'; 
+                        echo $string["header"][$item];
+                        echo '</a></li>'; 
                     } 
                 ?>
                     <li>
