@@ -9,9 +9,7 @@
         ]
         , "home" => [
               "header" => "Ово је наслов"
-            , "text1" => "Oво је главни текст 1"
-            , "text2" => "Oво је главни текст 2"
-            , "text3" => "Oво је главни текст 3"
+            , "text" => file_get_contents("text/text-home.rs")
         ]
         , "gallery" => [
               "header" => "Погледај ове опасне фотке!"

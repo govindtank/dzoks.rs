@@ -18,11 +18,25 @@ html {
     width: 100%;
     padding: 0;
     margin: 0;
-    background: #DB0A5B; 
+    background: #000;
+    color: #fff;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#video-background {
+  position: fixed;
+  right: 0; 
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  width: auto; 
+  height: auto;
+  z-index: -100;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Oswald', sans-serif;
 }
 
 #page {
@@ -43,8 +57,8 @@ p {
 }
 
 a {
-    outline: none;
     color: #fff;
+    outline: none;
     text-decoration: none;
     transition: 500ms ease;
     -moz-transition: 500ms ease;
@@ -57,13 +71,6 @@ a {
 
 a:hover {
     opacity: 0.5;
-}
-
-canvas {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    z-index: -10;
 }
 
 header {
@@ -96,20 +103,16 @@ header {
     padding-bottom: 0px;
 }
 
-header #logo {
+#logo {
     height: 90px;
     margin-top: 25px;
     float: left;
     position: absolute;
-    transition: 500ms ease;
-    -moz-transition: 500ms ease;
-    -webkit-transition: 500ms ease;
-    -ms-transition: 500ms ease;
-    -o-transition: 500ms ease;
-}
-
-#logo:hover {
-    opacity: 0.7;
+    transition: 750ms ease;
+    -moz-transition: 750ms ease;
+    -webkit-transition: 750ms ease;
+    -ms-transition: 750ms ease;
+    -o-transition: 750ms ease;
 }
 
 header .instagram-header-icon {
@@ -121,18 +124,8 @@ header .instagram-header-icon {
     border-bottom: 1px solid #fff;
 }
 
-.hero-image-home {
-    width: 100%;
-    height: 50%;
-    background-image: url('../img/hero-image-home.jpg');
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
-}
-
 .main {
+    min-height: 100%;
     margin: 70px auto;
     width: 700px;
     text-align: justify;
@@ -284,14 +277,14 @@ textarea {
 
 footer {
     text-align: center;
-    height: 80px;
+    height: auto;
     width: 100%;
+    padding-bottom: 20px;
 }
 
 footer p {
     font-size: 15px;
     letter-spacing: 0;
-    line-height: 80px;
     margin-bottom: 0;
 }
 
@@ -361,15 +354,6 @@ footer p {
         -webkit-transform-origin: 100% 0%;
         -ms-transform-origin: 100% 0%;
         -o-transform-origin: 100% 0%;
-    }
-    #nav.open ul {
-        height: auto;
-        opacity: 1;
-        transform: translateY(8px);
-        -ms-transform: translateY(8px);
-        -o-transform: translateY(8px);
-        -moz-transform: translateY(8px);
-        -webkit-transform: translateY(8px);
     }
     #nav ul li .selected {
         border-bottom: 0px;

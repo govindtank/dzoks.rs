@@ -9,9 +9,7 @@
         ]
         , "home" => [
               "header" => "This is header"
-            , "text1" => "This is main text 1"
-            , "text2" => "This is main text 2"
-            , "text3" => "This is main text 3"
+            , "text" => file_get_contents("text/text-home.en")
         ]
         , "gallery" => [
               "header" => "Check out this dope photos!"

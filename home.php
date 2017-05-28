@@ -6,14 +6,11 @@
     <body id="page">       
         <?php require("ui/header.php"); ?>
         
-        <div class="hero-image-home"></div>
-        
         <div class="main">
-            <h1><?php echo $string["home"]["header"]; ?></h1>
-            
-            <p><?php echo $string["home"]["text1"]; ?></p>
-            <p><?php echo $string["home"]["text2"]; ?></p>
-            <p><?php echo $string["home"]["text3"]; ?></p>
+            <?php 
+                echo '<h1>' . $string["home"]["header"] . '</h1>'; 
+                echo '<p>' . $string["home"]["text"] . '</p>'; 
+            ?>
         </div>
         
         <?php require("ui/footer.php"); ?>
