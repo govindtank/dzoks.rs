@@ -13,6 +13,8 @@
             ?>
         </div>
         
+        <audio src="./audio/theme.mp3" autoplay="autoplay" loop="loop"></audio>
+        
         <?php require("ui/footer.php"); ?>
     </body>
 </html>

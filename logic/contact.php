@@ -1,24 +1,15 @@
 <?php 
-    $name=$_POST['name'];
-				    $email=$_POST['email'];
-				    $phone=$_POST['phone'];
-				    $subject=$_POST['subject'];
-				    $message=$_POST['message']; 
-				    if (($name=="")||($email=="")||($phone=="")||($message=="")) 
-				        { 
-				        echo "<p>Lorem ipsum dolar</br>sit amet, consectetuer </p>"; 
-				        } 
-				    else{         
-				        $from="From: $name<$email>\r\nReturn-path: $email";  
-				        $subject="$subject"; 
-				        mail("info@jordanmike.nl", $subject, 
-				"$message 
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+	$phone = $_POST['phone'];
+	$subject = $_POST['subject'];
+	$message = $_POST['message']; 
+	       
+    $body = "Name: " . $name;
+    $body .= " Phone: " . $phone;
+    $body .= " Message: " . $message;
 
-				From: 	$name
+    $from = "From: $email";  
 
-				Phonenumber: 	$phone
-
-				E-mail:		$email", $from);
-				        echo "<p>Lorem ipsum dolar</br>sit amet, consectetuer </p>"; 
-				        } 
+    mail("jelic.ecloga@gmail.com", $subject, $body, $from) or http_response_code(422);
 ?>

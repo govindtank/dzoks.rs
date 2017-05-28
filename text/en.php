@@ -4,8 +4,12 @@
             "home" => "Home"
           , "gallery" => "Gallery"
           , "shop" => "Shop"
+          , "cart" => "Cart"
           , "contact" => "Contact"
           , "logo" => "Logo"
+        ]
+        , "footer" => [
+            "power" => "Ecloga Apps"
         ]
         , "home" => [
               "header" => "This is header"
@@ -19,6 +23,12 @@
               "header" => "So buy something!"
             , "image" => "Shop image"
             , "buy" => "Buy"
+        ]
+        , "cart" => [
+              "empty" => "Buy some shit man!"
+            , "checkout" => "Checkout" 
+            , "clear" => "Clear" 
+            , "total" => "Total"
         ]
         , "contact" => [
               "header" => "Drop us a line!"

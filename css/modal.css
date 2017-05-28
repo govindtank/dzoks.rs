@@ -40,13 +40,12 @@
 .modal-button {
     position: absolute;
     color: #fff;
-    font-size: 40px;
-    font-weight: bold;
+    font-size: 30px;
     transition: 0.3s;
 }
 
 #close {
-    top: 10px;
+    top: 25px;
     right: 25px;
 }
 

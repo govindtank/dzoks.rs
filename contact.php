@@ -26,7 +26,9 @@
                     
                     <input type="hidden" name="validationCheck" value="<?php echo $sum; ?>">
                     <input name="validationInput" type="text" size="30" placeholder="<?php echo $string['contact']["validation"] . $a . " + " . $b . "?" ; ?>" />
-                    <input type="submit" value="<?php echo $string['contact']['send']; ?>" />
+                    <div class="buttons">
+                        <input class="button" type="submit" value="<?php echo $string['contact']['send']; ?>" />
+                    </div>
                 </form>
             </div>
 

@@ -1,15 +1,15 @@
 <video autoplay loop id="video-background" muted plays-inline>
-  <source src="https://player.vimeo.com/external/158148793.hd.mp4?s=8e8741dbee251d5c35a759718d4b0976fbf38b6f&profile_id=119&oauth2_token_id=57447761" type="video/mp4">
+  <source src="video/theme.mp4" type="video/mp4">
 </video>
 
 <header>
     <div id="wrap">
-        <a href="home.php" title="Home"><img id="logo" src="img/logo.png" alt="<?php echo $string['header']['logo']; ?>" />
+        <a href="home.php" title="Home" class="shake shake-basic shake-constant shake-constant--hover"><img id="logo" src="img/logo.png" alt="<?php echo $string['header']['logo']; ?>" />
         </a>
         <nav id="nav">
             <ul>
                 <?php
-                    $items = ["home", "gallery", "shop", "contact"];
+                    $items = ["home", "gallery", "shop", "cart", "contact"];
                     
                     foreach($items as $item) {
                         echo '<li><a ';
@@ -26,9 +26,9 @@
                     <li>
                         <?php
                             if(strcmp($lang, "en") == 0) {
-                                echo '<a href="logic/set_lang.php?lang=rs&page=' . $page . '">RS</a>';
+                                echo '<a href="logic/set_lang.php?lang=rs&page=' . $page . '" title="RS">RS</a>';
                             }else if(strcmp($lang, "rs") == 0) {
-                                echo '<a href="logic/set_lang.php?lang=en&page=' . $page . '">EN</a>';
+                                echo '<a href="logic/set_lang.php?lang=en&page=' . $page . '" title="EN">EN</a>';
                             }
                         ?>
                     </li>
