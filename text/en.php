@@ -6,10 +6,6 @@
           , "shop" => "Shop"
           , "cart" => "Cart"
           , "contact" => "Contact"
-          , "logo" => "Logo"
-        ]
-        , "footer" => [
-            "power" => "Ecloga Apps"
         ]
         , "index" => [
             "enter" => "Enter"
@@ -20,11 +16,9 @@
         ]
         , "gallery" => [
               "header" => "Check out this dope photos!"
-            , "image" => "Gallery image"
         ]
         , "shop" => [
               "header" => "So buy something!"
-            , "image" => "Shop image"
             , "view" => "Check it"
         ]
         , "cart" => [
@@ -35,8 +29,7 @@
             , "continue" => "Let's candy shop"
         ]
         , "product" => [
-              "image" => "Product image"
-            , "invalid" => "Sorry! We don't have that pair."
+              "invalid" => "Sorry! We don't have that pair."
             , "continue" => "Try another"
             , "buy" => "Buy it"
             , "size" => "Size"

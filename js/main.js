@@ -2,6 +2,10 @@ $(document).ready(function() {
     blink();
     pack();
     setLogo();
+    
+    $('#nav').click(function() {
+        $(this).toggleClass('open');
+    });
 });
 
 function blink() {
