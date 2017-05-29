@@ -20,7 +20,7 @@
                         $file = $dir . $file;
                             
                         if(is_file($file)) {
-                            echo '<div class="shop-item"><img alt="' . $string["shop"]["image"] . ' ' . ++$i . '" class="example-image" src="' . $file . '" />';
+                            echo '<div class="shop-item"><img class="example-image" src="' . $file . '" />';
                             
                             $price_a = rand(10, 19);
                             $price_b = rand(10, 99);
@@ -29,7 +29,7 @@
                             
                             echo '<p class="img-desc">'  . substr($file, strlen($file) - 10) . '</p>';
                             echo '<p class="img-desc price">'  . $price . '</p>';
-                            echo '<a href="product.php?id=' . $file . '" class="button" title="' . $string["shop"]["view"] . '">' . $string["shop"]["view"] . '</a></div>';
+                            echo '<a href="product.php?id=' . $file . '" class="button">' . $string["shop"]["view"] . '</a></div>';
                         }
                     }
                 ?>

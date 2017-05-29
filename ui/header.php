@@ -1,6 +1,6 @@
 <header>
     <div id="wrap">
-        <a href="home.php" title="Home" class="shake shake-basic shake-constant shake-constant--hover"><img id="logo" src="img/logo.png" alt="<?php echo $string['header']['logo']; ?>" /><div id="tint"></div></a>
+        <a href="home.php" class="shake shake-basic shake-constant shake-constant--hover"><img id="logo-small" src="img/logo.png" /><div class="tint-small" id="tint"></div></a>
         <nav id="nav">
             <ul>
                 <?php
@@ -13,7 +13,7 @@
                             echo 'class="selected" ';
                         }
                         
-                        echo 'href="' . $item .'.php" title="' . $string["header"][$item] . '">';
+                        echo 'href="' . $item .'.php">';
                         echo $string["header"][$item];
                         echo '</a></li>'; 
                     } 
@@ -21,15 +21,15 @@
                     <li>
                         <?php
                             if(strcmp($lang, "en") == 0) {
-                                echo '<a href="logic/set_lang.php?lang=rs&page=' . $page . '" title="RS">RS</a>';
+                                echo '<a href="logic/set_lang.php?lang=rs&page=' . $page . '">RS</a>';
                             }else if(strcmp($lang, "rs") == 0) {
-                                echo '<a href="logic/set_lang.php?lang=en&page=' . $page . '" title="EN">EN</a>';
+                                echo '<a href="logic/set_lang.php?lang=en&page=' . $page . '">EN</a>';
                             }
                         ?>
                     </li>
                     <li>
-                        <a href="https://www.instagram.com/soxbty" title="Instagram">
-                            <img class="instagram-header-icon" src="img/instagram-header-icon.png" alt="Instagram Icon">
+                        <a href="https://www.instagram.com/soxbty">
+                            <img class="instagram-header-icon" src="img/instagram-header-icon.png">
                         </a>
                     </li>
             </ul>

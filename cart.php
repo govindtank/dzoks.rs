@@ -20,7 +20,7 @@
                     if(is_file($file)) {
                         echo '<tr><td>';
                         
-                        echo '<a href="product.php?id=' . $file . '" title="' . $file. '">' . $file . '</a>';
+                        echo '<a href="product.php?id=' . $file . '">' . $file . '</a>';
                         
                         $qty = rand(1, 10);
                         
@@ -37,15 +37,17 @@
                 
                 if($total > 0) {
                     echo '<tr class="bordered"><td><p id="price"><b>' . $string["cart"]["total"] . '</b></p></td><td><b>$' . $total . '</b></p></td><tr>';
-                }else {
-                    echo '<tr><h1>' . $string["cart"]["empty"] . '</h1></tr>';
                 }
             ?>
             </table>
             <?php
                 if($total > 0) {
-                    echo '<div class="buttons"><a href="#" class="button" title="' . $string["cart"]["checkout"] . '">' . $string["cart"]["checkout"] . '</a>';             
-                    echo '<a href="#" class="button" title="' . $string["cart"]["clear"] . '">' . $string["cart"]["clear"] . '</a></div>';
+                    echo '<div class="buttons"><a href="#" class="button">' . $string["cart"]["checkout"] . '</a>';             
+                    echo '<a href="#" class="button">' . $string["cart"]["clear"] . '</a></div>';
+                }else {
+                     echo '<h1>' . $string["cart"]["empty"] . '</h1>';
+                    
+                    echo '<a href="shop.php" class="button">'  . $string["cart"]["continue"] . '</a>';
                 }   
             ?>
         </div>

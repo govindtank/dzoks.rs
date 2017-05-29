@@ -20,7 +20,7 @@
                         $file = $dir . $file;
                             
                         if(is_file($file)) {
-                            echo '<div class="zoom-item example-image-holder"><img class="example-image" alt="' . $string["gallery"]["image"] . ' ' . ++$i . '" src="' . $file . '" /></div>';
+                            echo '<div class="zoom-item example-image-holder"><img class="example-image" src="' . $file . '" /></div>';
                         }
                     }
                 ?>

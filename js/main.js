@@ -1,6 +1,7 @@
 $(document).ready(function() {    
     blink();
     pack();
+    setLogo();
 });
 
 function blink() {
@@ -17,12 +18,42 @@ function blink() {
     setTimeout(function(){
         $("#tint").css("background-color", "transparent");
             
+        var randomTime = Math.round(Math.random() * (1000 - 1) + 1);
+        
         setTimeout(function(){
             blink(); 
-        }, 500);
+        }, randomTime);
     }, 175);
 }
 
 function pack() { 
     //$(".main").css("min-height", document.height - ($("header").height + $("footer").height);
 }
+
+function setLogo() {
+    if($(".center").length) {
+        $(".center").css("width", $("#logo-big").css("height")).css("visibility", "visible");
+        
+        $("#logo-big").css("width", $("#logo-big").css("height"));
+        $(".tint-big").css("width", $(".tint-big").css("height"));   
+    }
+}
+
+$("#quantity").keypress(function(event) {
+     if(event.charCode < 48 || event.charCode > 57) {
+        return false;
+    }
+
+    var num = $(this).attr("value");
+    num += String.fromCharCode(event.charCode);
+    num = parseInt(num);
+    
+    var min = $(this).attr("min");
+    var max = $(this).attr("max");
+    
+    if(num < min || num > max) {
+        return false;    
+    }
+    
+    return true; 
+});

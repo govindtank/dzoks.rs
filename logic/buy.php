@@ -9,5 +9,9 @@
     $size = $_GET["size"];
     $qty = $_GET["qty"];
 
+    if(!isset($_SESSION["cart"])) {
+       $_SESSION["cart"] = array();
+    }
+
     $_SESSION["cart"][] = $id;
 ?>

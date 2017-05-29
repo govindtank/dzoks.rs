@@ -11,6 +11,9 @@
         , "footer" => [
             "power" => "Ecloga Apps"
         ]
+        , "index" => [
+            "enter" => "Enter"
+        ]
         , "home" => [
               "header" => "This is header"
             , "text" => file_get_contents("text/text-home.en")
@@ -29,6 +32,7 @@
             , "checkout" => "Checkout" 
             , "clear" => "Clear" 
             , "total" => "Total"
+            , "continue" => "Let's candy shop"
         ]
         , "product" => [
               "image" => "Product image"
