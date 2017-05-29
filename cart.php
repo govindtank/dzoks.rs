@@ -14,18 +14,22 @@
                             
                 $total = 0;
                 
-                foreach($files as $file) {        
+                foreach($_SESSION["cart"] as $file) {        
                     $file = $dir . $file;
                             
                     if(is_file($file)) {
-                        echo '<tr><td>' . $file;
+                        echo '<tr><td>';
+                        
+                        echo '<a href="product.php?id=' . $file . '" title="' . $file. '">' . $file . '</a>';
+                        
+                        $qty = rand(1, 10);
                         
                         $price_a = rand(10, 19);
                         $price_b = rand(10, 99);
                             
-                        $total += $price_a + $price_b / 100; 
+                        $total += $qty * ($price_a + $price_b / 100); 
                         
-                        $price = '$' . $price_a . '.' . $price_b;
+                        $price = $qty . ' x $' . $price_a . '.' . $price_b;
                         
                         echo '</td><td>'  . $price . '</td><td><i class="fa fa-times" aria-hidden="true"></i></td></tr>';
                     }

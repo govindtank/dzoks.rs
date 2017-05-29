@@ -8,7 +8,6 @@
 <html>
     <head>
         <?php require("ui/head_content.php"); ?>
-        <link rel="stylesheet" href="css/modal.css">
     </head>
     <body id="page">
         <?php require("ui/header.php"); ?>
@@ -18,8 +17,8 @@
                 $file = $_GET["id"];
        
                     if(is_file($file) && file_exists($file)) {
-                        echo '<h1>' . $file . '</h1>';
-                        echo '<img class="product-big modal-item" src="' . $file . '" alt="' . $string["product"]["image"] . '" />';
+                        echo '<h1 id="' . $file . '">' . $file . '</h1>';
+                        echo '<div class="zoom-item product-zoomer"><img class="product-big" src="' . $file . '" alt="' . $string["product"]["image"] . '" /></div>';
                         
                         echo '<div class="product-options">';
                         echo '<p>Ovde stavim opis proizvoda. Blah blah blah</p>';
@@ -43,7 +42,7 @@
                         echo '<input id="quantity" type="number" min="1" max="10" placeholder="' . $string["product"]["quantity"] . '"/>';
                         
                         echo '<div class="buttons">';
-                        echo '<a href="logic/buy.php?id=' . $file . '" class="button" alt="' . $string["product"]["buy"] . '">'  . $string["product"]["buy"] . '</a>';
+                        echo '<a onclick="addToCart()" class="button" alt="' . $string["product"]["buy"] . '">'  . $string["product"]["buy"] . '</a>';
                         echo '</div></div>';
                     }else {
                         echo '<h1>'  . $string["product"]["invalid"] . '</h1>';
@@ -52,12 +51,6 @@
             ?>
         </div>
         
-        <div id="modal">
-            <img id="holder">
-        </div>
-        
         <?php require("ui/footer.php"); ?>
-
-        <script type="text/javascript" src="js/modal.js"></script>
     </body>
 </html>

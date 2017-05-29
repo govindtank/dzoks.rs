@@ -2,7 +2,6 @@
 <html>
     <head>
         <?php require("ui/head_content.php"); ?>
-        <link rel="stylesheet" href="css/modal.css">
     </head>
     <body id="page">
         <?php require("ui/header.php"); ?>
@@ -21,18 +20,13 @@
                         $file = $dir . $file;
                             
                         if(is_file($file)) {
-                            echo '<div class="example-image-holder"><img alt="' . $string["gallery"]["image"] . ' ' . ++$i . '" class="example-image modal-item" src="' . $file . '" /></div>';
+                            echo '<div class="zoom-item example-image-holder"><img class="example-image" alt="' . $string["gallery"]["image"] . ' ' . ++$i . '" src="' . $file . '" /></div>';
                         }
                     }
                 ?>
             </div>
         </div>
         
-        <div id="modal">
-            <img id="holder">
-        </div>
-        
         <?php require("ui/footer.php"); ?>
-        <script type="text/javascript" src="js/modal.js"></script>
     </body>
 </html>

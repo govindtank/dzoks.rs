@@ -9,5 +9,5 @@
 
     $from = "From: $email";  
 
-    mail("jelic.ecloga@gmail.com", $subject, $body, $from) or http_response_code(422);
+    mail("jelic.ecloga@gmail.com", $subject, $body, $from);
 ?>

@@ -1,4 +1,4 @@
-document.getElementById("sendButton").onclick = function() {    
+function sendMessage() {    
     var form = document.getElementsByTagName("form")[0];
     
     var inputName = form.getElementsByName("name")[0];
@@ -31,6 +31,30 @@ document.getElementById("sendButton").onclick = function() {
 	request.send(data);	
     
     alert("sent");
+    
+    return false;
+}
+
+function addToCart() {    
+    var id = document.getElementsByTagName("h1")[0];
+    var size = document.getElementById("size");
+    var qty = document.getElementById("quantity");
+    
+    id = id.getAttribute('id');
+    size = size.value;
+    qty = qty.value;
+    
+    if(!id || !size || !qty) {
+        alert("All info needed");
+        return false;
+    }
+    
+	var request = new XMLHttpRequest();
+    
+    request.open("GET", "logic/buy.php?id=" + id + "&size=" + size + "&qty=" + qty, true);
+	request.send();	
+    
+    alert("added");   
     
     return false;
 }

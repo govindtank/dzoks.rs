@@ -26,12 +26,11 @@
                     <input type="hidden" name="validationCheck" value="<?php echo $sum; ?>">
                     <input name="validationInput" type="text" size="30" title="<?php echo $string['contact']["validation"] . $a . " + " . $b . "?" ; ?>" placeholder="<?php echo $string['contact']["validation"] . $a . " + " . $b . "?" ; ?>" />
                     <div class="buttons">
-                        <input class="button" id="sendButton" type="submit" value="<?php echo $string['contact']['send']; ?>" title="<?php echo $string['contact']['send']; ?>" />
+                        <input class="button" onclick="sendMessage()" type="submit" value="<?php echo $string['contact']['send']; ?>" title="<?php echo $string['contact']['send']; ?>" />
                     </div>
                 </form>
             </div>
 
         <?php require("ui/footer.php"); ?>
-        <script type="text/javascript" src="js/contact.js"></script>
     </body>
 </html>

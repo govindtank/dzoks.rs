@@ -126,7 +126,7 @@ header {
 
 .product-big {
     display: inline-block;
-    width: 50%;
+    width: 100%;
     height: auto;
 }
 
@@ -182,6 +182,29 @@ header .instagram-header-icon {
 
 #nav ul li .selected {
     border-bottom: 1px solid #fff;
+}
+
+.product-zoomer {
+    width: 50%;
+}
+
+.zoom-item {
+    position: relative;
+    float: left;
+}
+
+.zoom-item > img {
+    transition: 0.1s transform;
+    transform: translateZ(0); 
+}
+
+.zoom-item:hover {
+    z-index: 1;
+}
+
+.zoom-item:hover > img {
+    transform: scale(2, 2);
+    transition: 0.1s transform;
 }
 
 .main {
@@ -249,10 +272,6 @@ h1 {
     height: 150px;
 }
 
-.example-image-holder:hover {
-    opacity: 0.7;
-}
-
 .shop-item,
 .example-image-holder {
     margin: 0;
@@ -261,11 +280,6 @@ h1 {
     display: inline-block;
     margin-bottom: 20px;
     margin-right: 20px;
-    transition: 500ms ease;
-    -moz-transition: 500ms ease;
-    -webkit-transition: 500ms ease;
-    -ms-transition: 500ms ease;
-    -o-transition: 500ms ease;
 }
 
 .shop-item,
@@ -315,10 +329,10 @@ input:active,
 textarea:active,
 input:focus,
 textarea:focus,
-select:factive, 
-select:focus, {
+select:active,
+select:focus {
     border: 1px dashed;
-    outline: none;
+    outline: none;;
     transition: 500ms ease;
     -moz-transition: 500ms ease;
     -webkit-transition: 500ms ease;
