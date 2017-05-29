@@ -18,21 +18,23 @@ html {
     width: 100%;
     padding: 0;
     margin: 0;
-    background: #000;
+    background-image: url(../img/theme.jpg);
     color: #fff;
     background-attachment: fixed;
-    background-size: cover;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 #video-background {
-  position: fixed;
-  right: 0; 
-  bottom: 0;
-  min-width: 100%; 
-  min-height: 100%;
-  width: auto; 
-  height: auto;
-  z-index: -100;
+    position: fixed;
+    right: 0; 
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: 100%; 
+    height: 100%;
+    z-index: -100;
+    object-fit: fill;
 }
 
 body {
@@ -65,7 +67,7 @@ a {
     -webkit-transition: 500ms ease;
     -ms-transition: 500ms ease;
     -o-transition: 500ms ease;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #fff;
     padding-bottom: 4px;
 }
 
@@ -122,6 +124,12 @@ header {
     list-style: none;
 }
 
+.product-big {
+    display: inline-block;
+    width: 50%;
+    height: auto;
+}
+
 #nav ul li a {
     display: block;
     margin-left: 40px;
@@ -134,16 +142,18 @@ header {
     padding-bottom: 0px;
 }
 
-#logo {
+#logo, #tint {
+    display: block;
     height: 90px;
+    width: 90px;
     margin-top: 25px;
     float: left;
     position: absolute;
-    transition: 750ms ease;
-    -moz-transition: 750ms ease;
-    -webkit-transition: 750ms ease;
-    -ms-transition: 750ms ease;
-    -o-transition: 750ms ease;
+}
+
+#tint {
+  background-color: transparent;
+  opacity: 0.25;
 }
 
 #power {
@@ -208,11 +218,24 @@ header .instagram-header-icon {
     float: right;
     margin-right: 0;
     color: #fff;
-    background-color: #000;
+    background-color: transparent;
 }
 
 .price {
-    margin-top: 10px;
+    font-size: 25px;
+}
+
+.product-options {
+    width: 50%;
+    height: auto;
+    float: right;
+    text-align: center;
+    padding: 0 50px; 
+}
+
+.img-desc {
+    margin: 0; 
+    margin-top: 10px;  
 }
 
 h1 {
@@ -227,7 +250,7 @@ h1 {
 }
 
 .example-image-holder:hover {
-    opacity: 0.5;
+    opacity: 0.7;
 }
 
 .shop-item,
@@ -250,8 +273,9 @@ h1 {
     margin-right: 0px;
 }
 
-form input,
-form textarea {
+input,
+textarea,
+select {
     background-color: transparent;
     width: 100%;
     max-width: 100%;
@@ -270,10 +294,29 @@ form textarea {
     -o-transition: 500ms ease;
 }
 
-form input:active,
-form textarea:active,
-form input:focus,
-form textarea:focus {
+::-webkit-input-placeholder { 
+    color: #fff;
+}
+:-moz-placeholder { 
+    color: #fff;
+}
+::-moz-placeholder { 
+   color: #fff;
+   opacity:  1;
+}
+:-ms-input-placeholder {}
+   color: #fff;
+}
+::-ms-input-placeholder { 
+   color: #fff;
+}
+
+input:active,
+textarea:active,
+input:focus,
+textarea:focus,
+select:factive, 
+select:focus, {
     border: 1px dashed;
     outline: none;
     transition: 500ms ease;
@@ -283,7 +326,7 @@ form textarea:focus {
     -o-transition: 500ms ease;
 }
 
-form textarea {
+textarea {
     height: 70px;
     padding: 10px 0 0 14px;
     transition: 500ms ease;
@@ -296,7 +339,7 @@ form textarea {
     border-radius: 0;
 }
 
-form textarea:focus {
+textarea:focus {
     height: 140px;
     transition: 500ms ease;
     -moz-transition: 500ms ease;
@@ -306,6 +349,7 @@ form textarea:focus {
 }
 
 .button {
+    text-align: center;
     display: block;
     width: 160px;
     padding-left: 0;
@@ -334,12 +378,14 @@ form textarea:focus {
 }
 
 input, 
-textarea {
+textarea,
+select {
     -webkit-appearance: none;
     -webkit-border-radius: 0;
     border-radius: 0;
     display: inline-block;
     color: #fff;
+    opacity: 1;
 }
 
 .button {

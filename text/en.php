@@ -22,7 +22,7 @@
         , "shop" => [
               "header" => "So buy something!"
             , "image" => "Shop image"
-            , "buy" => "Buy"
+            , "view" => "Check it"
         ]
         , "cart" => [
               "empty" => "Buy some shit man!"
@@ -30,11 +30,19 @@
             , "clear" => "Clear" 
             , "total" => "Total"
         ]
+        , "product" => [
+              "image" => "Product image"
+            , "invalid" => "Sorry! We don't have that pair."
+            , "continue" => "Try another"
+            , "buy" => "Buy it"
+            , "size" => "Size"
+            , "quantity" => "Quantity"
+            , "sizes" => ["small", "LARGE"]
+        ]
         , "contact" => [
               "header" => "Drop us a line!"
             , "name" => "Name"
             , "email" => "Email"
-            , "phone" => "Phone"
             , "subject" => "Subject"
             , "message" => "Message"
             , "validation" => "What's "

@@ -9,13 +9,12 @@
             <div class="main">
                 <h1><?php echo $string["contact"]["header"]; ?></h1>
 
-                <form action="logic/contact.php" method="POST" enctype="multipart/form-data">  
+                <form>  
                     <input type="hidden" name="action" value="submit">
-                    <input name="name" type="text" size="30" placeholder="<?php echo $string['contact']['name']; ?>" />
-                    <input name="email" type="text" size="30" placeholder="<?php echo $string['contact']['email']; ?>" />
-                    <input name="phone" type="text" size="30" placeholder="<?php echo $string['contact']['phone']; ?>" />
-                    <input name="subject" type="text" size="30" placeholder="<?php echo $string['contact']['subject']; ?>" />
-                    <textarea name="message" rows="10" cols="30" placeholder="<?php echo $string['contact']['message']; ?>"></textarea>
+                    <input name="name" type="text" size="30" title="<?php echo $string['contact']['name']; ?>" placeholder="<?php echo $string['contact']['name']; ?>" />
+                    <input name="email" type="text" size="30" title="<?php echo $string['contact']['email']; ?>" placeholder="<?php echo $string['contact']['email']; ?>" />
+                    <input name="subject" type="text" size="30" title="<?php echo $string['contact']['subject']; ?>" placeholder="<?php echo $string['contact']['subject']; ?>" />
+                    <textarea name="message" rows="10" cols="30" title="<?php echo $string['contact']['message']; ?>" placeholder="<?php echo $string['contact']['message']; ?>"></textarea>
 
                     <?php
                         $a = rand(1, 8);
@@ -25,13 +24,14 @@
                     ?>
                     
                     <input type="hidden" name="validationCheck" value="<?php echo $sum; ?>">
-                    <input name="validationInput" type="text" size="30" placeholder="<?php echo $string['contact']["validation"] . $a . " + " . $b . "?" ; ?>" />
+                    <input name="validationInput" type="text" size="30" title="<?php echo $string['contact']["validation"] . $a . " + " . $b . "?" ; ?>" placeholder="<?php echo $string['contact']["validation"] . $a . " + " . $b . "?" ; ?>" />
                     <div class="buttons">
-                        <input class="button" type="submit" value="<?php echo $string['contact']['send']; ?>" />
+                        <input class="button" id="sendButton" type="submit" value="<?php echo $string['contact']['send']; ?>" title="<?php echo $string['contact']['send']; ?>" />
                     </div>
                 </form>
             </div>
 
         <?php require("ui/footer.php"); ?>
+        <script type="text/javascript" src="js/contact.js"></script>
     </body>
 </html>

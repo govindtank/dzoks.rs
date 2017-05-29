@@ -21,7 +21,7 @@
                         $file = $dir . $file;
                             
                         if(is_file($file)) {
-                            echo '<div class="example-image-holder"><img alt="' . $string["gallery"]["image"] . ' ' . ++$i . '" class="example-image" src="' . $file . '" /></div>';
+                            echo '<div class="example-image-holder"><img alt="' . $string["gallery"]["image"] . ' ' . ++$i . '" class="example-image modal-item" src="' . $file . '" /></div>';
                         }
                     }
                 ?>
@@ -29,12 +29,9 @@
         </div>
         
         <div id="modal">
-            <span class="modal-button" id="close"><i class="fa fa-times" aria-hidden="true"></i></span>
-            <span class="modal-button" id="prev"><i class="fa fa-angle-double-left" aria-hidden="true"></i></span>
             <img id="holder">
-            <span class="modal-button" id="next"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>
         </div>
-
+        
         <?php require("ui/footer.php"); ?>
         <script type="text/javascript" src="js/modal.js"></script>
     </body>

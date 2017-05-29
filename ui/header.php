@@ -1,11 +1,6 @@
-<video autoplay loop id="video-background" muted plays-inline>
-  <source src="video/theme.mp4" type="video/mp4">
-</video>
-
 <header>
     <div id="wrap">
-        <a href="home.php" title="Home" class="shake shake-basic shake-constant shake-constant--hover"><img id="logo" src="img/logo.png" alt="<?php echo $string['header']['logo']; ?>" />
-        </a>
+        <a href="home.php" title="Home" class="shake shake-basic shake-constant shake-constant--hover"><img id="logo" src="img/logo.png" alt="<?php echo $string['header']['logo']; ?>" /><div id="tint"></div></a>
         <nav id="nav">
             <ul>
                 <?php
@@ -18,7 +13,7 @@
                             echo 'class="selected" ';
                         }
                         
-                        echo 'href="' . $item .'.php" title="' . ucfirst($item) . '">';
+                        echo 'href="' . $item .'.php" title="' . $string["header"][$item] . '">';
                         echo $string["header"][$item];
                         echo '</a></li>'; 
                     } 

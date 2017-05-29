@@ -27,8 +27,9 @@
                             
                             $price = '$' . $price_a . '.' . $price_b;
                             
-                            echo '<p class="price">'  . $price . '</p>';
-                            echo '<a href="#" class="button">' . $string["shop"]["buy"] . '</a></div>';
+                            echo '<p class="img-desc">'  . substr($file, strlen($file) - 10) . '</p>';
+                            echo '<p class="img-desc price">'  . $price . '</p>';
+                            echo '<a href="product.php?id=' . $file . '" class="button" title="' . $string["shop"]["view"] . '">' . $string["shop"]["view"] . '</a></div>';
                         }
                     }
                 ?>
