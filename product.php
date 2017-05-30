@@ -3,25 +3,36 @@
         header("location: shop.php");
     }
 
-    require("logic/get_lang.php"); 
+    require("logic/get_lang.php");
+
+    $file = $_GET["id"];
+    
+    $exists = false;
+
+    if(is_file($file) && file_exists($file)) {
+        $exists = true;
+    }
 ?>
 <html>
     <head>
-        <?php require("ui/head_content.php"); ?>
+        <?php 
+            require("ui/meta.php");
+            require("ui/link.php");
+        
+            echo '<title>' . $file . '</title>';
+        ?>
     </head>
     <body id="page">
         <?php require("ui/header.php"); ?>
         
         <div class="main">
             <?php 
-                $file = $_GET["id"];
-       
-                    if(is_file($file) && file_exists($file)) {
+                    if($exists) {
                         echo '<h1 id="' . $file . '">' . $file . '</h1>';
                         echo '<div class="zoom-item product-zoomer"><img class="product-big" src="' . $file . '" /></div>';
                         
                         echo '<div class="product-options">';
-                        echo '<p>Ovde stavim opis proizvoda. Blah blah blah</p>';
+                        echo '<p class="product-desc">Ovde stavim opis proizvoda. Blah blah blah</p>';
                         
                         $price_a = rand(10, 19);
                         $price_b = rand(10, 99);

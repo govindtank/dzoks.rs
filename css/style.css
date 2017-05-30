@@ -132,6 +132,7 @@ header {
     display: inline-block;
     width: 100%;
     height: auto;
+    float: left;
 }
 
 #nav ul li a {
@@ -181,18 +182,20 @@ header {
     position: relative;
     float: right;
     right: 20px;
-    bottom: 10px;
+    bottom: 20px;
 }
 
-footer {
-    height: auto;
+footer { 
     width: 100%;
+    height: auto;
 }
 
 footer p {
+    height: 30px;
+    position: relative;
+    float: left;
     left: 20px;
-    font-size: 15px;
-    position: absolute;
+    bottom: 10px;
 }
 
 header {
@@ -214,7 +217,6 @@ header .instagram-header-icon {
 
 .zoom-item {
     position: relative;
-    float: left;
 }
 
 .zoom-item > img {
@@ -245,8 +247,8 @@ header .instagram-header-icon {
     min-height: 100%;
     margin: 70px auto;
     width: 700px;
+    bottom: 20px;
     text-align: justify;
-    padding: 10px;
 }
 
 .container {
@@ -283,6 +285,10 @@ header .instagram-header-icon {
     font-size: 25px;
 }
 
+.product-desc {
+    margin: 20px auto;
+}
+
 .product-options {
     width: 50%;
     height: auto;
@@ -309,12 +315,15 @@ h1 {
 
 .shop-item,
 .example-image-holder {
-    margin: 0;
     margin: 10px;
     cursor: pointer;
     display: inline-block;
     margin-bottom: 20px;
     margin-right: 20px;
+}
+
+.example-image-holder {
+    margin: 0;
 }
 
 .shop-item,
@@ -454,6 +463,10 @@ select {
         padding: 0 50px; 
     }
     
+    .product-big {
+        float: none;
+    }
+    
 header {
     padding-left: 30px;
 }
@@ -551,6 +564,7 @@ header {
 }
 
     .main {
+        margin: 0 auto;
         width: auto;
     }
     .example-image {
