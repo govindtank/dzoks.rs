@@ -1,9 +1,9 @@
-<?php require("logic/get_lang.php"); ?>
+<?php require("logic/config.php"); ?>
 <html>
     <head>
         <?php require("ui/head_content.php"); ?>
     </head>
-    <body id="page">       
+    <body id="page">   
         <video autoplay loop id="video-background" muted plays-inline>
             <source src="video/theme.mp4" type="video/mp4" />
         </video>
@@ -16,7 +16,7 @@
             <div class="tint-big" id="tint"></div>
         </div>
         
-        <a href="home.php" class="button"><?php echo $string["index"]["enter"]; ?></a>
+        <a href="home" class="button"><?php echo $string["index"]["enter"]; ?></a>
         
         <?php require("ui/script.php"); ?>
     </body>

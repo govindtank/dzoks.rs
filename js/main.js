@@ -1,3 +1,7 @@
+$(window).load(function() {
+    $('#page').addClass('displayed');
+});
+
 $(document).ready(function() {    
     blink();
     pack();

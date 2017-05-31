@@ -1,4 +1,4 @@
-<?php require("logic/get_lang.php"); ?>
+<?php require("logic/config.php"); ?>
 <html>
     <head>
         <?php require("ui/head_content.php"); ?>

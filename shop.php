@@ -1,4 +1,4 @@
-<?php require("logic/get_lang.php"); ?>
+<?php require("logic/config.php"); ?>
 <html>
     <head>
         <?php require("ui/head_content.php"); ?>
@@ -29,7 +29,7 @@
                             
                             echo '<p class="img-desc">'  . substr($file, strlen($file) - 10) . '</p>';
                             echo '<p class="img-desc price">'  . $price . '</p>';
-                            echo '<a href="product.php?id=' . $file . '" class="button">' . $string["shop"]["view"] . '</a></div>';
+                            echo '<a href="product?id=' . $file . '" class="button">' . $string["shop"]["view"] . '</a></div>';
                         }
                     }
                 ?>

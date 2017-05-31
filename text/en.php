@@ -6,6 +6,7 @@
           , "shop" => "Shop"
           , "cart" => "Cart"
           , "contact" => "Contact"
+          , "checkout" => "Checkout"
         ]
         , "index" => [
             "enter" => "Enter"
@@ -27,6 +28,19 @@
             , "clear" => "Clear" 
             , "total" => "Total"
             , "continue" => "Let's candy shop"
+        ]
+        , "checkout" => [
+              "header" => "Ће се гледамо брт"
+            , "submit" => "Send me socks"
+            , "inputs" => [
+                  "first" => "First name"
+                , "last" => "Last name"
+                , "phone" => "Phone number"
+                , "address" => "Address"
+                , "zip" => "Zip code"
+                , "city" => "City"
+                , "country" => "Country"
+            ]
         ]
         , "product" => [
               "invalid" => "Sorry! We don't have that pair."

@@ -1,4 +1,4 @@
-<?php require("logic/get_lang.php"); ?>
+<?php require("logic/config.php"); ?>
 <html>
     <head>
         <?php require("ui/head_content.php"); ?>
@@ -10,7 +10,6 @@
                 <h1><?php echo $string["contact"]["header"]; ?></h1>
 
                 <form>  
-                    <input type="hidden" name="action" value="submit">
                     <input name="name" type="text" size="30" placeholder="<?php echo $string['contact']['name']; ?>" />
                     <input name="email" type="text" size="30" placeholder="<?php echo $string['contact']['email']; ?>" />
                     <input name="subject" type="text" size="30" placeholder="<?php echo $string['contact']['subject']; ?>" />

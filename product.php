@@ -1,11 +1,11 @@
 <?php
-    if(!isset($_GET["id"])) {
+    $file = strip($_GET["id"]);
+    
+    if(!isset($file)) {
         header("location: shop.php");
     }
 
-    require("logic/get_lang.php");
-
-    $file = $_GET["id"];
+    require("logic/config.php");
     
     $exists = false;
 
@@ -57,7 +57,7 @@
                         echo '</div></div>';
                     }else {
                         echo '<h1>'  . $string["product"]["invalid"] . '</h1>';
-                        echo '<a href="shop.php" class="button">'  . $string["product"]["continue"] . '</a>';
+                        echo '<a href="shop" class="button">'  . $string["product"]["continue"] . '</a>';
                     }
             ?>
         </div>

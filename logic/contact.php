@@ -1,8 +1,8 @@
 <?php 
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-	$subject = $_POST['subject'];
-	$message = $_POST['message']; 
+    $name = strip($_POST['name']);
+    $email = strip($_POST['email']);
+	$subject = strip($_POST['subject']);
+	$message = strip($_POST['message']); 
 	       
     $body = "Name: " . $name;
     $body .= " Message: " . $message;

@@ -1,6 +1,6 @@
 <header>
     <div id="wrap">
-        <a href="home.php" class="shake shake-basic shake-constant shake-constant--hover"><img id="logo-small" src="img/logo.png" /><div class="tint-small" id="tint"></div></a>
+        <a href="home" class="shake shake-basic shake-constant shake-constant--hover"><img id="logo-small" src="img/logo.png" /><div class="tint-small" id="tint"></div></a>
         <nav id="nav">
             <ul>
                 <?php
@@ -13,7 +13,7 @@
                             echo 'class="selected" ';
                         }
                         
-                        echo 'href="' . $item .'.php">';
+                        echo 'href="' . $item .'">';
                         echo $string["header"][$item];
                         echo '</a></li>'; 
                     } 

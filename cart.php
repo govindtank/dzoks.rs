@@ -1,4 +1,4 @@
-<?php require("logic/get_lang.php"); ?>
+<?php require("logic/config.php"); ?>
 <html>
     <head>
         <?php require("ui/head_content.php"); ?>
@@ -20,7 +20,7 @@
                     if(is_file($file)) {
                         echo '<tr><td>';
                         
-                        echo '<a href="product.php?id=' . $file . '">' . $file . '</a>';
+                        echo '<a href="product?id=' . $file . '">' . $file . '</a>';
                         
                         $qty = rand(1, 10);
                         
@@ -42,12 +42,12 @@
             </table>
             <?php
                 if($total > 0) {
-                    echo '<div class="buttons"><a href="#" class="button">' . $string["cart"]["checkout"] . '</a>';             
+                    echo '<div class="buttons"><a href="checkout" class="button">' . $string["cart"]["checkout"] . '</a>';             
                     echo '<a href="#" class="button">' . $string["cart"]["clear"] . '</a></div>';
                 }else {
                      echo '<h1>' . $string["cart"]["empty"] . '</h1>';
                     
-                    echo '<a href="shop.php" class="button">'  . $string["cart"]["continue"] . '</a>';
+                    echo '<a href="shop" class="button">'  . $string["cart"]["continue"] . '</a>';
                 }   
             ?>
         </div>
