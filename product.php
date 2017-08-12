@@ -1,13 +1,12 @@
-<?php
-    $file = strip($_GET["id"]);
-    
-    if(!isset($file)) {
+<?php 
+    require("logic/config.php"); 
+   	$file = strip($_GET["id"]);
+   
+   	if(!isset($file)) {
         header("location: shop.php");
     }
-
-    require("logic/config.php");
     
-    $exists = false;
+	$exists = false;
 
     if(is_file($file) && file_exists($file)) {
         $exists = true;
@@ -41,7 +40,7 @@
                         
                         echo '<p class="price">' . $price . '</p>';
                         
-                        echo '<select id="size">';
+                        echo '<select id="size" required>';
                         echo '<option disabled selected>' . $string["product"]["size"] . '</option>';
 
                         foreach($string["product"]["sizes"] as $size) {
@@ -50,7 +49,7 @@
 
                         echo '</select>';
                         
-                        echo '<input id="quantity" type="number" min="1" max="10" placeholder="' . $string["product"]["quantity"] . '"/>';
+                        echo '<input id="quantity" type="number" min="1" max="10" placeholder="' . $string["product"]["quantity"] . '" required/>';
                         
                         echo '<div class="buttons">';
                         echo '<a onclick="addToCart()" class="button">'  . $string["product"]["buy"] . '</a>';

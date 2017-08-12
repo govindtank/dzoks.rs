@@ -4,7 +4,6 @@ $(window).load(function() {
 
 $(document).ready(function() {    
     blink();
-    pack();
     setLogo();
     
     $('#nav').click(function() {
@@ -32,10 +31,6 @@ function blink() {
             blink(); 
         }, randomTime);
     }, 175);
-}
-
-function pack() { 
-    //$(".main").css("min-height", document.height - ($("header").height + $("footer").height);
 }
 
 function setLogo() {

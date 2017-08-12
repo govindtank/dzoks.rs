@@ -7,9 +7,16 @@
           , "cart" => "Cart"
           , "contact" => "Contact"
           , "checkout" => "Checkout"
+          , "login" => "Login"
         ]
         , "index" => [
             "enter" => "Enter"
+        ]
+        , "login" => [
+              "header" => "Login"
+            , "username" => "Username"
+            , "password" => "Password"
+            , "submit" => "Enter"
         ]
         , "home" => [
               "header" => "This is header"

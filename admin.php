@@ -7,10 +7,9 @@
         <?php require("ui/header.php"); ?>
         
         <div class="main">
-            <?php 
-                echo '<h1>' . $string["home"]["header"] . '</h1>'; 
-                echo '<p>' . $string["home"]["text"] . '</p>'; 
-            ?>
+            <?php echo '<h1>' . $string["admin"]["header"] . '</h1>'; ?>
+			<a href="product?id=' . $file . '" class="button">' . $string["shop"]["view"] . '</a>;
+
         </div>
         
         <?php require("ui/footer.php"); ?>

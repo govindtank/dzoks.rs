@@ -1,6 +1,4 @@
 <?php 
-    session_start();
-
     $lang_found = false;
 
     if(isset($_SESSION["lang"])) {

@@ -8,12 +8,11 @@
 
             <div class="main">
                 <h1><?php echo $string["contact"]["header"]; ?></h1>
-
                 <form>  
-                    <input name="name" type="text" size="30" placeholder="<?php echo $string['contact']['name']; ?>" />
-                    <input name="email" type="text" size="30" placeholder="<?php echo $string['contact']['email']; ?>" />
-                    <input name="subject" type="text" size="30" placeholder="<?php echo $string['contact']['subject']; ?>" />
-                    <textarea name="message" rows="10" cols="30" placeholder="<?php echo $string['contact']['message']; ?>"></textarea>
+                    <input name="name" type="text" size="30" placeholder="<?php echo $string['contact']['name']; ?>" required/>
+                    <input name="email" type="text" size="30" placeholder="<?php echo $string['contact']['email']; ?>" required/>
+                    <input name="subject" type="text" size="30" placeholder="<?php echo $string['contact']['subject']; ?>" required/>
+                    <textarea name="message" rows="10" cols="30" placeholder="<?php echo $string['contact']['message']; ?>" required></textarea>
 
                     <?php
                         $a = rand(1, 8);
@@ -23,7 +22,7 @@
                     ?>
                     
                     <input type="hidden" name="validationCheck" value="<?php echo $sum; ?>">
-                    <input name="validationInput" type="text" size="30" placeholder="<?php echo $string['contact']["validation"] . $a . " + " . $b . "?" ; ?>" />
+                    <input name="validationInput" type="text" size="30" placeholder="<?php echo $string['contact']["validation"] . $a . " + " . $b . "?" ; ?>" required/>
                     <div class="buttons">
                         <input class="button" onclick="sendMessage()" type="submit" value="<?php echo $string['contact']['send']; ?>" />
                     </div>

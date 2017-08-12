@@ -8,11 +8,6 @@ function sendMessage() {
     var inputValidationCheck = form.getElementsByName("validationCheck")[0];
     var inputValidation = form.getElementsByName("validationInput")[0];
     
-    if(!inputName || !inputEmail || !inputSubject || !inputMessage || !inputValidation) {
-        alert("required");
-        return false;
-    }
-    
     if(!inputValidation.value.equals(inputValidationCheck.value)) {
         alert("validation");
         return false;
@@ -43,11 +38,6 @@ function addToCart() {
     id = id.getAttribute('id');
     size = size.value;
     qty = qty.value;
-    
-    if(!id || !size || !qty) {
-        alert("All info needed");
-        return false;
-    }
     
 	var request = new XMLHttpRequest();
     

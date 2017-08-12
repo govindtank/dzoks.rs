@@ -13,31 +13,33 @@
                 $files = scandir($dir);
                             
                 $total = 0;
-                
-                foreach($_SESSION["cart"] as $file) {        
-                    $file = $dir . $file;
+
+				if(isset($_SESSION['cart'])) {
+	                foreach($_SESSION["cart"] as $file) {        
+    	                $file = $dir . $file;
                             
-                    if(is_file($file)) {
-                        echo '<tr><td>';
+        	            if(is_file($file)) {
+            	            echo '<tr><td>';
                         
-                        echo '<a href="product?id=' . $file . '">' . $file . '</a>';
+                	        echo '<a href="product?id=' . $file . '">' . $file . '</a>';
                         
-                        $qty = rand(1, 10);
+                    	    $qty = rand(1, 10);
                         
-                        $price_a = rand(10, 19);
-                        $price_b = rand(10, 99);
+                        	$price_a = rand(10, 19);
+                        	$price_b = rand(10, 99);
                             
-                        $total += $qty * ($price_a + $price_b / 100); 
+                       		$total += $qty * ($price_a + $price_b / 100); 
                         
-                        $price = $qty . ' x $' . $price_a . '.' . $price_b;
+                        	$price = $qty . ' x $' . $price_a . '.' . $price_b;
                         
-                        echo '</td><td>'  . $price . '</td><td><i class="fa fa-times" aria-hidden="true"></i></td></tr>';
-                    }
-                }   
+                        	echo '</td><td>'  . $price . '</td><td><i class="fa fa-times" aria-hidden="true"></i></td></tr>';
+                    	}
+                	}   
                 
-                if($total > 0) {
-                    echo '<tr class="bordered"><td><p id="price"><b>' . $string["cart"]["total"] . '</b></p></td><td><b>$' . $total . '</b></p></td><tr>';
-                }
+                	if($total > 0) {
+                    	echo '<tr class="bordered"><td><p id="price"><b>' . $string["cart"]["total"] . '</b></p></td><td><b>$' . $total . '</b></p></td><tr>';
+                	}
+				}
             ?>
             </table>
             <?php
