@@ -1,15 +1,9 @@
 <?php 
     require("logic/config.php"); 
-   	$file = strip($_GET["id"]);
+   	$id = strip($_GET["id"]);
    
-   	if(!isset($file)) {
+   	if(!isset($id)) {
         header("location: shop.php");
-    }
-    
-	$exists = false;
-
-    if(is_file($file) && file_exists($file)) {
-        $exists = true;
     }
 ?>
 <html>
@@ -18,7 +12,13 @@
             require("ui/meta.php");
             require("ui/link.php");
         
-            echo '<title>' . $file . '</title>';
+			$cmd = "SELECT * FROM products WHERE id='$id'";
+			$result = mysqli_query($connect, $cmd);
+
+			while($row = mysqli_fetch_array($result)) {
+            	echo '<title>' . $row['name'] . '</title>';
+				break;
+			}
         ?>
     </head>
     <body id="page">
@@ -26,38 +26,43 @@
         
         <div class="main">
             <?php 
-                    if($exists) {
-                        echo '<h1 id="' . $file . '">' . $file . '</h1>';
-                        echo '<div class="zoom-item product-zoomer"><img class="product-big" src="' . $file . '" /></div>';
+				if(mysqli_num_rows($result) == 1){
+					echo '<h1 id="' . $row['id'] . '">' . $row['name'] . '</h1>';
+					
+					$path = 'img/products/' . $id;
+					$files = scandir($path);
+					
+					foreach($files as $file) {
+                        if($file[0] != '.') {
+							$filename = $path . '/' . $file;
+                    		echo '<div class="zoom-item product-zoomer"><img class="product-big" src="' . $filename . '" /></div>';
+							break;
+						}
+					}
+ 
+                    echo '<div class="product-options">';
+                    echo '<p class="product-desc">' . $row['description'] . '</p>';
                         
-                        echo '<div class="product-options">';
-                        echo '<p class="product-desc">Ovde stavim opis proizvoda. Blah blah blah</p>';
+                    echo '<p class="price">$ ' . $row['price'] . '</p>';
                         
-                        $price_a = rand(10, 19);
-                        $price_b = rand(10, 99);
-                            
-                        $price = '$' . $price_a . '.' . $price_b;
-                        
-                        echo '<p class="price">' . $price . '</p>';
-                        
-                        echo '<select id="size" required>';
-                        echo '<option disabled selected>' . $string["product"]["size"] . '</option>';
+                    echo '<select id="size">';
+                    echo '<option disabled selected>' . $string["product"]["size"] . '</option>';
 
-                        foreach($string["product"]["sizes"] as $size) {
-                            echo '<option value="' . $size . '">' . $size . '</option>';   
-                        }
-
-                        echo '</select>';
-                        
-                        echo '<input id="quantity" type="number" min="1" max="10" placeholder="' . $string["product"]["quantity"] . '" required/>';
-                        
-                        echo '<div class="buttons">';
-                        echo '<a onclick="addToCart()" class="button">'  . $string["product"]["buy"] . '</a>';
-                        echo '</div></div>';
-                    }else {
-                        echo '<h1>'  . $string["product"]["invalid"] . '</h1>';
-                        echo '<a href="shop" class="button">'  . $string["product"]["continue"] . '</a>';
+                    foreach($string["product"]["sizes"] as $size) {
+               		    echo '<option value="' . $size . '">' . $size . '</option>';   
                     }
+
+                    echo '</select>';
+                        
+                    echo '<input id="quantity" type="number" min="1" placeholder="' . $string["product"]["quantity"] . '" required/>';
+                    
+                    echo '<div class="buttons">';
+                    echo '<a onclick="addToCart()" class="button">'  . $string["product"]["buy"] . '</a>';
+                    echo '</div></div>';
+                }else {
+                    echo '<h1>'  . $string["product"]["invalid"] . '</h1>';
+                    echo '<a href="shop" class="button">'  . $string["product"]["continue"] . '</a>';
+                }
             ?>
         </div>
         

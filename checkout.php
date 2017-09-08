@@ -10,13 +10,6 @@
                 <h1><?php echo $string["checkout"]["header"]; ?></h1>
 
                 <form>  
-                    <!-- 
-                        TODO:
-                            CSRF - add token to hidden field
-                    -->
-                    
-                    <input type="hidden" name="token" <?php 'value="' . $_SESSION['token'] . '"'?>>
-                    
                     <?php
                         foreach($string["checkout"]["inputs"] as $key => $value) {
                             echo '<input name="' . $key . '" type="text" size="30" placeholder="' . $value . '" />';

@@ -10,28 +10,26 @@
             <h1><?php echo $string["shop"]["header"]; ?></h1>
 
             <div class="container">
-                <?php 
-                    $dir = "img/gallery/";
-                    $files = scandir($dir);
+                <?php
+					$cmd = "SELECT * FROM products";
+					$result = mysqli_query($connect, $cmd);
+
+					while($row = mysqli_fetch_array($result)) {
+                    	$path = 'img/products/' . $row['id'];
+						$files = scandir($path);
+						foreach($files as $file) {
+                        	if($file[0] != '.') {
+								$filename = $path . '/' . $file;
+                            echo '<div class="shop-item"><img class="example-image" src="' . $filename . '" />';
+								break;
+							}
+						}
+						
                             
-                    $i = 0;
-                
-                    foreach($files as $file) {
-                        $file = $dir . $file;
-                            
-                        if(is_file($file)) {
-                            echo '<div class="shop-item"><img class="example-image" src="' . $file . '" />';
-                            
-                            $price_a = rand(10, 19);
-                            $price_b = rand(10, 99);
-                            
-                            $price = '$' . $price_a . '.' . $price_b;
-                            
-                            echo '<p class="img-desc">'  . substr($file, strlen($file) - 10) . '</p>';
-                            echo '<p class="img-desc price">'  . $price . '</p>';
-                            echo '<a href="product?id=' . $file . '" class="button">' . $string["shop"]["view"] . '</a></div>';
-                        }
-                    }
+                    echo '<p class="img-desc">' . $row['name'] . '</p>';
+                    echo '<p class="img-desc price">$ '  . $row['price'] . '</p>';
+                    echo '<a href="product?id=' . $row['id'] . '" class="button">' . $string["shop"]["view"] . '</a></div>';
+					}
                 ?>
             </div>
         </div>

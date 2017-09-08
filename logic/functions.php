@@ -1,6 +1,6 @@
 <?php
     function strip($var) {
-	   return mysqli_real_escape_string($connect, htmlspecialchars(strip_tags(trim($var))));
+		return mysqli_real_escape_string($GLOBALS['connect'], htmlspecialchars(strip_tags(trim($var))));
     }
 
 	function generate_random_string($length) {

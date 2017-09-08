@@ -143,7 +143,7 @@ td:nth-of-type(odd):hover {
 }
 
 .bordered {
-    outline: 1px dashed #fff;
+   	outline: 1px dashed #fff;
 }
 
 header {
