@@ -25,6 +25,15 @@
 						return $this->price;	
 					}
 				}
+				
+				$sizes = [];
+
+				$cmd = "SELECT * FROM sizes";
+				$result = mysqli_query($connect, $cmd);
+
+				while($row = mysqli_fetch_array($result)) {
+					$sizes[$row['id']] = $row['name'];
+				}
 
                 $total = 0;
 
@@ -36,7 +45,7 @@
 				while($row = mysqli_fetch_assoc($result)) {
 					$items[$row['id']] = new CartItem($row['name'], $row['price']);
 				}
-
+				
 				$cmd = "SELECT * FROM cart WHERE user='$ip'";
 				$result = mysqli_query($connect, $cmd);
 
@@ -52,14 +61,17 @@
 					$name = $item->getName();
 					$price = $item->getPrice();
 
-            	    echo '<tr><td>';
-                  	echo '<a href="product?id=' . $row['product'] . '">' . $name . '</a>';
+            	    echo '<tr>';
+                  	echo '<td><a href="product?id=' . $row['product'] . '">' . $name . '</a></td>';
 
                 	$total += $row['quantity'] * $price; 
                 
 					$url = '../actions/cart_remove.php?id=' . $row['id']; 
 
-                    echo '<td>' . $row['size'] . '</td></td><td>$ ' . $price . ' x ' . $row['quantity'] . '</td><td><a href="'. $url . '"><i class="fa fa-times" aria-hidden="true"></i></a></td></tr>';
+                    echo '<td>' . $string["product"]["sizes"][$sizes[$row["size"]]] . '</td>';
+					echo '<td>$ ' . $price . ' x ' . $row['quantity'] . '</td>';
+					echo '<td><a href="'. $url . '"><i class="fa fa-times" aria-hidden="true"></i></a></td>';
+					echo '</tr>';
                 }
             
 				if($total > 0) {

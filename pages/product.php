@@ -57,11 +57,12 @@
                     echo '<select id="size" name="size">';
                     echo '<option disabled selected>' . $string["product"]["size"] . '</option>';
 
-					$i = 0;
+					$cmd = "SELECT * FROM sizes";
+					$result = mysqli_query($connect, $cmd);
 
-                    foreach($string["product"]["sizes"] as $size) {
-               		    echo '<option value="' . ++$i . '">' . $size . '</option>';   
-                    }
+					while($size = mysqli_fetch_array($result)) {
+               		    echo '<option value="' . $size['id'] . '">' . $string["product"]["sizes"][$size['name']] . '</option>';   
+					}
 
                     echo '</select>';
                         

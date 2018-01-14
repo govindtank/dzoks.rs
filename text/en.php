@@ -56,7 +56,7 @@
             , "buy" => "Buy it"
             , "size" => "Size"
             , "quantity" => "Quantity"
-            , "sizes" => ["small", "LARGE"]
+            , "sizes" => ["s" => "small", "l" => "LARGE"]
         ]
         , "contact" => [
               "header" => "Drop us a line!"
