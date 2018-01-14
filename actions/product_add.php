@@ -3,7 +3,7 @@
 
 	if(!params_ok(["name", "price", "quantity", "collection", "description"], "POST")) {	
 		error($string['status']['productNotAdded']);
-		header("location: ../pages/contact.php");
+		header("location: ../pages/manage.php");
 		exit;	
 	}
 

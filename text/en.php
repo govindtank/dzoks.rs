@@ -82,8 +82,12 @@
 			, "messageSent" => "Message has been sent"
 			, "productNotAdded" => "Product has not been added"
 			, "productAdded" => "Product has been added"
+			, "collectionNotAdded" => "Collection has not been added"
+			, "collectionAdded" => "Collection has been added"
 			, "requiredFields" => "Fill required fields"
 			, "validationNotCorrect" => "Validation not correct"
+			, "notLoggedIn" => "Please log in"
+			, "incorrectCredentials" => "Incorrect credentials"
 		]
     ];
 ?>

@@ -82,8 +82,12 @@
 			, "messageSent" => "Порука послата"
 			, "productNotAdded" => "Производ није убачен"
 			, "productAdded" => "Производ убачен"
+			, "collectionNotAdded" => "Колекција није убачена"
+			, "collectionAdded" => "Колекција убачена"
 			, "requiredFields" => "Попуните обавезна поља"
 			, "validationNotCorrect" => "Валидација неуспешна"
+			, "notLoggedIn" => "Морате бити пријавлјени"
+			, "incorrectCredentials" => "Неисправни подаци"
 		]
     ];
 ?>

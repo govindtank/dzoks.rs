@@ -1,14 +1,32 @@
-<?php require("../logic/config.php"); ?>
+<?php
+	require("../logic/config.php"); 
+
+	if(!isset($_SESSION["username"])) {
+		error($string["status"]["notLoggedIn"]);
+		header("location: login.php");
+		exit;
+	}
+
+	$cmd = "SELECT * FROM admins WHERE username='" . $_SESSION['username'] . "'";
+
+	$result = mysqli_query($connect, $cmd);
+
+	if(mysqli_num_rows($result) == 0) {
+		error($string["status"]["notLoggedIn"]);
+		header("location: login.php");
+		exit;
+	}
+?>
 <html>
     <head>
         <?php require("../ui/head_content.php"); ?>
     </head>
     <body id="page">
         <?php require("../ui/header.php"); ?>
-
             <div class="main">
-				<h3><?php echo $string["manage"["products"]]; ?></h3>
+				<div class="left">
                 <form action="../actions/product_add.php" method="POST" enctype="multipart/form-data">  
+					<h1><?php echo $string["manage"]["products"]; ?></h1>
                     <input name="name" type="text" size="30" placeholder="<?php echo $string['manage']['name']; ?>" required/>
                     <input name="price" type="number" step="0.01" placeholder="<?php echo $string['manage']['price']; ?>" required/>
                     <input name="quantity" type="number" placeholder="<?php echo $string['manage']['quantity']; ?>" required/>
@@ -32,13 +50,16 @@
                         <input class="button" type="submit" value="<?php echo $string['manage']['add']; ?>"/>
                     </div>
                 </form>
-				<h3><?php echo $string["manage"["collections"]]; ?></h3>
+				</div>
+				<div class="right">
 				<form action="../actions/collection_add.php" method="POST">
+					<h1><?php echo $string["manage"]["collections"]; ?></h1>
                     <input name="name" type="text" size="30" placeholder="<?php echo $string['manage']['name']; ?>" required/>
 					<div class="buttons">
                         <input class="button" type="submit" value="<?php echo $string['manage']['add']; ?>"/>
                     </div>
 				</form>
+				</div>
             </div>
 
         <?php require("../ui/footer.php"); ?>

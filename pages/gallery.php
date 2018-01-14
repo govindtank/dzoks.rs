@@ -17,8 +17,12 @@
                     $i = 0;
                 
                     foreach($files as $file) {
+						if(substr($file, 0, 1) == '.') {
+							continue;	
+						}
+
                         $file = $dir . $file;
-                            
+
                         if(is_file($file)) {
                              echo '<div class="zoom-item example-image-holder"><img class="example-image" src="' . $file . '" /></div>';
                         }
