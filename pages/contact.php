@@ -1,14 +1,14 @@
-<?php require("logic/config.php"); ?>
+<?php require("../logic/config.php"); ?>
 <html>
     <head>
-        <?php require("ui/head_content.php"); ?>
+        <?php require("../ui/head_content.php"); ?>
     </head>
     <body id="page">
-        <?php require("ui/header.php"); ?>
+        <?php require("../ui/header.php"); ?>
 
             <div class="main">
                 <h1><?php echo $string["contact"]["header"]; ?></h1>
-                <form action="logic/contact.php" method="POST">  
+                <form action="../actions/contact.php" method="POST">  
                     <input name="name" type="text" size="30" placeholder="<?php echo $string['contact']['name']; ?>" required/>
                     <input name="email" type="text" size="30" placeholder="<?php echo $string['contact']['email']; ?>" required/>
                     <input name="subject" type="text" size="30" placeholder="<?php echo $string['contact']['subject']; ?>" required/>
@@ -29,6 +29,6 @@
                 </form>
             </div>
 
-        <?php require("ui/footer.php"); ?>
+        <?php require("../ui/footer.php"); ?>
     </body>
 </html>

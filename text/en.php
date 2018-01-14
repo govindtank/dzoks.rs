@@ -8,6 +8,7 @@
           , "contact" => "Contact"
           , "checkout" => "Checkout"
           , "login" => "Login"
+          , "manage" => "Manage"
         ]
         , "index" => [
             "enter" => "Enter"
@@ -20,7 +21,7 @@
         ]
         , "home" => [
               "header" => "This is header"
-            , "text" => file_get_contents("text/text-home.en")
+            , "text" => file_get_contents("../text/text-home.en")
         ]
         , "gallery" => [
               "header" => "Check out this dope photos!"
@@ -65,6 +66,28 @@
             , "message" => "Message"
             , "validation" => "What's "
             , "send" => "Send"
-        ]
+        ] 
+		, "manage" => [
+              "save" => "Save"
+            , "add" => "Add"
+            , "header" => "Manage"
+    		, "products" => "Products"
+    		, "collections" => "Collections"
+			, "photo" => "Photo"
+			, "name" => "Name"
+			, "price" => "Price"
+			, "quantity" => "Quantity"
+			, "collection" => "Collection"
+			, "description" => "Description"
+        ], "status" => [
+			"productNotAddedToCart" => "Product has not been added to cart"
+			, "productAddedToCart" => "Product has been added to cart"
+			, "messageNotSent" => "Message has not been sent"
+			, "messageSent" => "Message has been sent"
+			, "productNotAdded" => "Product has not been added"
+			, "productAdded" => "Product has been added"
+			, "requiredFields" => "Fill required fields"
+			, "validationNotCorrect" => "Validation not correct"
+		]
     ];
 ?>

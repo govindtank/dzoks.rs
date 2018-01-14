@@ -1,10 +1,10 @@
-<?php require("logic/config.php"); ?>
+<?php require("../logic/config.php"); ?>
 <html>
     <head>
-  		<?php require("ui/head_content.php"); ?>
+  		<?php require("../ui/head_content.php"); ?>
     </head>
     <body id="page">
-        <?php require("ui/header.php"); ?>
+        <?php require("../ui/header.php"); ?>
 
         <div class="main">       
             <table>
@@ -26,9 +26,6 @@
 					}
 				}
 
-                $dir = "img/gallery/";
-                $files = scandir($dir);
-                            
                 $total = 0;
 
 				$items = [];
@@ -45,15 +42,22 @@
 
 				while($row = mysqli_fetch_array($result)) {
 					$id = $row['product'];
-					$name = $items[$id]->getName();
-					$price = $items[$id]->getPrice();
+
+					$item = $items[$id];
+
+					if(is_null($item)) {
+						continue;
+					}
+
+					$name = $item->getName();
+					$price = $item->getPrice();
 
             	    echo '<tr><td>';
                   	echo '<a href="product?id=' . $row['product'] . '">' . $name . '</a>';
 
                 	$total += $row['quantity'] * $price; 
                 
-					$url = 'logic/cart_remove.php?id="' . $id . '"'; 
+					$url = '../actions/cart_remove.php?id=' . $row['id']; 
 
                     echo '<td>' . $row['size'] . '</td></td><td>$ ' . $price . ' x ' . $row['quantity'] . '</td><td><a href="'. $url . '"><i class="fa fa-times" aria-hidden="true"></i></a></td></tr>';
                 }
@@ -66,7 +70,7 @@
             <?php
                 if($total > 0) {
                     echo '<div class="buttons"><a href="checkout" class="button">' . $string["cart"]["checkout"] . '</a>';             
-                    echo '<a href="logic/cart_clear.php" class="button">' . $string["cart"]["clear"] . '</a></div>';
+                    echo '<a href="../actions/cart_clear.php" class="button">' . $string["cart"]["clear"] . '</a></div>';
                 }else {
                      echo '<h1>' . $string["cart"]["empty"] . '</h1>';
                     
@@ -75,6 +79,6 @@
             ?>
         </div>
 
-        <?php require("ui/footer.php"); ?>
+        <?php require("../ui/footer.php"); ?>
     </body>
 </html>

@@ -1,17 +1,17 @@
-<?php require("logic/config.php"); ?>
+<?php require("../logic/config.php"); ?>
 <html>
     <head>
-        <?php require("ui/head_content.php"); ?>
+        <?php require("../ui/head_content.php"); ?>
     </head>
     <body id="page">
-        <?php require("ui/header.php"); ?>
+        <?php require("../ui/header.php"); ?>
 
         <div class="main">
             <h1><?php echo $string["gallery"]["header"]; ?></h1>
 
             <div class="container">
                 <?php
-                    $dir = "img/gallery/";
+                    $dir = "../img/gallery/";
                     $files = scandir($dir);
                             
                     $i = 0;
@@ -27,6 +27,6 @@
             </div>
         </div>
         
-        <?php require("ui/footer.php"); ?>
+        <?php require("../ui/footer.php"); ?>
     </body>
 </html>

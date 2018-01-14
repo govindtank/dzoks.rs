@@ -11,11 +11,6 @@
     padding: 0;
 }
 
-/* 
-    TODO: 
-        set default font 
-*/
-
 html {
     background-image: url(../img/theme.jpg);
     background-attachment: fixed;
@@ -45,7 +40,10 @@ html {
     object-fit: fill;
 }
 
-body {
+body,
+input,
+textarea,
+select {
     font-family: 'Oswald', sans-serif;
     background: rgba(0, 0, 0, 0.5);
 }
@@ -67,27 +65,27 @@ body {
 }
 
 .progress {
- position: fixed;
- left: 0px;
- top: 0px;
- width: 100%;
- height: 100%;
- z-index: 9999;
- background-color: #F2F2F2;
+	position: fixed;
+ 	left: 0px;
+ 	top: 0px;
+ 	width: 100%;
+ 	height: 100%;
+ 	z-index: 9999;
+ 	background-color: #F2F2F2;
 }
 
 .bar { 
-  background-color: #819FF7; 
-  width:0%; 
-  height:5px; 
-  border-radius: 3px; 
+  	background-color: #819FF7; 
+  	width:0%; 
+  	height:5px; 
+  	border-radius: 3px; 
 }
 
 .percent { 
-  position:absolute; 
-  display:inline-block; 
-  top:3px; 
-  left:48%; 
+  	position:absolute; 
+  	display:inline-block; 
+  	top:3px; 
+  	left:48%; 
 }
 
 p {
@@ -146,13 +144,34 @@ td:nth-of-type(odd):hover {
    	outline: 1px dashed #fff;
 }
 
-header {
+header,
+.status {
     width: 100%;
     height: 140px;
     line-height: 30px;
     padding: 0 80px;
     z-index: 100;
     top: 0;
+}
+
+.status {
+	text-align: center;
+	top: 140px;
+	height: auto;
+}
+
+.status-error {
+	background: red;
+}
+
+.status-success {
+	background: green;
+}
+
+.status p {
+	padding-top: 10px;
+	padding-bottom: 15px;
+	font-size: 25px;
 }
 
 #nav {
@@ -282,7 +301,7 @@ header .instagram-header-icon {
 .main {
     min-height: 100%;
     margin: 70px auto;
-    width: 700px;
+    width: 60%;
     bottom: 20px;
     text-align: justify;
 }
@@ -363,7 +382,7 @@ h1 {
 }
 
 .shop-item,
-.example-image-holder:nth-of-type(4n+0) {
+.example-image-holder:nth-of-type(5n+0) {
     margin-right: 0px;
 }
 
@@ -504,12 +523,12 @@ select {
     }
     
 header {
-    padding-left: 30px;
+	padding-left: 30px;
 }
 
-    header .instagram-header-icon {    
-        margin-top: 20px; 
-    }
+header .instagram-header-icon {    
+	margin-top: 20px; 
+}
 
 #nav {
 	width: 100%;
@@ -609,7 +628,7 @@ header {
     }
     .shop-item,
     .example-image-holder,
-    .example-image-holder:nth-of-type(4n+0) {
+    .example-image-holder:nth-of-type(5n+0) {
         width: 48%;
         height: auto;
         margin-bottom: 20px;

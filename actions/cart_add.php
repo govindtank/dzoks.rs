@@ -1,25 +1,20 @@
 <?php
-	session_start();
-
- 	require("connect.php");
-	require("functions.php");
-
-	$ip = getenv('HTTP_CLIENT_IP');
+ 	require("../logic/config.php");
+	
+	if(!params_ok(["id", "size", "qty"], "GET")) {
+		error($string['productNotAddedToCart']);
+		header("location: ../pages/shop.php");
+		exit;
+	}
 
     $id = strip($_GET["id"]);
     $size = strip($_GET["size"]);
     $qty = strip($_GET["qty"]);
 
-    if(!isset($id) || !isset($size) || !isset($qty)) {
-        exit;
-    }
-
 	$cmd = "SELECT id, quantity FROM cart WHERE product='$id' AND size='$size' AND user='$ip'";
-	$result = mysqli_query($connect, $cmd));
+	$result = mysqli_query($connect, $cmd);
 
 	if(mysqli_num_rows($result) > 0) {
-		echo 'trala';
-		
 		while($row = mysqli_fetch_assoc($result)) {
 			$qty += $row['quantity'];
 		}
@@ -32,4 +27,7 @@
 	}
 	
 	mysqli_query($connect, $cmd);
+
+	success($string['productAddedToCart']);
+	header("location: ../pages/product.php?id=" . $id);
 ?>

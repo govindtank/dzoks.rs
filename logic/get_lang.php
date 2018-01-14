@@ -3,7 +3,7 @@
 
     if(isset($_SESSION["lang"])) {
         $lang = $_SESSION["lang"];
-        $file = "text/" . $lang . ".php";
+        $file = "../text/" . $lang . ".php";
         
         if(file_exists($file)) {
             require($file); 
@@ -13,6 +13,6 @@
 
     if(!$lang_found) {
         $lang = "en";
-        require("text/" . $lang . ".php");   
+        require("../text/" . $lang . ".php");   
     }
 ?>

@@ -1,6 +1,9 @@
 <header>
     <div id="wrap">
-        <a href="home" class="shake shake-basic shake-constant shake-constant--hover"><img id="logo-small" src="img/logo.png" /><div class="tint-small" id="tint"></div></a>
+        <a href="home" class="shake shake-basic shake-constant shake-constant--hover">
+			<img id="logo-small" src="../img/logo.png"/>
+			<div class="tint-small" id="tint"></div>
+		</a>
         <nav id="nav">
             <ul>
                 <?php
@@ -21,18 +24,29 @@
                     <li>
                         <?php
                             if(strcmp($lang, "en") == 0) {
-                                echo '<a href="logic/set_lang.php?lang=rs&page=' . $page . '">RS</a>';
+                                echo '<a href="../logic/set_lang.php?lang=rs&page=' . $page . '">RS</a>';
                             }else if(strcmp($lang, "rs") == 0) {
-                                echo '<a href="logic/set_lang.php?lang=en&page=' . $page . '">EN</a>';
+                                echo '<a href="../logic/set_lang.php?lang=en&page=' . $page . '">EN</a>';
                             }
                         ?>
                     </li>
                     <li>
                         <a href="https://www.instagram.com/soxbty">
-                            <img class="instagram-header-icon" src="img/instagram-header-icon.png">
+                            <img class="instagram-header-icon" src="../img/instagram-header-icon.png">
                         </a>
                     </li>
             </ul>
         </nav>
     </div>
 </header>
+<?php
+	if(isset($_SESSION['error'])) {
+		echo '<div class="status status-error"><p>' . $_SESSION['error'] . '</p></div>';
+		unset($_SESSION['error']);
+	}
+
+	if(isset($_SESSION['success'])) {
+		echo '<div class="status status-success"><p>' . $_SESSION['success'] . '</p></div>';
+		unset($_SESSION['success']);
+	}
+?>

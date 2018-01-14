@@ -8,6 +8,7 @@
           , "contact" => "Контакт"
           , "checkout" => "Куповина"
           , "login" => "Пријава"
+          , "manage" => "Мениџ"
         ]
         , "index" => [
             "enter" => "Значи упадај"
@@ -20,7 +21,7 @@
         ]
         , "home" => [
               "header" => "Ово је наслов"
-            , "text" => file_get_contents("text/text-home.rs")
+            , "text" => file_get_contents("../text/text-home.rs")
         ]
         , "gallery" => [
               "header" => "Погледај ове опасне фотке!"
@@ -66,5 +67,27 @@
             , "validation" => "Колико је "
             , "send" => "Пошаљи"
         ]
+		, "manage" => [
+              "save" => "Сачувај"
+            , "add" => "Додај"
+    		, "header" => "Мениџ"
+    		, "products" => "Производи"
+    		, "collections" => "Колекције"
+        	, "photo" => "Слика"
+			, "name" => "Име"
+			, "price" => "Цена"
+			, "quantity" => "Количина"
+			, "collection" => "Колекција"
+			, "description" => "Опис"
+        ], "status" => [
+			"productNotAddedToCart" => "Производ није убачен у корпу"
+			, "productAddedToCart" => "Производ убачен у корпу"
+			, "messageNotSent" => "Порука није послата"
+			, "messageSent" => "Порука послата"
+			, "productNotAdded" => "Производ није убачен"
+			, "productAdded" => "Производ убачен"
+			, "requiredFields" => "Попуните обавезна поља"
+			, "validationNotCorrect" => "Валидација неуспешна"
+		]
     ];
 ?>
