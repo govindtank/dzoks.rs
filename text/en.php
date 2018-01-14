@@ -26,10 +26,6 @@
         , "gallery" => [
               "header" => "Check out this dope photos!"
         ]
-        , "shop" => [
-              "header" => "So buy something!"
-            , "view" => "Check it"
-        ]
         , "cart" => [
               "empty" => "Buy some shit man!"
             , "checkout" => "Checkout" 

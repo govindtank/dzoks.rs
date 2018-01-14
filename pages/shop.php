@@ -7,8 +7,6 @@
         <?php require("../ui/header.php"); ?>
 
         <div class="main">
-            <h1><?php echo $string["shop"]["header"]; ?></h1>
-
             <div class="container">
                 <?php
 					$cmd = "SELECT * FROM products";
@@ -27,10 +25,12 @@
 							}
 						}
 					
-                    echo '<div class="shop-item"><img class="example-image" src="' . $filename . '" />';
+                    echo '<div class="shop-item">';
+					echo '<a href="product.php?id=' . $row['id'] . '">';
+					echo '<img class="example-image" src="' . $filename . '"/>';
                     echo '<p class="img-desc">' . $row['name'] . '</p>';
                     echo '<p class="img-desc price">$ '  . $row['price'] . '</p>';
-                    echo '<a href="product.php?id=' . $row['id'] . '" class="button">' . $string["shop"]["view"] . '</a></div>';
+					echo '</a></div>';
 					}
                 ?>
             </div>
