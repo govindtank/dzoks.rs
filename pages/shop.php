@@ -13,29 +13,49 @@
 					$result = mysqli_query($connect, $cmd);
 
 					while($row = mysqli_fetch_array($result)) {
-                    	$path = '../img/products/' . $row['id'];
+                    	echo '<div class="shop-item">';
+						echo '<a href="product.php?id=' . $row['id'] . '">';
+                    	
+						$path = '../img/products/' . $row['id'];
 						$files = scandir($path);
 
-						$filename = '../img/products/no_photo.jpg';
+						$i = 0;
 
 						foreach($files as $file) {
-                        	if($file[0] != '.') {
+							if($file[0] != '.') {
 								$filename = $path . '/' . $file;
-								break;
+								
+								if(++$i == 1) {
+									echo '<img class="shop-item-image" src="' . $filename . '"/>';
+								}else {
+									echo '<img class="shop-item-overlay" src="' . $filename . '"/>';
+									break;
+								}
 							}
 						}
 
-                    echo '<div class="shop-item">';
-					echo '<a href="product.php?id=' . $row['id'] . '">';
-					echo '<img class="shop-item-image" src="' . $filename . '"/>';
+						if($i == 0) {
+							$filename = '../img/products/no_photo.jpg';
+							echo '<img class="shop-item-image" src="' . $filename . '"/>';
+						}
+					
+						if($row['quantity'] == 0) {
+							echo '<div class="shop-item-marker">';
+							echo '<p class="soldout">' . $string["status"]["soldout"] . '</p>';
+							echo '</div>';
+						}else {
+							$ONE_MONTH = 2592000;
 
-					if($row['quantity'] == 0) {
-						echo '<div class="shop-item-marker"></div>';
-					}
+							if(strtotime(date("Y-m-d h:i:s")) - strtotime($row['date_added']) < $ONE_MONTH) {
+								echo '<div class="shop-item-marker">';
+								echo '<p class="new">' . $string["status"]["new"] . '</p>';
+								echo '</div>';
+							}
+						}
                     
-					echo '<p class="img-desc">' . $row['name'] . '</p>';
-                    echo '<p class="img-desc price">$ '  . $row['price'] . '</p>';
-					echo '</a></div>';
+						echo '<p class="img-desc">' . $row['name'] . '</p>';
+                    	echo '<p class="img-desc price">$ '  . $row['price'] . '</p>';
+						echo '</a></div>';
 					}
                 ?>
             </div>

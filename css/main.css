@@ -53,10 +53,6 @@ select {
 	position: relative;
 	opacity: 0;
 	margin-top: 20px;
-	transition: all 300ms ease 300ms;
-	-webkit-transition: all 300ms ease 300ms;
-	-moz-transition: all 300ms ease 300ms;
-	-o-transition: all 300ms ease 300ms;
 }
 
 #page.displayed {
@@ -123,11 +119,6 @@ a {
 
 a:hover {
 	opacity: 0.5;	
-}
-
-.shop-item-marker:hover,
-.shop-item-image:hover {
-	opacity: 0.75;
 }
 
 .shake:hover {
@@ -393,6 +384,7 @@ h1 {
 }
 
 .shop-item-image,
+.shop-item-overlay,
 .shop-item-marker {
 	display: block;
 	width: 150px;
@@ -400,6 +392,20 @@ h1 {
 
 }
 
+.shop-item-overlay {
+ 	opacity: 0;
+    -moz-transition: 500ms ease;
+    -webkit-transition: 500ms ease;
+    -ms-transition: 500ms ease;
+    -o-transition: 500ms ease;
+ 	transition: 500ms ease;
+}
+
+.shop-item-overlay:hover {
+  	opacity: 1;
+}
+
+.shop-item-overlay,
 .shop-item-marker {
 	position: absolute;
 	top: 0;
@@ -408,9 +414,22 @@ h1 {
 	right: 0;
 	width: 150px;
     height: 150px;
-    background-image: url(../img/soldout.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+}
+
+.shop-item a:hover {
+	opacity: 1;	
+}
+
+.shop-item-marker {
+	pointer-events: none;
+}
+
+.shop-item-marker .new {
+	background: #27ae60;
+}
+
+.shop-item-marker .soldout {
+	background: #e74c3c;
 }
 
 .shop-item,
@@ -669,6 +688,7 @@ header .instagram-header-icon {
         width: auto;
     }
     .shop-item-image,
+	.shop-item-overlay,
 	.shop-item-marker {
         width: 100%;
         height: auto;

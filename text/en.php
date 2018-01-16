@@ -81,7 +81,8 @@
 			, "quantity" => "Quantity"
 			, "collection" => "Collection"
 			, "description" => "Description"
-        ], "status" => [
+        ]
+		, "status" => [
 			"productNotAddedToCart" => "Product has not been added to cart"
 			, "productAddedToCart" => "Product has been added to cart"
 			, "messageNotSent" => "Message has not been sent"
@@ -95,6 +96,8 @@
 			, "notLoggedIn" => "Please log in"
 			, "incorrectCredentials" => "Incorrect credentials"
 			, "cookiesAlert" => "We use cookies to improve your experience. By your continued use of this site you accept such use."
+			, "new" => "NEW"
+			, "soldout" => "SOLD OUT"
 		]
     ];
 ?>
