@@ -12,10 +12,7 @@
                 <form action="../actions/login.php" method="POST">  
                     <input name="username" type="text" size="30" placeholder="<?php echo $string['login']['username']; ?>" required/>
                     <input name="password" type="password" size="30" placeholder="<?php echo $string['login']['password']; ?>" required/>
-
-					<div class="buttons">
-                        <input class="button" type="submit" value="<?php echo $string['login']['submit']; ?>" />
-                    </div>
+					<input class="button" type="submit" value="<?php echo $string['login']['submit']; ?>" />
                 </form>
             </div>
 

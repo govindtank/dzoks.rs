@@ -3,11 +3,13 @@
 
 	<div class="sponsors">
 		<img src="../img/visa.png"/>
+		<img src="../img/mastercard.png"/>
 		<img src="../img/maestro.png"/>
-		<img src="../img/mastercard.jpg"/>
-		<img src="../img/visa-verified.jpg"/>
+		<img src="../img/american-express.png"/>
+		<img src="../img/visa-verified.png"/>
+		<img src="../img/secure-code.png"/>
 		
-		<a href="http://ecloga.org"><img src="../img/power.png"></a>
+		<a href="http://ecloga.org"><img id="power" src="../img/power.png"></a>
 	</div>
 </footer>
 

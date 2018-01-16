@@ -1,6 +1,6 @@
 <title>
     <?php
-        if($string["header"][$page]) {
+        if(isset($string["header"][$page])) {
             echo $string["header"][$page] . " - ";
         }
     ?>

@@ -3,6 +3,34 @@
 		return mysqli_real_escape_string($GLOBALS['connect'], htmlspecialchars(strip_tags(trim($var))));
     }
 
+	function get_product_image($id) {
+		$path = '../img/products/' . $id;
+		$files = scandir($path);
+					
+		$filename = '../img/products/no_photo.jpg';
+
+		foreach($files as $file) {
+        	if($file[0] != '.') {
+				$filename = $path . '/' . $file;
+				break;
+			}
+		}
+
+		return $filename;
+	}
+
+	function get_price($price) {
+		$currency = 'USD';
+
+		if(isset($_SESSION['lang']) && $_SESSION['lang'] == 'rs') {
+			// TODO call some API to exchange
+			$price *= 115;
+			$currency = 'RSD';
+		}
+
+		return $price . ' ' . $currency;
+	}
+
 	function get_ip() {
 		if(!isset($_COOKIE['ip'])) {
 			setcookie('ip', generate_random_string(15), time() + (10 * 365 * 24 * 60 * 60));

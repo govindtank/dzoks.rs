@@ -52,9 +52,10 @@
 								echo '</div>';
 							}
 						}
-                    
-						echo '<p class="img-desc">' . $row['name'] . '</p>';
-                    	echo '<p class="img-desc price">$ '  . $row['price'] . '</p>';
+
+						echo '<div class="shop-item-marker">';
+						echo '<p class="info"><b>' . $row["name"] . '</b> ' . get_price($row["price"]) . '</p>';
+						echo '</div>';		
 						echo '</a></div>';
 					}
                 ?>

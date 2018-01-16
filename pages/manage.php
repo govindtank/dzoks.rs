@@ -45,19 +45,14 @@
 
                     <textarea name="description" rows="10" cols="30" placeholder="<?php echo $string['manage']['description']; ?>" required></textarea>
 					<input id="photo" name="photo" type="file" required/>
-					
-					<div class="buttons">
-                        <input class="button" type="submit" value="<?php echo $string['manage']['add']; ?>"/>
-                    </div>
+					<input class="button" type="submit" value="<?php echo $string['manage']['add']; ?>"/>
                 </form>
 				</div>
 				<div class="right">
 				<form action="../actions/collection_add.php" method="POST">
 					<h1><?php echo $string["manage"]["collections"]; ?></h1>
                     <input name="name" type="text" size="30" placeholder="<?php echo $string['manage']['name']; ?>" required/>
-					<div class="buttons">
-                        <input class="button" type="submit" value="<?php echo $string['manage']['add']; ?>"/>
-                    </div>
+                    <input class="button" type="submit" value="<?php echo $string['manage']['add']; ?>"/>
 				</form>
 				</div>
             </div>

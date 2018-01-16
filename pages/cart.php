@@ -62,6 +62,7 @@
 					$price = $item->getPrice();
 
             	    echo '<tr>';
+					echo '<td><a href="product?id=' . $row['product'] . '"><img class="cart-thumbnail" src="' . get_product_image($id) . '"/></a></td>';
                   	echo '<td><a href="product?id=' . $row['product'] . '">' . $name . '</a></td>';
 
                 	$total += $row['quantity'] * $price; 
@@ -69,27 +70,28 @@
 					$url = '../actions/cart_remove.php?id=' . $row['id']; 
 
                     echo '<td>' . $string["product"]["sizes"][$sizes[$row["size"]]] . '</td>';
-					echo '<td>$ ' . $price . ' x ' . $row['quantity'] . '</td>';
-					echo '<td><a href="'. $url . '"><i class="fa fa-times" aria-hidden="true"></i></a></td>';
+					echo '<td>' . get_price($price) . ' x ' . $row['quantity'] . '</td>';
+					echo '<td><a href="'. $url . '">X</a></td>';
 					echo '</tr>';
                 }
             
 				if($total > 0) {
-            	   	echo '<tr class="bordered"><td><p id="price"><b>' . $string["cart"]["total"] . '</b></p></td><td><b>$' . $total . '</b></p></td><tr>';
+            	   	echo '<tr class="bordered"><td><b>' . $string["cart"]["total"] . '</b></td><td></td><td></td><td><b>' . get_price($total) . '</b></td><tr>';
                	}
             ?>
             </table>
             <?php
                 if($total > 0) {
-                    echo '<div class="buttons"><a href="checkout" class="button">' . $string["cart"]["checkout"] . '</a>';             
-                    echo '<a href="../actions/cart_clear.php" class="button">' . $string["cart"]["clear"] . '</a></div>';
+                    echo '<div class="buttons">';
+					echo '<a href="checkout" class="button">' . $string["cart"]["checkout"] . '</a>';             
+                    echo '<a href="../actions/cart_clear.php" class="button">' . $string["cart"]["clear"] . '</a>';
+					echo '</div>';
                 }else {
-                     echo '<h1>' . $string["cart"]["empty"] . '</h1>';
-                    
+                  	echo '<h1>' . $string["cart"]["empty"] . '</h1>';
                     echo '<a href="shop" class="button">'  . $string["cart"]["continue"] . '</a>';
                 }   
             ?>
-        </div>
+		</div>
 
         <?php require("../ui/footer.php"); ?>
     </body>

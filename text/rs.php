@@ -1,8 +1,7 @@
 <?php
     $string = [
         "header" => [
-            "index" => "Почетна"
-    	  , "home" => "Почетна"
+    	    "home" => "Почетна"
           , "gallery" => "Галерија"
           , "shop" => "Продавница"
           , "cart" => "Корпа"
@@ -22,7 +21,7 @@
             , "submit" => "Пусти ме унутра"
         ]
         , "home" => [
-              "header" => "Ово је наслов"
+              "header" => "Колачић са укусом облака"
             , "text" => file_get_contents("../text/text-home.rs")
         ]
         , "gallery" => [
@@ -85,6 +84,8 @@
 		, "status" => [
 			"productNotAddedToCart" => "Производ није убачен у корпу"
 			, "productAddedToCart" => "Производ убачен у корпу"
+			, "productNotRemovedFromCart" => "Производ није избачен из корпе"
+			, "productRemovedFromCart" => "Приозвод избачен из корпе"
 			, "messageNotSent" => "Порука није послата"
 			, "messageSent" => "Порука послата"
 			, "productNotAdded" => "Производ није убачен"

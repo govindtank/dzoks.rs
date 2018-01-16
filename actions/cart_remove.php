@@ -12,6 +12,6 @@
 	$cmd = "DELETE FROM cart WHERE id=$id";
 	mysqli_query($connect, $cmd);
 
-	error($string['status']['productRemovedFromCart']);
+	success($string['status']['productRemovedFromCart']);
 	header("location: ../pages/cart.php");
 ?>

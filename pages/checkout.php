@@ -16,9 +16,7 @@
                         }
                     ?>
                     
-                    <div class="buttons">
-                        <input class="button" type="submit" value="<?php echo $string['checkout']['submit']; ?>" />
-                    </div>
+                    <input class="button" type="submit" value="<?php echo $string['checkout']['submit']; ?>" />
                 </form>
             </div>
 

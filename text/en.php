@@ -1,8 +1,7 @@
 <?php
     $string = [
         "header" => [
-		    "index" => "Home"
-          , "home" => "Home"
+            "home" => "Home"
           , "gallery" => "Gallery"
           , "shop" => "Shop"
           , "cart" => "Cart"
@@ -22,7 +21,7 @@
             , "submit" => "Enter"
         ]
         , "home" => [
-              "header" => "This is header"
+              "header" => "Cookie with the taste of cloud"
             , "text" => file_get_contents("../text/text-home.en")
         ]
         , "gallery" => [
@@ -85,6 +84,8 @@
 		, "status" => [
 			"productNotAddedToCart" => "Product has not been added to cart"
 			, "productAddedToCart" => "Product has been added to cart"
+			, "productNotRemovedFromCart" => "Product has not been removed from cart"
+			, "productRemovedFromCart" => "Product has been removed from cart"
 			, "messageNotSent" => "Message has not been sent"
 			, "messageSent" => "Message has been sent"
 			, "productNotAdded" => "Product has not been added"
