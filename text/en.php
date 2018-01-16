@@ -6,6 +6,7 @@
           , "gallery" => "Gallery"
           , "shop" => "Shop"
           , "cart" => "Cart"
+		  , "info" => "Info"
           , "contact" => "Contact"
           , "checkout" => "Checkout"
           , "login" => "Login"
@@ -55,6 +56,9 @@
             , "quantity" => "Quantity"
             , "sizes" => ["s" => "small", "l" => "LARGE"]
         ]
+		, "info" => [
+              "text" => file_get_contents("../text/text-info.en")
+		]
         , "contact" => [
               "header" => "Drop us a line!"
             , "name" => "Name"
@@ -62,6 +66,7 @@
             , "subject" => "Subject"
             , "message" => "Message"
             , "validation" => "What's "
+			, "mailto" => 'Form will be sent to <a href="mailto: office@soxbty.com">office@soxbty.com</a>'
             , "send" => "Send"
         ] 
 		, "manage" => [

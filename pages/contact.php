@@ -22,11 +22,12 @@
                     ?>
                     
                     <input type="hidden" name="validationCheck" value="<?php echo $sum; ?>">
-                    <input name="validationInput" type="text" size="30" placeholder="<?php echo $string['contact']["validation"] . $a . " + " . $b . "?" ; ?>" required/>
+                    <input name="validationInput" type="text" size="30" placeholder="<?php echo $string['contact']['validation'] . $a . " + " . $b . "?" ; ?>" required/>
                     <div class="buttons">
                         <input class="button" type="submit" value="<?php echo $string['contact']['send']; ?>" />
                     </div>
                 </form>
+				<p><?php echo $string['contact']['mailto']; ?></p>
             </div>
 
         <?php require("../ui/footer.php"); ?>

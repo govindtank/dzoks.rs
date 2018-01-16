@@ -6,6 +6,7 @@
           , "gallery" => "Галерија"
           , "shop" => "Продавница"
           , "cart" => "Корпа"
+		  , "info" => "инфо"
           , "contact" => "Контакт"
           , "checkout" => "Куповина"
           , "login" => "Пријава"
@@ -55,6 +56,9 @@
             , "quantity" => "Количина"
             , "sizes" => ["s" => "мале", "l" => "ВЕЛИКЕ"]
         ]
+		, "info" => [
+              "text" => file_get_contents("../text/text-info.rs")
+		]
         , "contact" => [
               "header" => "Пусти нам линију!"
             , "name" => "Име"
@@ -62,6 +66,7 @@
             , "subject" => "Наслов"
             , "message" => "Порука"
             , "validation" => "Колико је "
+			, "mailto" => 'Формулар ће бити послат на <a href="mailto: office@soxbty.com">office@soxbty.com</a>'
             , "send" => "Пошаљи"
         ]
 		, "manage" => [

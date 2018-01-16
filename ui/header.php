@@ -7,7 +7,7 @@
         <nav id="nav">
             <ul>
                 <?php
-                    $items = ["home", "gallery", "shop", "cart", "contact"];
+                    $items = ["home", "gallery", "shop", "cart", "info", "contact"];
                     
                     foreach($items as $item) {
                         echo '<li><a ';
