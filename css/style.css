@@ -122,7 +122,12 @@ a {
 }
 
 a:hover {
-    opacity: 0.5;
+	opacity: 0.5;	
+}
+
+.shop-item-marker:hover,
+.shop-item-image:hover {
+	opacity: 0.75;
 }
 
 .shake:hover {
@@ -173,11 +178,15 @@ header,
 }
 
 .status-error {
-	background: red;
+	background: #e74c3c;
 }
 
 .status-success {
-	background: green;
+	background: #27ae60;
+}
+
+.status-alert {
+	background: #95a5a6;
 }
 
 .status p {
@@ -222,7 +231,8 @@ header,
     text-align: center;
 }
 
-#logo-small, .tint-small {
+#logo-small,
+.tint-small {
     display: block;
     height: 80px;
     width: 80px;
@@ -232,7 +242,8 @@ header,
     position: absolute;
 }
 
-#logo-big, .tint-big {
+#logo-big,
+.tint-big {
     display: block;
     height: 50%;
     width: auto;
@@ -381,26 +392,43 @@ h1 {
     margin-bottom: 50px;
 }
 
-.example-image {
-    width: 150px;
+.shop-item-image,
+.shop-item-marker {
+	display: block;
+	width: 150px;
     height: 150px;
+
+}
+
+.shop-item-marker {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 150px;
+    height: 150px;
+    background-image: url(../img/soldout.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 .shop-item,
-.example-image-holder {
+.shop-item-image-holder {
     margin: 10px;
     cursor: pointer;
     display: inline-block;
     margin-bottom: 20px;
     margin-right: 20px;
+	position: relative;
 }
 
-.example-image-holder {
+.shop-item-image-holder {
     margin: 0;
 }
 
 .shop-item,
-.example-image-holder:nth-of-type(5n+0) {
+.shop-item-image-holder:nth-of-type(5n+0) {
     margin-right: 0px;
 }
 
@@ -640,13 +668,14 @@ header .instagram-header-icon {
         margin: 0 auto;
         width: auto;
     }
-    .example-image {
+    .shop-item-image,
+	.shop-item-marker {
         width: 100%;
         height: auto;
     }
     .shop-item,
-    .example-image-holder,
-    .example-image-holder:nth-of-type(5n+0) {
+    .shop-item-image-holder,
+    .shop-item-image-holder:nth-of-type(5n+0) {
         width: 48%;
         height: auto;
         margin-bottom: 20px;
@@ -655,7 +684,7 @@ header .instagram-header-icon {
         padding-bottom: 0;
     }
     .shop-item,
-    .example-image-holder:nth-of-type(even) {
+    .shop-item-image-holder:nth-of-type(even) {
         margin-right: 0px;
     }
 }

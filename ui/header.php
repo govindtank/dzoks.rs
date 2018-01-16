@@ -1,6 +1,6 @@
 <header>
     <div id="wrap">
-        <a href="home" class="shake shake-basic shake-constant shake-constant--hover">
+        <a href="home.php" class="shake shake-basic shake-constant shake-constant--hover">
 			<img id="logo-small" src="../img/logo.png"/>
 			<div class="tint-small" id="tint"></div>
 		</a>
@@ -49,4 +49,11 @@
 		echo '<div class="status status-success"><p>' . $_SESSION['success'] . '</p></div>';
 		unset($_SESSION['success']);
 	}
+		
+	if(!isset($_SESSION['cookies_accepted'])) {
+		echo '<div class="status status-alert">';
+		echo '<p>' . $string['status']['cookiesAlert'] . '</p>';
+		echo '</div>';
+		$_SESSION['cookies_accepted'] = 'true';
+	}	
 ?>

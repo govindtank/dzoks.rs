@@ -24,7 +24,7 @@
                         $file = $dir . $file;
 
                         if(is_file($file)) {
-                             echo '<div class="zoom-item example-image-holder"><img class="example-image" src="' . $file . '" /></div>';
+                             echo '<div class="zoom-item shop-item-image-holder"><img class="shop-item-image" src="' . $file . '" /></div>';
                         }
                     }
                 ?>

@@ -1,7 +1,8 @@
 <?php
     $string = [
         "header" => [
-            "home" => "Home"
+		    "index" => "Home"
+          , "home" => "Home"
           , "gallery" => "Gallery"
           , "shop" => "Shop"
           , "cart" => "Cart"
@@ -11,7 +12,7 @@
           , "manage" => "Manage"
         ]
         , "index" => [
-            "enter" => "Enter"
+		 	"enter" => "Enter"
         ]
         , "login" => [
               "header" => "Login"
@@ -88,6 +89,7 @@
 			, "validationNotCorrect" => "Validation not correct"
 			, "notLoggedIn" => "Please log in"
 			, "incorrectCredentials" => "Incorrect credentials"
+			, "cookiesAlert" => "We use cookies to improve your experience. By your continued use of this site you accept such use."
 		]
     ];
 ?>

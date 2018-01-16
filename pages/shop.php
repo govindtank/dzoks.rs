@@ -24,11 +24,16 @@
 								break;
 							}
 						}
-					
+
                     echo '<div class="shop-item">';
 					echo '<a href="product.php?id=' . $row['id'] . '">';
-					echo '<img class="example-image" src="' . $filename . '"/>';
-                    echo '<p class="img-desc">' . $row['name'] . '</p>';
+					echo '<img class="shop-item-image" src="' . $filename . '"/>';
+
+					if($row['quantity'] == 0) {
+						echo '<div class="shop-item-marker"></div>';
+					}
+                    
+					echo '<p class="img-desc">' . $row['name'] . '</p>';
                     echo '<p class="img-desc price">$ '  . $row['price'] . '</p>';
 					echo '</a></div>';
 					}

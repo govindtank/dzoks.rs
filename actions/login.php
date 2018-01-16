@@ -18,8 +18,13 @@
 
 	while($row = mysqli_fetch_assoc($result)) {
         if($row['password'] == $password_hash) {
+			$cmd = "INSERT INTO logins (user, timestamp) VALUES('" . $row['id'] . "', now())";
+			mysqli_query($connect, $cmd) or die(mysqli_error($connect));
+
     		$_SESSION['username'] = $row['username'];
-        	header("location: ../pages/manage.php");	   
+        	
+			header("location: ../pages/manage.php");
+			
 			exit;
     	}
 	}
