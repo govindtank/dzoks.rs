@@ -3,20 +3,42 @@
 		return mysqli_real_escape_string($GLOBALS['connect'], htmlspecialchars(strip_tags(trim($var))));
     }
 
-	function get_product_image($id) {
+	function get_all_product_images($id) {
 		$path = '../img/products/' . $id;
 		$files = scandir($path);
-					
-		$filename = '../img/products/no_photo.jpg';
+		$images = [];	
+		$i = 0;
 
 		foreach($files as $file) {
         	if($file[0] != '.') {
-				$filename = $path . '/' . $file;
-				break;
+				$images[] = $path . '/' . $file;
+				$i++;
 			}
 		}
 
-		return $filename;
+		if($i == 0) {
+			$images[] = '../img/no_photo.jpg';
+		}
+
+		return $images;
+	}
+
+	function get_product_image($id, $index) {
+		$path = '../img/products/' . $id;
+		$files = scandir($path);
+		$image = '../img/no_photo.jpg';
+		$i = 0;
+
+		foreach($files as $file) {
+        	if($file[0] != '.') {
+				if($i++ == $index) {
+					$image = $path . '/' . $file;
+					break;
+				}
+			}
+		}
+
+		return $image;
 	}
 
 	function get_price($price) {

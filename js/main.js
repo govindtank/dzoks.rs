@@ -34,8 +34,8 @@ function blink() {
 }
 
 function setLogo() {
-    if($(".center").length) {
-        $(".center").css("width", $("#logo-big").css("height")).css("visibility", "visible");
+    if($(".logo-center").length) {
+        $(".logo-center").css("width", $("#logo-big").css("height")).css("visibility", "visible");
         
         $("#logo-big").css("width", $("#logo-big").css("height"));
         $(".tint-big").css("width", $(".tint-big").css("height"));   

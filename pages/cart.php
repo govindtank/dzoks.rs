@@ -62,7 +62,7 @@
 					$price = $item->getPrice();
 
             	    echo '<tr>';
-					echo '<td><a href="product?id=' . $row['product'] . '"><img class="cart-thumbnail" src="' . get_product_image($id) . '"/></a></td>';
+					echo '<td><a href="product?id=' . $row['product'] . '"><img class="cart-thumbnail" src="' . get_product_image($id, 0) . '"/></a></td>';
                   	echo '<td><a href="product?id=' . $row['product'] . '">' . $name . '</a></td>';
 
                 	$total += $row['quantity'] * $price; 
@@ -82,10 +82,7 @@
             </table>
             <?php
                 if($total > 0) {
-                    echo '<div class="buttons">';
-					echo '<a href="checkout" class="button">' . $string["cart"]["checkout"] . '</a>';             
-                    echo '<a href="../actions/cart_clear.php" class="button">' . $string["cart"]["clear"] . '</a>';
-					echo '</div>';
+					echo '<a href="checkout" class="button center">' . $string["cart"]["checkout"] . '</a>';             
                 }else {
                   	echo '<h1>' . $string["cart"]["empty"] . '</h1>';
                     echo '<a href="shop" class="button">'  . $string["cart"]["continue"] . '</a>';

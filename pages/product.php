@@ -26,6 +26,7 @@
 				break;
 			}
         ?>
+		<link rel="stylesheet" href="../css/product.css">
     </head>
     <body id="page">
         <?php require("../ui/header.php"); ?>
@@ -34,7 +35,16 @@
             <?php 
 				if(mysqli_num_rows($result) == 1){
 					echo '<h1 id="' . $row['id'] . '">' . $row['name'] . '</h1>';
-                    echo '<img class="product-big" src="' . get_product_image($row["id"]) . '"/>';
+					
+					echo '<div class="sp-loading"><img src="../img/loading.gif" alt=""></div>';
+					echo '<div class="sp-wrap">';
+
+					foreach(get_all_product_images($row["id"]) as $image) {
+						echo '<a href="' . $image .'"><img src="' . $image . '" alt=""></a>';
+					}
+
+					echo '</div>';
+
                     echo '<div class="product-options">';
 					echo '<form action="../actions/cart_add.php" method="GET">';
                     echo '<p class="product-desc">' . $row['description'] . '</p>';
@@ -65,5 +75,11 @@
         </div>
         
         <?php require("../ui/footer.php"); ?>
+		<script type="text/javascript" src="../js/product.js"></script>
+		<script type="text/javascript">
+    		$(window).load( function() {
+        		$('.sp-wrap').smoothproducts();
+    		});
+		</script>
     </body>
 </html>

@@ -30,7 +30,6 @@
         , "cart" => [
               "empty" => "Buy some shit man!"
             , "checkout" => "Checkout" 
-            , "clear" => "Clear" 
             , "total" => "Total"
             , "continue" => "Let's candy shop"
         ]

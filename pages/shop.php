@@ -16,28 +16,8 @@
                     	echo '<div class="shop-item">';
 						echo '<a href="product.php?id=' . $row['id'] . '">';
                     	
-						$path = '../img/products/' . $row['id'];
-						$files = scandir($path);
-
-						$i = 0;
-
-						foreach($files as $file) {
-							if($file[0] != '.') {
-								$filename = $path . '/' . $file;
-								
-								if(++$i == 1) {
-									echo '<img class="shop-item-image" src="' . $filename . '"/>';
-								}else {
-									echo '<img class="shop-item-overlay" src="' . $filename . '"/>';
-									break;
-								}
-							}
-						}
-
-						if($i == 0) {
-							$filename = '../img/products/no_photo.jpg';
-							echo '<img class="shop-item-image" src="' . $filename . '"/>';
-						}
+						echo '<img class="shop-item-image" src="' . get_product_image($row["id"], 0). '"/>';
+						echo '<img class="shop-item-overlay" src="' . get_product_image($row["id"], 1). '"/>';
 					
 						if($row['quantity'] == 0) {
 							echo '<div class="shop-item-marker">';

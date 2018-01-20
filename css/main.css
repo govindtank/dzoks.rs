@@ -196,11 +196,18 @@ header,
     list-style: none;
 }
 
-.product-big {
+.product-image {
     display: inline-block;
     width: 33.3%;
     height: auto;
     float: left;
+	position: relative;
+}
+
+.product-thumbnail {
+	display: inline-block;
+	width: 100px;
+	height: 100px;
 	position: relative;
 }
 
@@ -216,7 +223,7 @@ header,
     padding-bottom: 0px;
 }
 
-.center {
+.logo-center {
     visibility: hidden;
     height: 50%;
     max-height: 50%;
@@ -426,16 +433,20 @@ select {
 ::-webkit-input-placeholder { 
     color: #fff;
 }
+
 :-moz-placeholder { 
     color: #fff;
 }
+
 ::-moz-placeholder { 
    color: #fff;
    opacity:  1;
 }
+
 :-ms-input-placeholder {}
    color: #fff;
 }
+
 ::-ms-input-placeholder { 
    color: #fff;
 }
@@ -478,15 +489,15 @@ textarea:focus {
 }
 
 .button {
-   	float: right;
-  	text-align: center;
+	float: right;
+	text-align: center;
     display: block;
     width: 160px;
     height: 40px;
     line-height: 36px;
 	color: #fff;
-    background-color: transparent;
     border: 1px solid #fff;
+    background-color: transparent;
 	transition: 500ms ease;
     -moz-transition: 500ms ease;
     -webkit-transition: 500ms ease;
@@ -494,27 +505,17 @@ textarea:focus {
     -o-transition: 500ms ease;
 }
 
-.buttons {
-	margin: 0 auto;
-	text-align: center;
-}
-
-.buttons .button {
-	margin: 10px;
-	display:inline-block;
-}
-
 .button:hover {
     opacity: 1;
-    border: 1px solid #fff;
     color: #000;
+    border: 1px solid #fff;
     background-color: #fff;
     cursor: pointer;
-    transition: 500ms ease;
-    -moz-transition: 500ms ease;
-    -webkit-transition: 500ms ease;
-    -ms-transition: 500ms ease;
-    -o-transition: 500ms ease;
+}
+
+.center {
+	float: none;
+	margin: 0 auto;
 }
 
 input, 
