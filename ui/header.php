@@ -32,7 +32,7 @@
                     </li>
                     <li>
                         <a href="https://www.instagram.com/soxbty">
-                            <img class="instagram-header-icon" src="../img/instagram-header-icon.png">
+                            <img class="header-icon" src="../img/instagram.png">
                         </a>
                     </li>
             </ul>

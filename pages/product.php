@@ -45,14 +45,14 @@
 
 					echo '</div>';
 
-                    echo '<div class="product-options">';
+                    echo '<div class="options">';
 					echo '<form action="../actions/cart_add.php" method="GET">';
-                    echo '<p class="product-desc">' . $row['description'] . '</p>';
+                    echo '<p class="description">' . $row['description'] . '</p>';
                         
                     echo '<p class="price">$ ' . $row['price'] . '</p>';
                         
-                    echo '<select id="size" name="size">';
-                    echo '<option disabled selected>' . $string["product"]["size"] . '</option>';
+                    echo '<select id="size" name="size" required>';
+                    echo '<option selected disabled value="">' . $string["product"]["size"] . '</option>';
 
 					$cmd = "SELECT * FROM sizes";
 					$result = mysqli_query($connect, $cmd);

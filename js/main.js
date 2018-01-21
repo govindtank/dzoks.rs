@@ -1,7 +1,3 @@
-$(window).load(function() {
-    $('#page').addClass('displayed');
-});
-
 $(document).ready(function() {    
     blink();
     setLogo();
@@ -42,7 +38,7 @@ function setLogo() {
     }
 }
 
-$("#quantity").keypress(function(event) {
+$("#qty").keypress(function(event) {
      if(event.charCode < 48 || event.charCode > 57) {
         return false;
     }

@@ -1,0 +1,69 @@
+.shop-item-image,
+.shop-item-overlay,
+.shop-item-marker {
+	display: block;
+	width: 200px;
+    height: 200px;
+	position: relative;
+}
+
+.shop-item-overlay,
+.shop-item-marker {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.shop-item-overlay {
+ 	opacity: 0;
+    -moz-transition: 500ms ease;
+    -webkit-transition: 500ms ease;
+    -ms-transition: 500ms ease;
+    -o-transition: 500ms ease;
+ 	transition: 500ms ease;
+}
+
+.shop-item-overlay:hover,
+.shop-item a:hover {
+	opacity: 1;	
+}
+
+.shop-item-marker {
+	pointer-events: none;
+}
+
+.shop-item-marker .info {
+	position: absolute;
+	width: 100%;
+	opacity: 0.5;
+	margin: 0;
+	bottom: 0;
+	background: #000;
+}
+
+.shop-item-marker .new {
+	background: #27ae60;
+}
+
+.shop-item-marker .soldout {
+	background: #e74c3c;
+}
+
+.shop-item {
+	margin: 10px;
+	cursor: pointer;
+    display: inline-block;
+	position: relative;
+}
+
+@media screen and (max-width: 720px) {	
+    
+	.shop-item-image,
+	.shop-item-overlay,
+	.shop-item-marker {
+        width: 100%;
+        height: auto;
+    }
+ }

@@ -95,7 +95,7 @@
 			, "validationNotCorrect" => "Validation not correct"
 			, "notLoggedIn" => "Please log in"
 			, "incorrectCredentials" => "Incorrect credentials"
-			, "cookiesAlert" => "We use cookies to improve your experience. By your continued use of this site you accept such use."
+			, "cookiesAlert" => "We use cookies to improve your experience. By continuing to visit this site you accept such use."
 			, "new" => "NEW"
 			, "soldout" => "SOLD OUT"
 		]

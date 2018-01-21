@@ -2,6 +2,7 @@
 <html>
     <head>
         <?php require("../ui/head_content.php"); ?>
+		<link rel="stylesheet" href="../css/index.css">
     </head>
     <body id="page">   
         <video autoplay loop id="video-background" muted plays-inline>

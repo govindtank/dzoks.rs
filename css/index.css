@@ -1,0 +1,16 @@
+.logo-center {
+    visibility: hidden;
+    height: 50%;
+    max-height: 50%;
+    margin: 10% auto;
+    text-align: center;
+}
+
+#logo-big,
+.tint-big {
+    display: block;
+    height: 50%;
+    width: auto;
+    float: left;
+    position: absolute;
+}

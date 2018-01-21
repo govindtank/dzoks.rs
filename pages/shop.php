@@ -2,6 +2,7 @@
 <html>
     <head>
         <?php require("../ui/head_content.php"); ?>
+		<link rel="stylesheet" href="../css/shop.css">
     </head>
     <body id="page">
         <?php require("../ui/header.php"); ?>

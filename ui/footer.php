@@ -9,7 +9,7 @@
 		<img src="../img/visa-verified.png"/>
 		<img src="../img/secure-code.png"/>
 		
-		<a href="http://ecloga.org"><img id="power" src="../img/power.png"></a>
+		<a href="http://ecloga.org"><img id="ecloga" src="../img/ecloga.png"></a>
 	</div>
 </footer>
 

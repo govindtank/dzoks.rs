@@ -1,0 +1,23 @@
+table {
+    width: auto;
+	margin: 0 auto;
+	border-collapse: separate;
+	border-spacing: 10px;
+}
+
+td {
+    padding: 0 20px;
+    height: 45px;
+    text-align: center;
+}
+
+.bordered {
+   	outline: 1px dashed #fff;
+}
+
+.cart-thumbnail {
+	width: 45px;
+	height: 45px;
+}
+
+
