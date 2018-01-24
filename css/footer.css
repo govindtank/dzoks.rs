@@ -1,0 +1,28 @@
+footer { 
+	width: 100%;
+	height: auto;
+}
+
+.sponsors {
+    height: 30px;
+    position: relative;
+    float: right;
+    right: 20px;
+    bottom: 20px;
+}
+
+.sponsors > img {
+	margin: 10px;
+}
+
+#ecloga {
+	height: 30px;
+}
+
+footer p {
+    height: 30px;
+    position: relative;
+    float: left;
+    left: 20px;
+    bottom: 10px;
+}

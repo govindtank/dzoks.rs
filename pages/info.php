@@ -3,12 +3,12 @@
     <head>
         <?php require("../ui/head_content.php"); ?>
     </head>
-    <body id="page">       
+    <body>       
         <?php require("../ui/header.php"); ?>
         
-        <div class="main">
+        <div class="main padded">
             <?php 
-                echo '<p>' . $string["info"]["text"] . '</p>'; 
+                echo $string["info"]["text"]; 
             ?>
         </div>
         

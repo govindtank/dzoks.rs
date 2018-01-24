@@ -21,7 +21,7 @@
     <head>
         <?php require("../ui/head_content.php"); ?>
     </head>
-    <body id="page">
+    <body>
         <?php require("../ui/header.php"); ?>
             <div class="main">
 				<div class="left">

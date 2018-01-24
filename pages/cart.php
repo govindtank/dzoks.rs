@@ -4,7 +4,7 @@
   		<?php require("../ui/head_content.php"); ?>
 		<link rel="stylesheet" href="../css/cart.css">
     </head>
-    <body id="page">
+    <body>
         <?php require("../ui/header.php"); ?>
 
         <div class="main">       
@@ -86,7 +86,7 @@
 					echo '<a href="checkout" class="button center">' . $string["cart"]["checkout"] . '</a>';             
                 }else {
                   	echo '<h1>' . $string["cart"]["empty"] . '</h1>';
-                    echo '<a href="shop" class="button">'  . $string["cart"]["continue"] . '</a>';
+                    echo '<a href="shop" class="button center">'  . $string["cart"]["continue"] . '</a>';
                 }   
             ?>
 		</div>

@@ -4,7 +4,7 @@
         <?php require("../ui/head_content.php"); ?>
 		<link rel="stylesheet" href="../css/index.css">
     </head>
-    <body id="page">   
+    <body>   
         <video autoplay loop id="video-background" muted plays-inline>
             <source src="../video/theme.mp4" type="video/mp4" />
         </video>

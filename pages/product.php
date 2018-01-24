@@ -28,10 +28,10 @@
         ?>
 		<link rel="stylesheet" href="../css/product.css">
     </head>
-    <body id="page">
+    <body>
         <?php require("../ui/header.php"); ?>
         
-        <div class="main">
+        <div class="main padded">
             <?php 
 				if(mysqli_num_rows($result) == 1){
 					echo '<h1 id="' . $row['id'] . '">' . $row['name'] . '</h1>';

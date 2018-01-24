@@ -3,10 +3,10 @@
     <head>
         <?php require("../ui/head_content.php"); ?>
     </head>
-    <body id="page">       
+    <body>       
         <?php require("../ui/header.php"); ?>
         
-        <div class="main container">
+        <div class="main padded center">
             <?php 
                 echo '<h1>' . $string["home"]["header"] . '</h1>'; 
                 echo '<p>' . $string["home"]["text"] . '</p>'; 

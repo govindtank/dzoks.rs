@@ -3,11 +3,12 @@ table {
 	margin: 0 auto;
 	border-collapse: separate;
 	border-spacing: 10px;
+	font-size: 25px;
 }
 
 td {
     padding: 0 20px;
-    height: 45px;
+    height: 100px;
     text-align: center;
 }
 
@@ -16,8 +17,6 @@ td {
 }
 
 .cart-thumbnail {
-	width: 45px;
-	height: 45px;
+	width: 100px;
+	height: 100px;
 }
-
-
