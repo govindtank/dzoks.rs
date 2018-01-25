@@ -20,19 +20,20 @@
 <html>
     <head>
         <?php require("../ui/head_content.php"); ?>
+		<link rel="stylesheet" href="../css/manage.css">
     </head>
     <body>
         <?php require("../ui/header.php"); ?>
             <div class="main">
-				<div class="left">
+            	<div class="left">
+				<h1><?php echo $string["manage"]["products"]; ?></h1>
                 <form action="../actions/product_add.php" method="POST" enctype="multipart/form-data">  
-					<h1><?php echo $string["manage"]["products"]; ?></h1>
                     <input name="name" type="text" size="30" placeholder="<?php echo $string['manage']['name']; ?>" required/>
                     <input name="price" type="number" step="0.01" placeholder="<?php echo $string['manage']['price']; ?>" required/>
-                    <input name="quantity" type="number" placeholder="<?php echo $string['manage']['quantity']; ?>" required/>
+                    <input name="quantity" type="number" class="number" placeholder="<?php echo $string['manage']['quantity']; ?>" required/>
                     
-					<select name="collection" form="add" required>
-						<option disabled selected><?php echo $string['manage']['collection']; ?></option>
+					<select name="collection" required>
+						<option selected disabled value=""><?php echo $string['manage']['collection']; ?></option>
 						<?php
 							$cmd = "SELECT * FROM collections";
 							$result = mysqli_query($connect, $cmd);
@@ -44,17 +45,33 @@
 					</select>
 
                     <textarea name="description" rows="10" cols="30" placeholder="<?php echo $string['manage']['description']; ?>" required></textarea>
-					<input id="photo" name="photo" type="file" required/>
+					<input name="photos[]" type="file" multiple required/>
 					<input class="button" type="submit" value="<?php echo $string['manage']['add']; ?>"/>
                 </form>
 				</div>
 				<div class="right">
-				<form action="../actions/collection_add.php" method="POST">
-					<h1><?php echo $string["manage"]["collections"]; ?></h1>
-                    <input name="name" type="text" size="30" placeholder="<?php echo $string['manage']['name']; ?>" required/>
-                    <input class="button" type="submit" value="<?php echo $string['manage']['add']; ?>"/>
-				</form>
-				</div>
+				<h1><?php echo $string["manage"]["collections"]; ?></h1>
+				<table>	
+					<?php
+						$cmd = "SELECT * FROM collections";
+						$result = mysqli_query($connect, $cmd);
+
+						while($row = mysqli_fetch_array($result)) {
+							echo '<tr>';
+							echo '<td>' . $row['name'] . '</td>';
+							echo '<td><a href="../actions/collection_remove?id=' . $row['id'] . '">X</a></td>';
+							echo '</tr>';
+						}
+					?>	
+					
+					<tr>
+						<form action="../actions/collection_add.php" method="POST">
+                    		<td class="no-border"><input name="name" type="text" size="30" placeholder="<?php echo $string['manage']['name']; ?>" required/></td>
+                    		<td class="no-border"><input class="button" type="submit" value="<?php echo $string['manage']['add']; ?>"/></td>
+						</form>
+					<tr>
+				</table>
+            	</div>
             </div>
 
         <?php require("../ui/footer.php"); ?>

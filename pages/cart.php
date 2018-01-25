@@ -68,7 +68,7 @@
 
                 	$total += $row['quantity'] * $price; 
                 
-					$url = '../actions/cart_remove.php?id=' . $row['id']; 
+					$url = '../actions/cart_remove?id=' . $row['id']; 
 
                     echo '<td>' . $string["product"]["sizes"][$sizes[$row["size"]]] . '</td>';
 					echo '<td>' . get_price($price) . ' x ' . $row['quantity'] . '</td>';

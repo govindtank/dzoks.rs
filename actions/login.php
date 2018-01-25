@@ -10,23 +10,20 @@
     $username = strip($_POST['username']);
     $password = strip($_POST['password']);
 
-    $password_hash = hash("SHA512", $password, false);
+   /$password_hash = hash("SHA512", $password, false);
 
     $cmd = "SELECT * FROM admins WHERE username='" . $username . "' AND password='" . $password_hash . "'";
 
     $result = mysqli_query($connect, $cmd);
 
 	while($row = mysqli_fetch_assoc($result)) {
-        if($row['password'] == $password_hash) {
-			$cmd = "INSERT INTO logins (user, timestamp) VALUES('" . $row['id'] . "', now())";
-			mysqli_query($connect, $cmd) or die(mysqli_error($connect));
+		$cmd = "INSERT INTO logins (user, timestamp) VALUES('" . $row['id'] . "', now())";
+		mysqli_query($connect, $cmd) or die(mysqli_error($connect));
 
-    		$_SESSION['username'] = $row['username'];
+    	$_SESSION['username'] = $row['username'];
         	
-			header("location: ../pages/manage.php");
-			
-			exit;
-    	}
+		header("location: ../pages/manage.php");
+		exit;
 	}
 
 	unset($_SESSION['username']);

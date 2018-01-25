@@ -38,7 +38,7 @@ function setLogo() {
     }
 }
 
-$("#qty").keypress(function(event) {
+$(".number").keypress(function(event) {
      if(event.charCode < 48 || event.charCode > 57) {
         return false;
     }

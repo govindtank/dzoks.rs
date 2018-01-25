@@ -55,7 +55,9 @@
 
 	function get_ip() {
 		if(!isset($_COOKIE['ip'])) {
-			setcookie('ip', generate_random_string(15), time() + (10 * 365 * 24 * 60 * 60));
+			$cookie = generate_random_string(15);
+			setcookie('ip', $cookie, time() + (10 * 365 * 24 * 60 * 60));
+			return $cookie;
 		}
 
 		return $_COOKIE['ip'];

@@ -1,0 +1,28 @@
+table {
+	border-collapse: separate;
+	border-spacing: 10px;
+	margin: 0 auto;
+}
+
+td {
+	border: 1px solid #fff;
+    padding: 0 20px;
+    height: 45px;
+    text-align: center;
+}
+
+.no-border {
+	border: 0; 
+}
+
+.right {
+    width: 50%;
+    height: auto;
+    float: right;
+}
+
+.left {
+	width: 50%;
+	height: auto;
+	float: left;
+}

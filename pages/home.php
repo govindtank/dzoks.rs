@@ -6,7 +6,7 @@
     <body>       
         <?php require("../ui/header.php"); ?>
         
-        <div class="main padded center">
+        <div class="main center">
             <?php 
                 echo '<h1>' . $string["home"]["header"] . '</h1>'; 
                 echo '<p>' . $string["home"]["text"] . '</p>'; 

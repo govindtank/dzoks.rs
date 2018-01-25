@@ -50,8 +50,8 @@
               "invalid" => "Извини! Немамо више тај пар."
             , "continue" => "Пробај други"
             , "buy" => "Значи купи"
-            , "size" => "Величина"
-            , "quantity" => "Количина"
+            , "size" => "Колике?"
+            , "quantity" => "Колико комата?"
             , "sizes" => ["s" => "мале", "l" => "ВЕЛИКЕ"]
         ]
 		, "info" => [
@@ -91,6 +91,8 @@
 			, "productAdded" => "Производ убачен"
 			, "collectionNotAdded" => "Колекција није убачена"
 			, "collectionAdded" => "Колекција убачена"
+			, "collectionNotRemoved" => "Колекција није уклоњена"
+			, "collectionRemoved" => "Колекција уклоњена"
 			, "requiredFields" => "Попуните обавезна поља"
 			, "validationNotCorrect" => "Валидација неуспешна"
 			, "notLoggedIn" => "Морате бити пријавлјени"

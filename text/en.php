@@ -50,8 +50,8 @@
               "invalid" => "Sorry! We don't have that pair."
             , "continue" => "Try another"
             , "buy" => "Buy it"
-            , "size" => "Size"
-            , "quantity" => "Quantity"
+            , "size" => "How big?"
+            , "quantity" => "How many?"
             , "sizes" => ["s" => "small", "l" => "LARGE"]
         ]
 		, "info" => [
@@ -91,6 +91,8 @@
 			, "productAdded" => "Product has been added"
 			, "collectionNotAdded" => "Collection has not been added"
 			, "collectionAdded" => "Collection has been added"
+			, "collectionNotRemoved" => "Collection has not been removed"
+			, "collectionRemoved" => "Collection has been removed"
 			, "requiredFields" => "Fill required fields"
 			, "validationNotCorrect" => "Validation not correct"
 			, "notLoggedIn" => "Please log in"

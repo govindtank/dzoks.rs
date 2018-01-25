@@ -51,7 +51,7 @@
                         
                     echo '<p class="price">$ ' . $row['price'] . '</p>';
                         
-                    echo '<select id="size" name="size" required>';
+                    echo '<select name="size" required>';
                     echo '<option selected disabled value="">' . $string["product"]["size"] . '</option>';
 
 					$cmd = "SELECT * FROM sizes";
@@ -63,8 +63,8 @@
 
                     echo '</select>';
                         
-                    echo '<input id="qty" name="qty" type="number" min="1" placeholder="' . $string["product"]["quantity"] . '" required/>';
-                   	echo '<input id="id" name="id" type="hidden" value="' . $row['id'] . '">'; 
+                    echo '<input class="number" name="qty" type="number" min="1" placeholder="' . $string["product"]["quantity"] . '" required/>';
+                   	echo '<input name="id" type="hidden" value="' . $row['id'] . '">'; 
                     echo '<input class="button" type="submit" value="' . $string["product"]["buy"] . '"/>';
                     echo '</form></div>';
                 }else {

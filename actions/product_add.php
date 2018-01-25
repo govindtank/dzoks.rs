@@ -22,11 +22,19 @@
 	$id = mysqli_fetch_assoc(mysqli_query($connect, $cmd))['id'];
 	
 	$path = '../img/products/' . $id;
+	mkdir($path);
 
-   	$tmp_name = $_FILES["photo"]["tmp_name"];
-  	$name = basename($_FILES["photo"]["name"]);
-
-   	move_uploaded_file($tmp_name, $path . '/' . $name);
+	if( isset($_FILES['photos']['name'])) {
+  		$total_files = count($_FILES['photos']['name']);
+  
+  		for($key = 0; $key < $total_files; $key++) {
+    		if(isset($_FILES['photos']['name'][$key]) && $_FILES['photos']['size'][$key] > 0) {
+   				$tmp_name = $_FILES["photos"]["tmp_name"][$key];
+  				$name = basename($_FILES["photos"]["name"][$key]);
+   				move_uploaded_file($tmp_name, $path . '/' . $name);
+    		} 
+  		} 
+	}
 
 	success($string['status']['productAdded']);
 	header("location: ../pages/manage.php");
