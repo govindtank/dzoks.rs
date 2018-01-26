@@ -21,8 +21,13 @@
             , "submit" => "Пусти ме унутра"
         ]
         , "home" => [
-              "header" => "Колачић са укусом облака"
-            , "text" => file_get_contents("../text/text-home.rs")
+			  "caption1" => "Колачић са укусом облака"
+			, "caption2" => "Порекло"
+			, "caption3" => "Паковање"
+			, "caption4" => "До јаја"
+        	, "text1" => file_get_contents("../text/home/text1.rs")
+        	, "text2" => file_get_contents("../text/home/text2.rs")
+        	, "text3" => file_get_contents("../text/home/text3.rs")
         ]
         , "gallery" => [
               "header" => "Погледај ове опаснице"

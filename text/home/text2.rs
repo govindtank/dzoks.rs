@@ -1,0 +1,1 @@
+Pamuk uzimamo samo iz proverenih izvora

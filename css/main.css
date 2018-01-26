@@ -54,7 +54,6 @@ select {
 }
 
 p {
-    margin-bottom: 34px;
     font-size: 17px;
     line-height: 26px;
     font-weight: 300;
@@ -100,7 +99,8 @@ a:hover {
 
 h1 {
     text-align: center;
-    margin-bottom: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 form {

@@ -21,8 +21,13 @@
             , "submit" => "Enter"
         ]
         , "home" => [
-              "header" => "Cookie with the taste of cloud"
-            , "text" => file_get_contents("../text/text-home.en")
+			  "caption1" => "These are like the best socks ever and ever"
+			, "caption2" => "Origin"
+			, "caption3" => "Packaging"
+			, "caption4" => "The end."
+        	, "text1" => file_get_contents("../text/home/text1.en")
+        	, "text2" => file_get_contents("../text/home/text2.en")
+        	, "text3" => file_get_contents("../text/home/text3.en")
         ]
         , "gallery" => [
               "header" => "Check out this dope photos!"
