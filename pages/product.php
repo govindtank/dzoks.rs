@@ -73,8 +73,10 @@
                     echo '<input class="button" type="submit" value="' . $string["product"]["buy"] . '"/>';
                     echo '</form></div>';
                 }else {
+					echo '<div class="center-both">';
                     echo '<h1>'  . $string["product"]["invalid"] . '</h1>';
                     echo '<a href="shop" class="button center">'  . $string["product"]["continue"] . '</a>';
+					echo '</div>';
                 }
             ?>
         </div>

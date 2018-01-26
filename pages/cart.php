@@ -85,8 +85,10 @@
                 if($total > 0) {
 					echo '<a href="checkout" class="button center">' . $string["cart"]["checkout"] . '</a>';             
                 }else {
+					echo '<div class="center-both">';
                   	echo '<h1>' . $string["cart"]["empty"] . '</h1>';
                     echo '<a href="shop" class="button center">'  . $string["cart"]["continue"] . '</a>';
+					echo '</div>';
                 }   
             ?>
 		</div>

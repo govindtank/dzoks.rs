@@ -212,10 +212,19 @@ textarea:focus {
     cursor: pointer;
 }
 
-.center {
+.center,
+.center-both {
 	float: none;
 	margin: 0 auto;
 	text-align: center;
+}
+
+.center-both {
+	position: absolute;
+	margin:auto;
+	left:0;
+	right:0;
+	top: 35%;
 }
 
 input, 
