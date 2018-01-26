@@ -8,20 +8,22 @@ $(document).ready(function() {
 });
 
 function blink() {
-    var num = Math.round(Math.random() * (9 - 1) + 1);
+    $(".tint").css("opacity", "0.33");
+    
+	var num = Math.round(Math.random() * (9 - 1) + 1);
     
     if(num % 3 == 0) {
-        $("#tint").css("background-color", "#1abc9c");
+        $(".tint").css("background-color", "#1abc9c");
     }else if(num % 3 == 1) {
-        $("#tint").css("background-color", "#d2527f");      
+        $(".tint").css("background-color", "#d2527f");      
     }else{
-        $("#tint").css("background-color", "#3498db");      
+        $(".tint").css("background-color", "#3498db");      
     }
     
     setTimeout(function(){
-        $("#tint").css("background-color", "transparent");
+        $(".tint").css("background-color", "transparent");
             
-        var randomTime = Math.round(Math.random() * (1000 - 1) + 1);
+        var randomTime = Math.round(Math.random() * (500 - 1) + 1);
         
         setTimeout(function(){
             blink(); 
@@ -34,7 +36,7 @@ function setLogo() {
         $(".logo-center").css("width", $("#logo-big").css("height")).css("visibility", "visible");
         
         $("#logo-big").css("width", $("#logo-big").css("height"));
-        $(".tint-big").css("width", $(".tint-big").css("height"));   
+        $(".tint").css("width", $(".tint").css("height"));   
     }
 }
 

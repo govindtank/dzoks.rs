@@ -1,7 +1,7 @@
 <?php require("../logic/config.php"); ?>
 <html>
     <head>
-        <?php require("../ui/head_content.php"); ?>
+		<?php require("../ui/head_content.php"); ?>
 		<link rel="stylesheet" href="../css/index.css">
     </head>
     <body>   
@@ -13,8 +13,7 @@
         
         <div class="logo-center">
             <img class="shake shake-basic shake-constant shake-constant--hover" id="logo-big" src="../img/logo.png" />
-        
-            <div class="tint-big" id="tint"></div>
+			<div class="tint"></div>
         </div>
         
         <a href="home" class="button center"><?php echo $string["index"]["enter"]; ?></a>

@@ -2,7 +2,7 @@
     <div id="wrap">
         <a href="home.php" class="shake shake-basic shake-constant shake-constant--hover">
 			<img id="logo-small" src="../img/logo.png"/>
-			<div class="tint-small" id="tint"></div>
+			<div class="tint"></div>
 		</a>
         <nav id="nav">
             <ul>
