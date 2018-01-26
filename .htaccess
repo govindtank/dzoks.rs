@@ -5,3 +5,4 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.*)$ $1.php
 Header set Cache-Control "max-age=2628000, public"
+ErrorDocument 404 /soxbty.com/pages/not_found.php

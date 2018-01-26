@@ -113,5 +113,11 @@
 			, "soldout" => "SOLD OUT"
             , "validation" => "What's "
 		]
+		, "error" => [
+			  "notFound" => [
+				  "header" => "Psst! This is secret page and you shouldn't be here."
+				, "action" => "Go home"
+			  ]
+		]
     ];
 ?>
