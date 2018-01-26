@@ -41,16 +41,28 @@
 	$message .= "ZIP: " . $zip . "\n";
 	$message .= "City: " . $city . "\n";
 	$message .= "Country: " . $country;
-	
+
+	$cmd = "SELECT * FROM cart WHERE user='$ip'";
+	$result = mysqli_query($connect, $cmd);
+
+	while($row = mysqli_fetch_array($result)) {
+		$cmd = "SELECT quantity FROM products WHERE id=" . $row['product'];
+		
+		$qty = mysqli_fetch_array(mysqli_query($connect, $cmd))[0] + $row['quantity'];
+
+		$cmd = "UPDATE products SET quantity=$qty WHERE id=" . $row['product'];
+		mysqli_query($connect, $cmd);
+	}
+		
+	$cmd = "DELETE FROM cart WHERE user='$ip'";
+	mysqli_query($connect, $cmd);
+
 	$receiver = "jelic.ecloga@gmail.com";
 	$subject = "[SOXBTY] Order";
 	$headers = "From: " . $email . "\r\n";
 	$headers .= "To: " . $receiver . "\r\n";
 
 	mail($receiver, $subject, $message, $headers);
-
-	$cmd = "DELETE FROM cart WHERE user='$ip'";
-	mysqli_query($connect, $cmd);
 
 	order($string['status']['orderPlaced']);
 	header("location: ../pages/home.php");

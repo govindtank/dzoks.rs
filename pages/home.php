@@ -9,7 +9,7 @@
      
 	 	<div class="main">
 			<div class="bgimg-1">
-  				<div class="caption">
+  				<div class="caption caption-main">
     				<span class="border"><?php echo $string['home']['caption1']; ?></span>
   				</div>
 			</div>

@@ -40,7 +40,7 @@
 					}
                 ?>
         </div>
-
+		
         <?php require("../ui/footer.php"); ?>
     </body>
 </html>
