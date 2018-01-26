@@ -95,7 +95,7 @@
 			, "messageNotSent" => "Message has not been sent"
 			, "messageSent" => "Message has been sent"
 			, "orderNotPlaced" => "Order has not been placed"
-			, "orderPlaced" => "Order has been places"
+			, "orderPlaced" => "Order has been placed"
 			, "productNotAdded" => "Product has not been added"
 			, "productAdded" => "Product has been added"
 			, "collectionNotAdded" => "Collection has not been added"

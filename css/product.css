@@ -9,12 +9,13 @@ form {
     text-align: right;
 }
 
-.description {
-    margin: 20px auto;
+.name {
+    font-size: 30px;
 }
 
 .price {
-    font-size: 25px;
+    font-size: 30px;
+	margin-bottom: 20px;
 }
 
 html, body {

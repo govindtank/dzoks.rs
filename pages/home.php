@@ -40,7 +40,7 @@
 
 			<div class="bgimg-1">
   				<div class="caption">
-					<span><?php echo $string['home']['caption4']; ?></span>
+					<span class="border"><?php echo $string['home']['caption4']; ?></span>
   				</div>
 			</div>	
 		</div>

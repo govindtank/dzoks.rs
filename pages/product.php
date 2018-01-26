@@ -33,9 +33,7 @@
         
         <div class="main padded">
             <?php 
-				if(mysqli_num_rows($result) == 1){
-					echo '<h1 id="' . $row['id'] . '">' . $row['name'] . '</h1>';
-					
+				if(mysqli_num_rows($result) == 1){	
 					echo '<div class="sp-loading"><img src="../img/loading.gif" /></div>';
 					echo '<div class="sp-wrap">';
 
@@ -47,9 +45,16 @@
 
                     echo '<div class="options">';
 					echo '<form action="../actions/cart_add.php" method="GET">';
-                    echo '<p class="description">' . $row['description'] . '</p>';
-                        
-                    echo '<p class="price">$ ' . $row['price'] . '</p>';
+					echo '<p class="name">' . $row['name'] . '</p>';
+
+					$cmd = "SELECT name FROM collections WHERE id=" . $row['collection'];
+					$result = mysqli_query($connect, $cmd);
+					$collection = mysqli_fetch_array($result)[0];
+
+                    echo '<p>' . $collection . '</p>';
+                    
+					echo '<p>' . $row['description'] . '</p>';
+                    echo '<p class="price"> ' . get_price($row['price']) . '</p>';
                         
                     echo '<select name="size" required>';
                     echo '<option selected disabled value="">' . $string["product"]["size"] . '</option>';

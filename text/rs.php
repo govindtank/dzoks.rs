@@ -24,7 +24,7 @@
 			  "caption1" => "Колачић са укусом облака"
 			, "caption2" => "Порекло"
 			, "caption3" => "Паковање"
-			, "caption4" => "До јаја"
+			, "caption4" => "До јаја."
         	, "text1" => file_get_contents("../text/home/text1.rs")
         	, "text2" => file_get_contents("../text/home/text2.rs")
         	, "text3" => file_get_contents("../text/home/text3.rs")
