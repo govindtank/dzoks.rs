@@ -19,8 +19,15 @@ header,
 	background: #e74c3c;
 }
 
-.status-success {
+.status-success,
+.status-order {
 	background: #27ae60;
+}
+
+.status-order img {
+	width: 200px;
+	height: 200px;
+	margin-bottom: 15px;	
 }
 
 .status-alert {

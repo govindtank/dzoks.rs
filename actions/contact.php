@@ -19,14 +19,14 @@
 		header("location: ../pages/contact.php");
 		exit();
 	}
-
-    $body = "Name: " . $name;
-    $body .= " Message: " . $message;
-
-    $from = "From: $email";  
-
-    mail("jelic.ecloga@gmail.com", $subject, $body, $from);
 	
+	$receiver = "jelic.ecloga@gmail.com";
+	$subject = "[SOXBTY] Contact";
+	$headers = "From: " . $email . "\r\n";
+	$headers .= "To: " . $receiver . "\r\n";
+
+	mail($receiver, $subject, $message, $headers);
+
 	success($string['status']['messageSent']);
 	header("location: ../pages/contact.php");
 ?>

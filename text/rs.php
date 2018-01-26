@@ -2,8 +2,8 @@
     $string = [
         "header" => [
     	    "home" => "Почетна"
-          , "gallery" => "Галерија"
-          , "shop" => "Продавница"
+          , "gallery" => "Фотке"
+          , "shop" => "Шоп"
           , "cart" => "Корпа"
 		  , "info" => "Инфо"
           , "contact" => "Контакт"
@@ -25,21 +25,22 @@
             , "text" => file_get_contents("../text/text-home.rs")
         ]
         , "gallery" => [
-              "header" => "Погледај ове опасне фотке!"
+              "header" => "Погледај ове опаснице"
         ]
         , "cart" => [
-              "empty" => "Бураз купи нешто јбт!"
-            , "checkout" => "Плати" 
+              "empty" => "Бураз, ред би био да пазариш нешто"
+            , "checkout" => "Наручи" 
             , "total" => "Укупно"
-            , "continue" => "Ае у кенди шоп"
+            , "continue" => "Бриши у кенди шоп"
         ]
         , "checkout" => [
-              "header" => "Ће се гледамо брт"
+              "header" => "Ће се гледамо брaтe најмилији"
             , "submit" => "Шаљи чарапе"
             , "inputs" => [
                   "first" => "Име"
-                , "last" => "Презиме"
-                , "phone" => "Број телефона"
+                , "last" => "Значи презиме"
+                , "email" => "Имејл"
+                , "phone" => "Број фона"
                 , "address" => "Адреса"
                 , "zip" => "Поштански број"
                 , "city" => "Град"
@@ -47,10 +48,10 @@
             ]
         ]
         , "product" => [
-              "invalid" => "Извини! Немамо више тај пар."
+              "invalid" => "Извини! Немамо више тај пар. Јбг, превелика потражња."
             , "continue" => "Пробај други"
             , "buy" => "Значи купи"
-            , "size" => "Колике?"
+            , "size" => "Ћеш велике или мале?"
             , "quantity" => "Колико комата?"
             , "sizes" => ["s" => "мале", "l" => "ВЕЛИКЕ"]
         ]
@@ -58,12 +59,11 @@
               "text" => file_get_contents("../text/text-info.rs")
 		]
         , "contact" => [
-              "header" => "Пусти нам линију!"
+              "header" => "Гет ин тач"
             , "name" => "Име"
-            , "email" => "Имејл"
+            , "email" => "Значи имејл"
             , "subject" => "Наслов"
             , "message" => "Порука"
-            , "validation" => "Колико је "
 			, "mailto" => 'Формулар ће бити послат на <a href="mailto: office@soxbty.com">office@soxbty.com</a>'
             , "send" => "Пошаљи"
         ]
@@ -71,13 +71,15 @@
               "save" => "Сачувај"
             , "add" => "Додај"
     		, "header" => "Мениџ"
-    		, "products" => "Производи"
-    		, "collections" => "Колекције"
-        	, "photo" => "Слика"
+    		, "products" => [
+				  "add" => "Додавање производа"
+				, "remove" => "Брисање производа"
+			]
+    		, "collections" => "Колекшнс"
 			, "name" => "Име"
 			, "price" => "Цена"
 			, "quantity" => "Количина"
-			, "collection" => "Колекција"
+			, "collection" => "Колекшн"
 			, "description" => "Опис"
         ]
 		, "status" => [
@@ -87,19 +89,24 @@
 			, "productRemovedFromCart" => "Приозвод избачен из корпе"
 			, "messageNotSent" => "Порука није послата"
 			, "messageSent" => "Порука послата"
+			, "orderNotPlaced" => "Није поручено"
+			, "orderPlaced" => "Уздравље да их поцепаш!"
 			, "productNotAdded" => "Производ није убачен"
 			, "productAdded" => "Производ убачен"
 			, "collectionNotAdded" => "Колекција није убачена"
 			, "collectionAdded" => "Колекција убачена"
 			, "collectionNotRemoved" => "Колекција није уклоњена"
 			, "collectionRemoved" => "Колекција уклоњена"
+			, "productNotRemoved" => "Производ није уклоњен"
+			, "productRemoved" => "Производ уклоњен"
 			, "requiredFields" => "Попуните обавезна поља"
 			, "validationNotCorrect" => "Валидација неуспешна"
 			, "notLoggedIn" => "Морате бити пријавлјени"
 			, "incorrectCredentials" => "Неисправни подаци"
 			, "cookiesAlert" => "Користимо колачиће да бисмо побољшали Ваш доживљај. Користећи овај сајт прихватате такво коришћење."
-			, "new" => "НОВО"
+			, "new" => "НОВО БРАТЕ"
 			, "soldout" => "РАСПРОДАТО"
+            , "validation" => "Колико је "
 		]
     ];
 ?>

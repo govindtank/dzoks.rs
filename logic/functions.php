@@ -87,6 +87,10 @@
 		$_SESSION['success'] = $msg;	
 	}
 
+	function order($msg) {
+		$_SESSION['order'] = $msg;
+	}
+
 	function generate_random_string($length) {
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		$charactersLength = strlen($characters);

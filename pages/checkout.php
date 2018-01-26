@@ -12,9 +12,17 @@
                 <form action="../actions/checkout.php" method="POST">  
                     <?php
                         foreach($string["checkout"]["inputs"] as $key => $value) {
-                            echo '<input name="' . $key . '" type="text" size="30" placeholder="' . $value . '" />';
+                            echo '<input name="' . $key . '" type="text" size="30" placeholder="' . $value . '" required/>';
                         }
+                    
+                        $a = rand(1, 8);
+                        $b = rand(1, 9 - $a);
+                        
+                        $sum = $a + $b;
                     ?>
+                    
+                    <input type="hidden" name="validationCheck" value="<?php echo $sum; ?>">
+                    <input name="validationInput" type="text" size="30" placeholder="<?php echo $string['status']['validation'] . $a . " + " . $b . "?" ; ?>" required/>
                     
                     <input class="button" type="submit" value="<?php echo $string['checkout']['submit']; ?>" />
                 </form>

@@ -39,6 +39,7 @@
             , "inputs" => [
                   "first" => "First name"
                 , "last" => "Last name"
+                , "email" => "Email"
                 , "phone" => "Phone number"
                 , "address" => "Address"
                 , "zip" => "Zip code"
@@ -63,7 +64,6 @@
             , "email" => "Email"
             , "subject" => "Subject"
             , "message" => "Message"
-            , "validation" => "What's "
 			, "mailto" => 'Form will be sent to <a href="mailto: office@soxbty.com">office@soxbty.com</a>'
             , "send" => "Send"
         ] 
@@ -71,9 +71,11 @@
               "save" => "Save"
             , "add" => "Add"
             , "header" => "Manage"
-    		, "products" => "Products"
+    		, "products" => [
+				  "add" => "Add products"
+				, "remove" => "Remove products"
+			]
     		, "collections" => "Collections"
-			, "photo" => "Photo"
 			, "name" => "Name"
 			, "price" => "Price"
 			, "quantity" => "Quantity"
@@ -87,12 +89,16 @@
 			, "productRemovedFromCart" => "Product has been removed from cart"
 			, "messageNotSent" => "Message has not been sent"
 			, "messageSent" => "Message has been sent"
+			, "orderNotPlaced" => "Order has not been placed"
+			, "orderPlaced" => "Order has been places"
 			, "productNotAdded" => "Product has not been added"
 			, "productAdded" => "Product has been added"
 			, "collectionNotAdded" => "Collection has not been added"
 			, "collectionAdded" => "Collection has been added"
 			, "collectionNotRemoved" => "Collection has not been removed"
 			, "collectionRemoved" => "Collection has been removed"
+			, "productNotRemoved" => "Product has not been removed"
+			, "productRemoved" => "Product has been removed"
 			, "requiredFields" => "Fill required fields"
 			, "validationNotCorrect" => "Validation not correct"
 			, "notLoggedIn" => "Please log in"
@@ -100,6 +106,7 @@
 			, "cookiesAlert" => "We use cookies to improve your experience. By continuing to visit this site you accept such use."
 			, "new" => "NEW"
 			, "soldout" => "SOLD OUT"
+            , "validation" => "What's "
 		]
     ];
 ?>

@@ -36,7 +36,7 @@
 				if(mysqli_num_rows($result) == 1){
 					echo '<h1 id="' . $row['id'] . '">' . $row['name'] . '</h1>';
 					
-					echo '<div class="sp-loading"><img src="../img/loading.gif" alt=""></div>';
+					echo '<div class="sp-loading"><img src="../img/loading.gif" /></div>';
 					echo '<div class="sp-wrap">';
 
 					foreach(get_all_product_images($row["id"]) as $image) {
@@ -69,7 +69,7 @@
                     echo '</form></div>';
                 }else {
                     echo '<h1>'  . $string["product"]["invalid"] . '</h1>';
-                    echo '<a href="shop" class="button">'  . $string["product"]["continue"] . '</a>';
+                    echo '<a href="shop" class="button center">'  . $string["product"]["continue"] . '</a>';
                 }
             ?>
         </div>
