@@ -32,10 +32,13 @@
 		foreach($files as $file) {
         	if($file[0] != '.') {
 				if($i++ == $index) {
-					$image = $path . '/' . $file;
-					break;
+					return $path . '/' . $file;
 				}
 			}
+		}
+
+		if($index != 0) {
+			return get_product_image($id, 0); 	
 		}
 
 		return $image;
