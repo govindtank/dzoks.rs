@@ -43,6 +43,18 @@
 
 		return $image;
 	}
+	
+	function checkQuantity($asked, $size, $id, $connect, $string) {	
+		$cmd = "SELECT quantity FROM warehouse WHERE product=" . $id . " AND size=" . $size;
+		
+		$having = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
+	
+		if($asked > $having) {
+			error($string['status']['bigQuantity']);	
+			header("location: ../pages/product.php?id=" . $id);
+			exit;
+		}		
+	}
 
 	function get_price($price) {
 		$currency = 'USD';

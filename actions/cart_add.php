@@ -25,11 +25,11 @@
 			$qty += $row['quantity'];
 		}
 
-		checkQuantity($qty, $id, $connect, $string);
+		checkQuantity($qty, $size, $id, $connect, $string);
 
 		$cmd = "UPDATE cart SET quantity='$qty' WHERE product='$id'";
 	}else {
-		checkQuantity($qty, $id, $connect, $string);
+		checkQuantity($qty, $size, $id, $connect, $string);
 
 		$cmd = "INSERT INTO cart (product, size, quantity, user) VALUES('$id', N'$size', '$qty', '$ip')";
 	}
@@ -38,16 +38,4 @@
 
 	success($string['status']['productAddedToCart']);
 	header("location: ../pages/product.php?id=" . $id);
-	
-	function checkQuantity($asked, $id, $connect, $string) {
-		$cmd = "SELECT quantity FROM products WHERE id=" . $id;
-		
-		$having = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
-	
-		if($asked > $having) {
-			error($string['status']['bigQuantity']);	
-			header("location: ../pages/product.php?id=" . $id);
-			exit;
-		}		
-	}
 ?>

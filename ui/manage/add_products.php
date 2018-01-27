@@ -2,7 +2,6 @@
 <form action="../actions/product_add.php" method="POST" enctype="multipart/form-data">  
     <input name="name" type="text" size="30" placeholder="<?php echo $string['manage']['name']; ?>" required/>
     <input name="price" type="number" class="number" step="0.01" placeholder="<?php echo $string['manage']['price']; ?>" required/>
-    <input name="quantity" type="number" class="number" placeholder="<?php echo $string['manage']['quantity']; ?>" required/>
                     
 	<select name="collection" required>
 		<option selected disabled value=""><?php echo $string['manage']['collection']; ?></option>
@@ -17,6 +16,16 @@
 		?>
 
 	</select>
+	
+	<?php
+		$cmd = "SELECT * FROM sizes";
+		$result = mysqli_query($connect, $cmd);
+
+		while($row = mysqli_fetch_array($result)) {
+			echo '<label for="qty_' . $row['name'] . '">' . $row['name'] . '</label>';
+    		echo '<input name="qty_' . $row['name']. '" type="number" class="number" id="qty_' . $row['name'] . '" placeholder="' . $string['manage']['quantity'] . '" />';
+		}
+	?>
 
     <textarea name="description" rows="10" cols="30" placeholder="<?php echo $string['manage']['description']; ?>" required></textarea>
 	<input name="photos[]" type="file" multiple required/>

@@ -46,7 +46,7 @@
 	$result = mysqli_query($connect, $cmd);
 
 	while($row = mysqli_fetch_array($result)) {
-		$cmd = "SELECT quantity FROM products WHERE id=" . $row['product'];
+		$cmd = "SELECT quantity FROM warehouse WHERE product=" . $row['product'] . " AND size=" . $row['size'];
 		
 		$qty = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
 
@@ -58,7 +58,7 @@
 
 		$qty -= $row['quantity'];
 
-		$cmd = "UPDATE products SET quantity=$qty WHERE id=" . $row['product'];
+		$cmd = "UPDATE warehouse SET quantity=" . $qty . " WHERE product=" . $row['product'] .  " AND size=" . $row['size'];
 		mysqli_query($connect, $cmd);
 	}
 		

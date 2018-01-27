@@ -43,22 +43,16 @@
 	if(isset($_SESSION['error'])) {
 		echo '<div class="status status-error"><p>' . $_SESSION['error'] . '</p></div>';
 		unset($_SESSION['error']);
-	}
-
-	if(isset($_SESSION['success'])) {
+	}else if(isset($_SESSION['success'])) {
 		echo '<div class="status status-success"><p>' . $_SESSION['success'] . '</p></div>';
 		unset($_SESSION['success']);
-	}
-
-	if(isset($_SESSION['order'])) {
+	}else if(isset($_SESSION['order'])) {
 		echo '<div class="status status-order">';
 		echo '<p>' . $_SESSION['order'] . '</p>';
 		echo '<img src="../img/ordered.gif" />';
 		echo '</div>';
 		unset($_SESSION['order']);
-	}
-			
-	if(!isset($_SESSION['cookies_accepted'])) {
+	}else if(!isset($_SESSION['cookies_accepted'])) {
 		echo '<div class="status status-alert">';
 		echo '<p>' . $string['status']['cookiesAlert'] . '</p>';
 		echo '</div>';
