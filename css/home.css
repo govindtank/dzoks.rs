@@ -1,12 +1,15 @@
+.main {
+	margin-top: 0;
+}
+
 .padded {
-	padding: 20px 10%;		
+	padding: 1em 3em;		
 }
 
 .bgimg-1,
 .bgimg-2,
 .bgimg-3 {
 	position: relative;
-  	opacity: 0.65;
   	background-attachment: fixed;
   	background-position: center;
   	background-repeat: no-repeat;
@@ -44,15 +47,20 @@
   	letter-spacing: 10px;
 }
 
-.main {
-	margin-top: 0;
+.caption-main {
+	transform: skew(0, -15deg) scale(1, 1.5);
+    -webkit-transform: skew(0, -15deg) scale(1, 1.5);
+    -moz-transform: skew(0, -15deg) scale(1, 1.5);
+    -o-transform: skew(0, -15deg) scale(1, 1.5);
+    -ms-transform: skew(0, -15deg) scale(1, 1.5);
 }
 
-@media screen and (max-width: 720px) {
-
-	.bgimg-1,
-	.bgimg-2,
-	.bgimg-3 {
-    	background-attachment: scroll;
-    }
+.caption-main span {
+    letter-spacing: -0.01em;
+    font-family: Impact;
+	font-size: 4em;
+  	background: -webkit-linear-gradient(left, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af);
+ 	background: -o-linear-gradient(left, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af);
+  	background: -moz-linear-gradient(left, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af);
+  	background: linear-gradient(to right, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af); 
 }
