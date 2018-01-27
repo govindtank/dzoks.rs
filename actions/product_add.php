@@ -7,11 +7,11 @@
 		exit;	
 	}
 
-	$name = $_POST['name'];
-	$price = $_POST['price'];
-	$qty = $_POST['quantity'];
-	$col = $_POST['collection'];
-	$desc = $_POST['description'];
+	$name = strip($_POST['name']);
+	$price = strip($_POST['price']);
+	$qty = strip($_POST['quantity']);
+	$col = strip($_POST['collection']);
+	$desc = strip($_POST['description']);
 
 	$cmd = "INSERT INTO products (name, price, quantity, collection, description) VALUES('$name', '$price', '$qty', '$col', '$desc')";
 	

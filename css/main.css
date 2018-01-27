@@ -241,3 +241,10 @@ select {
 input[type=file] {
 	padding-top: 7px;
 }
+
+@media screen and (max-width: 720px) {
+	
+	form {
+		width: 90%;	
+	}
+}

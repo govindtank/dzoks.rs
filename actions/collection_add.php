@@ -7,7 +7,7 @@
 		exit;	
 	}
 
-	$name = $_POST['name'];
+	$name = strip($_POST['name']);
 
 	$cmd = "INSERT INTO collections (`name`) VALUES('$name')";
 	

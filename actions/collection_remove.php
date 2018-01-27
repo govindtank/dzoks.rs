@@ -7,7 +7,7 @@
 		exit;
 	}
 
-	$id = $_GET['id'];
+	$id = strip($_GET['id']);
 
 	$cmd = "SET GLOBAL FOREIGN_KEY_CHECKS = 0; ";
 	$cmd .= "UPDATE products SET collection=0 WHERE collection=$id; ";

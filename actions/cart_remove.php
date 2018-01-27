@@ -7,7 +7,7 @@
 		exit;
 	}
 
-	$id = $_GET['id'];
+	$id = strip($_GET['id']);
 
 	$cmd = "DELETE FROM cart WHERE id=$id";
 	mysqli_query($connect, $cmd);

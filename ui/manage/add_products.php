@@ -1,7 +1,7 @@
 <h1><?php echo $string["manage"]["products"]["add"]; ?></h1>
 <form action="../actions/product_add.php" method="POST" enctype="multipart/form-data">  
     <input name="name" type="text" size="30" placeholder="<?php echo $string['manage']['name']; ?>" required/>
-    <input name="price" type="number" step="0.01" placeholder="<?php echo $string['manage']['price']; ?>" required/>
+    <input name="price" type="number" class="number" step="0.01" placeholder="<?php echo $string['manage']['price']; ?>" required/>
     <input name="quantity" type="number" class="number" placeholder="<?php echo $string['manage']['quantity']; ?>" required/>
                     
 	<select name="collection" required>

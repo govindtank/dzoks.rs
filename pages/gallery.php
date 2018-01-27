@@ -10,9 +10,7 @@
     <body>
         <?php require("../ui/header.php"); ?>
 
-        <div class="main center">
-            <h1><?php echo $string["gallery"]["header"]; ?></h1>
-
+        <div class="main">
 				<?php
 					// TODO uncomment instagram and remove dummy images
 					/*$images = instagram_images();
@@ -27,53 +25,19 @@
 						echo '</a>';
 						echo '</div>';
 					}*/
+					
+					for($i = 0; $i < 5; $i++) {
+						echo '<div class="item">';
+						echo '<a href="../img/home1.jpg">';
+						echo '<img class="item-image" src="../img/home1.jpg" />';
+						echo '<div class="item-overlay">';
+						echo '<div class="tint hover"></div>';
+						echo '</div>';
+						echo '</a>';
+						echo '</div>';
+					}
 				?>
-	
-				<div class="item">
-					<a href="../img/home1.jpg">
-						<img class="item-image" src="../img/home1.jpg" />
-						<div class="item-overlay">
-							<div class="tint hover"></div>
-						</div>
-					</a>
-				</div>
-
-				<div class="item">
-					<a href="../img/home2.jpg">
-						<img class="item-image" src="../img/home3.jpg" />
-						<div class="item-overlay">
-							<div class="tint hover"></div>
-						</div>
-					</a>
-				</div>
-	
-				<div class="item">
-					<a href="../img/home3.jpg">
-						<img class="item-image" src="../img/home1.jpg" />
-						<div class="item-overlay">
-							<div class="tint hover"></div>
-						</div>
-					</a>
-				</div>
-
-				<div class="item">
-					<a href="../img/home1.jpg">
-						<img class="item-image" src="../img/home1.jpg" />
-						<div class="item-overlay">
-							<div class="tint hover"></div>
-						</div>
-					</a>
-				</div>
-
-				<div class="item">
-					<a href="../img/home1.jpg">
-						<img class="item-image" src="../img/home1.jpg" />
-						<div class="item-overlay">
-							<div class="tint hover"></div>
-						</div>
-					</a>
-				</div>
-        </div>
+	       </div>
         
         <?php require("../ui/footer.php"); ?>
     </body>

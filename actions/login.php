@@ -10,7 +10,7 @@
     $username = strip($_POST['username']);
     $password = strip($_POST['password']);
 
-   /$password_hash = hash("SHA512", $password, false);
+   $password_hash = hash("SHA512", $password, false);
 
     $cmd = "SELECT * FROM admins WHERE username='" . $username . "' AND password='" . $password_hash . "'";
 

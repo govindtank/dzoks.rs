@@ -7,4 +7,3 @@
 <link rel="icon" type="image/png" sizes="16x16" href="../img/icon/favicon-16x16.png">
 <link rel="manifest" href="../img/icon/manifest.json">
 <link rel="mask-icon" href="../img/icon/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="theme-color" content="#ffffff">

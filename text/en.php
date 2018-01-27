@@ -29,9 +29,6 @@
         	, "text2" => file_get_contents("../text/home/text2.en")
         	, "text3" => file_get_contents("../text/home/text3.en")
         ]
-        , "gallery" => [
-              "header" => "Check out this dope photos!"
-        ]
         , "cart" => [
               "empty" => "Buy some shit man!"
             , "checkout" => "Checkout" 
@@ -88,7 +85,7 @@
 			, "description" => "Description"
         ]
 		, "status" => [
-			"productNotAddedToCart" => "Product has not been added to cart"
+			  "productNotAddedToCart" => "Product has not been added to cart"
 			, "productAddedToCart" => "Product has been added to cart"
 			, "productNotRemovedFromCart" => "Product has not been removed from cart"
 			, "productRemovedFromCart" => "Product has been removed from cart"
@@ -109,15 +106,14 @@
 			, "notLoggedIn" => "Please log in"
 			, "incorrectCredentials" => "Incorrect credentials"
 			, "cookiesAlert" => "We use cookies to improve your experience. By continuing to visit this site you accept such use."
+			, "bigQuantity" => "We don't have that many socks"
 			, "new" => "NEW"
 			, "soldout" => "SOLD OUT"
             , "validation" => "What's "
 		]
 		, "error" => [
-			  "notFound" => [
-				  "header" => "Psst! This is secret page and you shouldn't be here."
-				, "action" => "Go home"
-			  ]
+			  "header" => "Psst! Existence of this page has been kept as a secret for centuries."
+			, "action" => "Go home"
 		]
     ];
 ?>

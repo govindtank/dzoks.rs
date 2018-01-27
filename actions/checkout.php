@@ -48,7 +48,15 @@
 	while($row = mysqli_fetch_array($result)) {
 		$cmd = "SELECT quantity FROM products WHERE id=" . $row['product'];
 		
-		$qty = mysqli_fetch_array(mysqli_query($connect, $cmd))[0] + $row['quantity'];
+		$qty = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
+
+		if($row['quantity'] > $qty) {
+			error($string['status']['bigQuantity']);
+			header("location: ../pages/cart.php");
+			exit;
+		}
+
+		$qty -= $row['quantity'];
 
 		$cmd = "UPDATE products SET quantity=$qty WHERE id=" . $row['product'];
 		mysqli_query($connect, $cmd);
