@@ -1,30 +1,37 @@
 footer { 
 	width: 100%;
-	height: auto;
-	margin-top: 30px;
-}
-
-.sponsors {
-    height: 30px;
-    position: relative;
-    float: right;
-    right: 20px;
-    bottom: 20px;
-}
-
-.sponsors > img {
-	margin: 10px;
-}
-
-#ecloga {
-	height: 30px;
-	margin-bottom: 10px;
+	padding: 0.5em 1em;
 }
 
 footer p {
-    height: 30px;
     position: relative;
-    float: left;
-    left: 20px;
-    bottom: 10px;
+	float: left;
+	margin-top: 0.5em;
+	font-size: 1em;
+}
+
+.sponsors {
+    position: relative;
+    float: right;
+}
+
+.sponsors img {
+	height: 1.5em;
+	margin: 0.5em;
+}
+
+@media screen and (max-width: 720px) {
+
+	footer {
+		padding: 0;	
+	}
+
+	footer p {
+		float: right;
+		margin: 0.5em;
+	}
+
+	.sponsors {
+		float: left;	
+	}
 }

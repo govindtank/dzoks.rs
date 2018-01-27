@@ -1,17 +1,17 @@
 header,
 .status {
+	position: fixed;
     width: 100%;
-    height: 100px;
-	line-height: 30px;
-    padding: 0 80px;
+    height: 5em;
     z-index: 100;
     top: 0;
 	margin: 0;
+	padding: 0 1.5em;
 }
 
 .status {
 	text-align: center;
-	top: 140px;
+	top: 5em;
 	height: auto;
 }
 
@@ -27,7 +27,7 @@ header,
 .status-order img {
 	width: 200px;
 	height: 200px;
-	margin-bottom: 15px;	
+	margin-bottom: 0.5em;	
 }
 
 .status-alert {
@@ -36,9 +36,9 @@ header,
 }
 
 .status p {
-	padding-top: 10px;
-	padding-bottom: 15px;
-	font-size: 25px;
+	padding-top: 0.5em;
+	padding-bottom: 0.75em;
+	font-size: 1em;
 	margin: 0;
 }
 
@@ -48,14 +48,11 @@ header,
 
 #nav ul li a {
     display: block;
-    margin-left: 40px;
-    margin-top: 35px;
-    font-size: 15px;
-    font-weight: 300;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    border-bottom: 0px;
-    padding-bottom: 0px;
+    margin: 1.75em;
+    letter-spacing: 0.2em;
+	text-transform: uppercase;
+    border-bottom: 0;
+    padding-bottom: 0;
 }
 
 #nav ul li {
@@ -72,26 +69,30 @@ header,
 #logo-small,
 .tint {
     display: block;
-    height: 80px;
-    width: 80px;
- 	margin: 10px auto;
+    width: 4em;
+    height: 4em;
+ 	margin: 0.5em auto;
  	float: left;
     position: absolute;
 }
 
 .header-icon {    
-    height: 20px;
-    margin-top: 5px; 
+    height: 1em;
+    margin-top: 0.25em; 
 }
 
 @media screen and (max-width: 720px) {
 	
 	header {
-		padding-left: 30px;
+		padding: 0.5em;
+		margin-bottom: 1em;
 	}
-
-	.header-icon {   
-		margin-top: 20px; 
+	
+	#logo-small,
+	.tint {
+		width: 3em;
+    	height: 3em;
+		margin: 0.5em;
 	}
 
 	#nav {
@@ -102,14 +103,14 @@ header,
 	}
 
 	#nav:before {
-    	content: '\2630';
-    	display: block;
     	position: absolute;
-    	right: 30px;
-    	top: -72px;
+    	display: block;
+    	right: 15px;
+    	top: -65px;
     	font-size: 30px;
     	color: #fff;
     	cursor: pointer;
+    	content: '\2630';
 	}
 
 	#nav ul {
@@ -117,7 +118,7 @@ header,
     	width: 100%;
    	 	height: 0;
     	text-align: center;
-    	margin: 10px auto;
+    	margin: 0 auto;
 		display: block;
     	overflow: hidden;
     	opacity: 0;
@@ -138,8 +139,21 @@ header,
     	-o-transform-origin: 100% 0%;
 	}
 
+	#nav.open ul {
+    	height: auto;
+    	opacity: 1;
+    	-ms-transform: translateY(0px);
+    	-o-transform: translateY(0px);
+    	-moz-transform: translateY(0px);
+    	-webkit-transform: translateY(0px);
+	}
+
 	#nav ul li {
     	float: none;
+	}
+	
+	.header-icon {
+		margin: 1em;
 	}
 
 	#nav ul li a {
@@ -147,7 +161,7 @@ header,
     	margin: 0;
     	color: #000;
     	z-index: 10;
-    	height: 60px;
+    	height: auto;
     	transition: 500ms ease;
     	-moz-transition: 500ms ease;
     	-webkit-transition: 500ms ease;
@@ -160,16 +174,6 @@ header,
     	color: #fff;
 		text-decoration: none !important;
     	opacity: 1;
-	}
-
-	#nav.open ul {
-    	height: auto;
-    	opacity: 1;
-    	transform: translateY(8px);
-    	-ms-transform: translateY(8px);
-    	-o-transform: translateY(8px);
-    	-moz-transform: translateY(8px);
-    	-webkit-transform: translateY(8px);
 	}
 
 	#nav ul li .selected {

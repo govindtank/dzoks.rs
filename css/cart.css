@@ -3,12 +3,11 @@ table {
 	margin: 0 auto;
 	border-collapse: separate;
 	border-spacing: 10px;
-	font-size: 25px;
 }
 
 td {
-    padding: 0 20px;
-    height: 100px;
+    padding: 0 1em;
+    height: 4em;
     text-align: center;
 }
 
@@ -17,6 +16,13 @@ td {
 }
 
 .cart-thumbnail {
-	width: 100px;
-	height: 100px;
+	width: 4em;
+	height: 4em;
+}
+
+@media screen and (max-width: 720px) {
+	
+	table {
+		width: 100%;	
+	}
 }

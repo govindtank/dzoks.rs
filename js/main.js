@@ -7,6 +7,14 @@ $(document).ready(function() {
     });
 });
 
+$(window).scroll(function(){ 
+	if($(window).scrollTop() >= $("header").height() / 2) {
+       	$("header").css("background-color", "rgba(0, 0, 0, 0.63)");
+	}else {
+       	$("header").css("background-color", "transparent");
+	}
+});
+
 function blink() {
     $(".tint").css("opacity", "0.33");
     

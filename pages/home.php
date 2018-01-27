@@ -9,8 +9,8 @@
      
 	 	<div class="main">
 			<div class="bgimg-1">
-  				<div class="caption caption-main">
-    				<span class="border"><?php echo $string['home']['caption1']; ?></span>
+  				<div class="caption">
+    				<span><?php echo $string['home']['caption1']; ?></span>
   				</div>
 			</div>
 
@@ -40,7 +40,7 @@
 
 			<div class="bgimg-1">
   				<div class="caption">
-					<span class="border"><?php echo $string['home']['caption4']; ?></span>
+					<span><?php echo $string['home']['caption4']; ?></span>
   				</div>
 			</div>	
 		</div>

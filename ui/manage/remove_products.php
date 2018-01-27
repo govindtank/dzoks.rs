@@ -21,7 +21,7 @@
 				echo '<p>' . $wh['name'] . '=' . $wh['quantity'] . '<br/></p>';
 			}
 			
-			echo '<td>';
+			echo '</td>';
 
 			echo '<td><a href="../actions/product_remove?id=' . $row['id'] . '">X</a></td>';
 			echo '</tr>';
