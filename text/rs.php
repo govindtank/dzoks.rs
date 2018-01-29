@@ -66,7 +66,6 @@
             , "email" => "Значи имејл"
             , "subject" => "Наслов"
             , "message" => "Порука"
-			, "mailto" => 'Формулар ће бити послат на <a href="mailto: office@soxbty.com">office@soxbty.com</a>'
             , "send" => "Пошаљи"
         ]
 		, "manage" => [

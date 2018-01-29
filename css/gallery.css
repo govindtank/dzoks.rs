@@ -1,8 +1,7 @@
 .item {
 	position: relative;
-	width: 25%;
-	height: 25%;
-	padding-bottom: 25%;
+	width: 25vw;
+	height: 25vw;
 	display: inline-block;
 	cursor: pointer;
 	text-align: center;
@@ -50,10 +49,21 @@
 }
 
 @media screen and (max-width: 720px) {	
-    
-	.item-image,
+
+	.item,
+	.item-image {
+		width: 100vw;
+		height: 100vw;
+	}
+
+	.hover {
+		visibility: hidden;		
+	}
+
 	.item-overlay {
-		width: 100%;
-        height: auto;
-    }
- }
+		background-position: right 4% bottom 4%;
+ 		background-size: 7%;
+		background-repeat: no-repeat;
+		opacity: 1;
+	}
+}

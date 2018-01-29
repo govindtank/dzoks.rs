@@ -1,6 +1,8 @@
 footer { 
 	width: 100%;
 	padding: 0.5em 1em;
+    height: 3.5em;
+	background-color: rgba(0, 0, 0, 0.63);
 }
 
 footer p {
@@ -22,16 +24,32 @@ footer p {
 
 @media screen and (max-width: 720px) {
 
-	footer {
-		padding: 0;	
-	}
-
 	footer p {
-		float: right;
-		margin: 0.5em;
+		float: none;
+		margin: 0 auto;
+		text-align: center;
 	}
 
 	.sponsors {
-		float: left;	
+		width: 100%;
+		text-align: center;
+	}
+
+	.sponsors img {
+		float: none;
+		display: inline-block;
+		height: 1em;
+		margin: 0.5em;
+	}
+
+	.sponsors a {
+		display: block;	
+		text-align: center;
+	}
+
+	.sponsors a img {
+		height: 1.5em;
+		margin: 0;
+		margin-bottom: 0.5em;
 	}
 }

@@ -29,9 +29,9 @@
   		for($key = 0; $key < $total_files; $key++) {
     		if(isset($_FILES['photos']['name'][$key]) && $_FILES['photos']['size'][$key] > 0) {
    				$tmp_name = $_FILES["photos"]["tmp_name"][$key];
-  				$name = basename($_FILES["photos"]["name"][$key]);
-   				move_uploaded_file($tmp_name, $path . '/' . $name);
-    		} 
+  				$name = $path . '/' . basename($_FILES["photos"]["name"][$key]);
+   				move_uploaded_file($tmp_name, $name);
+	   		} 
   		} 
 	}
 	

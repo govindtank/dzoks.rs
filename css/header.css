@@ -63,7 +63,7 @@ header,
 #nav ul li .selected {
 	padding-left: 10px;
 	padding-right: 7px;
-    border: 1px solid #fff;
+    border: 2px solid #fff;
 }
 
 #logo-small,
@@ -88,6 +88,34 @@ header,
 		margin-bottom: 1em;
 	}
 	
+	.status,
+	#nav ul {
+		opacity: 0;
+		-moz-transition: 500ms ease-in-out;
+    	-webkit-transition: 500ms ease-in-out;
+    	-ms-transition: 500ms ease-in-out;
+    	-o-transition: 500ms ease-in-out;
+    	transform: perspective(0) rotate3d(0, 0, 0, 0);
+    	-moz-transform: perspective(0) rotate3d(1, 0, 0, -90deg);
+    	-ms-transform: perspective(0) rotate3d(0, 0, 0, 0);
+    	-o-transform: perspective(0) rotate3d(0, 0, 0, 0);
+    	-webkit-transform: perspective(0) rotate3d(1, 0, 0, -90deg);
+    	transform-origin: 100% 0%;
+    	-moz-transform-origin: 100% 0%;
+    	-webkit-transform-origin: 100% 0%;
+    	-ms-transform-origin: 100% 0%;
+    	-o-transform-origin: 100% 0%;
+	}
+
+	.status.open,
+	#nav.open ul {
+    	opacity: 1;
+    	-ms-transform: translateY(0px);
+    	-o-transform: translateY(0px);
+    	-moz-transform: translateY(0px);
+    	-webkit-transform: translateY(0px);
+	}
+
 	#logo-small,
 	.tint {
 		width: 3em;
@@ -116,36 +144,16 @@ header,
 	#nav ul {
    	 	background-color: #fff;
     	width: 100%;
-   	 	height: 0;
+    	height: 0;
     	text-align: center;
     	margin: 0 auto;
 		display: block;
     	overflow: hidden;
-    	opacity: 0;
-    	transition: 500ms ease-in-out;
-    	-moz-transition: 500ms ease-in-out;
-    	-webkit-transition: 500ms ease-in-out;
-    	-ms-transition: 500ms ease-in-out;
-    	-o-transition: 500ms ease-in-out;
-    	transform: perspective(0) rotate3d(0, 0, 0, 0);
-    	-moz-transform: perspective(0) rotate3d(1, 0, 0, -90deg);
-    	-ms-transform: perspective(0) rotate3d(0, 0, 0, 0);
-    	-o-transform: perspective(0) rotate3d(0, 0, 0, 0);
-    	-webkit-transform: perspective(0) rotate3d(1, 0, 0, -90deg);
-    	transform-origin: 100% 0%;
-    	-moz-transform-origin: 100% 0%;
-    	-webkit-transform-origin: 100% 0%;
-    	-ms-transform-origin: 100% 0%;
-    	-o-transform-origin: 100% 0%;
 	}
 
 	#nav.open ul {
-    	height: auto;
-    	opacity: 1;
-    	-ms-transform: translateY(0px);
-    	-o-transform: translateY(0px);
-    	-moz-transform: translateY(0px);
-    	-webkit-transform: translateY(0px);
+		height: auto;
+		opacity: 1;
 	}
 
 	#nav ul li {
@@ -153,9 +161,10 @@ header,
 	}
 	
 	.header-icon {
+		filter: brightness(75%);
 		margin: 1em;
 	}
-
+	
 	#nav ul li a {
     	line-height: 60px;
     	margin: 0;

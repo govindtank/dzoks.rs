@@ -43,7 +43,16 @@
 
 		return $image;
 	}
-	
+
+	function convert($from, $to, $amount) {
+     	$url = 'http://finance.google.com/finance/converter?a=' . $amount . '&from=' . $from . '&to=' . $to;
+     	$data = file_get_contents($url);
+    
+	    preg_match_all("/<span class=bld>(.*)<\/span>/", $data, $converted);
+    
+		return preg_replace("/[^0-9.]/", "", $converted[1][0]);
+   	}
+
 	function checkQuantity($asked, $size, $id, $connect, $string) {	
 		$cmd = "SELECT quantity FROM warehouse WHERE product=" . $id . " AND size=" . $size;
 		
@@ -57,15 +66,19 @@
 	}
 
 	function get_price($price) {
-		$currency = 'USD';
+		$currency = 'RSD';
 
-		if(isset($_SESSION['lang']) && $_SESSION['lang'] == 'rs') {
-			// TODO call some API to exchange
-			$price *= 115;
-			$currency = 'RSD';
+		if(isset($_SESSION['lang']) && $_SESSION['lang'] == 'en') {
+			if(!isset($_SESSION['rsdeur'])) {
+				$_SESSION['rsdeur'] = convert($currency, 'EUR', 1);
+			}
+			
+			$price *= $_SESSION['rsdeur'];
+
+			$currency = 'EUR';
 		}
 
-		return $price . ' ' . $currency;
+		return round($price, 2) . ' ' . $currency;
 	}
 
 	function get_ip() {

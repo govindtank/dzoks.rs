@@ -31,10 +31,10 @@
     <body>
         <?php require("../ui/header.php"); ?>
         
-        <div class="main padded">
+        <div class="main">
+			<div class="padded">
             <?php 
 				if(mysqli_num_rows($result) == 1){	
-					echo '<div class="sp-loading"><img src="../img/loading.gif" /></div>';
 					echo '<div class="sp-wrap">';
 
 					foreach(get_all_product_images($row["id"]) as $image) {
@@ -79,6 +79,7 @@
 					echo '</div>';
                 }
             ?>
+        	</div>
         </div>
         
         <?php require("../ui/footer.php"); ?>

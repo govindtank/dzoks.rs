@@ -24,9 +24,9 @@
                     <li>
                         <?php
                             if(strcmp($lang, "en") == 0) {
-                                echo '<a href="../logic/set_lang.php?lang=rs&page=' . $page . '">RS</a>';
+                                echo '<a href="../logic/set_lang.php?lang=rs&page=' . $page . '"><img class="header-icon" src="../img/rs.png" /></a>';
                             }else if(strcmp($lang, "rs") == 0) {
-                                echo '<a href="../logic/set_lang.php?lang=en&page=' . $page . '">EN</a>';
+                                echo '<a href="../logic/set_lang.php?lang=en&page=' . $page . '"><img class="header-icon" src="../img/en.png" /></a>';
                             }
                         ?>
                     </li>
@@ -41,19 +41,19 @@
 </header>
 <?php
 	if(isset($_SESSION['error'])) {
-		echo '<div class="status status-error"><p>' . $_SESSION['error'] . '</p></div>';
+		echo '<div class="status open status-error"><p>' . $_SESSION['error'] . '</p></div>';
 		unset($_SESSION['error']);
 	}else if(isset($_SESSION['success'])) {
-		echo '<div class="status status-success"><p>' . $_SESSION['success'] . '</p></div>';
+		echo '<div class="status open status-success"><p>' . $_SESSION['success'] . '</p></div>';
 		unset($_SESSION['success']);
 	}else if(isset($_SESSION['order'])) {
-		echo '<div class="status status-order">';
+		echo '<div class="status open status-order">';
 		echo '<p>' . $_SESSION['order'] . '</p>';
 		echo '<img src="../img/ordered.gif" />';
 		echo '</div>';
 		unset($_SESSION['order']);
 	}else if(!isset($_SESSION['cookies_accepted'])) {
-		echo '<div class="status status-alert">';
+		echo '<div class="status open status-alert">';
 		echo '<p>' . $string['status']['cookiesAlert'] . '</p>';
 		echo '</div>';
 		$_SESSION['cookies_accepted'] = 'true';

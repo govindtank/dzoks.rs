@@ -2,13 +2,15 @@ $(document).ready(function() {
     blink();
     setLogo();
     
-    $('#nav').click(function() {
-        $(this).toggleClass('open');
+    $("#nav").click(function() {
+        $(this).toggleClass("open");
+	   	$(".status").toggleClass("open");
     });
 });
 
-$(window).scroll(function(){ 
-	if($(window).scrollTop() >= $("header").height() / 2) {
+$(document).scroll(function(){ 
+	console.log("asd");
+	if($(document).scrollTop() >= $("header").height() / 2) {
        	$("header").css("background-color", "rgba(0, 0, 0, 0.63)");
 	}else {
        	$("header").css("background-color", "transparent");

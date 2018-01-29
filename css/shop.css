@@ -61,11 +61,14 @@
 }
 
 @media screen and (max-width: 720px) {	
-    
-	.item-image,
-	.item-overlay,
-	.item-marker {
-        width: 100%;
-        height: auto;
-    }
- }
+
+	.item,
+	.item-image {
+		width: 50vw;
+		height: 50vw;
+	}
+
+	.item-overlay {
+		visibility: hidden;		
+	}
+}

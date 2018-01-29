@@ -66,7 +66,6 @@
             , "email" => "Email"
             , "subject" => "Subject"
             , "message" => "Message"
-			, "mailto" => 'Form will be sent to <a href="mailto: office@soxbty.com">office@soxbty.com</a>'
             , "send" => "Send"
         ] 
 		, "manage" => [

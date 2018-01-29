@@ -63,7 +63,7 @@
 					$price = $item->getPrice();
 
             	    echo '<tr>';
-					echo '<td><a href="product?id=' . $row['product'] . '"><img class="cart-thumbnail" src="' . get_product_image($id, 0) . '"/></a></td>';
+					echo '<td><a href="product?id=' . $row['product'] . '"><img class="thumbnail" src="' . get_product_image($id, 0) . '"/></a></td>';
                   	echo '<td><a href="product?id=' . $row['product'] . '">' . $name . '</a></td>';
 
                 	$total += $row['quantity'] * $price; 

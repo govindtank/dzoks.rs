@@ -12,7 +12,7 @@
     }
 
     if(!$lang_found) {
-        $lang = "en";
+        $lang = "rs";
         require("../text/" . $lang . ".php");   
     }
 ?>

@@ -2,6 +2,12 @@ form {
 	float: right;	
 }
 
+.padded {
+	position: absolute;
+	float: none;
+	margin: auto;
+}
+
 .options {
     width: 50%;
     height: auto;
@@ -18,18 +24,6 @@ form {
 	margin-bottom: 20px;
 }
 
-html, body {
-	height: 100%;
-	width: 100%;
-}
-
-.sp-loading {
-	text-align: center;
-	max-width: 270px;
-	padding: 15px;
-	color: #000;
-}
-
 .sp-wrap {
 	width: 50%;
 	height: auto;
@@ -42,9 +36,8 @@ html, body {
 }
 
 .sp-thumbs img {
-	min-height: 50px;
-	min-width: 50px;
-	max-width: 50px;
+	width: 50px;
+	width: 50px;
 }
 
 .sp-thumbs a:link,
@@ -52,7 +45,7 @@ html, body {
 	width: 50px;
 	height: 50px;
 	overflow: hidden;
-	opacity: .3;
+	opacity: 0.3;
 	display: inline-block;
 	background-size: cover;
 	background-position: center;
@@ -171,8 +164,13 @@ html, body {
 
 @media screen and (max-width: 720px) {
 
-	.sp-wrap {
-		margin: 0 0 15px 0;
+	.padded {
+		top: auto;
+	}
+
+	.sp-wrap,
+	.options {
+		width: 100%;
 	}
 
 	#sp-prev, #sp-next {
