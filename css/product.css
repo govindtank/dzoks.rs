@@ -2,12 +2,6 @@ form {
 	float: right;	
 }
 
-.padded {
-	position: absolute;
-	float: none;
-	margin: auto;
-}
-
 .options {
     width: 50%;
     height: auto;

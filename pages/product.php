@@ -31,8 +31,7 @@
     <body>
         <?php require("../ui/header.php"); ?>
         
-        <div class="main">
-			<div class="padded">
+        <div class="main padded">
             <?php 
 				if(mysqli_num_rows($result) == 1){	
 					echo '<div class="sp-wrap">';
@@ -79,7 +78,6 @@
 					echo '</div>';
                 }
             ?>
-        	</div>
         </div>
         
         <?php require("../ui/footer.php"); ?>

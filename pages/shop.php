@@ -7,7 +7,7 @@
     <body>
         <?php require("../ui/header.php"); ?>
 
-        <div class="main"></div>
+        <div class="main padded"></div>
 		
         <?php require("../ui/footer.php"); ?>
 		<script type="text/javascript" src="../js/shop.js"></script>

@@ -24,7 +24,8 @@
 			  "caption1" => "Колачић са укусом облака"
 			, "caption2" => "Порекло"
 			, "caption3" => "Паковање"
-			, "caption4" => "До јаја."
+			, "caption4" => "Дај паре."
+			, "caption5" => "Идеш мала!"
         	, "text1" => file_get_contents("../text/home/text1.rs")
         	, "text2" => file_get_contents("../text/home/text2.rs")
         	, "text3" => file_get_contents("../text/home/text3.rs")
@@ -58,7 +59,7 @@
             , "sizes" => ["s" => "мале", "l" => "ВЕЛИКЕ"]
         ]
 		, "info" => [
-              "text" => file_get_contents("../text/text-info.rs")
+              "text" => file_get_contents("../text/info/text.rs")
 		]
         , "contact" => [
               "header" => "Гет ин тач"
@@ -77,6 +78,7 @@
 				, "remove" => "Брисање производа"
 			]
     		, "collections" => "Колекшнс"
+			, "orders" => "Поруџбине"
 			, "name" => "Име"
 			, "price" => "Цена"
 			, "quantity" => "Количина"
@@ -109,6 +111,10 @@
 			, "new" => "НОВО БРАТЕ"
 			, "soldout" => "РАСПРОДАТО"
             , "validation" => "Колико је "
+            , "checkEmail" => "Послали смо ти емаил са линком ѕа птврду куповине"
+			, "clickLink" => "Кликни на следећи линк како би потврдио поруџбину."
+			, "orderNotShipped" => "Поруџбина није обележена као испоручена"
+			, "orderShipped" => "Поруџбина oбележена као испоручена"
 		]
 		, "error" => [
 			  "header" => "Шшш! Чињеница да ова страница постоји је тајна чувана вековима."

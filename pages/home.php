@@ -38,9 +38,12 @@
 				<p><?php echo $string['home']['text3']; ?></p>
 			</div>
 
-			<div class="bgimg-1">
-  				<div class="caption caption-main">
+			<div class="bgimg-4">
+  				<div class="caption">
 					<span><?php echo $string['home']['caption4']; ?></span>
+  				</div>
+  				<div class="caption scroll-up">
+					<span><?php echo $string['home']['caption5']; ?></span>
   				</div>
 			</div>	
 		</div>

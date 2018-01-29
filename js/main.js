@@ -9,12 +9,13 @@ $(document).ready(function() {
 });
 
 $(document).scroll(function(){ 
-	console.log("asd");
 	if($(document).scrollTop() >= $("header").height() / 2) {
-       	$("header").css("background-color", "rgba(0, 0, 0, 0.63)");
+	   	$("header").addClass("scrolling");
 	}else {
-       	$("header").css("background-color", "transparent");
+	   	$("header").removeClass("scrolling");
 	}
+
+	$(".scroll-up").css('transform', 'skew(0, -15deg) scale(1, 2) translateY(' + (-0.5 * $(document).scrollTop()) + 'px)');
 });
 
 function blink() {

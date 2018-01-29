@@ -33,21 +33,33 @@
 		exit();
 	}
 
-	$message = "Order from: " . $firstName . " " . $lastName . "\n";
-	$message .= "Details:\n";
-	$message .= "Email: " . $email . "\n";
-	$message .= "Phone: " . $phone . "\n";
-	$message .= "Address: " . $address . "\n";
-	$message .= "ZIP: " . $zip . "\n";
-	$message .= "City: " . $city . "\n";
-	$message .= "Country: " . $country;
+	$message = "Order details\n\n";
+	$message .= "Name: $firstName $lastName \n";
+	$message .= "Email: $email \n";
+	$message .= "Phone: $phone \n";
+	$message .= "Address: $address \n";
+	$message .= "ZIP: $zip \n";
+	$message .= "City: $city \n";
+	$message .= "Country: $country \n";
+	$message .= "Products\n\n";
+	
+	$hash = generate_random_string(32);
+	
+	$cmd = "INSERT INTO purchases (hash, first_name, last_name, email, phone, address, zip, city, country, confirmed, shipped, timestamp) VALUES('$hash', '$firstName', '$lastName', '$email', '$phone', '$address', '$zip', '$city', '$country', 0, 0, now())";
+	mysqli_query($connect, $cmd);
 
-	$cmd = "SELECT * FROM cart WHERE user='$ip'";
-	$result = mysqli_query($connect, $cmd);
+	$cmd = "SELECT id FROM purchases WHERE hash='$hash'";
+	$id = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
+
+	$cmd = "UPDATE cart SET purchase=$id WHERE user='$ip'";
+	mysqli_query($connect, $cmd);
+
+	$cmd = "SELECT * FROM cart WHERE purchase=" . $id;
+	$result = mysqli_query($connect, $cmd) or die(mysqli_error($connect));
 
 	while($row = mysqli_fetch_array($result)) {
 		$cmd = "SELECT quantity FROM warehouse WHERE product=" . $row['product'] . " AND size=" . $row['size'];
-		
+	
 		$qty = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
 
 		if($row['quantity'] > $qty) {
@@ -56,22 +68,25 @@
 			exit;
 		}
 
-		$qty -= $row['quantity'];
+		$cmd = "SELECT name, price FROM products WHERE id=" . $row['product'];
+		$product = mysqli_fetch_array(mysqli_query($connect, $cmd));
+		$name = $product['name'];
+		$price = get_price($product['price']);
+		
+		$cmd = "SELECT name FROM sizes WHERE id=" . $row['size'];
+		$size = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
 
-		$cmd = "UPDATE warehouse SET quantity=" . $qty . " WHERE product=" . $row['product'] .  " AND size=" . $row['size'];
-		mysqli_query($connect, $cmd);
+		$message .= $name . "\t" . $size . "\t" . $row['size'] . " " . $row['quantity'] . "x" . $price . "\n";
 	}
 		
-	$cmd = "DELETE FROM cart WHERE user='$ip'";
-	mysqli_query($connect, $cmd);
+	$sender = "office@soxbty.com";
+	$subject = "[SOXBTY] Confirmation";
+	$message .= $string['status']['clickLink'] . "\nhttp://soxbty.com/actions/confirm.php?key=" . $hash;
+	$headers = "From: " . $sender . "\r\n";
+	$headers .= "To: " . $email . "\r\n";
 
-	$receiver = "jelic.ecloga@gmail.com";
-	$subject = "[SOXBTY] Order";
-	$headers = "From: " . $email . "\r\n";
-	$headers .= "To: " . $receiver . "\r\n";
+	mail($email, $subject, $message, $headers);
 
-	mail($receiver, $subject, $message, $headers);
-
-	order($string['status']['orderPlaced']);
+	success($string['status']['checkEmail']);
 	header("location: ../pages/home.php");
 ?>

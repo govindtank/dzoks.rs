@@ -3,7 +3,7 @@
 
 	if(!params_ok(["id"], "GET")) {
 		error($string['status']['collectionNotRemoved']);
-		header("location: ../pages/manage.php");
+		header("location: ../pages/manage?type=0");
 		exit;
 	}
 
@@ -17,5 +17,5 @@
 	mysqli_multi_query($connect, $cmd);
 
 	success($string['status']['collectionRemoved']);
-	header("location: ../pages/manage.php");
+	header("location: ../pages/manage?type=0");
 ?>

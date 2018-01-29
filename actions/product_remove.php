@@ -3,7 +3,7 @@
 
 	if(!params_ok(["id"], "GET")) {
 		error($string['status']['productNotRemoved']);
-		header("location: ../pages/manage.php");
+		header("location: ../pages/manage.php?type=2");
 		exit;
 	}
 
@@ -13,5 +13,5 @@
 	mysqli_query($connect, $cmd);
 
 	success($string['status']['productRemoved']);
-	header("location: ../pages/manage.php");
+	header("location: ../pages/manage?type=2");
 ?>

@@ -8,7 +8,8 @@
 
 .bgimg-1,
 .bgimg-2,
-.bgimg-3 {
+.bgimg-3,
+.bgimg-4 {
 	position: relative;
   	background-attachment: fixed;
   	background-position: center;
@@ -31,13 +32,17 @@
   	min-height: 400px;
 }
 
+.bgimg-4 {
+  	background-image: url("../img/home1.jpg");
+  	min-height: 400px;
+}
+
 .caption {
   	position: absolute;
   	left: 0;
   	top: 40%;
   	width: 100%;
   	text-align: center;
-  	color: #000;
 }
 
 .caption span {
@@ -47,7 +52,8 @@
   	letter-spacing: 10px;
 }
 
-.caption-main {
+.caption-main,
+.scroll-up {
 	transform: skew(0, -15deg) scale(1, 2);
     -webkit-transform: skew(0, -15deg) scale(1, 2);
     -moz-transform: skew(0, -15deg) scale(1, 2);
@@ -55,14 +61,21 @@
     -ms-transform: skew(0, -15deg) scale(1, 2);
 }
 
-.caption-main span {
-	letter-spacing: -0.01em;
+.caption-main span,
+.scroll-up span {
+	letter-spacing: -0.03em;
     font-family: Impact;
 	font-size: 4em;
   	background: -webkit-linear-gradient(left, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af);
  	background: -o-linear-gradient(left, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af);
   	background: -moz-linear-gradient(left, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af);
   	background: linear-gradient(to right, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af); 
+}
+
+.scroll-up span {
+	background-clip: text;
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
 }
 
 @media screen and (max-width: 720px) {

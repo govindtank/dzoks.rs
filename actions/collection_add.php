@@ -3,7 +3,7 @@
 
 	if(!params_ok(["name"], "POST")) {	
 		error($string['status']['collectionNotAdded']);
-		header("location: ../pages/manage.php");
+		header("location: ../pages/manage?type=0");
 		exit;	
 	}
 
@@ -14,5 +14,5 @@
 	mysqli_query($connect, $cmd);
 
 	success($string['status']['collectionAdded']);
-	header("location: ../pages/manage.php");
+	header("location: ../pages/manage?type=0");
 ?>

@@ -24,7 +24,8 @@
 			  "caption1" => "These are like the best socks ever and ever"
 			, "caption2" => "Origin"
 			, "caption3" => "Packaging"
-			, "caption4" => "The end."
+			, "caption4" => "Give me the money!!"
+			, "caption5" => "Woaah!"
         	, "text1" => file_get_contents("../text/home/text1.en")
         	, "text2" => file_get_contents("../text/home/text2.en")
         	, "text3" => file_get_contents("../text/home/text3.en")
@@ -58,7 +59,7 @@
             , "sizes" => ["s" => "small", "l" => "LARGE"]
         ]
 		, "info" => [
-              "text" => file_get_contents("../text/text-info.en")
+              "text" => file_get_contents("../text/info/text.en")
 		]
         , "contact" => [
               "header" => "Drop us a line!"
@@ -77,6 +78,7 @@
 				, "remove" => "Remove products"
 			]
     		, "collections" => "Collections"
+    		, "orders" => "Orders"
 			, "name" => "Name"
 			, "price" => "Price"
 			, "quantity" => "Quantity"
@@ -109,6 +111,10 @@
 			, "new" => "NEW"
 			, "soldout" => "SOLD OUT"
             , "validation" => "What's "
+            , "checkEmail" => "Please confirm this purchase by clicking on the link in the email we've sent you"
+			, "clickLink" => "Please click on the following link to confirm this order."
+			, "orderNotShipped" => "Order not marked as shipped"
+			, "orderShipped" => "Order marked as shipped"
 		]
 		, "error" => [
 			  "header" => "Psst! Existence of this page has been kept as a secret for centuries."

@@ -12,7 +12,7 @@
                 <form action="../actions/checkout.php" method="POST">  
                     <?php
                         foreach($string["checkout"]["inputs"] as $key => $value) {
-                            echo '<input name="' . $key . '" type="text" size="30" placeholder="' . $value . '" required/>';
+                            echo '<input name="' . $key . '" type="text" size="50" placeholder="' . $value . '" required/>';
                         }
                     
                         $a = rand(1, 8);

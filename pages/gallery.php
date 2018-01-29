@@ -10,7 +10,7 @@
     <body>
         <?php require("../ui/header.php"); ?>
 
-        <div class="main">
+        <div class="main padded">
 				<?php
 					// TODO uncomment instagram and remove dummy images
 					/*$images = instagram_images();

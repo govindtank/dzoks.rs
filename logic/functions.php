@@ -3,6 +3,10 @@
 		return mysqli_real_escape_string($GLOBALS['connect'], htmlspecialchars(strip_tags(trim($var))));
     }
 
+	function hash_string($input) {
+		return hash("SHA512", $input, false);
+	}
+
 	function get_all_product_images($id) {
 		$path = '../img/products/' . $id;
 		$files = scandir($path);
