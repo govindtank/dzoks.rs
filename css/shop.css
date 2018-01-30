@@ -1,8 +1,8 @@
 .item {
 	position: relative;
-	width: 18.7vw;
-	height: 18.7vw;
-	margin: 0.5em;
+	width: 18vw;
+	height: 18vw;
+	margin: 0.7vw;
 	display: inline-block;
 	cursor: pointer;
 	text-align: center;
@@ -62,14 +62,14 @@
 @media screen and (max-width: 720px) {	
 
 	.padded {
-		padding: 0;
+		padding: 0;	
 	}
 
 	.item {
-		width: 46.1vw;
-		height: 46.1vw;
+		width: 46vw;
+		height: 46vw;
 	}
-
+	
 	.item-overlay {
 		visibility: hidden;		
 	}

@@ -51,7 +51,7 @@
 	$cmd = "SELECT id FROM purchases WHERE hash='$hash'";
 	$id = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
 
-	$cmd = "UPDATE cart SET purchase=$id WHERE user='$ip'";
+	$cmd = "UPDATE cart SET purchase=$id, checked=1 WHERE user='$ip'";
 	mysqli_query($connect, $cmd);
 
 	$cmd = "SELECT * FROM cart WHERE purchase=" . $id;

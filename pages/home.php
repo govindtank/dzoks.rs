@@ -8,7 +8,7 @@
         <?php require("../ui/header.php"); ?>
      
 	 	<div class="main">
-			<div class="bgimg-1">
+			<div class="bgimg bgimg-1">
   				<div class="caption caption-main">
     				<span><?php echo $string['home']['caption1']; ?></span>
   				</div>
@@ -18,7 +18,7 @@
 				<p><?php echo $string['home']['text1']; ?></p>
 			</div>
 
-			<div class="bgimg-2">
+			<div class="bgimg bgimg-2">
   				<div class="caption">
 					<span><?php echo $string['home']['caption2']; ?></span>
   				</div>
@@ -28,7 +28,7 @@
 				<p><?php echo $string['home']['text2']; ?></p>
 			</div>
 
-			<div class="bgimg-3">
+			<div class="bgimg bgimg-3">
   				<div class="caption">
 					<span><?php echo $string['home']['caption3']; ?></span>
   				</div>
@@ -38,7 +38,7 @@
 				<p><?php echo $string['home']['text3']; ?></p>
 			</div>
 
-			<div class="bgimg-4">
+			<div class="bgimg bgimg-4">
   				<div class="caption">
 					<span><?php echo $string['home']['caption4']; ?></span>
   				</div>

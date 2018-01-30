@@ -30,10 +30,10 @@
 		$cmd = "UPDATE warehouse SET quantity=" . $qty . " WHERE product=" . $row['product'] .  " AND size=" . $row['size'];
 		mysqli_query($connect, $cmd);
 	}
-		
+	
 	$cmd = "DELETE FROM cart WHERE purchase=" . $id;
 	mysqli_query($connect, $cmd);
-
+		
 	$cmd = "UPDATE purchases SET confirmed=1 WHERE id=" . $id;
 	mysqli_query($connect, $cmd);
 

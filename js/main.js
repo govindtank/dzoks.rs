@@ -1,3 +1,5 @@
+const media = window.matchMedia("(max-width: 720px)");
+
 $(document).ready(function() {    
     blink();
     setLogo();
@@ -9,13 +11,19 @@ $(document).ready(function() {
 });
 
 $(document).scroll(function(){ 
-	if($(document).scrollTop() >= $("header").height() / 2) {
-	   	$("header").addClass("scrolling");
-	}else {
-	   	$("header").removeClass("scrolling");
-	}
+	if($(document).scrollTop() >= 0) {
+		if($(document).scrollTop() >= $("header").height() / 2) {
+	   		$("header").addClass("scrolling");
+		}else {
+	   		$("header").removeClass("scrolling");
+		}
 
-	$(".scroll-up").css('transform', 'skew(0, -15deg) scale(1, 2) translateY(' + (-0.5 * $(document).scrollTop()) + 'px)');
+		if(!media.matches) {
+			$(".scroll-up").css('transform', 'skew(0, -15deg) scale(1, 2) translateY(' + (-0.5 * $(document).scrollTop()) + 'px)');
+		}else {
+			$(".scroll-up").css('visibility', 'hidden');
+		}
+	}
 });
 
 function blink() {

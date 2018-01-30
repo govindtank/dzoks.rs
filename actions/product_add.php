@@ -30,6 +30,7 @@
     		if(isset($_FILES['photos']['name'][$key]) && $_FILES['photos']['size'][$key] > 0) {
    				$tmp_name = $_FILES["photos"]["tmp_name"][$key];
   				$name = $path . '/' . basename($_FILES["photos"]["name"][$key]);
+				// TODO compress image for thumbnail
    				move_uploaded_file($tmp_name, $name);
 	   		} 
   		} 

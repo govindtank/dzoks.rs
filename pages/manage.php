@@ -32,17 +32,17 @@
 							require("../ui/manage/collections.php");
 							break;
 						case 1:
-							require("../ui/manage/add_products.php");
+							require("../ui/manage/products_add.php");
 							break;
 						case 2:
-							require("../ui/manage/remove_products.php");
+							require("../ui/manage/products_remove.php");
 							break;
 						case 3:
 							require("../ui/manage/orders.php");
 							break;
 					}
 				}else {
-					echo '<div class="center-both">';
+					echo '<div class="center">';
 					echo '<h1>' . $string["manage"]["header"] . '</h1>';
 					echo '<a class="button center" href="manage?type=0">' . $string["manage"]["collections"] . '</a>';
 					echo '<a class="button center" href="manage?type=1">' . $string["manage"]["products"]["add"] . '</a>';

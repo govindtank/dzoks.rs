@@ -77,12 +77,16 @@
 				$_SESSION['rsdeur'] = convert($currency, 'EUR', 1);
 			}
 			
-			$price *= $_SESSION['rsdeur'];
+			if($_SESSION['rsdeur'] == 0) {
+				$_SESSION['rsdeur'] = 120;
+			}
+
+			$price /= $_SESSION['rsdeur'];
 
 			$currency = 'EUR';
 		}
-
-		return round($price, 2) . ' ' . $currency;
+		
+		return $price = round($price, 2) . ' ' . $currency;
 	}
 
 	function get_ip() {
