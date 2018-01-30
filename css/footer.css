@@ -29,8 +29,12 @@ footer p {
 
 @media screen and (max-width: 720px) {
 
+	.main {
+		min-height: 100%;	
+	}
+
 	footer p {
-		float: none;
+		left: 34%;
 		margin: 0 auto;
 		text-align: center;
 	}
@@ -49,7 +53,6 @@ footer p {
 
 	.sponsors a {
 		display: block;	
-		text-align: center;
 	}
 
 	.sponsors a img {

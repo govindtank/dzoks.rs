@@ -27,6 +27,16 @@
 		return $images;
 	}
 
+	function get_thumbnail($id, $index) {
+		$path = '../img/products/' . $id . '/thumb' . $index .'.jpg';
+
+		if(file_exists($path)) {
+			return $path;
+		}
+	
+		return get_product_image($id, $index);
+	}
+
 	function get_product_image($id, $index) {
 		$path = '../img/products/' . $id;
 		$files = scandir($path);

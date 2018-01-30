@@ -66,8 +66,8 @@
 					}
 
                     echo '</select>';
-                        
-                    echo '<input class="number" name="qty" type="number" min="1" placeholder="' . $string["product"]["quantity"] . '" required/>';
+					
+					echo '<input class="number" name="qty" type="number" min="1" max="10" step="1" placeholder="' . $string["product"]["quantity"] . '" required/>';
                    	echo '<input name="id" type="hidden" value="' . $row['id'] . '">'; 
                     echo '<input class="button" type="submit" value="' . $string["product"]["buy"] . '"/>';
                     echo '</form></div>';

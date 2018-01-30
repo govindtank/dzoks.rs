@@ -23,7 +23,7 @@
 
 		while($row = mysqli_fetch_array($result)) {
 			echo '<label for="qty_' . $row['name'] . '">' . $row['name'] . '</label>';
-    		echo '<input name="qty_' . $row['name']. '" type="number" class="number" id="qty_' . $row['name'] . '" placeholder="' . $string['manage']['quantity'] . '" />';
+    		echo '<input name="qty_' . $row['name']. '" type="number" min="1" class="number" id="qty_' . $row['name'] . '" placeholder="' . $string['manage']['quantity'] . '" />';
 		}
 	?>
 

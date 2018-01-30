@@ -146,11 +146,11 @@ header {
     	position: absolute;
     	display: block;
     	right: 15px;
-    	top: -65px;
+    	top: -52px;
     	font-size: 30px;
     	color: #fff;
     	cursor: pointer;
-    	content: '\2630';
+		content: url("../img/nav.png");
 	}
 
 	#nav ul {

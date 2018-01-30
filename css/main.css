@@ -133,7 +133,18 @@ select {
     -webkit-transition: 500ms ease;
     -ms-transition: 500ms ease;
     -o-transition: 500ms ease;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    display: inline-block;
+    color: #fff;
+    opacity: 1;
 }
+
+input[type=file] {
+	padding-top: 0.5em;
+}
+
 
 input:active,
 textarea:active,
@@ -170,12 +181,20 @@ textarea:focus {
    opacity:  1;
 }
 
-:-ms-input-placeholder {}
+:-ms-input-placeholder {
    color: #fff;
 }
 
 ::-ms-input-placeholder { 
    color: #fff;
+}
+
+::selection {
+	background: rgba(255, 255, 255, 0.25);
+}
+
+::-moz-selection {
+	background: rgba(255, 255, 255, 0.25);
 }
 
 .button {
@@ -217,21 +236,6 @@ textarea:focus {
 	left: 0;
 	right: 0;
 	top: 35%;
-}
-
-input, 
-textarea,
-select {
-    -webkit-appearance: none;
-    -webkit-border-radius: 0;
-    border-radius: 0;
-    display: inline-block;
-    color: #fff;
-    opacity: 1;
-}
-
-input[type=file] {
-	padding-top: 0.5em;
 }
 
 @media screen and (max-width: 720px) {

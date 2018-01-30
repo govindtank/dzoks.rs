@@ -6,7 +6,7 @@
 
 		while($row = mysqli_fetch_array($result)) {
 			echo '<tr>';
-			echo '<td><a href="product?id=' . $row['id'] . '"><img class="thumbnail" src="' . get_product_image($row['id'], 0) . '"/></a></td>';
+			echo '<td><a href="product?id=' . $row['id'] . '"><img class="thumbnail" src="' . get_thumbnail($row['id'], 0) . '"/></a></td>';
             echo '<td><a href="product?id=' . $row['id'] . '">' . $row['name'] . '</a></td>';
 			echo '<td>' . $row['description'] . '</td>';
 			echo '<td>' . $row['price'] . '</td>';

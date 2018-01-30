@@ -15,8 +15,8 @@
     	echo '<div class="item">';
 		echo '<a href="product.php?id=' . $row['id'] . '">';
                     	
-		echo '<img class="item-image" src="' . get_product_image($row["id"], 0). '"/>';
-		echo '<img class="item-overlay" src="' . get_product_image($row["id"], 1). '"/>';
+		echo '<img class="item-image" src="' . get_thumbnail($row["id"], 0). '"/>';
+		echo '<img class="item-overlay" src="' . get_thumbnail($row["id"], 1). '"/>';
 		
 		$qty_total = 0;
 
