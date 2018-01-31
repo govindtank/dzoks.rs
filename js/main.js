@@ -21,9 +21,9 @@ $(document).scroll(function(){
 		}
 
 		if(!media.matches) {
-			$(".scroll-up").css('transform', 'skew(0, -15deg) scale(1, 2) translateY(' + (-0.5 * $(document).scrollTop()) + 'px)');
+			$(".scroll-up").stop().css('transform', 'skew(0, -15deg) scale(1, 2) translateY(' + (-0.5 * $(document).scrollTop()) + 'px)');
 		}else {
-			$(".scroll-up").css('visibility', 'hidden');
+			$(".scroll-up").stop().css('visibility', 'hidden');
 		}
 	}
 });

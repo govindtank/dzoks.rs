@@ -1,7 +1,7 @@
 <?php
 	require("../logic/config.php");
 
-	if(!params_ok(["name", "email", "subject", "message", "validationCheck", "validationInput"], "POST")) {	
+	if(!params_ok(["name", "email", "message", "validationCheck", "validationInput"], "POST")) {	
 		error($string['status']['messageNotSent']);
 		header("location: ../pages/contact.php");
 		exit;	
@@ -9,7 +9,6 @@
 
     $name = strip($_POST['name']);
     $email = strip($_POST['email']);
-	$subject = strip($_POST['subject']);
 	$message = strip($_POST['message']); 
 	$validationCheck = strip($_POST['validationCheck']); 
 	$validationInput = strip($_POST['validationInput']); 

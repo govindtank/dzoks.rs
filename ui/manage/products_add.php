@@ -22,8 +22,13 @@
 		$result = mysqli_query($connect, $cmd);
 
 		while($row = mysqli_fetch_array($result)) {
-			echo '<label for="qty_' . $row['name'] . '">' . $row['name'] . '</label>';
-    		echo '<input name="qty_' . $row['name']. '" type="number" min="1" class="number" id="qty_' . $row['name'] . '" placeholder="' . $string['manage']['quantity'] . '" />';
+			echo '<div class="input-wrapper">';
+			echo '<div class="input-group">';
+			echo '<a class="button" onclick="qtyDec()">-</a>';
+    		echo '<input class="number" name="qty_' . $row['name']. '" type="number" min="1" step="1" class="number" id="qty_' . $row['name'] . '" placeholder="' . $row['name'] . '" required />';
+			echo '<a class="button" onclick="qtyInc()">+</a>';
+			echo '</div>';			
+			echo '</div>';
 		}
 	?>
 

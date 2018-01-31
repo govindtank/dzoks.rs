@@ -22,9 +22,11 @@ header {
 }
 
 .status {
-	text-align: center;
-	top: 5em;
+	position: fixed;
+	top: auto;
+	bottom: 0;
 	height: auto;
+	text-align: center;
 }
 
 .status-error {

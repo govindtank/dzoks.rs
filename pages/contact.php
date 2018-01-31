@@ -11,7 +11,6 @@
                 <form action="../actions/contact.php" method="POST">  
                     <input name="name" type="text" size="30" placeholder="<?php echo $string['contact']['name']; ?>" autofocus required/>
                     <input name="email" type="text" size="30" placeholder="<?php echo $string['contact']['email']; ?>" required/>
-                    <input name="subject" type="text" size="30" placeholder="<?php echo $string['contact']['subject']; ?>" required/>
                     <textarea name="message" rows="10" cols="30" placeholder="<?php echo $string['contact']['message']; ?>" required></textarea>
 
                     <?php

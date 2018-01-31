@@ -27,7 +27,7 @@
 
 		checkQuantity($qty, $size, $id, $connect, $string);
 
-		$cmd = "UPDATE cart SET quantity='$qty' WHERE product='$id'";
+		$cmd = "UPDATE cart SET quantity='$qty' WHERE product='$id' AND size='$size' AND user='$ip'";
 	}else {
 		checkQuantity($qty, $size, $id, $connect, $string);
 

@@ -12,7 +12,7 @@
 	$result = mysqli_query($connect, $cmd);
 
 	while($row = mysqli_fetch_array($result)) {
-    	echo '<div class="item">';
+    	echo '<div class="item" data-sr>';
 		echo '<a href="product.php?id=' . $row['id'] . '">';
                     	
 		echo '<img class="item-image" src="' . get_thumbnail($row["id"], 0). '"/>';

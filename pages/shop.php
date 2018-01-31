@@ -1,7 +1,10 @@
 <?php require("../logic/config.php"); ?>
 <html>
     <head>
-        <?php require("../ui/head_content.php"); ?>
+        <?php
+			require("../ui/head_content.php");
+			require("../ui/scroll.php");
+		?>	
 		<link rel="stylesheet" href="../css/shop.css">
     </head>
     <body>
@@ -10,6 +13,6 @@
         <div class="main padded"></div>
 		
         <?php require("../ui/footer.php"); ?>
-		<script type="text/javascript" src="../js/shop.js"></script>
+		<script type="text/javascript" src="../js/scroll.js"></script>
     </body>
 </html>
