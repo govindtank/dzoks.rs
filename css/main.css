@@ -113,10 +113,12 @@ h1 {
 form {
 	margin: 0 auto;
 	width: 50%;
+	overflow: hidden;
 }
 
 input,
 textarea,
+label span,
 select {
     background-color: transparent;
     width: 100%;
@@ -141,10 +143,70 @@ select {
     opacity: 1;
 }
 
+input[type=radio] {
+	margin: 0;
+	display: none;
+}
+
+label {
+	margin: 0;
+	position: relative;
+}
+
+label span {
+	margin: 0;
+	padding: 0.5em;
+	padding-top: 0.3em;
+}
+
+input + span:hover {
+	background: rgba(255, 255, 255, 0.25);
+}
+
+input:checked + span {
+	background: #fff;
+	color: #000;
+}
+
 input[type=file] {
 	padding-top: 0.5em;
 }
 
+.input-wrapper {
+	overflow: hidden;
+	display: block;
+	height: auto;
+	width: 100%;
+	text-align: right;
+}
+
+.input-group {
+	margin-bottom: 1em;
+	float: right;
+}
+
+.radio-input {
+	float: left;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  	-webkit-appearance: none; 
+  	margin: 0; 
+}
+
+input[type=number],
+.input-group .button {
+	display: inline-block;
+	float: left;
+	text-align: center;
+	max-width: 2.5em;
+	margin: 0;
+}
+
+input[type=number] {
+	text-align: left;
+}
 
 input:active,
 textarea:active,

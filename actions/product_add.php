@@ -18,7 +18,7 @@
 
 	$cmd = "SELECT id FROM products ORDER BY id DESC LIMIT 1";
 
-	$id = mysqli_fetch_assoc(mysqli_query($connect, $cmd))['id'];
+	$id = mysqli_fetch_array(mysqli_query($connect, $cmd))['id'];
 	
 	$path = '../img/products/' . $id;
 

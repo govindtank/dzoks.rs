@@ -10,23 +10,6 @@
         <div class="main">       
             <table>
             <?php 
-				class CartItem {
-					private $name, $price;
-
-					function __construct($name, $price) {
-						$this->name = $name;
-						$this->price = $price;
-					} 	
-
-					public function getName() {
-						return $this->name;	
-					}
-					
-					public function getPrice() {
-						return $this->price;	
-					}
-				}
-				
 				$sizes = [];
 
 				$cmd = "SELECT * FROM sizes";
@@ -37,15 +20,6 @@
 				}
 
                 $total = 0;
-
-				$items = [];
-
-				$cmd = "SELECT id, name, price FROM products";
-				$result = mysqli_query($connect, $cmd);
-
-				while($row = mysqli_fetch_assoc($result)) {
-					$items[$row['id']] = new CartItem($row['name'], $row['price']);
-				}
 				
 				$cmd = "SELECT * FROM cart WHERE user='$ip'";
 				$result = mysqli_query($connect, $cmd);
@@ -53,26 +27,22 @@
 				while($row = mysqli_fetch_array($result)) {
 					$id = $row['product'];
 
-					$item = $items[$id];
-
-					if(is_null($item)) {
-						continue;
-					}
-
-					$name = $item->getName();
-					$price = $item->getPrice();
+					$cmd = "SELECT name, price FROM products WHERE id=" . $id;
+					$product = mysqli_fetch_array(mysqli_query($connect, $cmd));
+					$name = $product['name'];
+					$price = $product['price'];
 
             	    echo '<tr>';
-					echo '<td><a href="product?id=' . $row['product'] . '"><img class="thumbnail" src="' . get_thumbnail($id, 0) . '"/></a></td>';
-                  	echo '<td><a href="product?id=' . $row['product'] . '">' . $name . '</a></td>';
+					echo '<td><a href="product?id=' . $id . '"><img class="thumbnail" src="' . get_thumbnail($id, 0) . '"/></a></td>';
+                  	echo '<td><a href="product?id=' . $id . '">' . $name . '</a></td>';
 
-                	$total += $row['quantity'] * $price; 
+                	$total += $row['quantity'] * $price;
                 
 					$url = '../actions/cart_remove?id=' . $row['id']; 
 
                     echo '<td>' . $string["product"]["sizes"][$sizes[$row["size"]]] . '</td>';
 					echo '<td>' . get_price($price) . ' x ' . $row['quantity'] . '</td>';
-					echo '<td><a href="'. $url . '">X</a></td>';
+					echo '<td><a class="button" href="'. $url . '">X</a></td>';
 					echo '</tr>';
                 }
             

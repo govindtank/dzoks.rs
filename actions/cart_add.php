@@ -21,7 +21,7 @@
 	$result = mysqli_query($connect, $cmd);
 
 	if(mysqli_num_rows($result) > 0) {
-		while($row = mysqli_fetch_assoc($result)) {
+		while($row = mysqli_fetch_array($result)) {
 			$qty += $row['quantity'];
 		}
 

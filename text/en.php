@@ -56,7 +56,7 @@
             , "buy" => "Buy it"
             , "size" => "How big?"
             , "quantity" => "How many?"
-            , "sizes" => ["s" => "small", "l" => "LARGE"]
+            , "sizes" => ["s" => "small (38-42)", "l" => "LARGE (42-46)"]
         ]
 		, "info" => [
               "text" => file_get_contents("../text/info/text.en")

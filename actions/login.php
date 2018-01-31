@@ -16,7 +16,7 @@
 
     $result = mysqli_query($connect, $cmd);
 
-	while($row = mysqli_fetch_assoc($result)) {
+	while($row = mysqli_fetch_array($result)) {
 		$cmd = "INSERT INTO logins (user, timestamp) VALUES('" . $row['id'] . "', now())";
 		mysqli_query($connect, $cmd) or die(mysqli_error($connect));
 

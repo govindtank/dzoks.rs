@@ -14,8 +14,10 @@ $(document).scroll(function(){
 	if($(document).scrollTop() >= 0) {
 		if($(document).scrollTop() >= $("header").height() / 2) {
 	   		$("header").addClass("scrolling");
+	   		$(".status").fadeOut();
 		}else {
 	   		$("header").removeClass("scrolling");
+	   		$(".status").fadeIn();
 		}
 
 		if(!media.matches) {
@@ -59,10 +61,36 @@ function setLogo() {
     }
 }
 
+function qtyDec() {
+	var n = $("#qty").val();
+	var min = $("#qty").attr("min");
+	var step = $("#qty").attr("step");
+	
+	var num = n - step;
+
+	$("#qty").val((num >= min) ? num : min);
+}
+
+function qtyInc() {
+	var n = $("#qty").val();
+	var max = $("#qty").attr("max");
+	var step = $("#qty").attr("step");
+
+	var num = +n + +step;
+
+	$("#qty").val((num <= max) ? num : max);
+}
+
+$(".block-input").keypress(function(event) {
+	return false;
+});
+
 $(".number").keypress(function(event) {
-     if(event.charCode < 48 || event.charCode > 57) {
+    if(event.charCode < 48 || event.charCode > 57) {
         return false;
     }
+	
+	console.log(event.charCode);
 
     var num = $(this).attr("value");
     num += String.fromCharCode(event.charCode);

@@ -55,19 +55,32 @@
 					echo '<p>' . $row['description'] . '</p>';
                     echo '<p class="price"> ' . get_price($row['price']) . '</p>';
                         
-                    echo '<select name="size" required>';
-                    echo '<option selected disabled value="">' . $string["product"]["size"] . '</option>';
-
 					$cmd = "SELECT * FROM sizes";
 					$result = mysqli_query($connect, $cmd);
 
-					while($size = mysqli_fetch_array($result)) {
-               		    echo '<option value="' . $size['id'] . '">' . $string["product"]["sizes"][$size['name']] . '</option>';   
-					}
-
-                    echo '</select>';
+					echo '<div class="input-wrapper">';
+					echo '<div class="input-group">';
 					
-					echo '<input class="number" name="qty" type="number" min="1" max="10" step="1" placeholder="' . $string["product"]["quantity"] . '" required/>';
+					while($size = mysqli_fetch_array($result)) {
+						echo '<div class="radio-input">';
+						echo '<label for="' . $size["id"] . '">';
+               		    echo '<input type="radio" name="size" id="' . $size["id"] . '" value="' . $size["id"] . '"/>';   
+						echo '<span>' . $string["product"]["sizes"][$size["name"]] . '</span>';
+						echo '</label>';
+						echo '</div>';
+					}
+					
+					echo '</div>';
+					echo '</div>';
+
+					echo '<div class="input-wrapper">';
+					echo '<div class="input-group">';
+					echo '<a class="button" onclick="qtyDec()">-</a>';
+					echo '<input class="block-input" id="qty" name="qty" type="number" min="1" max="10" step="1" value="1" required/>';
+					echo '<a class="button" onclick="qtyInc()">+</a>';
+					echo '</div>';			
+					echo '</div>';			
+	
                    	echo '<input name="id" type="hidden" value="' . $row['id'] . '">'; 
                     echo '<input class="button" type="submit" value="' . $string["product"]["buy"] . '"/>';
                     echo '</form></div>';
