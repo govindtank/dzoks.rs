@@ -12,6 +12,8 @@
 	$cmd = "DELETE FROM products WHERE id=$id";
 	mysqli_query($connect, $cmd);
 
+	rm_dir("../products/" . $id);
+
 	success($string['status']['productRemoved']);
 	header("location: ../pages/manage?type=2");
 ?>

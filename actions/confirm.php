@@ -1,12 +1,12 @@
 <?php
 	require("../logic/config.php");
 
-	if(!isset($_GET['key'])) {
+	if(!isset($_GET['h'])) {
 		header("Location: ../error.php");
 		exit;	
 	}
 
-	$hash = strip($_GET['key']);
+	$hash = strip($_GET['h']);
 
 	$cmd = "SELECT id FROM purchases WHERE hash='$hash'";
 	$id = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
@@ -34,7 +34,7 @@
 	$cmd = "DELETE FROM cart WHERE purchase=" . $id;
 	mysqli_query($connect, $cmd);
 		
-	$cmd = "UPDATE purchases SET confirmed=1 WHERE id=" . $id;
+	$cmd = "UPDATE purchases SET confirmed=1 WHERE hash='$hash'";
 	mysqli_query($connect, $cmd);
 
 	order($string['status']['orderPlaced']);

@@ -51,7 +51,7 @@
 	$cmd = "SELECT id FROM purchases WHERE hash='$hash'";
 	$id = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
 
-	$cmd = "UPDATE cart SET purchase=$id, checked=1 WHERE user='$ip'";
+	$cmd = "UPDATE cart SET purchase=$id, checked=1 WHERE user='$ip' AND checked=0";
 	mysqli_query($connect, $cmd);
 
 	$cmd = "SELECT * FROM cart WHERE purchase=" . $id;
@@ -81,7 +81,7 @@
 		
 	$sender = "office@soxbty.com";
 	$subject = "[SOXBTY] Confirmation";
-	$message .= $string['status']['clickLink'] . "\nhttp://soxbty.com/actions/confirm.php?key=" . $hash;
+	$message .= $string['status']['clickLink'] . "\nhttp://soxbty.com/actions/confirm?h=" . $hash;
 	$headers = "From: " . $sender . "\r\n";
 	$headers .= "To: " . $email . "\r\n";
 

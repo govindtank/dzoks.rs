@@ -7,8 +7,31 @@
 		return hash("SHA512", $input, false);
 	}
 
+	function rm_dir($dirname) {
+        if (is_dir($dirname)) {
+			$dir_handle = opendir($dirname);
+		}
+
+	 	if(!$dir_handle) {
+	    	return;
+		}
+
+		while($file = readdir($dir_handle)) {
+	    	if($file != "." && $file != "..") {
+	        	if(!is_dir($dirname . "/" . $file)) {
+	                unlink($dirname . "/" . $file);
+	            }else {
+	            	delete_directory($dirname . '/' . $file);
+				}
+	       	}
+	 	}
+
+	 	closedir($dir_handle);
+	 	rmdir($dirname);
+	}
+
 	function get_all_product_images($id) {
-		$path = '../img/products/' . $id;
+		$path = '../products/' . $id;
 		$files = scandir($path);
 		$images = [];	
 		$i = 0;
@@ -28,7 +51,7 @@
 	}
 
 	function get_thumbnail($id, $index) {
-		$path = '../img/products/' . $id . '/thumb' . $index .'.jpg';
+		$path = '../products/' . $id . '/thumb' . $index .'.jpg';
 
 		if(file_exists($path)) {
 			return $path;
@@ -38,7 +61,7 @@
 	}
 
 	function get_product_image($id, $index) {
-		$path = '../img/products/' . $id;
+		$path = '../products/' . $id;
 		$files = scandir($path);
 		$image = '../img/no_photo.jpg';
 		$i = 0;

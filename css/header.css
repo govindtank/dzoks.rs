@@ -61,22 +61,23 @@ header {
 }
 
 #nav ul li a {
-    display: block;
-    margin: 1.75em;
-    letter-spacing: 0.2em;
+    display: inline-block;
+	letter-spacing: 0.2em;
 	text-transform: uppercase;
     border-bottom: 0;
     padding-bottom: 0;
 }
 
 #nav ul li {
+    margin: 1.75em;
     float: left;
     list-style: none;
 }
 
 #nav ul li .selected {
-	padding-left: 10px;
-	padding-right: 7px;
+    margin-top: -0.1em;
+	padding-left: 0.5em;
+	padding-right: 0.25em;
     border: 2px solid #fff;
 }
 

@@ -72,6 +72,7 @@
 		, "manage" => [
               "save" => "Save"
             , "add" => "Add"
+            , "back" => "Back"
             , "header" => "Manage"
     		, "products" => [
 				  "add" => "Add products"

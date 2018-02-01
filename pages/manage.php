@@ -41,6 +41,8 @@
 							require("../ui/manage/orders.php");
 							break;
 					}
+					
+					echo '<a class="button center" href="../pages/manage">' . $string['manage']['back'] . '</a>';
 				}else {
 					echo '<div class="center">';
 					echo '<h1>' . $string["manage"]["header"] . '</h1>';
