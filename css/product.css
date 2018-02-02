@@ -162,6 +162,10 @@ form {
 		top: auto;
 	}
 
+	.options {
+		margin-top: 1em;	
+	}
+
 	.sp-wrap,
 	.options {
 		width: 100%;

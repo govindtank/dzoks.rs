@@ -31,7 +31,7 @@
                         ?>
                     </li>
                     <li>
-                        <a href="https://www.instagram.com/soxbty">
+                        <a href="https://www.instagram.com/soxbty/">
                             <img class="header-icon" src="../img/instagram.png">
                         </a>
                     </li>

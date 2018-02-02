@@ -20,10 +20,12 @@
         
 			$cmd = "SELECT * FROM products WHERE id='$id'";
 			$result = mysqli_query($connect, $cmd);
+			$row = mysqli_fetch_array($result);
 
-			while($row = mysqli_fetch_array($result)) {
-            	echo '<title>' . $row['name'] . '</title>';
-				break;
+			if(mysqli_num_rows($result)) {
+				echo '<title>' . $row['name'] . '</title>';
+			}else {
+				require("../ui/title.php");
 			}
         ?>
 		<link rel="stylesheet" href="../css/product.css">
@@ -51,8 +53,13 @@
 					$collection = mysqli_fetch_array($result)[0];
 
                     echo '<p>' . $collection . '</p>';
-                    
-					echo '<p>' . $row['description'] . '</p>';
+                	
+					$desc = get_description($id);
+
+					if(!is_null($desc)) {
+						echo '<p>' . $desc . '</p>';
+					}
+
                     echo '<p class="price"> ' . get_price($row['price']) . '</p>';
                         
 					$cmd = "SELECT * FROM sizes";

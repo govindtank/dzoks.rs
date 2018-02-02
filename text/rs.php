@@ -84,7 +84,10 @@
 			, "price" => "Цена"
 			, "quantity" => "Количина"
 			, "collection" => "Колекшн"
-			, "description" => "Опис"
+			, "description" => [
+				  "rs" => "Опис (Српски)"
+				, "en" => "Опис (Енглески)"
+			]
         ]
 		, "status" => [
 			"productNotAddedToCart" => "Производ није убачен у корпу"

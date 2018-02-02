@@ -32,7 +32,8 @@
 		}
 	?>
 
-    <textarea name="description" rows="10" cols="30" placeholder="<?php echo $string['manage']['description']; ?>" required></textarea>
+    <textarea name="description-rs" rows="10" cols="30" placeholder="<?php echo $string['manage']['description']['rs']; ?>" required></textarea>
+    <textarea name="description-en" rows="10" cols="30" placeholder="<?php echo $string['manage']['description']['en']; ?>" required></textarea>
 	<input name="photos[]" type="file" multiple required/>
 	<input class="button" type="submit" value="<?php echo $string['manage']['add']; ?>"/>
 </form>

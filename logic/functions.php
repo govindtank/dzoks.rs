@@ -30,6 +30,24 @@
 	 	rmdir($dirname);
 	}
 
+	function get_description($id) {
+		$path = "../products/" . $id . "/desc-";
+
+		if(isset($_SESSION['lang']) && $_SESSION['lang'] == 'en') {
+			$path .= "en"; 
+		}else {
+			$path .= "rs";
+		}
+
+		$path .= ".txt";
+
+		if(file_exists($path)) {
+			return file_get_contents($path);
+		}else {
+			return NULL;	
+		}
+	}
+
 	function get_all_product_images($id) {
 		$path = '../products/' . $id;
 		$files = scandir($path);
@@ -37,7 +55,7 @@
 		$i = 0;
 
 		foreach($files as $file) {
-        	if($file[0] != '.') {
+        	if($file[0] != '.' && strpos($file, ".txt") === false && strpos($file, "thumb") === false) {
 				$images[] = $path . '/' . $file;
 				$i++;
 			}
@@ -67,7 +85,7 @@
 		$i = 0;
 
 		foreach($files as $file) {
-        	if($file[0] != '.') {
+        	if($file[0] != '.' && strpos($file, ".txt") === false && strpos($file, "thumb") === false) {
 				if($i++ == $index) {
 					return $path . '/' . $file;
 				}

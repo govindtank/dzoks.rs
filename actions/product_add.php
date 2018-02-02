@@ -1,18 +1,19 @@
 <?php
  	require("../logic/config.php");
 
-	if(!params_ok(["name", "price", "collection", "description"], "POST")) {	
+	if(!params_ok(["name", "price", "collection", "description-rs", "description-en"], "POST")) {	
 		error($string['status']['productNotAdded']);
 		header("location: ../pages/manage.php");
-		exit;	
+		exit;
 	}
 
 	$name = strip($_POST['name']);
 	$price = strip($_POST['price']);
 	$col = strip($_POST['collection']);
-	$desc = strip($_POST['description']);
+	$desc_rs = strip($_POST['description-rs']);
+	$desc_en = strip($_POST['description-en']);
 
-	$cmd = "INSERT INTO products (name, price, collection, description) VALUES('$name', '$price', '$col', '$desc')";
+	$cmd = "INSERT INTO products (name, price, collection) VALUES('$name', '$price', '$col')";
 	
 	mysqli_query($connect, $cmd);
 
@@ -20,13 +21,16 @@
 
 	$id = mysqli_fetch_array(mysqli_query($connect, $cmd))['id'];
 	
-	$path = '../img/products/' . $id;
+	$path = '../products/' . $id;
 
 	if(!file_exists($path)) {
 		mkdir($path);
 	}
 
-	if( isset($_FILES['photos']['name'])) {
+	file_put_contents($path . "/desc-rs.txt", $desc_rs);
+	file_put_contents($path . "/desc-en.txt", $desc_en);
+
+	if(isset($_FILES['photos']['name'])) {
   		$total_files = count($_FILES['photos']['name']);
   
   		for($key = 0; $key < $total_files; $key++) {

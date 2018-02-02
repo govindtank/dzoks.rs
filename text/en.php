@@ -84,7 +84,10 @@
 			, "price" => "Price"
 			, "quantity" => "Quantity"
 			, "collection" => "Collection"
-			, "description" => "Description"
+			, "description" => [
+				  "rs" => "Description (Serbian)"
+				, "en" => "Description (English)"
+			]
         ]
 		, "status" => [
 			  "productNotAddedToCart" => "Product has not been added to cart"
