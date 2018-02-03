@@ -54,7 +54,7 @@
 
                     echo '<p>' . $collection . '</p>';
                 	
-					$desc = get_description($id);
+					$desc = get_description($id, NULL);
 
 					if(!is_null($desc)) {
 						echo '<p>' . $desc . '</p>';

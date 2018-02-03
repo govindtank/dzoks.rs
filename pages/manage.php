@@ -32,12 +32,9 @@
 							require("../ui/manage/collections.php");
 							break;
 						case 1:
-							require("../ui/manage/products_add.php");
+							require("../ui/manage/products.php");
 							break;
 						case 2:
-							require("../ui/manage/products_remove.php");
-							break;
-						case 3:
 							require("../ui/manage/orders.php");
 							break;
 					}
@@ -47,9 +44,8 @@
 					echo '<div class="center">';
 					echo '<h1>' . $string["manage"]["header"] . '</h1>';
 					echo '<a class="button center" href="manage?type=0">' . $string["manage"]["collections"] . '</a>';
-					echo '<a class="button center" href="manage?type=1">' . $string["manage"]["products"]["add"] . '</a>';
-					echo '<a class="button center" href="manage?type=2">' . $string["manage"]["products"]["remove"] . '</a>';
-					echo '<a class="button center" href="manage?type=3">' . $string["manage"]["orders"] . '</a>';
+					echo '<a class="button center" href="manage?type=1">' . $string["manage"]["products"] . '</a>';
+					echo '<a class="button center" href="manage?type=2">' . $string["manage"]["orders"] . '</a>';
 					echo '</div>';
 				}
 			?>

@@ -9,6 +9,10 @@ form {
     text-align: right;
 }
 
+.options p {
+	margin-top: 0.5em;	
+}
+
 .name {
     font-size: 30px;
 }
@@ -64,6 +68,7 @@ form {
 	overflow: hidden;
 	top: 0;
 	left: 0;
+    max-height: 50vw !important;
 }
 
 .sp-large a img {

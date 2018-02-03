@@ -99,5 +99,5 @@
 	}
 
 	success($string['status']['productAdded']);
-	header("location: ../pages/manage.php");
+	header("Location: ../pages/manage?type=1");
 ?>

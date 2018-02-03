@@ -74,10 +74,7 @@
             , "add" => "Add"
             , "back" => "Back"
             , "header" => "Manage"
-    		, "products" => [
-				  "add" => "Add products"
-				, "remove" => "Remove products"
-			]
+    		, "products" => "Products"
     		, "collections" => "Collections"
     		, "orders" => "Orders"
 			, "name" => "Name"
@@ -117,8 +114,9 @@
             , "validation" => "What's "
             , "checkEmail" => "Please confirm this purchase by clicking on the link in the email we've sent you"
 			, "clickLink" => "Please click on the following link to confirm this order."
-			, "orderNotShipped" => "Order not marked as shipped"
+			, "orderNotMarked" => "Order not marked"
 			, "orderShipped" => "Order marked as shipped"
+			, "orderReturned" => "Order marked as returned"
 		]
 		, "error" => [
 			  "header" => "Psst! Existence of this page has been kept as a secret for centuries."

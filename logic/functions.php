@@ -30,13 +30,17 @@
 	 	rmdir($dirname);
 	}
 
-	function get_description($id) {
+	function get_description($id, $lang) {
 		$path = "../products/" . $id . "/desc-";
 
-		if(isset($_SESSION['lang']) && $_SESSION['lang'] == 'en') {
-			$path .= "en"; 
+		if(is_null($lang)) {	
+			if(isset($_SESSION['lang']) && $_SESSION['lang'] == 'en') {
+				$path .= "en"; 
+			}else {
+				$path .= "rs";
+			}
 		}else {
-			$path .= "rs";
+			$path .= $lang;
 		}
 
 		$path .= ".txt";

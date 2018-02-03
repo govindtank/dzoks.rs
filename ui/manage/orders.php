@@ -5,7 +5,14 @@
 		$result = mysqli_query($connect, $cmd);
 
 		while($row = mysqli_fetch_array($result)) {	
-			echo '<tr>';
+			if($row['confirmed'] == 1 && $row['shipped'] == 1)  {
+				echo '<tr class="red">';
+			}else if($row['confirmed'] == 1 && $row['shipped'] == 0)  {
+				echo '<tr class="green">';
+			}else {
+				echo '<tr>';
+			}
+
 			echo '<td>' . $row['first_name'] . ' ' . $row['last_name'] . '</td>';
 			echo '<td>' . $row['email'] . '</td>';
 			echo '<td>' . $row['phone'] . '</td>';
@@ -15,8 +22,10 @@
 			echo '<td>' . $row['country'] . '</td>';
 			echo '<td>' . $row['timestamp'] . '</td>';
 
-			if($row['confirmed'] == 1 && $row['shipped'] == 0)  {
-				echo '<td><a href="../actions/order_ship?id=' . $row['id'] .'">X</a></td>';
+			if($row['confirmed'] == 1 && $row['shipped'] == 1)  {
+				echo '<td><a href="../actions/order_ship?shipped=0&id=' . $row['id'] .'">X</a></td>';
+			}else if($row['confirmed'] == 1 && $row['shipped'] == 0)  {
+				echo '<td><a href="../actions/order_ship?shipped=1&id=' . $row['id'] .'">X</a></td>';
 			}
 			
 			echo '</tr>';

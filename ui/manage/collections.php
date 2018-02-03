@@ -1,5 +1,11 @@
 <h1><?php echo $string["manage"]["collections"]; ?></h1>
 <table>	
+	<tr>
+		<form action="../actions/collection_add.php" method="POST">
+    		<td class="no-border"><input name="name" type="text" size="30" placeholder="<?php echo $string['manage']['name']; ?>" required/></td>
+        	<td class="no-border"><input class="button" type="submit" value="<?php echo $string['manage']['add']; ?>"/></td>
+		</form>
+	<tr>
 	<?php
 		$cmd = "SELECT * FROM collections";
 		$result = mysqli_query($connect, $cmd);
@@ -11,10 +17,4 @@
 			echo '</tr>';
 		}
 	?>			
-	<tr>
-		<form action="../actions/collection_add.php" method="POST">
-    	     <td class="no-border"><input name="name" type="text" size="30" placeholder="<?php echo $string['manage']['name']; ?>" required/></td>
-         	<td class="no-border"><input class="button" type="submit" value="<?php echo $string['manage']['add']; ?>"/></td>
-		</form>
-	<tr>
 </table>
