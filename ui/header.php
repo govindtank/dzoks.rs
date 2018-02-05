@@ -1,6 +1,6 @@
 <header>
     <div id="wrap">
-        <a href="home.php" class="shake shake-basic shake-constant shake-constant--hover">
+        <a href="home.php" class="shake shake-basic shake-constant">
 			<img id="logo-small" src="../img/logo.png"/>
 			<div class="tint"></div>
 		</a>
@@ -10,13 +10,13 @@
                     $items = ["home", "gallery", "shop", "cart", "info", "contact"];
                     
                     foreach($items as $item) {
-                        echo '<li><a ';
+                        echo '<li><a class="shake shake-basic shake-hover';
                         
                         if(strcmp($item, $page) == 0) {
-                            echo 'class="selected" ';
+                        	echo ' selected';
                         }
                         
-                        echo 'href="' . $item .'">';
+                        echo '" href="' . $item .'">';
                         echo $string["header"][$item];
                         echo '</a></li>'; 
                     } 
