@@ -24,8 +24,8 @@
 					
 	for($i = 0; $i < 5; $i++) {
 		echo '<div class="item" data-sr>';
-		echo '<a href="../img/home1.jpg">';
-		echo '<img class="item-image" src="../img/home1.jpg" />';
+		echo '<a href="../img/random.jpg">';
+		echo '<img class="item-image" src="../img/random.jpg" />';
 		echo '<div class="item-overlay">';
 		echo '<div class="tint hover"></div>';
 		echo '</div>';

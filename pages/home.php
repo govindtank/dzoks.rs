@@ -8,46 +8,38 @@
         <?php require("../ui/header.php"); ?>
      
 	 	<div class="main">
-			<div class="bgimg bgimg-1">
-  				<div class="caption caption-main">
-    				<span><?php echo $string['home']['caption1']; ?></span>
+			<div class="bgimg bgimg-open">
+  				<div class="centered caption-open">
+    				<span><?php echo $string['home']['caption-open']; ?></span>
   				</div>
 			</div>
 
-			<div class="padded">
-				<p><?php echo $string['home']['text1']; ?></p>
+			<div class="bgimg bgimg-1">
+  				<div class="note">
+					<span><?php echo $string['home']['caption-1']; ?></span>
+					<p><?php echo $string['home']['text-1']; ?></p>
+				</div>
 			</div>
 
 			<div class="bgimg bgimg-2">
-  				<div class="caption">
-					<span><?php echo $string['home']['caption2']; ?></span>
+  				<div class="note">
+					<span><?php echo $string['home']['caption-2']; ?></span>
+					<p><?php echo $string['home']['text-2']; ?></p>
   				</div>
 			</div>
 
-			<div class="padded">
-				<p><?php echo $string['home']['text2']; ?></p>
-			</div>
-
-			<div class="bgimg bgimg-3">
-  				<div class="caption">
-					<span><?php echo $string['home']['caption3']; ?></span>
+			<div class="bgimg bgimg-close">
+  				<div class="note">
+					<span><?php echo $string['home']['caption-close']; ?></span>
+					<a class="button" href="../pages/shop"><?php echo $string['home']['shop']; ?></a>
   				</div>
-			</div>
-
-			<div class="padded">
-				<p><?php echo $string['home']['text3']; ?></p>
-			</div>
-
-			<div class="bgimg bgimg-4">
-  				<div class="caption">
-					<span><?php echo $string['home']['caption4']; ?></span>
-  				</div>
-  				<div class="caption scroll-up">
-					<span><?php echo $string['home']['caption5']; ?></span>
+  				<div class="centered scroll-up">
+					<span><?php echo $string['home']['scroll']; ?></span>
   				</div>
 			</div>	
 		</div>
 
         <?php require("../ui/footer.php"); ?>
+		<script type="text/javascript" src="../js/home.js"></script>
     </body>
 </html>

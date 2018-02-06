@@ -2,12 +2,10 @@
 	margin-top: 0;
 }
 
-.padded {
-	padding: 1em 3em;		
-}
-
 .bgimg {
 	position: relative;
+	min-height: 100%;
+	padding: 5em;		
   	background-attachment: fixed;
   	background-position: center;
   	background-repeat: no-repeat;
@@ -15,26 +13,27 @@
 }
 
 .bgimg-1 {
-  	background-image: url("../img/home1.jpg");
-  	min-height: 100%;
+  	background-image: url("../img/home-1.jpg");
 }
 
 .bgimg-2 {
-  	background-image: url("../img/home2.jpg");
-  	min-height: 400px;
+  	background-image: url("../img/home-2.jpg");
 }
 
-.bgimg-3 {
-  	background-image: url("../img/home3.jpg");
-  	min-height: 400px;
+.bgimg-open {
+  	background-image: url("../img/home-open.jpg");
 }
 
-.bgimg-4 {
-  	background-image: url("../img/home1.jpg");
-  	min-height: 400px;
+.bgimg-close {
+  	background-image: url("../img/home-close.jpg");
 }
 
-.caption {
+.scrolling {
+	background-color: transparent;
+	opacity: 0;
+}
+
+.centered {
   	position: absolute;
   	left: 0;
   	top: 40%;
@@ -42,14 +41,25 @@
   	text-align: center;
 }
 
-.caption span {
+.note {
+  	position: absolute;
+	top: 50%;
+	width: 25%;
+}
+
+.note span {
   	color: #fff;
-  	padding: 18px;
   	font-size: 30px;
   	letter-spacing: 10px;
 }
 
-.caption-main,
+.note p,
+.note .button {
+	float: left;	
+	margin-top: 2em;
+}
+
+.caption-open,
 .scroll-up {
 	transform: skew(0, -15deg) scale(1, 2);
     -webkit-transform: skew(0, -15deg) scale(1, 2);
@@ -58,11 +68,12 @@
     -ms-transform: skew(0, -15deg) scale(1, 2);
 }
 
-.caption-main span,
+.caption-open span,
 .scroll-up span {
 	letter-spacing: -0.03em;
     font-family: Impact;
 	font-size: 4em;
+	padding: 0.35em;
   	background: -webkit-linear-gradient(left, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af);
  	background: -o-linear-gradient(left, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af);
   	background: -moz-linear-gradient(left, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af);

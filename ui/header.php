@@ -10,13 +10,13 @@
                     $items = ["home", "gallery", "shop", "cart", "info", "contact"];
                     
                     foreach($items as $item) {
-                        echo '<li><a class="shake shake-basic shake-hover';
+                        echo '<li><a';
                         
                         if(strcmp($item, $page) == 0) {
-                        	echo ' selected';
+                        	echo ' class="selected"';
                         }
                         
-                        echo '" href="' . $item .'">';
+                        echo ' href="../pages/' . $item .'">';
                         echo $string["header"][$item];
                         echo '</a></li>'; 
                     } 

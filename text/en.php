@@ -21,14 +21,14 @@
             , "submit" => "Enter"
         ]
         , "home" => [
-			  "caption1" => "These are like the best socks ever and ever"
-			, "caption2" => "Origin"
-			, "caption3" => "Packaging"
-			, "caption4" => "Give me the money!!"
-			, "caption5" => "Woaah!"
-        	, "text1" => file_get_contents("../text/home/text1.en")
-        	, "text2" => file_get_contents("../text/home/text2.en")
-        	, "text3" => file_get_contents("../text/home/text3.en")
+			  "caption-open" => "These are like the best socks ever and ever"
+			, "caption-1" => "Origin"
+			, "caption-2" => "Packaging"
+			, "caption-close" => "Give me the money!!"
+			, "shop" => "Candy shop"
+			, "scroll" => "Woaah!"
+        	, "text-1" => file_get_contents("../text/home/text-1.en")
+        	, "text-2" => file_get_contents("../text/home/text-2.en")
         ]
         , "cart" => [
               "empty" => "Buy some shit man!"

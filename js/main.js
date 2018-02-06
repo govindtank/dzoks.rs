@@ -8,24 +8,8 @@ $(document).ready(function() {
         $(this).toggleClass("open");
 	   	$(".status").toggleClass("open");
     });
-});
-
-$(document).scroll(function(){ 
-	if($(document).scrollTop() >= 0) {
-		if($(document).scrollTop() >= $("header").height() / 2) {
-	   		$("header").addClass("scrolling");
-	   		$(".status").fadeOut();
-		}else {
-	   		$("header").removeClass("scrolling");
-	   		$(".status").fadeIn();
-		}
-
-		if(!media.matches) {
-			$(".scroll-up").stop().css('transform', 'skew(0, -15deg) scale(1, 2) translateY(' + (-0.5 * $(document).scrollTop()) + 'px)');
-		}else {
-			$(".scroll-up").stop().css('visibility', 'hidden');
-		}
-	}
+	   	
+	$("nav li").addClass("shake shake-basic shake-hover");
 });
 
 function blink() {

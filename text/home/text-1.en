@@ -1,0 +1,1 @@
+Baki, gledaj ovako. Znaci ovo ti je kompanija koja prodaje obicne carape za nenormalno veliku cenu, ali bar to radi s ljubavlju. Phasellus blandit risus vitae dui gravida euismod.

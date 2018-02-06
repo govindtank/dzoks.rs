@@ -21,14 +21,14 @@
             , "submit" => "Пусти ме унутра"
         ]
         , "home" => [
-			  "caption1" => "Колачић са укусом облака"
-			, "caption2" => "Порекло"
-			, "caption3" => "Паковање"
-			, "caption4" => "Дај паре."
-			, "caption5" => "Идеш мала!"
-        	, "text1" => file_get_contents("../text/home/text1.rs")
-        	, "text2" => file_get_contents("../text/home/text2.rs")
-        	, "text3" => file_get_contents("../text/home/text3.rs")
+			  "caption-open" => "Колачић са укусом облака"
+			, "caption-1" => "Порекло"
+			, "caption-2" => "Паковање"
+			, "caption-close" => "Дај паре."
+			, "shop" => "Кенди шоп"
+			, "scroll" => "Идеш мала!"
+        	, "text-1" => file_get_contents("../text/home/text-1.rs")
+        	, "text-2" => file_get_contents("../text/home/text-2.rs")
         ]
         , "cart" => [
               "empty" => "Бураз, ред би био да пазариш нешто"
