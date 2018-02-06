@@ -29,13 +29,13 @@
 				if(isset($_GET['type'])) {
 					switch($_GET['type']) {
 						case 0:
-							require("../ui/manage/collections.php");
+							require("../ui/manage_collections.php");
 							break;
 						case 1:
-							require("../ui/manage/products.php");
+							require("../ui/manage_products.php");
 							break;
 						case 2:
-							require("../ui/manage/orders.php");
+							require("../ui/manage_orders.php");
 							break;
 					}
 					

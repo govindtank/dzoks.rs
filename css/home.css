@@ -89,6 +89,11 @@
 @media screen and (max-width: 720px) {
 
 	.bgimg {
+		padding: 2em;		
 		background-attachment: none;	
 	} 
+
+	.note {
+		width: 50%;	
+	}
 }

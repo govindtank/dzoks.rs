@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: Jan 30, 2018 at 12:34 AM
+-- Generation Time: Feb 06, 2018 at 03:09 AM
 -- Server version: 5.5.42-log
 -- PHP Version: 7.0.0
 
@@ -47,15 +47,15 @@ CREATE TABLE `cart` (
   `quantity` int(11) NOT NULL,
   `purchase` int(11) DEFAULT NULL,
   `checked` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `cart`
 --
 
 INSERT INTO `cart` (`id`, `user`, `product`, `size`, `quantity`, `purchase`, `checked`) VALUES
-(2, 'sUSzLW10R2lcQxQ', 38, 2, 4, 14, 0),
-(3, 'sUSzLW10R2lcQxQ', 37, 2, 2, 14, 0);
+(5, 'sUSzLW10R2lcQxQ', 54, 1, 3, NULL, 0),
+(6, 'sUSzLW10R2lcQxQ', 53, 2, 7, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -86,7 +86,7 @@ CREATE TABLE `logins` (
   `id` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `logins`
@@ -96,7 +96,10 @@ INSERT INTO `logins` (`id`, `user`, `timestamp`) VALUES
 (1, 0, '0000-00-00 00:00:00'),
 (2, 4, '2018-01-16 01:09:15'),
 (3, 4, '2018-01-25 13:53:10'),
-(4, 4, '2018-01-27 01:51:04');
+(4, 4, '2018-01-27 01:51:04'),
+(5, 4, '2018-02-01 01:03:20'),
+(6, 4, '2018-02-03 01:08:43'),
+(7, 4, '2018-02-06 02:01:20');
 
 -- --------------------------------------------------------
 
@@ -107,30 +110,35 @@ INSERT INTO `logins` (`id`, `user`, `timestamp`) VALUES
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `name` varchar(50) COLLATE utf8_bin NOT NULL,
-  `description` text COLLATE utf8_bin NOT NULL,
   `price` float NOT NULL,
   `collection` int(11) DEFAULT NULL,
   `date_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `description`, `price`, `collection`, `date_added`) VALUES
-(1, 'Cow', 'This sock is amazing.', 14.9, 0, '2017-09-08 10:14:14'),
-(2, 'Luke', 'Another sock.', 9.99, 2, '2017-09-08 10:14:39'),
-(3, 'Santa', 'Color is red.', 23.99, 3, '2017-09-08 10:15:08'),
-(27, 'XoXo', 'asdlaksd', 12.9, 0, '2018-01-13 22:43:33'),
-(28, 'Blue', 'asdlk', 12, 2, '2018-01-25 23:40:41'),
-(31, 'Summer', 'najnoviji model iz 2018 stvarno je strava bla bla', 12.5, 2, '2018-01-25 23:44:23'),
-(32, 'Crystal', 'asdakjnsnd akjs dbkjashdb asdfvasjhdfbaks dsn dlfajksdfkaslasdakjnsnd akjs dbkjashdb asdfvasjhdfbaks dsn dlfajksdfkaslasdakjnsnd akjs dbkjashdb asdfvasjhdfbaks dsn dlfajksdfkaslasdakjnsnd akjs dbkjashdb asdfvasjhdfbaks dsn dlfajksdfkasl', 12.9, 2, '2018-01-27 01:51:45'),
-(33, 'Carapa', 'Najnovijaa idemo vrh vrh top!!!', 5.99, 3, '2018-01-27 01:52:23'),
-(34, 'SENJOR', 'kasbd kjasbdjsdbasmdbskdjfbkasbd kjasbdjsdbasmdbskdjfbkasbd kjasbdjsdbasmdbskdjfbkasbd kjasbdjsdbasmdbskdjfbkasbd kjasbdjsdbasmdbskdjfbkasbd kjasbdjsdbasmdbskdjfbkasbd kjasbdjsdbasmdbskdjfbkasbd kjasbdjsdbasmdbskdjfbkasbd kjasbdjsdbasmdbskdjfbkasbd kjasbdjsdbasmdbskdjfbkasbd kjasbdjsdbasmdbskdjfbkasbd kjasbdjsdbasmdbskdjfbkasbd kjasbdjsdbasmdbskdjfbkasbd kjasbdjsdbasmdbskdjfbkasbd kjasbdjsdbasmdbskdjfbkasbd kjasbdjsdbasmdbskdjfbkasbd kjasbdjsdbasmdbskdjfbkasbd kjasbdjsdbasmdbskdjfbkasbd kjasbdjsdbasmdbskdjfbkasbd kjasbdjsdbasmdbskdjfbkasbd kjasbdjsdbasmdbskdjfbkasbd kjasbdjsdbasmdbskdjfb', 9.99, 2, '2018-01-27 01:52:58'),
-(35, 'Delises', 'ahsbd  dmsb', 12.99, 2, '2018-01-27 02:03:25'),
-(36, 'Madafaka', 'ahsbd', 7.99, 2, '2018-01-27 02:03:46'),
-(37, 'NOVA', 'asdkn asdk jansd ka', 12.99, 2, '2018-01-27 03:15:21'),
-(38, 'RanDOOM', 'Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape. Tako kul carape.', 2499, 2, '2018-01-29 19:35:36');
+INSERT INTO `products` (`id`, `name`, `price`, `collection`, `date_added`) VALUES
+(1, 'Cow', 14.9, 0, '2017-09-08 10:14:14'),
+(2, 'Luke', 9.99, 2, '2017-09-08 10:14:39'),
+(3, 'Santa', 23.99, 3, '2017-09-08 10:15:08'),
+(31, 'Summer', 12.5, 2, '2018-01-25 23:44:23'),
+(32, 'Crystal', 12.9, 2, '2018-01-27 01:51:45'),
+(33, 'Carapa', 5.99, 3, '2018-01-27 01:52:23'),
+(34, 'SENJOR', 9.99, 2, '2018-01-27 01:52:58'),
+(35, 'Delises', 12.99, 2, '2018-01-27 02:03:25'),
+(36, 'Madafaka', 7.99, 2, '2018-01-27 02:03:46'),
+(37, 'NOVA', 12.99, 2, '2018-01-27 03:15:21'),
+(38, 'RanDOOM', 2499, 2, '2018-01-29 19:35:36'),
+(39, 'CarAPA', 1899, 3, '2018-01-30 01:16:18'),
+(40, 'yoyo', 1233, 2, '2018-01-30 01:18:30'),
+(44, 'ASDAKJNSJK', 4567, 2, '2018-01-30 01:21:24'),
+(45, 'asd', 4556, 3, '2018-01-30 01:26:04'),
+(49, 'klindza', 4561, 2, '2018-01-30 01:33:25'),
+(52, 'NoviXxX', 1234, 2, '2018-01-30 01:47:55'),
+(53, 'NoWW', 2499, 0, '2018-02-02 00:29:04'),
+(54, 'qwert', 1222, 0, '2018-02-03 01:33:28');
 
 -- --------------------------------------------------------
 
@@ -152,17 +160,21 @@ CREATE TABLE `purchases` (
   `country` varchar(50) COLLATE utf8_bin NOT NULL,
   `confirmed` tinyint(1) NOT NULL DEFAULT '0',
   `shipped` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `purchases`
 --
 
 INSERT INTO `purchases` (`id`, `hash`, `timestamp`, `first_name`, `last_name`, `email`, `phone`, `address`, `zip`, `city`, `country`, `confirmed`, `shipped`) VALUES
-(11, 'cm5WdRbVuEtTq2kWDVRNTEPOXHCiGpVS', '2018-01-29 18:24:23', 'laa', 'ertyui', 'sdf@as.com', '123', 'adresa', '37000', 'ks', 'sr', 1, 0),
-(12, 'TXqpJpBL0KwYtq3o0A5TmuqJb0CkOoPH', '2018-01-29 22:41:40', 'Lazar', 'Jelic', 'jelic.ecloga@gmail.com', '0614437010', 'Adresa', '37000', 'Krusevac', 'Srbija', 1, 0),
+(11, 'cm5WdRbVuEtTq2kWDVRNTEPOXHCiGpVS', '2018-02-03 01:54:50', 'laa', 'ertyui', 'sdf@as.com', '123', 'adresa', '37000', 'ks', 'sr', 1, 0),
+(12, 'TXqpJpBL0KwYtq3o0A5TmuqJb0CkOoPH', '2018-02-03 01:54:54', 'Lazar', 'Jelic', 'jelic.ecloga@gmail.com', '0614437010', 'Adresa', '37000', 'Krusevac', 'Srbija', 1, 1),
 (13, '65FIQFtnDWOHlOiqIEV9o690rXpgFLwM', '2018-01-29 22:40:49', 'askdjkah', 'aksjdajksdn', 'akjsdn@ansjkf.com', '82123123', 'ashd', '23232', 'asdjnn', 'AR', 0, 0),
-(14, 'yZbEKNFZtYiVEkIiETl8NUk2Y04R26zA', '2018-01-29 23:05:12', 'kbh', 'hb', 'asdasd@asf.com', 'jh', '1231', '22222', 'asd', 'AG', 0, 0);
+(14, 'yZbEKNFZtYiVEkIiETl8NUk2Y04R26zA', '2018-01-29 23:05:12', 'kbh', 'hb', 'asdasd@asf.com', 'jh', '1231', '22222', 'asd', 'AG', 0, 0),
+(15, 'ydloWt1JxIkSg9ulTaP9UHGjMjJ8hk6P', '2018-02-06 02:02:16', 'lazar', 'jelic', 'jelic.ecloga@asmdk', '5678', 'ajhsdb', '21312', 'ashjdb', 'SN', 1, 0),
+(16, 'S7PGWg8hfDrTKjFN0bFxgJE4FjZMZQHR', '2018-02-06 02:02:17', 'qwert', 'sdfgh', 'asgd@aksf.com', '57', 'hjasd', '21312', 'bajsdhb', 'BL', 1, 1),
+(17, 'subrZ35A0hYQRWvex5BXayU0c1uBqWHS', '2018-02-06 02:02:19', 'Lazar', 'Jelka', 'jelic.ecloga@gmail.com', '0614437010', 'Vasilija Velikog', '37000', 'Krusevac', 'BL', 1, 0),
+(18, 'AzWWK4tnKwUAXeOqHxw9aqcN5RfT2x6C', '2018-02-01 23:52:35', 'sdaskd', 'qknakjsn', 'aksjdn@ajsd.com', '123123', 'asndk', '12312', 'kansdk', 'AF', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -194,7 +206,7 @@ CREATE TABLE `warehouse` (
   `product` int(11) NOT NULL,
   `size` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `warehouse`
@@ -204,7 +216,21 @@ INSERT INTO `warehouse` (`id`, `product`, `size`, `quantity`) VALUES
 (1, 37, 1, 1),
 (2, 37, 2, 985),
 (3, 38, 1, 100),
-(4, 38, 2, 150);
+(4, 38, 2, 150),
+(5, 45, 1, 2312),
+(6, 45, 2, 12312),
+(7, 49, 1, 123),
+(8, 49, 2, 1234),
+(9, 52, 1, 123),
+(10, 52, 2, 123),
+(11, 53, 1, 100),
+(12, 53, 2, 50),
+(13, 53, 1, 100),
+(14, 53, 2, 50),
+(15, 53, 1, 100),
+(16, 53, 2, 50),
+(17, 54, 1, 12),
+(18, 54, 2, 13);
 
 --
 -- Indexes for dumped tables
@@ -281,7 +307,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `collections`
 --
@@ -291,17 +317,17 @@ ALTER TABLE `collections`
 -- AUTO_INCREMENT for table `logins`
 --
 ALTER TABLE `logins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=55;
 --
 -- AUTO_INCREMENT for table `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `sizes`
 --
@@ -311,7 +337,7 @@ ALTER TABLE `sizes`
 -- AUTO_INCREMENT for table `warehouse`
 --
 ALTER TABLE `warehouse`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 --
 -- Constraints for dumped tables
 --

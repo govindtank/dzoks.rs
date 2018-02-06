@@ -11,6 +11,10 @@ td {
     text-align: center;
 }
 
+td .button {
+	width: 2.5em;
+}
+
 .bordered {
    	outline: 1px dashed #fff;
 }
@@ -24,5 +28,9 @@ td {
 	
 	table {
 		width: 100%;	
+	}
+
+	td {
+		padding: 0;	
 	}
 }

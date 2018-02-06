@@ -172,6 +172,7 @@ header {
 	}
 
 	#nav ul li {
+		display: block;
     	float: none;
 		padding: 0;
 		margin: 0;
