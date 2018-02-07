@@ -14,10 +14,11 @@
 }
 
 html {
-    background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
     background-image: url(../img/theme.jpg);
-    background-attachment: fixed;
-    background-size: 100% 100%;
 }
 
 body,

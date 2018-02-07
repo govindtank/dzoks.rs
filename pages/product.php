@@ -1,16 +1,12 @@
 <?php 
     require("../logic/config.php"); 
-   	
+	
 	if(!params_ok(["id"], "GET")) {
-		header("location: shop.php");
+		header("Location: shop.php");
 		exit;	
 	}
 
 	$id = strip($_GET["id"]);
-   
-   	if(!isset($id)) {
-        header("location: shop.php");
-    }
 ?>
 <html>
     <head>
