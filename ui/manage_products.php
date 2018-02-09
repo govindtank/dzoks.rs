@@ -26,7 +26,7 @@
 
 				while($row = mysqli_fetch_array($result)) {
 					echo '<td class="no-border">';
-    				echo '<input class="number" name="qty_' . $row['name']. '" type="number" id="qty_' . $row['name'] . '" placeholder="' . $row['name'] . '" required />';
+    				echo '<input class="number" name="qty_' . $row['name']. '" type="number" id="qty_' . $row['name'] . '" placeholder="' . $row['name'] . '" />';
 					echo '</td>';
 				}
 			?>
@@ -70,22 +70,22 @@
 			echo '</select>';
 			echo '</td>';
 
-			$cmd = "SELECT warehouse.quantity, sizes.name FROM warehouse, sizes WHERE warehouse.product=" . $row['id'] . " AND sizes.id=warehouse.size LIMIT " . $size_count;
-			$wh_result = mysqli_query($connect, $cmd);
-			
+			$cmd = "SELECT warehouse.quantity, sizes.name FROM warehouse, sizes WHERE warehouse.product=" . $row['id'] . " AND sizes.id=warehouse.size ORDER BY warehouse.id DESC LIMIT " . $size_count;
+			$wh_result = mysqli_query($connect, $cmd) or die(mysqli_error($connect));
+
 			while($wh = mysqli_fetch_array($wh_result)) {
 					echo '<td>';
-    				echo '<input class="number" name="qty_' . $wh['name']. '" value="' . $wh['quantity'] . '" type="number" id="qty_' . $wh['name'] . '" placeholder="' . $wh['name'] . '" required />';
+    				echo '<input class="number" name="qty_' . $wh['name']. '" value="' . $wh['quantity'] . '" type="number" id="qty_' . $wh['name'] . '" placeholder="' . $wh['name'] . '" />';
 					echo '</td>';	
 			}
-	
+
 			if(mysqli_num_rows($wh_result) == 0) {
 				$cmd = "SELECT * FROM sizes";
 				$sizes = mysqli_query($connect, $cmd);
 			
 				while($size = mysqli_fetch_array($sizes)) {
 					echo '<td>';
-    				echo '<input class="number" name="qty_' . $size['name']. '" type="number" id="qty_' . $size['name'] . '" placeholder="' . $size['name'] . '" required />';
+    				echo '<input class="number" name="qty_' . $size['name']. '" type="number" id="qty_' . $size['name'] . '" placeholder="' . $size['name'] . '" />';
 					echo '</td>';
 				}
 			}

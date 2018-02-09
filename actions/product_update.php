@@ -1,5 +1,5 @@
 <?php
- 	require("../logic/config.php");
+	require("../logic/config.php");
 
 	if(!params_ok(["id", "name", "price", "collection", "description-rs", "description-en"], "POST")) {	
 		error($string['status']['productNotUpdated']);
@@ -18,10 +18,6 @@
 
 	mysqli_query($connect, $cmd);
 
-	$cmd = "SELECT id FROM products ORDER BY id DESC LIMIT 1";
-
-	$id = mysqli_fetch_array(mysqli_query($connect, $cmd))['id'];
-	
 	$path = '../products/' . $id;
 	$desc_path = $path . '/desc';
 	$img_path = $path . '/img';
@@ -38,18 +34,20 @@
 		file_put_contents($desc_path . "/rs.txt", $desc_rs);
 		file_put_contents($desc_path . "/en.txt", $desc_en);
 	}
-
+	
 	if(isset($_FILES['photos']['name'])) {
-		if(file_exists($img_path)) {
-			rm_dir($img_path);
-		}
-
-		if(!file_exists($img_path)) {
-			mkdir($img_path);
-		}
-
   		$total_files = count($_FILES['photos']['name']);
-  
+
+		if($total_files > 0 && !empty($_FILES['photos']['name'][0])) {
+			if(file_exists($img_path)) {
+				rm_dir($img_path);
+			}
+
+			if(!file_exists($img_path)) {
+				mkdir($img_path);
+			}
+		}
+
   		for($key = 0; $key < $total_files; $key++) {
     		if(isset($_FILES['photos']['name'][$key]) && $_FILES['photos']['size'][$key] > 0) {
    				$tmp_name = $_FILES["photos"]["tmp_name"][$key];
