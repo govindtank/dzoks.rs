@@ -3,7 +3,7 @@
 
 	if(!isset($_SESSION["username"])) {
 		error($string["status"]["notLoggedIn"]);
-		header("location: login.php");
+		header("location: ../pages/login.php");
 		exit;
 	}
 

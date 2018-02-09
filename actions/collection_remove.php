@@ -1,5 +1,11 @@
 <?php
 	require("../logic/config.php");
+	
+	if(!isset($_SESSION["username"])) {
+		error($string["status"]["notLoggedIn"]);
+		header("location: ../pages/login.php");
+		exit;
+	}
 
 	if(!params_ok(["id"], "GET")) {
 		error($string['status']['collectionNotRemoved']);

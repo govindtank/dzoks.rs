@@ -1,6 +1,12 @@
 <?php
  	require("../logic/config.php");
 
+	if(!isset($_SESSION["username"])) {
+		error($string["status"]["notLoggedIn"]);
+		header("location: ../pages/login.php");
+		exit;
+	}
+	
 	if(!params_ok(["name", "price", "collection", "description-rs", "description-en"], "POST")) {	
 		error($string['status']['productNotAdded']);
 		header("location: ../pages/manage.php");

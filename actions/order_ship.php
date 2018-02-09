@@ -1,6 +1,12 @@
 <?php
 	require("../logic/config.php");
 
+	if(!isset($_SESSION["username"])) {
+		error($string["status"]["notLoggedIn"]);
+		header("location: ../pages/login.php");
+		exit;
+	}
+
 	if(!params_ok(["id", "shipped"], "GET")) {
 		error($string['status']['orderNotMarked']);
 		header("location: ../pages/manage?type=3");
