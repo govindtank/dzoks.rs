@@ -26,13 +26,7 @@
 
 				while($row = mysqli_fetch_array($result)) {
 					echo '<td class="no-border">';
-					echo '<div class="input-wrapper">';
-					echo '<div class="input-group">';
-					echo '<a class="button" onclick="qtyDec()">-</a>';
-    				echo '<input class="number" name="qty_' . $row['name']. '" type="number" min="1" step="10" class="number" id="qty_' . $row['name'] . '" placeholder="' . $row['name'] . '" required />';
-					echo '<a class="button" onclick="qtyInc()">+</a>';
-					echo '</div>';			
-					echo '</div>';
+    				echo '<input class="number" name="qty_' . $row['name']. '" type="number" id="qty_' . $row['name'] . '" placeholder="' . $row['name'] . '" required />';
 					echo '</td>';
 				}
 			?>
@@ -47,39 +41,64 @@
 
 		while($row = mysqli_fetch_array($result)) {
 			echo '<tr>';
-			echo '<td><a href="product?id=' . $row['id'] . '"><img class="thumbnail" src="' . get_thumbnail($row['id'], 0) . '"/></a></td>';
-            echo '<td><a href="product?id=' . $row['id'] . '">' . $row['name'] . '</a></td>';
-			echo '<td>' . $row['price'] . '</td>';
+			echo '<form action="../actions/product_update.php" method="POST" enctype="multipart/form-data">';
+			echo '<input type="hidden" name="id" value="' . $row['id'] . '">';
+			echo '<td>';
+			echo '<a href="product?id=' . $row['id'] . '"><img class="thumbnail" src="' . get_thumbnail($row['id'], 0) . '"/></a>';
+			echo '<input name="photos[]" type="file" multiple/>';
+			echo '</td>';
+			echo '<td><input name="name" type="text" maxlength="50" value="' . $row['name'] . '" placeholder="' . $string['manage']['name'] . '" required/></td>';
+			echo '<td><input name="price" type="number" class="number" step="0.01" placeholder="' . $string['manage']['price'] . '" value="' . $row['price'] . '" required/></td>';
 
-			$cmd = "SELECT name FROM collections WHERE id=" . $row['collection'];
-			$collection = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
+			echo '<td>';
+			echo '<select name="collection" required>';
+			echo '<option disabled value="">' . $string['manage']['collection'] . '</option>';
 			
-			echo '<td>' . $collection . '</td>';
+			$cmd = "SELECT * FROM collections";
+			$cols = mysqli_query($connect, $cmd);
 
-			$cmd = "SELECT quantity FROM warehouse WHERE product=" . $row['id'] . " LIMIT " . $size_count;
+			while($col = mysqli_fetch_array($cols)) {
+				echo '<option ';
 
+				if(strcmp($col['id'], $row['collection']) == 0) {
+					echo 'selected ';	
+				}
+
+				echo 'value="' . $col['id'] . '">' . $col['name'] . '</option>';
+			}
+
+			echo '</select>';
+			echo '</td>';
+
+			$cmd = "SELECT warehouse.quantity, sizes.name FROM warehouse, sizes WHERE warehouse.product=" . $row['id'] . " AND sizes.id=warehouse.size LIMIT " . $size_count;
 			$wh_result = mysqli_query($connect, $cmd);
 			
 			while($wh = mysqli_fetch_array($wh_result)) {
-				echo '<td><p>' . $wh['quantity'] . '<br/></p></td>';
+					echo '<td>';
+    				echo '<input class="number" name="qty_' . $wh['name']. '" value="' . $wh['quantity'] . '" type="number" id="qty_' . $wh['name'] . '" placeholder="' . $wh['name'] . '" required />';
+					echo '</td>';	
 			}
-			
+	
 			if(mysqli_num_rows($wh_result) == 0) {
-				for($i = 0; $i < $size_count; $i++) {
-					echo '<td>/</td>';	
+				$cmd = "SELECT * FROM sizes";
+				$sizes = mysqli_query($connect, $cmd);
+			
+				while($size = mysqli_fetch_array($sizes)) {
+					echo '<td>';
+    				echo '<input class="number" name="qty_' . $size['name']. '" type="number" id="qty_' . $size['name'] . '" placeholder="' . $size['name'] . '" required />';
+					echo '</td>';
 				}
 			}
 
 			$desc_rs = get_description($row['id'], 'rs');
-			$desc_rs = (is_null($desc_rs)) ? '/' : $desc_rs;
-
 			$desc_en = get_description($row['id'], 'en');
-			$desc_en = (is_null($desc_en)) ? '/' : $desc_en;
 
-			echo '<td>' . $desc_rs . '</td>';
-			echo '<td>' . $desc_en . '</td>';
+    		echo '<td><textarea name="description-rs" rows="10" cols="30" placeholder="' . $string['manage']['description']['rs'] . '">' . $desc_rs . '</textarea></td>';
+    		echo '<td><textarea name="description-en" rows="10" cols="30" placeholder="' . $string['manage']['description']['en'] . '">' . $desc_en . '</textarea></td>';
 
-			echo '<td><a href="../actions/product_remove?id=' . $row['id'] . '">X</a></td>';
+			echo '<td><input type="submit" class="button" value="' . $string['manage']['save'] . '"/></td>';
+			echo '<td><a class="button" href="../actions/product_remove?id=' . $row['id'] . '">X</a></td>';
+			echo '</form>';
 			echo '</tr>';
 		}
 	?>	

@@ -20,7 +20,7 @@
 		
 		$qty_total = 0;
 
-		$cmd = "SELECT warehouse.quantity, sizes.name FROM warehouse, sizes WHERE product=" . $row['id'] . " AND sizes.id = warehouse.size";
+		$cmd = "SELECT warehouse.quantity, sizes.name FROM warehouse, sizes WHERE product=" . $row['id'] . " AND sizes.id=warehouse.size";
 
 		$wh_result = mysqli_query($connect, $cmd) or die(mysqli_error($connect));
 			

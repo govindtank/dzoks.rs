@@ -8,7 +8,9 @@
 	}
 
 	function rm_dir($dirname) {
-        if (is_dir($dirname)) {
+		$dir_handle = null;
+
+        if(is_dir($dirname)) {
 			$dir_handle = opendir($dirname);
 		}
 
@@ -21,7 +23,7 @@
 	        	if(!is_dir($dirname . "/" . $file)) {
 	                unlink($dirname . "/" . $file);
 	            }else {
-	            	delete_directory($dirname . '/' . $file);
+	            	rm_dir($dirname . '/' . $file);
 				}
 	       	}
 	 	}
@@ -31,7 +33,7 @@
 	}
 
 	function get_description($id, $lang) {
-		$path = "../products/" . $id . "/desc-";
+		$path = "../products/" . $id . "/desc/";
 
 		if(is_null($lang)) {	
 			if(isset($_SESSION['lang']) && $_SESSION['lang'] == 'en') {
@@ -53,15 +55,19 @@
 	}
 
 	function get_all_product_images($id) {
-		$path = '../products/' . $id;
-		$files = scandir($path);
-		$images = [];	
-		$i = 0;
+		$path = '../products/' . $id . '/img';
 
-		foreach($files as $file) {
-        	if($file[0] != '.' && strpos($file, ".txt") === false && strpos($file, "thumb") === false) {
-				$images[] = $path . '/' . $file;
-				$i++;
+		$i = 0;
+		
+		if(file_exists($path)) {
+			$files = scandir($path);
+			$images = [];	
+
+			foreach($files as $file) {
+    	    	if($file[0] != '.' && strpos($file, ".txt") === false && strpos($file, "thumb") === false) {
+					$images[] = $path . '/' . $file;
+					$i++;
+				}
 			}
 		}
 
@@ -73,7 +79,7 @@
 	}
 
 	function get_thumbnail($id, $index) {
-		$path = '../products/' . $id . '/thumb' . $index .'.jpg';
+		$path = '../products/img/' . $id . '/thumb' . $index .'.jpg';
 
 		if(file_exists($path)) {
 			return $path;
@@ -83,9 +89,14 @@
 	}
 
 	function get_product_image($id, $index) {
-		$path = '../products/' . $id;
-		$files = scandir($path);
+		$path = '../products/' . $id . '/img';
 		$image = '../img/no_photo.jpg';
+
+		if(!file_exists($path)) {
+			return $image;
+		}
+
+		$files = scandir($path);
 		$i = 0;
 
 		foreach($files as $file) {
@@ -146,8 +157,7 @@
 
 	function get_ip() {
 		if(!isset($_COOKIE['ip'])) {
-			$cookie = generate_random_string(15);
-			setcookie('ip', $cookie, time() + (10 * 365 * 24 * 60 * 60), '/', null);
+			setcookie('ip', generate_random_string(15), time() + (10 * 365 * 24 * 60 * 60), '/', null);
 		}
 
 		return $_COOKIE['ip'];

@@ -21,24 +21,24 @@
             , "submit" => "Enter"
         ]
         , "home" => [
-			  "caption-open" => "These are like the best socks ever and ever"
+			  "caption-open" => "The best socks ever and ever"
 			, "caption-1" => "Origin"
 			, "caption-2" => "Packaging"
-			, "caption-close" => "Give me the money!!"
+			, "caption-close" => "Wanna try?"
 			, "shop" => "Candy shop"
 			, "scroll" => "Woaah!"
         	, "text-1" => file_get_contents("../text/home/text-1.en")
         	, "text-2" => file_get_contents("../text/home/text-2.en")
         ]
         , "cart" => [
-              "empty" => "Buy some shit man!"
-            , "checkout" => "Checkout" 
+              "empty" => "It's getting cold. Buy some socks!"
+            , "checkout" => "Checkout"
             , "total" => "Total"
-            , "continue" => "Let's candy shop"
+            , "continue" => "Candy shop"
         ]
         , "checkout" => [
-              "header" => "Ће се гледамо брт"
-            , "submit" => "Send me socks"
+              "header" => "We need some details"
+            , "submit" => "Send them"
             , "inputs" => [
                   "first" => "First name"
                 , "last" => "Last name"
@@ -51,18 +51,16 @@
             ]
         ]
         , "product" => [
-              "invalid" => "Sorry! We don't have that pair."
+              "invalid" => "We don't have that pair."
             , "continue" => "Try another"
-            , "buy" => "Buy it"
-            , "size" => "How big?"
-            , "quantity" => "How many?"
+            , "buy" => "Add to cart"
             , "sizes" => ["s" => "small (38-42)", "l" => "LARGE (42-46)"]
         ]
 		, "info" => [
               "text" => file_get_contents("../text/info/text.en")
 		]
         , "contact" => [
-              "header" => "Drop us a line!"
+              "header" => "Get in touch"
             , "name" => "Name"
             , "email" => "Email"
             , "subject" => "Subject"
@@ -73,6 +71,8 @@
               "save" => "Save"
             , "add" => "Add"
             , "back" => "Back"
+            , "ship" => "Ship"
+            , "unship" => "Return"
             , "header" => "Manage"
     		, "products" => "Products"
     		, "collections" => "Collections"
@@ -97,8 +97,12 @@
 			, "orderPlaced" => "Order has been placed"
 			, "productNotAdded" => "Product has not been added"
 			, "productAdded" => "Product has been added"
+			, "productNotUpdated" => "Product has not been updated"
+			, "productUpdated" => "Product has been updated"
 			, "collectionNotAdded" => "Collection has not been added"
 			, "collectionAdded" => "Collection has been added"
+			, "collectionNotUpdated" => "Collection has not been updated"
+			, "collectionUpdated" => "Collection has been updated"
 			, "collectionNotRemoved" => "Collection has not been removed"
 			, "collectionRemoved" => "Collection has been removed"
 			, "productNotRemoved" => "Product has not been removed"

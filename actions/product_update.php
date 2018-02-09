@@ -1,20 +1,21 @@
 <?php
  	require("../logic/config.php");
 
-	if(!params_ok(["name", "price", "collection", "description-rs", "description-en"], "POST")) {	
-		error($string['status']['productNotAdded']);
+	if(!params_ok(["id", "name", "price", "collection", "description-rs", "description-en"], "POST")) {	
+		error($string['status']['productNotUpdated']);
 		header("location: ../pages/manage.php");
 		exit;
 	}
 
+	$id = strip($_POST['id']);
 	$name = strip($_POST['name']);
 	$price = strip($_POST['price']);
 	$col = strip($_POST['collection']);
 	$desc_rs = strip($_POST['description-rs']);
 	$desc_en = strip($_POST['description-en']);
 
-	$cmd = "INSERT INTO products (name, price, collection) VALUES('$name', '$price', '$col')";
-	
+	$cmd = "UPDATE products SET name='" . $name . "', price=" . $price . ", collection=" . $col . " WHERE id=" . $id;
+
 	mysqli_query($connect, $cmd);
 
 	$cmd = "SELECT id FROM products ORDER BY id DESC LIMIT 1";
@@ -22,21 +23,37 @@
 	$id = mysqli_fetch_array(mysqli_query($connect, $cmd))['id'];
 	
 	$path = '../products/' . $id;
+	$desc_path = $path . '/desc';
+	$img_path = $path . '/img';
 
-	if(!file_exists($path)) {
-		mkdir($path);
+	if(!empty($desc_rs) || !empty($desc_en)) {
+		if(file_exists($desc_path)) {
+			rm_dir($desc_path);
+		}
+
+		if(!file_exists($desc_path)) {
+			mkdir($desc_path);
+		}
+
+		file_put_contents($desc_path . "/rs.txt", $desc_rs);
+		file_put_contents($desc_path . "/en.txt", $desc_en);
 	}
 
-	file_put_contents($path . "/desc/rs.txt", $desc_rs);
-	file_put_contents($path . "/desc/en.txt", $desc_en);
-
 	if(isset($_FILES['photos']['name'])) {
+		if(file_exists($img_path)) {
+			rm_dir($img_path);
+		}
+
+		if(!file_exists($img_path)) {
+			mkdir($img_path);
+		}
+
   		$total_files = count($_FILES['photos']['name']);
   
   		for($key = 0; $key < $total_files; $key++) {
     		if(isset($_FILES['photos']['name'][$key]) && $_FILES['photos']['size'][$key] > 0) {
    				$tmp_name = $_FILES["photos"]["tmp_name"][$key];
-  				$name = $path . '/' . basename($_FILES["photos"]["name"][$key]);
+  				$name = $img_path . '/' . basename($_FILES["photos"]["name"][$key]);
 				move_uploaded_file($tmp_name, $name);
 	
 				if($key > 1) {
@@ -54,7 +71,7 @@
         				$image = imagecreatefromgif($name);
         				break;
     				default:
-						error($string['status']['productNotAdded']);
+						error($string['status']['productNotUpdated']);
 						header("location: ../pages/manage.php");
 						exit;	
 				}
@@ -74,7 +91,7 @@
 
 				imagecopyresampled($new, $image, 0, 0, 0, 0, $new_width, $new_height, $old_width, $old_height);
 				
-				imagejpeg($new, $path . "/thumb" . $key .".jpg", 100);
+				imagejpeg($new, $img_path . "/thumb" . $key .".jpg", 100);
 
 				imagedestroy($image);
 				imagedestroy($new);
@@ -98,6 +115,6 @@
 		}
 	}
 
-	success($string['status']['productAdded']);
+	success($string['status']['productUpdated']);
 	header("Location: ../pages/manage?type=1");
 ?>

@@ -13,6 +13,15 @@ td {
 	border: 1px solid #fff;
 }
 
+td > input,
+td > .button {
+	margin: 1em auto;
+}
+
+td > textarea {
+	max-height: 5em;
+}
+
 .red {
 	background: #e74c3c;
 }
