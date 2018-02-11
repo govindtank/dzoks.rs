@@ -13,10 +13,8 @@
 		while($row = mysqli_fetch_array($result)) {
 			echo '<tr>';
 			echo '<form action="../actions/collection_update.php" method="POST">';
-			echo '<td>';
-			echo '<input type="text" name="name" placeholder="' . $string['manage']['name'] . '" value="' . $row['name'] . '" />';
             echo '<input type="hidden" name="id" value="' . $row['id'] . '">';
-			echo '</td>'; 
+			echo '<td><input type="text" name="name" placeholder="' . $string['manage']['name'] . '" value="' . $row['name'] . '" /></td>';
 			echo '<td><input type="submit" class="button" value="' . $string['manage']['save'] . '"/></td>';
 			echo '<td><a class="button" href="../actions/collection_remove?id=' . $row['id'] . '">X</a></td>';
 			echo '</form>';

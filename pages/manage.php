@@ -1,11 +1,7 @@
 <?php
 	require("../logic/config.php"); 
 
-	if(!isset($_SESSION["username"])) {
-		error($string["status"]["notLoggedIn"]);
-		header("location: ../pages/login.php");
-		exit;
-	}
+	check_login($string);
 
 	$cmd = "SELECT * FROM admins WHERE username='" . $_SESSION['username'] . "'";
 
@@ -41,7 +37,7 @@
 					
 					echo '<a class="button center" href="../pages/manage">' . $string['manage']['back'] . '</a>';
 				}else {
-					echo '<div class="center">';
+					echo '<div class="center-both">';
 					echo '<h1>' . $string["manage"]["header"] . '</h1>';
 					echo '<a class="button center" href="manage?type=0">' . $string["manage"]["collections"] . '</a>';
 					echo '<a class="button center" href="manage?type=1">' . $string["manage"]["products"] . '</a>';

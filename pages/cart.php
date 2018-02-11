@@ -21,7 +21,7 @@
 
                 $total = 0;
 				
-				$cmd = "SELECT * FROM cart WHERE user='$ip'";
+				$cmd = "SELECT * FROM cart WHERE user='$id'";
 				$result = mysqli_query($connect, $cmd);
 
 				while($row = mysqli_fetch_array($result)) {

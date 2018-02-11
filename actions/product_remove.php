@@ -1,12 +1,8 @@
 <?php
 	require("../logic/config.php");
 
-	if(!isset($_SESSION["username"])) {
-		error($string["status"]["notLoggedIn"]);
-		header("location: ../pages/login.php");
-		exit;
-	}
-	
+	check_login($string);
+
 	if(!params_ok(["id"], "GET")) {
 		error($string['status']['productNotRemoved']);
 		header("location: ../pages/manage.php?type=1");

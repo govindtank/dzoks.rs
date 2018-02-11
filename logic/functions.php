@@ -7,6 +7,14 @@
 		return hash("SHA512", $input, false);
 	}
 
+	function check_login($string) {
+		if(!isset($_SESSION["username"])) {
+			error($string["status"]["notLoggedIn"]);
+			header("location: ../pages/login.php");
+			exit;
+		}
+	}
+
 	function rm_dir($dirname) {
 		$dir_handle = null;
 
@@ -156,6 +164,27 @@
 	}
 
 	function get_ip() {
+    	$ipaddress = '';
+    	
+		if ($_SERVER['HTTP_CLIENT_IP'])
+        	$ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+    	else if($_SERVER['HTTP_X_FORWARDED_FOR'])
+        	$ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    	else if($_SERVER['HTTP_X_FORWARDED'])
+        	$ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+    	else if($_SERVER['HTTP_FORWARDED_FOR'])
+        	$ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+    	else if($_SERVER['HTTP_FORWARDED'])
+        	$ipaddress = $_SERVER['HTTP_FORWARDED'];
+    	else if($_SERVER['REMOTE_ADDR'])
+       		$ipaddress = $_SERVER['REMOTE_ADDR'];
+    	else
+        	$ipaddress = 'UNKNOWN';
+ 
+    	return $ipaddress;
+	}
+
+	function get_id() {
 		if(!isset($_COOKIE['ip'])) {
 			setcookie('ip', generate_random_string(15), time() + (10 * 365 * 24 * 60 * 60), '/', null);
 		}

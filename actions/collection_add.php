@@ -1,11 +1,7 @@
 <?php
  	require("../logic/config.php");
-	
-	if(!isset($_SESSION["username"])) {
-		error($string["status"]["notLoggedIn"]);
-		header("location: ../pages/login.php");
-		exit;
-	}
+
+	check_login($string);
 
 	if(!params_ok(["name"], "POST")) {	
 		error($string['status']['collectionNotAdded']);

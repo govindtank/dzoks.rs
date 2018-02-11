@@ -17,7 +17,7 @@
     $size = strip($_GET["size"]);
     $qty = strip($_GET["qty"]);
 
-	$cmd = "SELECT quantity FROM cart WHERE product='$id' AND size='$size' AND user='$ip'";
+	$cmd = "SELECT quantity FROM cart WHERE product='$id' AND size='$size' AND user='$id'";
 	$result = mysqli_query($connect, $cmd);
 
 	if(mysqli_num_rows($result) > 0) {
@@ -27,11 +27,11 @@
 
 		checkQuantity($qty, $size, $id, $connect, $string);
 
-		$cmd = "UPDATE cart SET quantity='$qty' WHERE product='$id' AND size='$size' AND user='$ip'";
+		$cmd = "UPDATE cart SET quantity='$qty' WHERE product='$id' AND size='$size' AND user='$id'";
 	}else {
 		checkQuantity($qty, $size, $id, $connect, $string);
 
-		$cmd = "INSERT INTO cart (product, size, quantity, user) VALUES('$id', N'$size', '$qty', '$ip')";
+		$cmd = "INSERT INTO cart (product, size, quantity, user) VALUES('$id', N'$size', '$qty', '$id')";
 	}
 
 	mysqli_query($connect, $cmd);

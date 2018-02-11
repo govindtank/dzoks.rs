@@ -45,7 +45,7 @@
 	
 	$hash = generate_random_string(32);
 	
-	$cmd = "INSERT INTO purchases (hash, first_name, last_name, email, phone, address, zip, city, country, confirmed, shipped, timestamp) VALUES('$hash', '$firstName', '$lastName', '$email', '$phone', '$address', '$zip', '$city', '$country', 0, 0, now())";
+	$cmd = "INSERT INTO purchases (hash, first_name, last_name, email, phone, address, zip, city, country, ip, confirmed, shipped, timestamp) VALUES('$hash', '$firstName', '$lastName', '$email', '$phone', '$address', '$zip', '$city', '$country', '$ip', 0, 0, now())";
 	mysqli_query($connect, $cmd);
 
 	$cmd = "SELECT id FROM purchases WHERE hash='$hash'";

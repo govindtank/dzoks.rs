@@ -7,9 +7,7 @@
         <?php require("../ui/header.php"); ?>
         
         <div class="main padded">
-            <?php 
-                echo $string["info"]["text"]; 
-            ?>
+            <?php echo $string["info"]["text"]; ?>
         </div>
         
         <?php require("../ui/footer.php"); ?>
