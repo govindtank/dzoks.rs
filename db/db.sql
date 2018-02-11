@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: Feb 06, 2018 at 03:09 AM
+-- Generation Time: Feb 11, 2018 at 07:40 PM
 -- Server version: 5.5.42-log
 -- PHP Version: 7.0.0
 
@@ -47,7 +47,7 @@ CREATE TABLE `cart` (
   `quantity` int(11) NOT NULL,
   `purchase` int(11) DEFAULT NULL,
   `checked` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `cart`
@@ -55,7 +55,10 @@ CREATE TABLE `cart` (
 
 INSERT INTO `cart` (`id`, `user`, `product`, `size`, `quantity`, `purchase`, `checked`) VALUES
 (5, 'sUSzLW10R2lcQxQ', 54, 1, 3, NULL, 0),
-(6, 'sUSzLW10R2lcQxQ', 53, 2, 7, NULL, 0);
+(6, 'sUSzLW10R2lcQxQ', 53, 2, 7, NULL, 0),
+(7, 'sUSzLW10R2lcQxQ', 38, 2, 9, NULL, 0),
+(8, 'sUSzLW10R2lcQxQ', 54, 2, 1, NULL, 0),
+(9, 'sUSzLW10R2lcQxQ', 38, 1, 1, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -86,7 +89,7 @@ CREATE TABLE `logins` (
   `id` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `logins`
@@ -99,7 +102,8 @@ INSERT INTO `logins` (`id`, `user`, `timestamp`) VALUES
 (4, 4, '2018-01-27 01:51:04'),
 (5, 4, '2018-02-01 01:03:20'),
 (6, 4, '2018-02-03 01:08:43'),
-(7, 4, '2018-02-06 02:01:20');
+(7, 4, '2018-02-06 02:01:20'),
+(8, 4, '2018-02-11 18:12:22');
 
 -- --------------------------------------------------------
 
@@ -158,6 +162,7 @@ CREATE TABLE `purchases` (
   `zip` varchar(5) COLLATE utf8_bin NOT NULL,
   `city` varchar(50) COLLATE utf8_bin NOT NULL,
   `country` varchar(50) COLLATE utf8_bin NOT NULL,
+  `ip` varchar(20) COLLATE utf8_bin NOT NULL,
   `confirmed` tinyint(1) NOT NULL DEFAULT '0',
   `shipped` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -166,15 +171,15 @@ CREATE TABLE `purchases` (
 -- Dumping data for table `purchases`
 --
 
-INSERT INTO `purchases` (`id`, `hash`, `timestamp`, `first_name`, `last_name`, `email`, `phone`, `address`, `zip`, `city`, `country`, `confirmed`, `shipped`) VALUES
-(11, 'cm5WdRbVuEtTq2kWDVRNTEPOXHCiGpVS', '2018-02-03 01:54:50', 'laa', 'ertyui', 'sdf@as.com', '123', 'adresa', '37000', 'ks', 'sr', 1, 0),
-(12, 'TXqpJpBL0KwYtq3o0A5TmuqJb0CkOoPH', '2018-02-03 01:54:54', 'Lazar', 'Jelic', 'jelic.ecloga@gmail.com', '0614437010', 'Adresa', '37000', 'Krusevac', 'Srbija', 1, 1),
-(13, '65FIQFtnDWOHlOiqIEV9o690rXpgFLwM', '2018-01-29 22:40:49', 'askdjkah', 'aksjdajksdn', 'akjsdn@ansjkf.com', '82123123', 'ashd', '23232', 'asdjnn', 'AR', 0, 0),
-(14, 'yZbEKNFZtYiVEkIiETl8NUk2Y04R26zA', '2018-01-29 23:05:12', 'kbh', 'hb', 'asdasd@asf.com', 'jh', '1231', '22222', 'asd', 'AG', 0, 0),
-(15, 'ydloWt1JxIkSg9ulTaP9UHGjMjJ8hk6P', '2018-02-06 02:02:16', 'lazar', 'jelic', 'jelic.ecloga@asmdk', '5678', 'ajhsdb', '21312', 'ashjdb', 'SN', 1, 0),
-(16, 'S7PGWg8hfDrTKjFN0bFxgJE4FjZMZQHR', '2018-02-06 02:02:17', 'qwert', 'sdfgh', 'asgd@aksf.com', '57', 'hjasd', '21312', 'bajsdhb', 'BL', 1, 1),
-(17, 'subrZ35A0hYQRWvex5BXayU0c1uBqWHS', '2018-02-06 02:02:19', 'Lazar', 'Jelka', 'jelic.ecloga@gmail.com', '0614437010', 'Vasilija Velikog', '37000', 'Krusevac', 'BL', 1, 0),
-(18, 'AzWWK4tnKwUAXeOqHxw9aqcN5RfT2x6C', '2018-02-01 23:52:35', 'sdaskd', 'qknakjsn', 'aksjdn@ajsd.com', '123123', 'asndk', '12312', 'kansdk', 'AF', 0, 0);
+INSERT INTO `purchases` (`id`, `hash`, `timestamp`, `first_name`, `last_name`, `email`, `phone`, `address`, `zip`, `city`, `country`, `ip`, `confirmed`, `shipped`) VALUES
+(11, 'cm5WdRbVuEtTq2kWDVRNTEPOXHCiGpVS', '2018-02-11 18:39:36', 'laa', 'ertyui', 'sdf@as.com', '123', 'adresa', '37000', 'ks', 'sr', '', 1, 0),
+(12, 'TXqpJpBL0KwYtq3o0A5TmuqJb0CkOoPH', '2018-02-03 01:54:54', 'Lazar', 'Jelic', 'jelic.ecloga@gmail.com', '0614437010', 'Adresa', '37000', 'Krusevac', 'Srbija', '', 1, 1),
+(13, '65FIQFtnDWOHlOiqIEV9o690rXpgFLwM', '2018-01-29 22:40:49', 'askdjkah', 'aksjdajksdn', 'akjsdn@ansjkf.com', '82123123', 'ashd', '23232', 'asdjnn', 'AR', '', 0, 0),
+(14, 'yZbEKNFZtYiVEkIiETl8NUk2Y04R26zA', '2018-01-29 23:05:12', 'kbh', 'hb', 'asdasd@asf.com', 'jh', '1231', '22222', 'asd', 'AG', '', 0, 0),
+(15, 'ydloWt1JxIkSg9ulTaP9UHGjMjJ8hk6P', '2018-02-11 18:39:29', 'lazar', 'jelic', 'jelic.ecloga@asmdk', '5678', 'ajhsdb', '21312', 'ashjdb', 'SN', '', 1, 0),
+(16, 'S7PGWg8hfDrTKjFN0bFxgJE4FjZMZQHR', '2018-02-06 02:02:17', 'qwert', 'sdfgh', 'asgd@aksf.com', '57', 'hjasd', '21312', 'bajsdhb', 'BL', '', 1, 1),
+(17, 'subrZ35A0hYQRWvex5BXayU0c1uBqWHS', '2018-02-06 02:02:19', 'Lazar', 'Jelka', 'jelic.ecloga@gmail.com', '0614437010', 'Vasilija Velikog', '37000', 'Krusevac', 'BL', '', 1, 0),
+(18, 'AzWWK4tnKwUAXeOqHxw9aqcN5RfT2x6C', '2018-02-01 23:52:35', 'sdaskd', 'qknakjsn', 'aksjdn@ajsd.com', '123123', 'asndk', '12312', 'kansdk', 'AF', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -307,7 +312,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `collections`
 --
@@ -317,7 +322,7 @@ ALTER TABLE `collections`
 -- AUTO_INCREMENT for table `logins`
 --
 ALTER TABLE `logins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `products`
 --
@@ -349,17 +354,3 @@ ALTER TABLE `cart`
   ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`product`) REFERENCES `products` (`id`),
   ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`size`) REFERENCES `sizes` (`id`),
   ADD CONSTRAINT `cart_ibfk_3` FOREIGN KEY (`purchase`) REFERENCES `purchases` (`id`);
-
---
--- Constraints for table `products`
---
-ALTER TABLE `products`
-  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`collection`) REFERENCES `Collections` (`id`),
-  ADD CONSTRAINT `products_ibfk_2` FOREIGN KEY (`collection`) REFERENCES `collections` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
-
---
--- Constraints for table `warehouse`
---
-ALTER TABLE `warehouse`
-  ADD CONSTRAINT `warehouse_ibfk_1` FOREIGN KEY (`product`) REFERENCES `products` (`id`),
-  ADD CONSTRAINT `warehouse_ibfk_2` FOREIGN KEY (`size`) REFERENCES `sizes` (`id`);
