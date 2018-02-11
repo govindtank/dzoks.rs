@@ -20,6 +20,7 @@
 			echo '<td>' . $row['city'] . '</td>';
 			echo '<td>' . $row['zip'] . '</td>';
 			echo '<td>' . $row['country'] . '</td>';
+			echo '<td>' . $row['ip'] . '</td>';
 			echo '<td>' . $row['timestamp'] . '</td>';
 
 			if($row['confirmed'] == 1 && $row['shipped'] == 1)  {
