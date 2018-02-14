@@ -87,12 +87,33 @@
                    	echo '<input name="id" type="hidden" value="' . $row['id'] . '">'; 
                     echo '<input class="button" type="submit" value="' . $string["product"]["buy"] . '"/>';
                     echo '</form></div>';
+
+					echo '<div class="comments">';
+					echo '<h2>' . $string['product']['comments'] . '</h2>';
+
+					$cmd = "SELECT * FROM comments WHERE product=" . $id;
+					$result = mysqli_query($connect, $cmd);
+
+					while($row = mysqli_fetch_array($result)) {
+						echo '<div class="comment">';
+						echo '<p><b>' . $row["name"] . '</b></p>';
+						echo '<p>' . $row["comment"] . '</p>';
+						echo '</div>';
+					}
+
+					echo '<form action="../actions/product_comment.php" method="POST">';
+					echo '<input type="text" name="name" placeholder="' . $string['product']['name'] . '" required/>';
+					echo '<input type="text" name="comment" placeholder="' . $string['product']['comment'] . '" required/>';
+					echo '<input type="hidden" name="product" value="' . $id . '"/>';
+					echo '<input type="submit" class="button" value="' . $string['product']['post'] . '" />';
+					echo '</form>';
+					echo '</div>';
                 }else {
 					echo '<div class="center-both">';
                     echo '<h1>'  . $string["product"]["invalid"] . '</h1>';
                     echo '<a href="shop" class="button center">'  . $string["product"]["continue"] . '</a>';
 					echo '</div>';
-                }
+                }	
             ?>
         </div>
         

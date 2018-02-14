@@ -53,6 +53,10 @@
         , "product" => [
               "invalid" => "We don't have that pair."
             , "continue" => "Try another"
+            , "comments" => "Comments"
+            , "name" => "Name"
+            , "comment" => "Comment"
+            , "post" => "Post"
             , "buy" => "Add to cart"
             , "sizes" => ["s" => "small (38-42)", "l" => "LARGE (42-46)"]
         ]
@@ -97,6 +101,9 @@
 			, "orderPlaced" => "Order has been placed"
 			, "productNotAdded" => "Product has not been added"
 			, "productAdded" => "Product has been added"
+			, "productNotCommented" => "Product has not been commented"
+			, "productCommented" => "Product has been commented"
+			, "productNotUpdated" => "Product has not been updated"
 			, "productNotUpdated" => "Product has not been updated"
 			, "productUpdated" => "Product has been updated"
 			, "collectionNotAdded" => "Collection has not been added"

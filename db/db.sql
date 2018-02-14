@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: Feb 11, 2018 at 07:40 PM
+-- Generation Time: Feb 14, 2018 at 01:09 AM
 -- Server version: 5.5.42-log
 -- PHP Version: 7.0.0
 
@@ -47,18 +47,18 @@ CREATE TABLE `cart` (
   `quantity` int(11) NOT NULL,
   `purchase` int(11) DEFAULT NULL,
   `checked` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `cart`
 --
 
 INSERT INTO `cart` (`id`, `user`, `product`, `size`, `quantity`, `purchase`, `checked`) VALUES
-(5, 'sUSzLW10R2lcQxQ', 54, 1, 3, NULL, 0),
 (6, 'sUSzLW10R2lcQxQ', 53, 2, 7, NULL, 0),
 (7, 'sUSzLW10R2lcQxQ', 38, 2, 9, NULL, 0),
 (8, 'sUSzLW10R2lcQxQ', 54, 2, 1, NULL, 0),
-(9, 'sUSzLW10R2lcQxQ', 38, 1, 1, NULL, 0);
+(9, 'sUSzLW10R2lcQxQ', 38, 1, 1, NULL, 0),
+(10, '38', 38, 2, 2, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -78,6 +78,29 @@ CREATE TABLE `collections` (
 INSERT INTO `collections` (`id`, `name`) VALUES
 (2, 'Star Wars'),
 (3, 'X-mas');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) COLLATE utf8_bin NOT NULL,
+  `comment` text COLLATE utf8_bin NOT NULL,
+  `product` int(11) NOT NULL,
+  `ip` varchar(20) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `name`, `comment`, `product`, `ip`) VALUES
+(7, 'laza', 'stvarno kul carape', 38, '0'),
+(10, 'ana', 'asd', 38, '::1'),
+(11, 'asd', '123', 37, '::1');
 
 -- --------------------------------------------------------
 
@@ -265,6 +288,13 @@ ALTER TABLE `collections`
   ADD UNIQUE KEY `name` (`name`);
 
 --
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product` (`product`);
+
+--
 -- Indexes for table `logins`
 --
 ALTER TABLE `logins`
@@ -312,12 +342,17 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `collections`
 --
 ALTER TABLE `collections`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `logins`
 --
@@ -354,3 +389,9 @@ ALTER TABLE `cart`
   ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`product`) REFERENCES `products` (`id`),
   ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`size`) REFERENCES `sizes` (`id`),
   ADD CONSTRAINT `cart_ibfk_3` FOREIGN KEY (`purchase`) REFERENCES `purchases` (`id`);
+
+--
+-- Constraints for table `comments`
+--
+ALTER TABLE `comments`
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`product`) REFERENCES `products` (`id`);

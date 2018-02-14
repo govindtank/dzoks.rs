@@ -22,5 +22,17 @@
 		success($string['status']['orderReturned']);
 	}
 
+	$cmd = "SELECT email FROM purchases WHERE id=" . $id;
+	$email = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
+
+	$sender = "office@soxbty.com";
+
+	$subject = "[SOXBTY] Shipped";
+	$message = "Order " . $id . " has been shipped";
+	$headers = "From: " . $sender . "\r\n";
+	$headers .= "To: " . $email . "\r\n";
+
+	mail($email, $subject, $message, $headers);
+
 	header("Location: ../pages/manage?type=2");
 ?>
