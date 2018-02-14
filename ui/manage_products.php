@@ -97,7 +97,7 @@
     		echo '<td><textarea name="description-en" rows="10" cols="30" placeholder="' . $string['manage']['description']['en'] . '">' . $desc_en . '</textarea></td>';
 
 			echo '<td><input type="submit" class="button" value="' . $string['manage']['save'] . '"/></td>';
-			echo '<td><a class="button" href="../actions/product_remove?id=' . $row['id'] . '">X</a></td>';
+			echo '<td><a class="button button-shrink" href="../actions/product_remove?id=' . $row['id'] . '">X</a></td>';
 			echo '</form>';
 			echo '</tr>';
 		}

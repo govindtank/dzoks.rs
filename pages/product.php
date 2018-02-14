@@ -48,7 +48,7 @@
 					$result = mysqli_query($connect, $cmd);
 					$collection = mysqli_fetch_array($result)[0];
 
-                    echo '<p>' . $collection . '</p>';
+                    echo '<p><i>' . $collection . '</i></p>';
                 	
 					$desc = get_description($id, NULL);
 

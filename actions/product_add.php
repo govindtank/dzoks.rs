@@ -26,7 +26,7 @@
 	$path = '../products/' . $id;
 
 	if(!file_exists($path)) {
-		mkdir($path);
+		mkdir($path, 0777, true);
 	}
 
 	file_put_contents($path . "/desc/rs.txt", $desc_rs);

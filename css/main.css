@@ -275,6 +275,10 @@ textarea:focus {
     -o-transition: 500ms ease;
 }
 
+.button-shrink {
+	width: 2.5em;
+}
+
 .button:hover {
     opacity: 1;
     color: #000;

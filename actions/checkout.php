@@ -49,12 +49,12 @@
 	mysqli_query($connect, $cmd);
 
 	$cmd = "SELECT id FROM purchases WHERE hash='$hash'";
-	$id = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
+	$purchase = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
 
-	$cmd = "UPDATE cart SET purchase=$id, checked=1 WHERE user='$ip' AND checked=0";
-	mysqli_query($connect, $cmd);
+	$cmd = "UPDATE cart SET purchase=$purchase, checked=1 WHERE user='$id' AND checked=0";
+	mysqli_query($connect, $cmd) or die(mysqli_error($connect));
 
-	$cmd = "SELECT * FROM cart WHERE purchase=" . $id;
+	$cmd = "SELECT * FROM cart WHERE paurchase=" . $purchase;
 	$result = mysqli_query($connect, $cmd) or die(mysqli_error($connect));
 
 	while($row = mysqli_fetch_array($result)) {

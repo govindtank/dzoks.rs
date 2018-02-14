@@ -155,7 +155,7 @@
 				$_SESSION['rsdeur'] = 120;
 			}
 
-			$price /= $_SESSION['rsdeur'];
+			$price *= $_SESSION['rsdeur'];
 
 			$currency = 'EUR';
 		}

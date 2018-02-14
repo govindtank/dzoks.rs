@@ -30,7 +30,7 @@
 		}
 
 		if(!file_exists($desc_path)) {
-			mkdir($desc_path);
+			mkdir($desc_path, 0777, true);
 		}
 
 		file_put_contents($desc_path . "/rs.txt", $desc_rs);
@@ -46,7 +46,7 @@
 			}
 
 			if(!file_exists($img_path)) {
-				mkdir($img_path);
+				mkdir($img_path, 0777, true);
 			}
 		}
 

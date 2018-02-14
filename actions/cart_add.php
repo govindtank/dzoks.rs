@@ -13,11 +13,11 @@
 		exit;
 	}
 
-    $id = strip($_GET["id"]);
+    $product = strip($_GET["id"]);
     $size = strip($_GET["size"]);
     $qty = strip($_GET["qty"]);
 
-	$cmd = "SELECT quantity FROM cart WHERE product='$id' AND size='$size' AND user='$id'";
+	$cmd = "SELECT quantity FROM cart WHERE product='$product' AND size='$size' AND user='$id'";
 	$result = mysqli_query($connect, $cmd);
 
 	if(mysqli_num_rows($result) > 0) {
@@ -25,17 +25,17 @@
 			$qty += $row['quantity'];
 		}
 
-		checkQuantity($qty, $size, $id, $connect, $string);
+		checkQuantity($qty, $size, $product, $connect, $string);
 
-		$cmd = "UPDATE cart SET quantity='$qty' WHERE product='$id' AND size='$size' AND user='$id'";
+		$cmd = "UPDATE cart SET quantity='$qty' WHERE product='$product' AND size='$size' AND user='$id'";
 	}else {
-		checkQuantity($qty, $size, $id, $connect, $string);
+		checkQuantity($qty, $size, $product, $connect, $string);
 
-		$cmd = "INSERT INTO cart (product, size, quantity, user) VALUES('$id', N'$size', '$qty', '$id')";
+		$cmd = "INSERT INTO cart (product, size, quantity, user) VALUES('$product', N'$size', '$qty', '$id')";
 	}
 
 	mysqli_query($connect, $cmd);
 
 	success($string['status']['productAddedToCart']);
-	header("location: ../pages/product.php?id=" . $id);
+	header("location: ../pages/product.php?id=" . $product);
 ?>

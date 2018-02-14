@@ -42,7 +42,7 @@
 
                     echo '<td>' . $string["product"]["sizes"][$sizes[$row["size"]]] . '</td>';
 					echo '<td>' . get_price($price) . ' x ' . $row['quantity'] . '</td>';
-					echo '<td><a class="button" href="'. $url . '">X</a></td>';
+					echo '<td><a class="button button-shrink" href="'. $url . '">X</a></td>';
 					echo '</tr>';
                 }
             

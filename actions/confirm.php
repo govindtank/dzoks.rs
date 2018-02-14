@@ -2,7 +2,8 @@
 	require("../logic/config.php");
 
 	if(!isset($_GET['h'])) {
-		header("Location: ../error.php");
+		error($string['status']['orderNotPlaced']);
+		header("location: ../pages/home.php");
 		exit;	
 	}
 
@@ -30,7 +31,7 @@
 		$cmd = "UPDATE warehouse SET quantity=" . $qty . " WHERE product=" . $row['product'] .  " AND size=" . $row['size'];
 		mysqli_query($connect, $cmd);
 	}
-	
+
 	$cmd = "DELETE FROM cart WHERE purchase=" . $id;
 	mysqli_query($connect, $cmd);
 		
