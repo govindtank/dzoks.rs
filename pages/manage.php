@@ -33,6 +33,9 @@
 						case 2:
 							require("../ui/manage_orders.php");
 							break;
+						case 3:
+							require("../ui/manage_comments.php");
+							break;
 					}
 					
 					echo '<a class="button center" href="../pages/manage">' . $string['manage']['back'] . '</a>';
@@ -42,6 +45,7 @@
 					echo '<a class="button center" href="manage?type=0">' . $string["manage"]["collections"] . '</a>';
 					echo '<a class="button center" href="manage?type=1">' . $string["manage"]["products"] . '</a>';
 					echo '<a class="button center" href="manage?type=2">' . $string["manage"]["orders"] . '</a>';
+					echo '<a class="button center" href="manage?type=3">' . $string["manage"]["comments"] . '</a>';
 					echo '</div>';
 				}
 			?>

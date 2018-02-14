@@ -95,13 +95,17 @@
 					$result = mysqli_query($connect, $cmd);
 
 					while($row = mysqli_fetch_array($result)) {
+						if($row['accepted'] == 0) {
+							continue;	
+						}
+
 						echo '<div class="comment">';
 						echo '<p><b>' . $row["name"] . '</b></p>';
 						echo '<p>' . $row["comment"] . '</p>';
 						echo '</div>';
 					}
 
-					echo '<form action="../actions/product_comment.php" method="POST">';
+					echo '<form action="../actions/comment_add.php" method="POST">';
 					echo '<input type="text" name="name" placeholder="' . $string['product']['name'] . '" required/>';
 					echo '<input type="text" name="comment" placeholder="' . $string['product']['comment'] . '" required/>';
 					echo '<input type="hidden" name="product" value="' . $id . '"/>';
