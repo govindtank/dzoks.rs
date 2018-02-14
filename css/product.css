@@ -2,11 +2,13 @@ form {
 	float: right;	
 }
 
-.options {
-    width: 50%;
+.options,
+.comments {
+    width: 45%;
     height: auto;
     float: right;
     text-align: right;
+	margin-left: 5%;
 }
 
 .options p {
@@ -23,9 +25,8 @@ form {
 }
 
 .comments {
-	display: block;
-	float: right;
-	max-width: 50%;
+	border-top: 1px solid #fff;
+	padding-top: 0.5em;
 }
 
 .comments h2 {
@@ -37,13 +38,9 @@ form {
 	margin-top: 0.5em;
 }
 
-.comments input {
-	display: inline-block;	
-}
-
 .comment {
 	display: block;
-	width: 80%;
+	width: 100%;
 	height: auto;
 	float: right;
 	text-align: left;
@@ -56,6 +53,7 @@ form {
 .sp-wrap {
 	width: 50%;
 	height: auto;
+	min-height: 50%;
 	float: left;
 }
 
@@ -203,8 +201,18 @@ form {
 	}
 
 	.sp-wrap,
-	.options {
+	.options,
+	.comments {
 		width: 100%;
+		text-align: center;
+	}
+
+	.comments h2 {
+		text-align: center;	
+	}
+
+	.comment {
+		width: 100%;	
 	}
 
 	#sp-prev, #sp-next {

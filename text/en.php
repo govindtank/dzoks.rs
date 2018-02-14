@@ -54,6 +54,8 @@
               "invalid" => "We don't have that pair."
             , "continue" => "Try another"
             , "comments" => "Comments"
+            , "noComments" => "No comments"
+            , "noCommentsText" => "Be the first to say something about these awesome socks"
             , "name" => "Name"
             , "comment" => "Comment"
             , "post" => "Post"

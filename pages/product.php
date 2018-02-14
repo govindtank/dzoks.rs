@@ -94,6 +94,13 @@
 					$cmd = "SELECT * FROM comments WHERE product=" . $id;
 					$result = mysqli_query($connect, $cmd);
 
+					if(mysqli_num_rows($result) == 0) {
+						echo '<div class="comment">';
+						echo '<p><b>' . $string['product']['noComments'] . '</b></p>';
+						echo '<p>' . $string['product']['noCommentsText'] . '</p>';
+						echo '</div>';
+					}
+
 					while($row = mysqli_fetch_array($result)) {
 						if($row['accepted'] == 0) {
 							continue;	
