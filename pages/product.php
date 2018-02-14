@@ -41,8 +41,7 @@
 					echo '</div>';
 
                     echo '<div class="options">';
-					echo '<form action="../actions/cart_add.php" method="GET">';
-					echo '<p class="name">' . $row['name'] . '</p>';
+					echo '<h2>' . $row['name'] . '</h1>';
 
 					$cmd = "SELECT name FROM collections WHERE id=" . $row['collection'];
 					$result = mysqli_query($connect, $cmd);
@@ -56,7 +55,9 @@
 						echo '<p>' . $desc . '</p>';
 					}
 
-                    echo '<p class="price"> ' . get_price($row['price']) . '</p>';
+					echo '<form class="separated" action="../actions/cart_add.php" method="GET">';
+                    
+					echo '<h2> ' . get_price($row['price']) . '</h2>';
                         
 					$cmd = "SELECT * FROM sizes";
 					$result = mysqli_query($connect, $cmd);
@@ -88,7 +89,7 @@
                     echo '<input class="button" type="submit" value="' . $string["product"]["buy"] . '"/>';
                     echo '</form></div>';
 
-					echo '<div class="comments">';
+					echo '<div class="comments separated">';
 					echo '<h2>' . $string['product']['comments'] . '</h2>';
 
 					$cmd = "SELECT * FROM comments WHERE product=" . $id;
