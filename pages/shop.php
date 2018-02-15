@@ -10,7 +10,7 @@
     <body>
         <?php require("../ui/header.php"); ?>
 
-        <div class="main padded"></div>
+        <div class="main"></div>
 		
         <?php require("../ui/footer.php"); ?>
 		<script type="text/javascript" src="../js/scroll.js"></script>

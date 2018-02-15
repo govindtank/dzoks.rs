@@ -2,7 +2,7 @@
     visibility: hidden;
     height: 50%;
     max-height: 50%;
-    margin: 10% auto;
+    margin: 5% auto;
     text-align: center;
 }
 
@@ -14,4 +14,11 @@
 	margin: 0;
     float: left;
     position: absolute;
+}
+
+@media screen and (max-width: 720px) {
+
+	.logo-center {
+		margin-bottom: 20%;
+	}
 }

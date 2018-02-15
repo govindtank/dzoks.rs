@@ -1,8 +1,8 @@
 .item {
 	position: relative;
-	width: 18.6vw;
-	height: 18.6vw;
-	margin: 0.7vw;
+	width: 23vw;
+	height: 23vw;
+	margin: 1vw;
 	display: inline-block;
 	cursor: pointer;
 	text-align: center;
