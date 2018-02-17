@@ -19,7 +19,7 @@
 		exit();
 	}
 	
-	$receiver = "jelic.ecloga@gmail.com";
+	$sender = "office@soxbty.com";
 	$subject = "[SOXBTY] Contact";
 	$headers = "From: " . $email . "\r\n";
 	$headers .= "To: " . $receiver . "\r\n";
