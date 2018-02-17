@@ -10,6 +10,7 @@
           , "checkout" => "Checkout"
           , "login" => "Login"
           , "manage" => "Manage"
+          , "ok" => "Okay"
         ]
         , "index" => [
 		 	"enter" => "Enter"

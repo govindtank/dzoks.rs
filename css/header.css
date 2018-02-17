@@ -45,8 +45,7 @@ header {
 }
 
 .status-alert {
-	background: #fff;
-	color: #000;
+	background: #000;
 }
 
 .status p {
@@ -54,6 +53,10 @@ header {
 	padding-bottom: 0.75em;
 	font-size: 1em;
 	margin: 0;
+}
+
+.status .button {
+	margin-bottom: 0.5em;
 }
 
 #nav {
@@ -94,6 +97,18 @@ header {
 .header-icon {    
     height: 1em;
     margin-top: 0.25em; 
+}
+
+.status {
+	opacity: 0;	
+	-moz-transition: 500ms ease-in-out;
+    -webkit-transition: 500ms ease-in-out;
+    -ms-transition: 500ms ease-in-out;
+    -o-transition: 500ms ease-in-out;
+}
+
+.status.open {
+	opacity: 1;	
 }
 
 @media screen and (max-width: 720px) {
