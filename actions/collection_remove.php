@@ -1,7 +1,7 @@
 <?php
 	require("../logic/config.php");
 	
-	check_login($string);
+	check_login($connect, $string);
 
 	if(!params_ok(["id"], "GET")) {
 		error($string['status']['collectionNotRemoved']);

@@ -7,11 +7,20 @@
 		return hash("SHA512", $input, false);
 	}
 
-	function check_login($string) {
+	function check_login($connect, $string) {
 		if(!isset($_SESSION["username"])) {
 			error($string["status"]["notLoggedIn"]);
 			header("location: ../pages/login.php");
 			exit;
+		}else {
+			$cmd = "SELECT * FROM admins WHERE username='" . $_SESSION['username'] . "'";
+			$result = mysqli_query($connect, $cmd);
+
+			if(mysqli_num_rows($result) == 0) {
+				error($string["status"]["notLoggedIn"]);
+				header("location: ../pages/login.php");
+				exit;
+			}
 		}
 	}
 

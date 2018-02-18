@@ -62,6 +62,12 @@
             , "post" => "Објави"
             , "buy" => "Значи купи"
             , "sizes" => ["s" => "мале (38-42)", "l" => "ВЕЛИКЕ (42-46)"]
+			, "price" => "Цена"
+			, "collection" => "Колекција"
+			, "description" => [
+				  "rs" => "Опис (Српски)"
+				, "en" => "Опис (Енглески)"
+			]
         ]
 		, "info" => [
               "text" => file_get_contents("../text/info/text.rs")
@@ -86,19 +92,14 @@
     		, "header" => "Мениџ"
     		, "product" => "Види производ"
     		, "products" => "Чарапке"
+			, "users" => "Корисници"
+    		, "logout" => "Одјава"
     		, "collections" => "Колекшнс"
 			, "orders" => "Поруџбине"
     		, "contacts" => "Контакти"
             , "send" => "Пошаљи"
     		, "comments" => "Коментари"
 			, "name" => "Име"
-			, "price" => "Цена"
-			, "quantity" => "Количина"
-			, "collection" => "Колекшн"
-			, "description" => [
-				  "rs" => "Опис (Српски)"
-				, "en" => "Опис (Енглески)"
-			]
         ]
 		, "status" => [
 			"productNotAddedToCart" => "Производ није убачен у корпу"
@@ -121,6 +122,13 @@
 			, "collectionUpdated" => "Колекција ажурирана"
 			, "collectionNotRemoved" => "Колекција није уклоњена"
 			, "collectionRemoved" => "Колекција уклоњена"
+			, "userNotAdded" => "Корисник није убачен"
+			, "userAdded" => "Корисник убачен"
+			, "userNotUpdated" => "Корисник није ажуриран"
+			, "userUpdated" => "Корисник ажуриран"
+			, "userNotRemoved" => "Корисник није уклоњен"
+			, "userRemoved" => "Корисник уклоњен"
+			, "userLoggedOut" => "Корисник је излогован"
 			, "productNotRemoved" => "Производ није уклоњен"
 			, "productRemoved" => "Производ уклоњен"
 			, "requiredFields" => "Попуните обавезна поља"

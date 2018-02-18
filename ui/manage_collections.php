@@ -16,7 +16,7 @@
             echo '<input type="hidden" name="id" value="' . $row['id'] . '">';
 			echo '<td><input type="text" name="name" placeholder="' . $string['manage']['name'] . '" value="' . $row['name'] . '" /></td>';
 			echo '<td><input type="submit" class="button" value="' . $string['manage']['save'] . '"/></td>';
-			echo '<td><a class="button button-shrink" href="../actions/collection_remove?id=' . $row['id'] . '">X</a></td>';
+			echo '<td><a class="button button-shrink" href="../actions/collection_remove.php?id=' . $row['id'] . '">X</a></td>';
 			echo '</form>';
 			echo '</tr>';
 		}

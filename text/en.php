@@ -62,6 +62,12 @@
             , "post" => "Post"
             , "buy" => "Add to cart"
             , "sizes" => ["s" => "small (38-42)", "l" => "LARGE (42-46)"]
+			, "price" => "Price"
+			, "collection" => "Collection"
+			, "description" => [
+				  "rs" => "Description (Serbian)"
+				, "en" => "Description (English)"
+			]
         ]
 		, "info" => [
               "text" => file_get_contents("../text/info/text.en")
@@ -86,19 +92,14 @@
             , "header" => "Manage"
             , "product" => "Show product"
     		, "products" => "Products"
+    		, "users" => "Users"
+    		, "logout" => "Logout"
     		, "collections" => "Collections"
     		, "orders" => "Orders"
     		, "contacts" => "Contacts"
             , "send" => "Send"
     		, "comments" => "Comments"
 			, "name" => "Name"
-			, "price" => "Price"
-			, "quantity" => "Quantity"
-			, "collection" => "Collection"
-			, "description" => [
-				  "rs" => "Description (Serbian)"
-				, "en" => "Description (English)"
-			]
         ]
 		, "status" => [
 			  "productNotAddedToCart" => "Product has not been added to cart"
@@ -122,6 +123,13 @@
 			, "collectionUpdated" => "Collection has been updated"
 			, "collectionNotRemoved" => "Collection has not been removed"
 			, "collectionRemoved" => "Collection has been removed"
+			, "userNotAdded" => "User has not beed added"
+			, "userAdded" => "User has been added"
+			, "userNotUpdated" => "User has not been updated"
+			, "userUpdated" => "User has been updated"
+			, "userNotRemoved" => "User has not been removed"
+			, "userRemoved" => "User has been removed"
+			, "userLoggedOut" => "User has been logged out"
 			, "productNotRemoved" => "Product has not been removed"
 			, "productRemoved" => "Product has been removed"
 			, "requiredFields" => "Fill required fields"

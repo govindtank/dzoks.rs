@@ -1,17 +1,7 @@
 <?php
 	require("../logic/config.php"); 
-
-	check_login($string);
-
-	$cmd = "SELECT * FROM admins WHERE username='" . $_SESSION['username'] . "'";
-
-	$result = mysqli_query($connect, $cmd);
-
-	if(mysqli_num_rows($result) == 0) {
-		error($string["status"]["notLoggedIn"]);
-		header("location: login.php");
-		exit;
-	}
+	
+	check_login($connect, $string);
 ?>
 <html>
     <head>
@@ -39,17 +29,22 @@
 						case 4:
 							require("../ui/manage_contacts.php");
 							break;
+						case 5:
+							require("../ui/manage_users.php");
+							break;
 					}
 					
 					echo '<a class="button center" href="../pages/manage">' . $string['manage']['back'] . '</a>';
 				}else {
-					echo '<div class="center-both">';
+					echo '<div class="center">';
 					echo '<h1>' . $string["manage"]["header"] . '</h1>';
 					echo '<a class="button center" href="manage?type=0">' . $string["manage"]["collections"] . '</a>';
 					echo '<a class="button center" href="manage?type=1">' . $string["manage"]["products"] . '</a>';
 					echo '<a class="button center" href="manage?type=2">' . $string["manage"]["orders"] . '</a>';
 					echo '<a class="button center" href="manage?type=3">' . $string["manage"]["comments"] . '</a>';
 					echo '<a class="button center" href="manage?type=4">' . $string["manage"]["contacts"] . '</a>';
+					echo '<a class="button center" href="manage?type=5">' . $string["manage"]["users"] . '</a>';
+					echo '<a class="button center" href="../actions/user_logout">' . $string["manage"]["logout"] . '</a>';
 					echo '</div>';
 				}
 			?>

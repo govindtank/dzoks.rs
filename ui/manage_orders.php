@@ -24,9 +24,9 @@
 			echo '<td>' . $row['timestamp'] . '</td>';
 
 			if($row['confirmed'] == 1 && $row['shipped'] == 1)  {
-				echo '<td><a class="button" href="../actions/order_ship?shipped=0&id=' . $row['id'] .'">' . $string['manage']['unship'] . '</a></td>';
+				echo '<td><a class="button" href="../actions/order_ship.php?shipped=0&id=' . $row['id'] .'">' . $string['manage']['unship'] . '</a></td>';
 			}else if($row['confirmed'] == 1 && $row['shipped'] == 0)  {
-				echo '<td><a class="button" href="../actions/order_ship?shipped=1&id=' . $row['id'] .'">' . $string['manage']['ship'] . '</a></td>';
+				echo '<td><a class="button" href="../actions/order_ship.php?shipped=1&id=' . $row['id'] .'">' . $string['manage']['ship'] . '</a></td>';
 			}
 			
 			echo '</tr>';

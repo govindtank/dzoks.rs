@@ -1,7 +1,7 @@
 <?php
  	require("../logic/config.php");
 
-	check_login($string);
+	check_login($connect, $string);
 
 	if(!params_ok(["id", "name"], "POST")) {	
 		error($string['status']['collectionNotUpdated']);

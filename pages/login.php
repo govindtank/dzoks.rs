@@ -10,7 +10,7 @@
 				<div class="center-both">
                 	<h1><?php echo $string["login"]["header"]; ?></h1>
                 	
-					<form action="../actions/login.php" method="POST">  
+					<form action="../actions/user_login.php" method="POST">  
                     	<input name="username" type="text" size="30" placeholder="<?php echo $string['login']['username']; ?>" required/>
                     	<input name="password" type="password" size="30" placeholder="<?php echo $string['login']['password']; ?>" required/>
 						<input class="button" type="submit" value="<?php echo $string['login']['submit']; ?>" />
