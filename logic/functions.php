@@ -185,11 +185,15 @@
 	}
 
 	function get_id() {
-		if(!isset($_COOKIE['ip'])) {
-			setcookie('ip', generate_random_string(15), time() + (10 * 365 * 24 * 60 * 60), '/', null);
+		if(isset($_COOKIE['ip'])) {
+			return $_COOKIE['ip'];
 		}
 
-		return $_COOKIE['ip'];
+		$cookie = generate_random_string(15);
+
+		setcookie('ip', $cookie, time() + (10 * 365 * 24 * 60 * 60), '/', null);
+		
+		return $cookie;
 	}
 
 	function params_ok($params, $method) {

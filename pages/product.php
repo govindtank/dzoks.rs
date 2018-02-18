@@ -89,10 +89,10 @@
                     echo '<input class="button" type="submit" value="' . $string["product"]["buy"] . '"/>';
                     echo '</form></div>';
 
-					echo '<div class="comments separated">';
+					echo '<div class="comments">';
 					echo '<h2>' . $string['product']['comments'] . '</h2>';
 
-					$cmd = "SELECT * FROM comments WHERE product=" . $id;
+					$cmd = "SELECT * FROM comments WHERE product=" . $id . " AND accepted=1";
 					$result = mysqli_query($connect, $cmd);
 
 					if(mysqli_num_rows($result) == 0) {

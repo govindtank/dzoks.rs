@@ -73,6 +73,7 @@
             , "subject" => "Subject"
             , "message" => "Message"
             , "send" => "Send"
+            , "mailto" => "*Form will be sent to "
         ] 
 		, "manage" => [
               "save" => "Save"
