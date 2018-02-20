@@ -145,6 +145,10 @@ input[type=radio] {
 	margin: 0;
 	display: none;
 }
+	
+.crossed span {
+	text-decoration: line-through;
+}
 
 label {
 	margin: 0;

@@ -24,6 +24,15 @@
 		}
 	}
 
+	function debug() {
+		echo 'BEGIN DEBUG INFORMATION<br/>';	
+		echo 'GET ' . print_r($_GET) . '<br/>';	
+		echo 'POST ' . print_r($_POST) . '<br/>';	
+		echo 'SESSION ' . print_r($_SESSION) . '<br/>';	
+		echo 'COOKIE ' . print_r($_COOKIE) . '<br/>';	
+		echo 'END DEBUG INFORMATION<br/>';	
+	}
+
 	function rm_dir($dirname) {
 		$dir_handle = null;
 
@@ -140,11 +149,15 @@
 		return preg_replace("/[^0-9.]/", "", $converted[1][0]);
    	}
 
+	function get_quantity($size, $id, $connect) {
+		$cmd = "SELECT quantity FROM warehouse WHERE product=" . $id . " AND size=" . $size . " ORDER BY warehouse.id DESC";
+
+		return mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
+	}
+
 	function checkQuantity($asked, $size, $id, $connect, $string) {	
-		$cmd = "SELECT quantity FROM warehouse WHERE product=" . $id . " AND size=" . $size;
-		
-		$having = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
-	
+		$having = get_quantity($size, $id, $connect);
+
 		if($asked > $having) {
 			error($string['status']['bigQuantity']);	
 			header("location: ../pages/product.php?id=" . $id);
@@ -200,7 +213,7 @@
 
 		$cookie = generate_random_string(15);
 
-		setcookie('ip', $cookie, time() + (10 * 365 * 24 * 60 * 60), '/', null);
+		setcookie('ip', $cookie);
 		
 		return $cookie;
 	}

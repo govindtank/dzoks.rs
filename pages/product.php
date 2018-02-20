@@ -6,7 +6,7 @@
 		exit;	
 	}
 
-	$id = strip($_GET["id"]);
+	$product = strip($_GET["id"]);
 ?>
 <html>
     <head>
@@ -14,7 +14,7 @@
             require("../ui/meta.php");
             require("../ui/link.php");
         
-			$cmd = "SELECT * FROM products WHERE id='$id'";
+			$cmd = "SELECT * FROM products WHERE id='$product'";
 			$result = mysqli_query($connect, $cmd);
 			$row = mysqli_fetch_array($result);
 
@@ -34,7 +34,7 @@
 				if(mysqli_num_rows($result) == 1){	
 					echo '<div class="sp-wrap">';
 
-					foreach(get_all_product_images($row["id"]) as $image) {
+					foreach(get_all_product_images($product) as $image) {
 						echo '<a href="' . $image .'"><img src="' . $image . '" alt=""></a>';
 					}
 
@@ -49,7 +49,7 @@
 
                     echo '<p><i>' . $collection . '</i></p>';
                 	
-					$desc = get_description($id, NULL);
+					$desc = get_description($product, NULL);
 
 					if(!is_null($desc)) {
 						echo '<p>' . $desc . '</p>';
@@ -58,17 +58,31 @@
 					echo '<form class="separated" action="../actions/cart_add.php" method="GET">';
                     
 					echo '<h2> ' . get_price($row['price']) . '</h2>';
-                        
+
 					$cmd = "SELECT * FROM sizes";
 					$result = mysqli_query($connect, $cmd);
 
 					echo '<div class="input-wrapper">';
 					echo '<div class="input-group">';
 					
-					while($size = mysqli_fetch_array($result)) {
+					while($size = mysqli_fetch_array($result)) {		
+						$qty = get_quantity($size["id"], $product, $connect);
+
 						echo '<div class="radio-input">';
-						echo '<label for="' . $size["id"] . '">';
-               		    echo '<input type="radio" name="size" id="' . $size["id"] . '" value="' . $size["id"] . '"/>';   
+						echo '<label ';
+						
+						if($qty == 0) {
+							echo 'class="crossed" ';
+						}
+
+						echo 'for="size-' . $size["id"] . '">';
+               		    echo '<input type="radio" name="size" ';
+						
+						if($qty == 0) {
+							echo 'disabled ';
+						}
+						
+						echo 'id="size-' . $size["id"] . '" value="' . $size["id"] . '"/>';   
 						echo '<span>' . $string["product"]["sizes"][$size["name"]] . '</span>';
 						echo '</label>';
 						echo '</div>';
@@ -85,14 +99,14 @@
 					echo '</div>';			
 					echo '</div>';			
 	
-                   	echo '<input name="id" type="hidden" value="' . $row['id'] . '">'; 
+                   	echo '<input name="id" type="hidden" value="' . $product . '">'; 
                     echo '<input class="button" type="submit" value="' . $string["product"]["buy"] . '"/>';
                     echo '</form></div>';
 
 					echo '<div class="comments">';
 					echo '<h2>' . $string['product']['comments'] . '</h2>';
 
-					$cmd = "SELECT * FROM comments WHERE product=" . $id . " AND accepted=1";
+					$cmd = "SELECT * FROM comments WHERE product=" . $product . " AND accepted=1";
 					$result = mysqli_query($connect, $cmd);
 
 					if(mysqli_num_rows($result) == 0) {
@@ -116,7 +130,7 @@
 					echo '<form action="../actions/comment_add.php" method="POST">';
 					echo '<input type="text" name="name" placeholder="' . $string['product']['name'] . '" required/>';
 					echo '<input type="text" name="comment" placeholder="' . $string['product']['comment'] . '" required/>';
-					echo '<input type="hidden" name="product" value="' . $id . '"/>';
+					echo '<input type="hidden" name="product" value="' . $product . '"/>';
 					echo '<input type="submit" class="button" value="' . $string['product']['post'] . '" />';
 					echo '</form>';
 					echo '</div>';
