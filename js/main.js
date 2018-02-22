@@ -41,15 +41,21 @@ function navClick() {
 function toggleHeader(scrollTop) {
 	if(scrollTop > 0) {
 		if(lastScrollTop < scrollTop) {
-	   		$("header").addClass("scrolling");
+	   		$("header, .fab").addClass("scrolling");
 	   		$(".status").removeClass("open");
 		}else {
-	   		$("header").removeClass("scrolling");
+	   		$("header, .fab").removeClass("scrolling");
 	   		$(".status").addClass("open");
 		}
 	}
 
-	lastScrollTop = $(document).scrollTop();
+	if(isScrolledIntoView($("footer"))) {
+		$(".fab").css("opacity", "0");			
+	}else {
+		$(".fab").css("opacity", "1");			
+	}
+
+	lastScrollTop = scrollTop;
 }
 
 function blink() {
@@ -129,3 +135,13 @@ $(".number").keypress(function(event) {
     
     return true; 
 });
+
+function isScrolledIntoView(elem) {
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
+
+    var elemTop = $(elem).offset().top;
+    var elemBottom = elemTop + $(elem).height();
+
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}

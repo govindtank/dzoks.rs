@@ -8,7 +8,10 @@
 
             <div class="main">
                 <h1><?php echo $string["contact"]["header"]; ?></h1>
-                <form action="../actions/contact.php" method="POST">  
+				<div class="center">
+                	<p><?php echo $string["contact"]["text"]; ?></p>
+				</div>
+                <form class="separated" action="../actions/contact.php" method="POST">  
                     <input name="name" type="text" size="30" placeholder="<?php echo $string['contact']['name']; ?>" autofocus required/>
                     <input name="email" type="text" size="30" placeholder="<?php echo $string['contact']['email']; ?>" required/>
                     <textarea name="message" rows="10" cols="30" placeholder="<?php echo $string['contact']['message']; ?>" required></textarea>

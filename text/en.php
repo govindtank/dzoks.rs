@@ -7,6 +7,7 @@
           , "cart" => "Cart"
 		  , "info" => "Info"
           , "contact" => "Contact"
+          , "propose" => "Design proposal"
           , "checkout" => "Checkout"
           , "login" => "Login"
           , "manage" => "Manage"
@@ -74,13 +75,21 @@
 		]
         , "contact" => [
               "header" => "Get in touch"
+            , "text" => "We would really (really really) like to hear your opinion on these socks"
             , "name" => "Name"
             , "email" => "Email"
-            , "subject" => "Subject"
             , "message" => "Message"
             , "send" => "Send"
             , "mailto" => "*Form will be sent to "
-        ] 
+        ]
+		, "propose" => [
+              "header" => "Design your own"
+            , "text" => "Propose custom socks and get them for free if others like them"
+            , "name" => "Name"
+            , "email" => "Email"
+            , "description" => "Description"
+            , "send" => "Propose"
+        ]  
 		, "manage" => [
               "save" => "Save"
             , "add" => "Add"
@@ -132,6 +141,8 @@
 			, "userLoggedOut" => "User has been logged out"
 			, "productNotRemoved" => "Product has not been removed"
 			, "productRemoved" => "Product has been removed"
+			, "designNotProposed" => "Design has not been proposed"
+			, "designProposed" => "Design has been proposed"
 			, "requiredFields" => "Fill required fields"
 			, "validationNotCorrect" => "Validation not correct"
 			, "notLoggedIn" => "Please log in"
