@@ -13,7 +13,7 @@
 
 	while($row = mysqli_fetch_array($result)) {
     	echo '<div class="item" data-sr>';
-		echo '<a href="product.php?id=' . $row['id'] . '">';
+		echo '<a href="product?id=' . $row['id'] . '">';
                     	
 		echo '<img class="item-image" src="' . get_thumbnail($row["id"], 0). '"/>';
 		echo '<img class="item-overlay" src="' . get_thumbnail($row["id"], 1). '"/>';

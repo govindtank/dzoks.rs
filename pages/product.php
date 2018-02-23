@@ -142,7 +142,8 @@
                 }	
             ?>
         </div>
-        
+  		<br/>
+
         <?php require("../ui/footer.php"); ?>
 		<script type="text/javascript" src="../js/product.js"></script>
 		<script type="text/javascript">

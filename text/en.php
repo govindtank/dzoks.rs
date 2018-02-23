@@ -75,7 +75,7 @@
 		]
         , "contact" => [
               "header" => "Get in touch"
-            , "text" => "We would really (really really) like to hear your opinion on these socks"
+            , "text" => "These soks exist because of you. We would really like to hear your opinion on them."
             , "name" => "Name"
             , "email" => "Email"
             , "message" => "Message"
@@ -86,6 +86,7 @@
               "header" => "Design your own"
             , "text" => "Propose custom socks and get them for free if others like them"
             , "name" => "Name"
+            , "sock_name" => "Sock name"
             , "email" => "Email"
             , "description" => "Description"
             , "send" => "Propose"
@@ -102,6 +103,7 @@
             , "product" => "Show product"
     		, "products" => "Products"
     		, "users" => "Users"
+    		, "proposals" => "Design proposals"
     		, "logout" => "Logout"
     		, "collections" => "Collections"
     		, "orders" => "Orders"
@@ -163,6 +165,7 @@
 			, "commentNotMarked" => "Comment not marked"
 			, "commentAccepted" => "Comment accepted"
 			, "commentDeclined" => "Comment declined"
+			, "noItems" => "No items"
 		]
 		, "error" => [
 			  "header" => "Psst! Existence of this page has been kept as a secret for centuries."

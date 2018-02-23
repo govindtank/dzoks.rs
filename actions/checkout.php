@@ -12,7 +12,7 @@
 
 	if(!params_ok($inputs, "POST")) {	
 		error($string['status']['orderNotPlaced']);
-		header("location: ../pages/checkout.php");
+		header("location: ../pages/checkout");
 		exit;	
 	}
 
@@ -29,7 +29,7 @@
 	       
 	if($validationInput != $validationCheck) {
 		error($string['status']['validationNotCorrect']);
-		header("location: ../pages/checkout.php");
+		header("location: ../pages/checkout");
 		exit();
 	}
 
@@ -45,7 +45,7 @@
 	
 	$hash = generate_random_string(32);
 	
-	$cmd = "INSERT INTO purchases (hash, first_name, last_name, email, phone, address, zip, city, country, ip, timestamp) VALUES('$hash', '$firstName', '$lastName', '$email', '$phone', '$address', '$zip', '$city', '$country', '$ip', now())";
+	$cmd = "INSERT INTO purchases (hash, first_name, last_name, email, phone, address, zip, city, country, ip, date_submitted) VALUES('$hash', '$firstName', '$lastName', '$email', '$phone', '$address', '$zip', '$city', '$country', '$ip', now())";
 	mysqli_query($connect, $cmd);
 
 	$cmd = "SELECT id FROM purchases WHERE hash='$hash'";
@@ -64,7 +64,7 @@
 
 		if($row['quantity'] > $qty) {
 			error($string['status']['bigQuantity']);
-			header("location: ../pages/cart.php");
+			header("location: ../pages/cart");
 			exit;
 		}
 
@@ -88,5 +88,5 @@
 	mail($email, $subject, $message, $headers);
 
 	success($string['status']['checkEmail']);
-	header("location: ../pages/home.php");
+	header("location: ../pages/home");
 ?>

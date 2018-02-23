@@ -10,7 +10,7 @@
 	function check_login($connect, $string) {
 		if(!isset($_SESSION["username"])) {
 			error($string["status"]["notLoggedIn"]);
-			header("location: ../pages/login.php");
+			header("location: ../pages/login");
 			exit;
 		}else {
 			$cmd = "SELECT * FROM admins WHERE username='" . $_SESSION['username'] . "'";
@@ -18,7 +18,7 @@
 
 			if(mysqli_num_rows($result) == 0) {
 				error($string["status"]["notLoggedIn"]);
-				header("location: ../pages/login.php");
+				header("location: ../pages/login");
 				exit;
 			}
 		}
@@ -135,6 +135,23 @@
 
 		if($index != 0) {
 			return get_product_image($id, 0); 	
+		}
+
+		return $image;
+	}
+
+	function get_first_file($path) {
+		$image = '../img/no_photo.jpg';
+			
+		if(file_exists($path)) {
+			$files = scandir($path);
+
+			foreach($files as $file) {
+    	    	if($file[0] != '.') {
+					$image = $path . '/' . $file;
+					break;
+				}
+			}
 		}
 
 		return $image;
