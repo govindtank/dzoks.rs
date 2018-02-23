@@ -62,8 +62,12 @@
             , "comment" => "Comment"
             , "post" => "Post"
             , "buy" => "Add to cart"
-            , "sizes" => ["s" => "small (38-42)", "l" => "LARGE (42-46)"]
+            , "sell" => "Sell"
+            , "gift" => "Gift"
+            , "note" => "Gift note"
+            , "sizes" => ["S" => "small (38-42)", "L" => "LARGE (42-46)"]
 			, "price" => "Price"
+			, "size" => "Size"
 			, "collection" => "Collection"
 			, "description" => [
 				  "rs" => "Description (Serbian)"
@@ -107,10 +111,15 @@
     		, "logout" => "Logout"
     		, "collections" => "Collections"
     		, "orders" => "Orders"
+			, "warehouse" => "Warehouse"
     		, "contacts" => "Contacts"
             , "send" => "Send"
     		, "comments" => "Comments"
 			, "name" => "Name"
+			, "level" => "Level"
+			, "level1" => "Sell products"
+			, "level2" => "Manage stuff"
+			, "level3" => "Manage users"
         ]
 		, "status" => [
 			  "productNotAddedToCart" => "Product has not been added to cart"
@@ -121,6 +130,10 @@
 			, "messageSent" => "Message has been sent"
 			, "orderNotPlaced" => "Order has not been placed"
 			, "orderPlaced" => "Order has been placed"
+			, "productNotSold" => "Product has not been sold"
+			, "productSold" => "Product has been sold"
+			, "productNotGifted" => "Product has not been gifted"
+			, "productGifted" => "Product has been gifted"
 			, "productNotAdded" => "Product has not been added"
 			, "productAdded" => "Product has been added"
 			, "productNotCommented" => "Commented has not been posted"
@@ -169,6 +182,7 @@
 			, "noItems" => "No items"
 			, "largeFile" => "File is too large"
 			, "notImage" => "File is not an image"
+			, "notAuthorized" => "Not authorized"
 		]
 		, "error" => [
 			  "header" => "Psst! Existence of this page has been kept as a secret for centuries."

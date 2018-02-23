@@ -2,7 +2,8 @@
 	require("../logic/config.php");
 	
 	check_login($connect, $string);
-
+	check_level(3, $connect, $string);
+	
 	if(!params_ok(["id"], "GET")) {
 		error($string['status']['userNotRemoved']);
 		header("location: ../pages/manage?type=5");

@@ -46,16 +46,18 @@
 					$cmd = "SELECT name FROM collections WHERE id=" . $row['collection'];
 					$result = mysqli_query($connect, $cmd);
 					$collection = mysqli_fetch_array($result)[0];
-
-                    echo '<p><i>' . $collection . '</i></p>';
+					
+					if(!is_null($collection) && !empty($collection)) {
+						echo '<p><i>' . $collection . '</i></p>';
+					}
                 	
 					$desc = get_description($product, NULL);
 
-					if(!is_null($desc)) {
+					if(!is_null($desc) && !empty($desc)) {
 						echo '<p>' . $desc . '</p>';
 					}
 
-					echo '<form class="separated" action="../actions/cart_add.php" method="GET">';
+					echo '<form class="bordered" action="../actions/cart_add.php" method="GET">';
                     
 					echo '<h2> ' . get_price($row['price']) . '</h2>';
 

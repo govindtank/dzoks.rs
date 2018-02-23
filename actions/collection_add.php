@@ -2,6 +2,7 @@
  	require("../logic/config.php");
 
 	check_login($connect, $string);
+	check_level(2, $connect, $string);
 
 	if(!params_ok(["name"], "POST")) {	
 		error($string['status']['collectionNotAdded']);

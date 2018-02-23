@@ -2,6 +2,7 @@
 	require("../logic/config.php");
 	
 	check_login($connect, $string);
+	check_level(2, $connect, $string);
 
 	if(!params_ok(["id", "name", "price", "collection", "description-rs", "description-en"], "POST")) {	
 		error($string['status']['productNotUpdated']);

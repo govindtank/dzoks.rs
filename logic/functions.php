@@ -24,6 +24,23 @@
 		}
 	}
 
+	function check_level($required, $connect, $string) {
+		if(!is_authorized($required, $connect, $string)) {	
+			error($string["status"]["notLoggedIn"]);
+			header("location: ../pages/login");
+			exit;
+		}
+	}
+
+	function is_authorized($required, $connect) {
+		$username = $_SESSION['username'];
+
+		$cmd = "SELECT level FROM admins WHERE username='$username'";
+		$level = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
+
+		return $level >= $required;
+	}
+
 	function is_image($type) {	
 		$allowed = ["image/jpeg", "image/png", "image/gif"];
 	

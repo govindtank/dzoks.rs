@@ -2,6 +2,7 @@
 	require("../logic/config.php");
 
 	check_login($connect, $string);
+	check_level(1, $connect, $string);
 
 	if(!params_ok(["id", "shipped"], "GET")) {
 		error($string['status']['orderNotMarked']);

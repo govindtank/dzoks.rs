@@ -13,7 +13,10 @@ td {
 	border: 1px solid #fff;
 }
 
+td > form,
 td > input,
+td > select,
+td > textarea,
 td > .button {
 	margin: 1em auto;
 }

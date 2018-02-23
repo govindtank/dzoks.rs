@@ -1,6 +1,9 @@
 <?php
 	require("../logic/config.php");
 
+	check_login($connect, $string);
+	check_level(2, $connect, $string);
+	
 	if(!is_uploaded_file($_FILES['message']['tmp_name'])) {	
 		error($string['status']['messageNotSent']);
 		header("Location: ../pages/manage?type=4");

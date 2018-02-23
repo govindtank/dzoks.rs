@@ -13,30 +13,45 @@
             <div class="main">
 			<?php
 				if(isset($_GET['type'])) {
-					switch($_GET['type']) {
-						case 0:
-							require("../ui/manage_collections.php");
-							break;
-						case 1:
-							require("../ui/manage_products.php");
-							break;
-						case 2:
-							require("../ui/manage_orders.php");
-							break;
-						case 3:
-							require("../ui/manage_comments.php");
-							break;
-						case 4:
-							require("../ui/manage_contacts.php");
-							break;
-						case 5:
-							require("../ui/manage_users.php");
-							break;
-						case 6:
-							require("../ui/manage_proposals.php");
-							break;
+					$type = strip($_GET['type']);
+
+					$levels = [2, 2, 1, 2, 2, 3, 2, 1];
+
+					if($type >= 0 && $type < count($levels)) {
+						if(is_authorized($levels[$type], $connect, $string)) {
+							switch($type) {
+								case 0:
+									require("../ui/manage_collections.php");
+									break;
+								case 1:
+									require("../ui/manage_products.php");
+									break;
+								case 2:
+									require("../ui/manage_orders.php");
+									break;
+								case 3:
+									require("../ui/manage_comments.php");
+									break;
+								case 4:
+									require("../ui/manage_contacts.php");
+									break;
+								case 5:
+									require("../ui/manage_users.php");
+									break;
+								case 6:
+									require("../ui/manage_proposals.php");
+									break;
+								case 7:
+									require("../ui/manage_warehouse.php");
+									break;
+							}
+						}else {
+							echo '<h1>' . $string["status"]["notAuthorized"] . '</h1>';
+						}
+					}else {
+						echo '<h1>' . $string["status"]["noItems"] . '</h1>';
 					}
-					
+									
 					echo '<a class="button center" href="../pages/manage">' . $string['manage']['back'] . '</a>';
 				}else {
 					echo '<div class="center">';
@@ -48,6 +63,7 @@
 					echo '<a class="button center" href="manage?type=4">' . $string["manage"]["contacts"] . '</a>';
 					echo '<a class="button center" href="manage?type=5">' . $string["manage"]["users"] . '</a>';
 					echo '<a class="button center" href="manage?type=6">' . $string["manage"]["proposals"] . '</a>';
+					echo '<a class="button center" href="manage?type=7">' . $string["manage"]["warehouse"] . '</a>';
 					echo '<a class="button center" href="../actions/user_logout">' . $string["manage"]["logout"] . '</a>';
 					echo '</div>';
 				}

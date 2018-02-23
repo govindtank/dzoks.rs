@@ -2,7 +2,8 @@
  	require("../logic/config.php");
 
 	check_login($connect, $string);
-
+	check_level(2, $connect, $string);
+	
 	if(!params_ok(["id", "name"], "POST")) {	
 		error($string['status']['collectionNotUpdated']);
 		header("location: ../pages/manage?type=0");
