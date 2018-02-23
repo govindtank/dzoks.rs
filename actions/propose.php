@@ -31,7 +31,7 @@
 
 		move_uploaded_file($tmp_name, $path);
 	}else {
-		error($string['status']['designNotProposed']);
+		error($string['status']['requiredFields']);
 		header("location: ../pages/propose.php");
 		exit;	
 	}

@@ -10,20 +10,24 @@
 	$message = file_get_contents($_FILES['message']['tmp_name']);
 
 	$receivers = [];
+	$hashes = [];
 
-	$cmd = "SELECT * FROM purchases GROUP BY email";
+	$cmd = "SELECT email FROM purchases WHERE subscribed=1 GROUP BY email";
 	$result = mysqli_query($connect, $cmd);
 
 	while($row = mysqli_fetch_array($result)) {	
 	    $receivers[] = $row['email'];
+	    $hashes[] = $row['hash'];
 	}
-
+	
 	$receivers = implode(", ", $receivers);
 
 	$sender = "office@soxbty.com";
 	$subject = "[SOXBTY] Newsletter";
 	$headers = "From: " . $sender . "\r\n";
 	$headers .= "To: " . $receivers . "\r\n";
+
+	$message .= $string['status']['unsubscribeLink'] . "http://soxbty.com/actions/unsubscribe?h=" . $hash;
 
 	mail($receivers, $subject, $message, $headers);
 

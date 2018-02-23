@@ -9,7 +9,13 @@
 		$result = mysqli_query($connect, $cmd);
 
 		while($row = mysqli_fetch_array($result)) {	
-			echo '<tr>';
+			echo '<tr ';
+
+			if($row['subscribed'] == 0) {
+				echo 'class="red" ';	
+			}
+
+			echo '>';
 			echo '<td>' . $row['first_name'] . ' ' . $row['last_name'] . '</td>';
 			echo '<td>' . $row['email'] . '</td>';
 			echo '<td>' . $row['phone'] . '</td>';

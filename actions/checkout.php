@@ -45,7 +45,7 @@
 	
 	$hash = generate_random_string(32);
 	
-	$cmd = "INSERT INTO purchases (hash, first_name, last_name, email, phone, address, zip, city, country, ip, confirmed, shipped, timestamp) VALUES('$hash', '$firstName', '$lastName', '$email', '$phone', '$address', '$zip', '$city', '$country', '$ip', 0, 0, now())";
+	$cmd = "INSERT INTO purchases (hash, first_name, last_name, email, phone, address, zip, city, country, ip, timestamp) VALUES('$hash', '$firstName', '$lastName', '$email', '$phone', '$address', '$zip', '$city', '$country', '$ip', now())";
 	mysqli_query($connect, $cmd);
 
 	$cmd = "SELECT id FROM purchases WHERE hash='$hash'";
@@ -81,7 +81,7 @@
 		
 	$sender = "office@soxbty.com";
 	$subject = "[SOXBTY] Confirmation";
-	$message .= $string['status']['clickLink'] . "\nhttp://soxbty.com/actions/confirm?h=" . $hash;
+	$message .= $string['status']['clickLink'] . "http://soxbty.com/actions/confirm?h=" . $hash;
 	$headers = "From: " . $sender . "\r\n";
 	$headers .= "To: " . $email . "\r\n";
 
