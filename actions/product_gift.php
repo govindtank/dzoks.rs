@@ -34,7 +34,7 @@
 	$cmd = "SELECT id FROM admins WHERE username='" . $admin . "'";
 	$admin = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
 
-	$cmd = "INSERT INTO sales (product, size, note, admin) VALUES ('$product', '$size', '$note', '$admin')";
+	$cmd = "INSERT INTO sales (product, size, note, admin, date_submitted) VALUES ('$product', '$size', '$note', '$admin', now())";
 	mysqli_query($connect, $cmd);
 
 	success($string['status']['productGifted']);

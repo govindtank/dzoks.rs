@@ -111,6 +111,7 @@
     		, "logout" => "Logout"
     		, "collections" => "Collections"
     		, "orders" => "Orders"
+    		, "sales" => "Sales"
 			, "warehouse" => "Warehouse"
     		, "contacts" => "Contacts"
             , "send" => "Send"

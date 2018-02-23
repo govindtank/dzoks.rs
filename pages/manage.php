@@ -15,7 +15,7 @@
 				if(isset($_GET['type'])) {
 					$type = strip($_GET['type']);
 
-					$levels = [2, 2, 1, 2, 2, 3, 2, 1];
+					$levels = [2, 2, 1, 2, 2, 3, 2, 1, 2];
 
 					if($type >= 0 && $type < count($levels)) {
 						if(is_authorized($levels[$type], $connect, $string)) {
@@ -44,6 +44,9 @@
 								case 7:
 									require("../ui/manage_warehouse.php");
 									break;
+								case 8:
+									require("../ui/manage_sales.php");
+									break;
 							}
 						}else {
 							echo '<h1>' . $string["status"]["notAuthorized"] . '</h1>';
@@ -64,6 +67,7 @@
 					echo '<a class="button center" href="manage?type=5">' . $string["manage"]["users"] . '</a>';
 					echo '<a class="button center" href="manage?type=6">' . $string["manage"]["proposals"] . '</a>';
 					echo '<a class="button center" href="manage?type=7">' . $string["manage"]["warehouse"] . '</a>';
+					echo '<a class="button center" href="manage?type=8">' . $string["manage"]["sales"] . '</a>';
 					echo '<a class="button center" href="../actions/user_logout">' . $string["manage"]["logout"] . '</a>';
 					echo '</div>';
 				}
