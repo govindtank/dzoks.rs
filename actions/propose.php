@@ -21,6 +21,18 @@
 	}
 	
 	if(isset($_FILES['photo']['name'])) {
+		if(!file_size_ok($_FILES['photo']['size'])) {
+			error($string['status']['largeFile']);
+			header("location: ../pages/propose");
+			exit;	
+		}
+
+		if(!is_image($_FILES['photo']['type'])) {
+			error($string['status']['notImage']);
+			header("location: ../pages/propose");
+			exit;	
+		}
+
 		$cmd = "INSERT INTO proposals (name, sock_name, email, description, date_submitted) VALUES('$name', '$sockName', '$email', '$description', now())";
 		mysqli_query($connect, $cmd);
 
@@ -35,7 +47,7 @@
 			mkdir($path, 0777, true);
 		}
 
-		$path .= '/' . basename($_FILES["photo"]["name"]);
+		$path .= '/' . rename_file(basename($_FILES["photo"]["name"]));
 
 		move_uploaded_file($tmp_name, $path);
 	}else {

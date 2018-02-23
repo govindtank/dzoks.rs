@@ -24,6 +24,22 @@
 		}
 	}
 
+	function is_image($type) {	
+		$allowed = ["image/jpeg", "image/png", "image/gif"];
+	
+		return in_array($type, $allowed);
+	}
+
+	function file_size_ok($size) {
+		return $size < 1000000;
+	}
+
+	function rename_file($name) {
+		$ext = strtolower(substr($name, strripos($name, '.') + 1));
+
+		return round(microtime(true)).mt_rand().'.'.$ext;	
+	}
+
 	function debug() {
 		echo 'BEGIN DEBUG INFORMATION<br/>';	
 		echo 'GET ' . print_r($_GET) . '<br/>';	

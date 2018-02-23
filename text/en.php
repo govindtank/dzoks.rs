@@ -166,6 +166,8 @@
 			, "commentAccepted" => "Comment accepted"
 			, "commentDeclined" => "Comment declined"
 			, "noItems" => "No items"
+			, "largeFile" => "File is too large"
+			, "notImage" => "File is not an image"
 		]
 		, "error" => [
 			  "header" => "Psst! Existence of this page has been kept as a secret for centuries."

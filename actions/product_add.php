@@ -37,7 +37,19 @@
   
   		for($key = 0; $key < $total_files; $key++) {
     		if(isset($_FILES['photos']['name'][$key]) && $_FILES['photos']['size'][$key] > 0) {
-   				$tmp_name = $_FILES["photos"]["tmp_name"][$key];
+				if(!file_size_ok($_FILES['photo']['size'][$key])) {
+					error($string['status']['largeFile']);
+					header("location: ../pages/manage");
+					exit;	
+				}
+
+				if(!is_image($_FILES['photo']['type'][$key])) {
+					error($string['status']['notImage']);
+					header("location: ../pages/manage");
+					exit;	
+				}
+   				
+				$tmp_name = $_FILES["photos"]["tmp_name"][$key];
   				$name = $path . '/' . basename($_FILES["photos"]["name"][$key]);
 				move_uploaded_file($tmp_name, $name);
 	
@@ -57,7 +69,7 @@
         				break;
     				default:
 						error($string['status']['productNotAdded']);
-						header("location: ../pages/manage.php");
+						header("location: ../pages/manage");
 						exit;	
 				}
 
