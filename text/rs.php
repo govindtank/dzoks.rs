@@ -144,6 +144,7 @@
 			, "productRemoved" => "Производ уклоњен"
 			, "designNotProposed" => "Дизајн није преложен"
 			, "designProposed" => "Дизајн је предложен"
+			, "alreadyProposed" => "Већ си предложио дизајн"
 			, "notUnsubscribed" => "Ниси се одјавио са мејлинг листе"
 			, "unsubscribed" => "Успешно си се одјавио са мејлинг листе"
 			, "requiredFields" => "Попуните обавезна поља"

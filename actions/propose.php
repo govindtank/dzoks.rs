@@ -19,7 +19,15 @@
 		header("location: ../pages/contact.php");
 		exit();
 	}
+
+	$cmd = "SELECT id FROM proposals WHERE email='$email'";
 	
+	if(mysqli_num_rows(mysqli_query($connect, $cmd)) > 0) {
+		error($string['status']['alreadyProposed']);
+		header("location: ../pages/propose");
+		exit;	
+	}
+
 	if(isset($_FILES['photo']['name'])) {
 		if(!file_size_ok($_FILES['photo']['size'])) {
 			error($string['status']['largeFile']);
