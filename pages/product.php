@@ -106,8 +106,7 @@
                     echo '</form></div>';
 
 					echo '<div class="comments">';
-					echo '<h2>' . $string['product']['comments'] . '</h2>';
-
+					
 					$cmd = "SELECT * FROM comments WHERE product=" . $product . " AND accepted=1";
 					$result = mysqli_query($connect, $cmd);
 
@@ -154,7 +153,6 @@
                 }	
             ?>
         </div>
-  		<br/>
 
         <?php require("../ui/footer.php"); ?>
 		<script type="text/javascript" src="../js/product.js"></script>

@@ -3,6 +3,13 @@
 		return mysqli_real_escape_string($GLOBALS['connect'], htmlspecialchars(strip_tags(trim($var))));
     }
 
+	function get_mail($action, $lang) {
+		$body = file_get_contents("../text/mail/" . $lang . "/" . $action . ".html");
+		$body = str_replace("{{css}}", file_get_contents("../css/mail.css"), $body);
+	
+		return $body;
+	}
+
 	function hash_string($input) {
 		return hash("SHA512", $input, false);
 	}
@@ -227,7 +234,7 @@
 				$_SESSION['rsdeur'] = 120;
 			}
 
-			$price *= $_SESSION['rsdeur'];
+			$price /= $_SESSION['rsdeur'];
 
 			$currency = 'EUR';
 		}

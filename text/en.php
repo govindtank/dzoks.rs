@@ -56,8 +56,7 @@
         , "product" => [
               "invalid" => "We don't have that pair."
             , "continue" => "Try another"
-            , "reply" => "Reply"
-            , "comments" => "Comments"
+            , "reply" => "SOXBTY team"
             , "noComments" => "No comments"
             , "noCommentsText" => "Be the first to say something about these awesome socks"
             , "name" => "Name"

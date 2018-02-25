@@ -1,0 +1,33 @@
+@font-face {
+	font-family: "Oswald";
+	src:url("../font/Oswald-Medium.ttf");
+}
+
+body {
+	background: linear-gradient(to right, #FC466B, #3F5EFB);
+	color: #fff;
+	font-family: 'Oswald', sans-serif;
+	text-align: center;
+}
+
+a {
+	text-decoration: underline;
+	color: #fff;
+}
+		
+h1 {
+	font-size: 3em;
+    margin: 3em auto;
+	transform: skew(0, -15deg) scale(1, 2);
+    -webkit-transform: skew(0, -15deg) scale(1, 2);
+   	-moz-transform: skew(0, -15deg) scale(1, 2);
+    -o-transform: skew(0, -15deg) scale(1, 2);
+    -ms-transform: skew(0, -15deg) scale(1, 2);
+  	background: -webkit-linear-gradient(left, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af);
+ 	background: -o-linear-gradient(left, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af);
+  	background: -moz-linear-gradient(left, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af);
+  	background: linear-gradient(to right, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af); 
+	background-clip: text;
+  	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}

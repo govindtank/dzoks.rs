@@ -18,7 +18,7 @@ $(document).ready(function() {
 		xhttp.open("GET", "../actions/cookies_accept.php", true);
 		xhttp.onreadystatechange = function() {
 			if(this.readyState == 4 && this.status == 200) {
-				$(".status-alert").css('visibility', 'hidden');	
+				$(".status-alert").fadeTo(500, 0);	
 			}
 		}
 

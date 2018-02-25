@@ -10,10 +10,10 @@
 		exit;
 	}
 
-	$id = strip($_GET['id']);
+	$purchase = strip($_GET['id']);
 	$shipped = strip($_GET['shipped']);
 
-	$cmd = "UPDATE purchases SET shipped=$shipped WHERE id=" . $id;
+	$cmd = "UPDATE purchases SET shipped=$shipped WHERE id=" . $purchase;
 	mysqli_query($connect, $cmd);
 
 	if($shipped == 1) {
@@ -22,13 +22,14 @@
 		success($string['status']['orderReturned']);
 	}
 
-	$cmd = "SELECT email FROM purchases WHERE id=" . $id;
+	$cmd = "SELECT email FROM purchases WHERE id=" . $purchase;
 	$email = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
 
+	$message = get_mail("order_ship", $lang);
+	$message = str_replace("{{id}}", $purchase, $message);
+	
 	$sender = "office@soxbty.com";
-
 	$subject = "[SOXBTY] Shipped";
-	$message = "Order " . $id . " has been shipped";
 	$headers = "From: " . $sender . "\r\n";
 	$headers .= "To: " . $email . "\r\n";
 
