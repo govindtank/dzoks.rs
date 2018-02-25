@@ -31,6 +31,7 @@
 			, "scroll" => "Идеш мала!"
         	, "text-1" => file_get_contents("../text/home/text-1.rs")
         	, "text-2" => file_get_contents("../text/home/text-2.rs")
+        	, "banner" => file_get_contents("../text/home/banner.rs")
         ]
         , "cart" => [
               "empty" => "Бураз, ред би био да пазариш нешто"

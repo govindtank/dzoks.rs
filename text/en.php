@@ -31,6 +31,7 @@
 			, "scroll" => "Woaah!"
         	, "text-1" => file_get_contents("../text/home/text-1.en")
         	, "text-2" => file_get_contents("../text/home/text-2.en")
+        	, "banner" => file_get_contents("../text/home/banner.en")
         ]
         , "cart" => [
               "empty" => "It's getting cold. Buy some socks!"

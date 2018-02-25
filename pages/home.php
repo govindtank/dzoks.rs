@@ -37,6 +37,9 @@
 					<span><?php echo $string['home']['scroll']; ?></span>
   				</div>
 			</div>	
+  			<div class="banner">
+  				<?php echo $string['home']['banner']; ?>
+			</div>
 		</div>
 		<div class="fab shake shake-basic shake-hover">
 			<a href="../pages/propose"><img src="../img/fab.png"/></a>

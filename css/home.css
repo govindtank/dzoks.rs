@@ -12,6 +12,13 @@
   	background-size: cover;
 }
 
+.banner {
+	position: relative;
+	padding: 5em;		
+	background-color: #4834d4;
+	text-align: center;
+}
+
 .bgimg-1 {
   	background-image: url("../img/home-1.jpg");
 }
@@ -47,6 +54,7 @@
 	width: 25%;
 }
 
+.banner span,
 .note span {
   	color: #fff;
   	font-size: 30px;
