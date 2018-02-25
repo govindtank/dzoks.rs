@@ -116,17 +116,27 @@
 						echo '<p><b>' . $string['product']['noComments'] . '</b></p>';
 						echo '<p>' . $string['product']['noCommentsText'] . '</p>';
 						echo '</div>';
-					}
+					}else {
+						while($row = mysqli_fetch_array($result)) {
+							if($row['accepted'] == 0) {
+								continue;	
+							}
 
-					while($row = mysqli_fetch_array($result)) {
-						if($row['accepted'] == 0) {
-							continue;	
+							echo '<div class="comment">';
+							echo '<p><b>' . $row["name"] . '</b></p>';
+							echo '<p>' . $row["comment"] . '</p>';
+							echo '</div>';
+
+							$cmd = "SELECT comment FROM comments WHERE reply_to=" . $row['id'];
+							$reply = mysqli_query($connect, $cmd);
+			
+							if(mysqli_num_rows($reply) > 0) {
+								echo '<div class="comment comment-reply">';
+								echo '<p><b>' . $string['product']['reply'] . '</b></p>';
+								echo '<p>' . mysqli_fetch_array($reply)[0] . '</p>';
+								echo '</div>';
+							}
 						}
-
-						echo '<div class="comment">';
-						echo '<p><b>' . $row["name"] . '</b></p>';
-						echo '<p>' . $row["comment"] . '</p>';
-						echo '</div>';
 					}
 
 					echo '<form action="../actions/comment_add.php" method="POST">';

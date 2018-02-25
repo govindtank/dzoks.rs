@@ -16,7 +16,7 @@
                         	echo ' class="selected"';
                         }
                         
-                        echo ' href="../pages/' . $item .'">';
+                        echo ' class="shake shake-basic shake-hover" href="../pages/' . $item .'">';
                         echo $string["header"][$item];
                         echo '</a></li>'; 
                     } 

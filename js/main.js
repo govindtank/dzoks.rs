@@ -10,8 +10,6 @@ $(document).ready(function() {
 	   	$(".status").toggleClass("open");
     });
 	   	
-	$("nav li").addClass("shake shake-basic shake-hover");
-	   	
 	$(".status").addClass("open");
 
 	$("#acceptCookies").click(function() {

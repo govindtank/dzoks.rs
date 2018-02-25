@@ -14,8 +14,8 @@
 	$cmd = "SELECT * FROM comments WHERE ip='$ip' AND product=" . $product;
 	$result = mysqli_query($connect, $cmd);
 
-	if(mysqli_num_rows($result)) {	
-		error($string['status']['productNotCommented']);
+	if(mysqli_num_rows($result) > 0) {	
+		error($string['status']['alreadyCommented']);
 		header("location: ../pages/product.php?id=" . $product);
 		exit;	
 	}

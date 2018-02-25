@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: Feb 23, 2018 at 09:10 PM
+-- Generation Time: Feb 25, 2018 at 03:27 PM
 -- Server version: 5.5.42-log
 -- PHP Version: 7.0.0
 
@@ -89,24 +89,27 @@ CREATE TABLE `comments` (
   `id` int(11) NOT NULL,
   `name` varchar(50) COLLATE utf8_bin NOT NULL,
   `comment` text COLLATE utf8_bin NOT NULL,
-  `product` int(11) NOT NULL,
+  `product` int(11) DEFAULT NULL,
   `ip` varchar(20) COLLATE utf8_bin NOT NULL,
-  `accepted` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `accepted` tinyint(1) NOT NULL DEFAULT '0',
+  `reply_to` int(11) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `comments`
 --
 
-INSERT INTO `comments` (`id`, `name`, `comment`, `product`, `ip`, `accepted`) VALUES
-(7, 'laza', 'stvarno kul carape', 38, '0', 1),
-(10, 'ana', 'asd', 38, '::1', 1),
-(11, 'asd', '123', 37, '::1', 0),
-(12, 'asd', 'asd', 2, '::1', 1),
-(13, 'yo', 'asd', 39, '::1', 0),
-(14, 'asd', 'asd', 34, '::1', 1),
-(15, 'brat', 'znaci sve kul ali mi se ne svidja boja ako moze sledeci put pink neka da bude znaci tebra molim te', 3, '::1', 1),
-(16, 'johnny', 'jack and johnny calling', 45, '::1', 1);
+INSERT INTO `comments` (`id`, `name`, `comment`, `product`, `ip`, `accepted`, `reply_to`) VALUES
+(7, 'laza', 'stvarno kul carape', 38, '0', 1, NULL),
+(10, 'ana', 'asd', 38, '::1', 1, NULL),
+(11, 'asd', '123', 37, '::1', 0, NULL),
+(12, 'asd', 'asd', 2, '::1', 1, NULL),
+(13, 'yo', 'asd', 39, '::1', 0, NULL),
+(14, 'asd', 'asd', 34, '::1', 1, NULL),
+(15, 'brat', 'znaci sve kul ali mi se ne svidja boja ako moze sledeci put pink neka da bude znaci tebra molim te', 3, '::1', 1, NULL),
+(16, 'johnny', 'jack and johnny calling', 45, '::1', 1, NULL),
+(17, 'a', 'tr', 32, '::1', 0, NULL),
+(18, 'q', 'thank you', NULL, '::1', 0, 7);
 
 -- --------------------------------------------------------
 
@@ -375,7 +378,8 @@ ALTER TABLE `collections`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `product` (`product`);
+  ADD KEY `product` (`product`),
+  ADD KEY `reply_to` (`reply_to`);
 
 --
 -- Indexes for table `logins`
@@ -450,7 +454,7 @@ ALTER TABLE `collections`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `logins`
 --
@@ -502,7 +506,8 @@ ALTER TABLE `cart`
 -- Constraints for table `comments`
 --
 ALTER TABLE `comments`
-  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`product`) REFERENCES `products` (`id`);
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`product`) REFERENCES `products` (`id`),
+  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`reply_to`) REFERENCES `comments` (`id`);
 
 --
 -- Constraints for table `sales`

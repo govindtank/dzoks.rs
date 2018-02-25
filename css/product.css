@@ -44,6 +44,11 @@ p {
 	background: #fff;
 }
 
+.comment-reply {
+	width: 95%;
+	background: #b2bec3;	
+}
+
 .sp-wrap {
 	width: 50%;
 	height: auto;

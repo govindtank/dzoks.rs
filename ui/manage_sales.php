@@ -11,7 +11,7 @@
 				echo '<tr class="green">';
 			}
 
-			echo '<td><a class="button" href="../pages/product?id=' . $row['product'] . '">' . $string['manage']['product'] . '</a></td>';
+			echo '<td><a href="product?id=' . $row['product'] . '"><img class="thumbnail" src="' . get_thumbnail($row['product'], 0) . '"/></a></td>';
 			echo '<td>' . $row['note'] . '</td>';
 
 			$cmd = "SELECT name FROM sizes WHERE id=" . $row['size'];
