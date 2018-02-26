@@ -40,7 +40,7 @@ p {
 	display: block;
 	width: 100%;
 	height: auto;
-	float: right;
+	float: left;
 	text-align: left;
 	margin-top: 0.5em;
 	padding: 0.5em;
@@ -50,6 +50,7 @@ p {
 
 .comment-reply {
 	width: 95%;
+	margin-top: 0;
 	background: #b2bec3;	
 }
 
