@@ -103,6 +103,13 @@
 	
                    	echo '<input name="id" type="hidden" value="' . $product . '">'; 
                     echo '<input class="button" type="submit" value="' . $string["product"]["buy"] . '"/>';
+					echo '</form>';
+
+					echo '<form action="../actions/comment_add.php" method="POST">';
+					echo '<input type="text" name="name" placeholder="' . $string['product']['name'] . '" required/>';
+					echo '<input type="text" name="comment" placeholder="' . $string['product']['comment'] . '" required/>';
+					echo '<input type="hidden" name="product" value="' . $product . '"/>';
+					echo '<input type="submit" class="button" value="' . $string['product']['post'] . '" />';
                     echo '</form></div>';
 
 					echo '<div class="comments">';
@@ -138,12 +145,6 @@
 						}
 					}
 
-					echo '<form action="../actions/comment_add.php" method="POST">';
-					echo '<input type="text" name="name" placeholder="' . $string['product']['name'] . '" required/>';
-					echo '<input type="text" name="comment" placeholder="' . $string['product']['comment'] . '" required/>';
-					echo '<input type="hidden" name="product" value="' . $product . '"/>';
-					echo '<input type="submit" class="button" value="' . $string['product']['post'] . '" />';
-					echo '</form>';
 					echo '</div>';
                 }else {
 					echo '<div class="center-both">';

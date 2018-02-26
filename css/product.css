@@ -1,6 +1,7 @@
 form {
 	float: right;	
 	width: 100%;
+	padding-top: 0.5em;
 }
 
 h2 {
@@ -14,22 +15,24 @@ p {
 
 .options,
 .comments {
-	position: relative;
 	width: 45%;
     height: auto;
+}
+
+.options {
     float: right;
     text-align: right;
-	margin-left: 5%;
+}
+
+.comments {
+	float: left;	
+    text-align: left;
 }
 
 .bordered {
 	border-top: 1px solid #fff;
 	border-left: 1px solid #fff;
 	border-bottom: 1px solid #fff;
-	padding-top: 0.5em;
-}
-
-.comments form {
 	padding-top: 0.5em;
 }
 
@@ -53,7 +56,6 @@ p {
 .sp-wrap {
 	width: 50%;
 	height: auto;
-	min-height: 50%;
 	float: left;
 }
 

@@ -2,7 +2,8 @@ footer {
 	width: 100%;
 	padding-top: 0.5em;
     height: 3.5em;
-	background-color: rgba(0, 0, 0, 0.63);
+	float: right;
+	background-color: rgba(0, 0, 0, 0.63);	
 }
 
 footer p {
