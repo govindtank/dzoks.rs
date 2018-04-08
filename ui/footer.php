@@ -1,5 +1,5 @@
 <footer>
-    <?php echo '<p>&copy; ' . date("Y") . ' SOXBTY</p>'; ?>
+    <?php echo '<p>&copy; ' . date("Y") . ' ' . $store_name .'</p>'; ?>
 
 	<div class="sponsors">
 		<img src="../img/visa.png"/>

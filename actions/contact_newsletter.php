@@ -25,12 +25,12 @@
 	
 	$receivers = implode(", ", $receivers);
 
-	$sender = "office@soxbty.com";
-	$subject = "[SOXBTY] Newsletter";
+	$sender = $store_email;
+	$subject = "[" . $store_name . "] Newsletter";
 	$headers = "From: " . $sender . "\r\n";
 	$headers .= "To: " . $receivers . "\r\n";
 
-	$message .= $string['status']['unsubscribeLink'] . "http://soxbty.com/actions/unsubscribe?h=" . $hash;
+	$message .= $string['status']['unsubscribeLink'] . $store_url . "/actions/unsubscribe?h=" . $hash;
 
 	mail($receivers, $subject, $message, $headers);
 

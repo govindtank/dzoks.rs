@@ -26,7 +26,7 @@
                     <input type="hidden" name="validationCheck" value="<?php echo $sum; ?>">
                     <input name="validationInput" type="text" size="30" placeholder="<?php echo $string['status']['validation'] . $a . " + " . $b . "?" ; ?>" required/>
 					<input class="button" type="submit" value="<?php echo $string['contact']['send']; ?>" />
-					<p><?php echo $string['contact']['mailto']; ?><a class="highlight" href="mailto:office@soxbty.com">office@soxbty.com</a></p>
+					<p><?php echo $string['contact']['mailto']; ?><a class="highlight" href="mailto:<?php echo $store_email; ?>"><?php echo $store_email; ?></a></p>
                 </form>
             </div>
 

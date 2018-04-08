@@ -19,15 +19,15 @@
 		exit();
 	}
 	
-	$receiver = "office@soxbty.com";
-	$subject = "[SOXBTY] Contact";
+	$receiver = $store_email;
+	$subject = "[" . $store_name . "] Contact";
 	$headers = "From: " . $email . "\r\n";
 	$headers .= "To: " . $receiver . "\r\n";
 
 	mail($receiver, $subject, $message, $headers);
 
-	$sender = "office@soxbty.com";
-	$subject = "[SOXBTY] Contact";
+	$sender = $store_email;
+	$subject = "[" . $store_name . "] Contact";
 	$headers = "From: " . $sender . "\r\n";
 	$headers .= "To: " . $receiver . "\r\n";
 	

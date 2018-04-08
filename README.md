@@ -1,5 +1,5 @@
-# soxbty.com
+# dzoks.rs
 
 Webshop for selling socks.
 
-<< WORK IN PROGRESS >>
+**WORK IN PROGRESS**

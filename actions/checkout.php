@@ -79,9 +79,9 @@
 		$message .= $name . "\t" . $size . "\t" . $row['size'] . " " . $row['quantity'] . "x" . $price . "\n";
 	}
 		
-	$sender = "office@soxbty.com";
-	$subject = "[SOXBTY] Confirmation";
-	$message .= $string['status']['clickLink'] . "http://soxbty.com/actions/confirm?h=" . $hash;
+	$sender = $store_email;
+	$subject = "[" . $store_name . "] Confirmation";
+	$message .= $string['status']['clickLink'] . $store_url . "/actions/confirm?h=" . $hash;
 	$headers = "From: " . $sender . "\r\n";
 	$headers .= "To: " . $email . "\r\n";
 

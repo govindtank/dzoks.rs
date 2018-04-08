@@ -16,8 +16,7 @@
 	function instagram_images() {
 		// TODO Add access token
 		$access_token = 'YOUR ACCESS TOKEN';
-		$username = 'soxbty';
-		$user_search = instagram_connect("https://api.instagram.com/v1/users/search?q=" . $username . "&access_token=" . $access_token);
+		$user_search = instagram_connect("https://api.instagram.com/v1/users/search?q=" . $store_instagram . "&access_token=" . $access_token);
  
 		$user_id = $user_search->data[0]->id;
 		$return = instagram_connect("https://api.instagram.com/v1/users/" . $user_id . "/media/recent?access_token=" . $access_token);

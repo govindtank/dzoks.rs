@@ -11,6 +11,11 @@
 	$id = get_id();
 	$ip = get_ip();
 
+	$store_name = "DZOKS";
+	$store_url = "https://www.dzoks.rs";
+	$store_email = "office@dzoks.rs";
+	$store_instagram = "dzoks.rs";
+
 	require("../logic/connect.php");
     require("../logic/get_lang.php");
 ?>

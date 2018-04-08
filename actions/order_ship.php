@@ -28,8 +28,8 @@
 	$message = get_mail("order_ship", $lang);
 	$message = str_replace("{{id}}", $purchase, $message);
 	
-	$sender = "office@soxbty.com";
-	$subject = "[SOXBTY] Shipped";
+	$sender = $store_email;
+	$subject = "[" . $store_name . "] Shipped";
 	$headers = "From: " . $sender . "\r\n";
 	$headers .= "To: " . $email . "\r\n";
 

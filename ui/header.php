@@ -30,7 +30,7 @@
                         ?>
                     </li>
                     <li>
-                        <a href="https://www.instagram.com/soxbty/">
+                        <a href="https://www.instagram.com/<?php echo $store_instagram; ?>/">
                             <img class="header-icon" src="../img/instagram.png">
                         </a>
                     </li>

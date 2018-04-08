@@ -1,3 +1,3 @@
 <?php
-	header("Location: /soxbty.com/pages/error");
+	header("Location: /dzoks.rs/pages/error");
 ?>
