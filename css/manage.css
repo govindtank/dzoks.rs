@@ -10,7 +10,7 @@ td {
     padding: 0 20px;
     height: 45px;
     text-align: center;
-	border: 1px solid #fff;
+	border: 1px solid var(--color-light);
 }
 
 td > form,

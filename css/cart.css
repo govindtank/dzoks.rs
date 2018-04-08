@@ -12,7 +12,7 @@ td {
 }
 
 .bordered {
-   	outline: 1px dashed #fff;
+   	outline: 1px dashed var(--color-light);
 }
 
 .thumbnail {
