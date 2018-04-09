@@ -56,7 +56,7 @@
 			}
 
 			echo '</select>';
-
+			
 			echo '<input name="note" type="text" placeholder="' . $string['product']['note'] . '" required />';
 			echo '<input type="submit" class="button red" value="' . $string['product']['gift'] . '" />';
 			echo '</form></td>';

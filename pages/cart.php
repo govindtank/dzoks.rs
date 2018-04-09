@@ -47,7 +47,7 @@
                 }
             
 				if($total > 0) {
-            	   	echo '<tr class="bordered"><td><b>' . $string["cart"]["total"] . '</b></td><td></td><td></td><td><b>' . get_price($total) . '</b></td><tr>';
+            	   	echo '<tr class="bordered"><td><b>' . $string["cart"]["total"] . '</b></td><td></td><td></td><td><b>' . get_price($total) . '</b></td></tr>';
                	}
             ?>
             </table>

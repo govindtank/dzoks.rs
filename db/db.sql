@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: Feb 25, 2018 at 03:27 PM
+-- Generation Time: Apr 09, 2018 at 02:15 AM
 -- Server version: 5.5.42-log
 -- PHP Version: 7.0.0
 
@@ -51,14 +51,16 @@ CREATE TABLE `cart` (
   `quantity` int(11) NOT NULL,
   `purchase` int(11) DEFAULT NULL,
   `checked` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `cart`
 --
 
 INSERT INTO `cart` (`id`, `user`, `product`, `size`, `quantity`, `purchase`, `checked`) VALUES
-(9, 'sUSzLW10R2lcQxQ', 37, 2, 6, NULL, 0);
+(10, 'sUSzLW10R2lcQxQ', 37, 2, 1, NULL, 0),
+(11, 'sUSzLW10R2lcQxQ', 38, 1, 3, NULL, 0),
+(12, 'NIGPDiD5C7kMV23', 38, 2, 2, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -93,7 +95,7 @@ CREATE TABLE `comments` (
   `ip` varchar(20) COLLATE utf8_bin NOT NULL,
   `accepted` tinyint(1) NOT NULL DEFAULT '0',
   `reply_to` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `comments`
@@ -102,14 +104,16 @@ CREATE TABLE `comments` (
 INSERT INTO `comments` (`id`, `name`, `comment`, `product`, `ip`, `accepted`, `reply_to`) VALUES
 (7, 'laza', 'stvarno kul carape', 38, '0', 1, NULL),
 (10, 'ana', 'asd', 38, '::1', 1, NULL),
-(11, 'asd', '123', 37, '::1', 0, NULL),
+(11, 'asd', '123', 37, '::1', 1, NULL),
 (12, 'asd', 'asd', 2, '::1', 1, NULL),
 (13, 'yo', 'asd', 39, '::1', 0, NULL),
 (14, 'asd', 'asd', 34, '::1', 1, NULL),
 (15, 'brat', 'znaci sve kul ali mi se ne svidja boja ako moze sledeci put pink neka da bude znaci tebra molim te', 3, '::1', 1, NULL),
 (16, 'johnny', 'jack and johnny calling', 45, '::1', 1, NULL),
 (17, 'a', 'tr', 32, '::1', 0, NULL),
-(18, 'q', 'thank you', NULL, '::1', 0, 7);
+(18, 'q', 'thank you', NULL, '::1', 0, 7),
+(19, 'head', 'yo yo ma niga', NULL, '::1', 0, 11),
+(20, 'head', 'another reply', NULL, '::1', 0, 10);
 
 -- --------------------------------------------------------
 
@@ -121,7 +125,7 @@ CREATE TABLE `logins` (
   `id` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `logins`
@@ -140,7 +144,10 @@ INSERT INTO `logins` (`id`, `user`, `timestamp`) VALUES
 (10, 4, '2018-02-18 09:58:32'),
 (11, 4, '2018-02-18 10:00:39'),
 (12, 4, '2018-02-18 10:20:44'),
-(13, 4, '2018-02-18 10:31:42');
+(13, 4, '2018-02-18 10:31:42'),
+(14, 8, '2018-02-25 19:26:23'),
+(15, 4, '2018-03-11 23:51:48'),
+(16, 4, '2018-04-08 23:19:03');
 
 -- --------------------------------------------------------
 
@@ -237,11 +244,11 @@ CREATE TABLE `purchases` (
 --
 
 INSERT INTO `purchases` (`id`, `hash`, `date_submitted`, `first_name`, `last_name`, `email`, `phone`, `address`, `zip`, `city`, `country`, `ip`, `confirmed`, `shipped`, `subscribed`) VALUES
-(11, 'cm5WdRbVuEtTq2kWDVRNTEPOXHCiGpVS', '2018-02-17 15:48:55', 'laa', 'ertyui', 'jelic.ecloga@gmail.com', '123', 'adresa', '37000', 'ks', 'sr', '', 1, 0, 1),
+(11, 'cm5WdRbVuEtTq2kWDVRNTEPOXHCiGpVS', '2018-03-11 23:51:59', 'laa', 'ertyui', 'jelic.ecloga@gmail.com', '123', 'adresa', '37000', 'ks', 'sr', '', 1, 0, 1),
 (12, 'TXqpJpBL0KwYtq3o0A5TmuqJb0CkOoPH', '2018-02-03 01:54:54', 'Lazar', 'Jelic', 'jelic.ecloga@gmail.com', '0614437010', 'Adresa', '37000', 'Krusevac', 'Srbij', '', 1, 1, 1),
 (13, '65FIQFtnDWOHlOiqIEV9o690rXpgFLwM', '2018-02-23 09:21:42', 'askdjkah', 'aksjdajksdn', 'akjsdn@ansjkf.com', '82123123', 'ashd', '23232', 'asdjnn', 'AR', '', 0, 0, 0),
 (14, 'yZbEKNFZtYiVEkIiETl8NUk2Y04R26zA', '2018-01-29 23:05:12', 'kbh', 'hb', 'asdasd@asf.com', 'jh', '1231', '22222', 'asd', 'AG', '', 0, 0, 1),
-(15, 'ydloWt1JxIkSg9ulTaP9UHGjMjJ8hk6P', '2018-02-11 18:39:29', 'lazar', 'jelic', 'jelic.ecloga@asmdk', '5678', 'ajhsdb', '21312', 'ashjdb', 'SN', '', 1, 0, 1),
+(15, 'ydloWt1JxIkSg9ulTaP9UHGjMjJ8hk6P', '2018-02-25 20:51:43', 'lazar', 'jelic', 'jelic.ecloga@asmdk', '5678', 'ajhsdb', '21312', 'ashjdb', 'SN', '', 1, 1, 1),
 (16, 'S7PGWg8hfDrTKjFN0bFxgJE4FjZMZQHR', '2018-02-06 02:02:17', 'qwert', 'sdfgh', 'asgd@aksf.com', '57', 'hjasd', '21312', 'bajsdhb', 'BL', '', 1, 1, 1),
 (17, 'subrZ35A0hYQRWvex5BXayU0c1uBqWHS', '2018-02-06 02:02:19', 'Lazar', 'Jelka', 'jelic.ecloga@gmail.com', '0614437010', 'Vasilija Velikog', '37000', 'Krusevac', 'BL', '', 1, 0, 1),
 (18, 'AzWWK4tnKwUAXeOqHxw9aqcN5RfT2x6C', '2018-02-01 23:52:35', 'sdaskd', 'qknakjsn', 'aksjdn@ajsd.com', '123123', 'asndk', '12312', 'kansdk', 'AF', '', 0, 0, 1),
@@ -263,18 +270,22 @@ CREATE TABLE `sales` (
   `product` int(11) NOT NULL,
   `size` int(11) NOT NULL,
   `note` text COLLATE utf8_bin NOT NULL,
+  `gifted` tinyint(1) NOT NULL DEFAULT '0',
   `admin` int(11) NOT NULL,
   `date_submitted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `sales`
 --
 
-INSERT INTO `sales` (`id`, `product`, `size`, `note`, `admin`, `date_submitted`) VALUES
-(1, 1, 1, 'Sold', 4, '0000-00-00 00:00:00'),
-(2, 1, 1, 'reklama', 4, '0000-00-00 00:00:00'),
-(3, 1, 1, '', 4, '0000-00-00 00:00:00');
+INSERT INTO `sales` (`id`, `product`, `size`, `note`, `gifted`, `admin`, `date_submitted`) VALUES
+(1, 1, 1, '', 0, 4, '0000-00-00 00:00:00'),
+(2, 1, 1, 'reklama', 1, 4, '0000-00-00 00:00:00'),
+(3, 1, 1, '', 0, 4, '0000-00-00 00:00:00'),
+(4, 1, 1, '', 0, 4, '2018-04-08 23:19:33'),
+(5, 53, 2, '', 0, 4, '2018-04-08 23:20:01'),
+(6, 1, 1, 'asddd', 1, 4, '2018-04-08 23:20:15');
 
 -- --------------------------------------------------------
 
@@ -306,7 +317,7 @@ CREATE TABLE `warehouse` (
   `product` int(11) NOT NULL,
   `size` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `warehouse`
@@ -324,11 +335,11 @@ INSERT INTO `warehouse` (`id`, `product`, `size`, `quantity`) VALUES
 (9, 52, 1, 123),
 (10, 52, 2, 123),
 (11, 53, 1, 100),
-(12, 53, 2, 50),
+(12, 53, 2, 49),
 (13, 53, 1, 100),
-(14, 53, 2, 50),
+(14, 53, 2, 49),
 (15, 53, 1, 100),
-(16, 53, 2, 50),
+(16, 53, 2, 49),
 (17, 54, 1, 11),
 (18, 54, 2, 13),
 (19, 54, 1, 11),
@@ -339,12 +350,14 @@ INSERT INTO `warehouse` (`id`, `product`, `size`, `quantity`) VALUES
 (24, 54, 2, 13),
 (25, 54, 1, 11),
 (26, 54, 2, 13),
-(27, 1, 1, 116),
+(27, 1, 1, 114),
 (28, 1, 2, 0),
 (29, 45, 1, 0),
 (30, 45, 2, 12312),
 (31, 45, 1, 0),
-(32, 45, 2, 0);
+(32, 45, 2, 0),
+(33, 38, 1, 100),
+(34, 38, 2, 150);
 
 --
 -- Indexes for dumped tables
@@ -444,7 +457,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `collections`
 --
@@ -454,12 +467,12 @@ ALTER TABLE `collections`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `logins`
 --
 ALTER TABLE `logins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `products`
 --
@@ -479,7 +492,7 @@ ALTER TABLE `purchases`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `sizes`
 --
@@ -489,7 +502,7 @@ ALTER TABLE `sizes`
 -- AUTO_INCREMENT for table `warehouse`
 --
 ALTER TABLE `warehouse`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=35;
 --
 -- Constraints for dumped tables
 --
