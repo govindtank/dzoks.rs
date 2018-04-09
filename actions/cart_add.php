@@ -31,10 +31,10 @@
 	}else {
 		checkQuantity($qty, $size, $product, $connect, $string);
 
-		$cmd = "INSERT INTO cart (product, size, quantity, user) VALUES('$product', N'$size', '$qty', '$id')";
+		$cmd = "INSERT INTO cart (product, size, quantity, user) VALUES('$product', '$size', '$qty', '$id')";
 	}
 
-	mysqli_query($connect, $cmd);
+	mysqli_query($connect, $cmd) or die(mysqli_error($connect));
 
 	success($string['status']['productAddedToCart']);
 	header("location: ../pages/product.php?id=" . $product);

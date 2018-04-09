@@ -264,13 +264,12 @@
 	}
 
 	function get_id() {
-		if(isset($_COOKIE['ip'])) {
-			return $_COOKIE['ip'];
+		if(isset($_COOKIE['id'])) {
+			return $_COOKIE['id'];
 		}
 
 		$cookie = generate_random_string(15);
-
-		setcookie('ip', $cookie);
+		setcookie('id', $cookie, time() + 604800, '/', $_SERVER["SERVER_NAME"], 0); 
 		
 		return $cookie;
 	}

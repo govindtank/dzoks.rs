@@ -13,12 +13,11 @@ $(document).ready(function() {
 	$(".status").addClass("open");
 
 	$("#acceptCookies").click(function() {
-    	console.log('yo');
     	var xhttp = new XMLHttpRequest();
 		xhttp.open("GET", "../actions/cookies_accept.php", true);
 		xhttp.onreadystatechange = function() {
 			if(this.readyState == 4 && this.status == 200) {
-				$(".status-alert").fadeTo(500, 0);	
+				$(".status-alert").remove();	
 			}
 		}
 
@@ -118,8 +117,6 @@ $(".number").keypress(function(event) {
         return false;
     }
 	
-	console.log(event.charCode);
-
     var num = $(this).attr("value");
     num += String.fromCharCode(event.charCode);
     num = parseInt(num);
