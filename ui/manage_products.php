@@ -1,7 +1,7 @@
 <h1><?php echo $string["manage"]["products"]; ?></h1>
 <table>	
 	<tr>
-		<form action="../actions/product_add.php" method="POST" enctype="multipart/form-data">  
+		<form action="../actions/product_add" method="POST" enctype="multipart/form-data">  
 			<td class="no-border"><input name="photos[]" type="file" multiple required/></td>
     		<td class="no-border"><input name="name" type="text" maxlength="50" placeholder="<?php echo $string['product']['name']; ?>" required/></td>
     		<td class="no-border"><input name="price" type="number" class="number" step="0.01" placeholder="<?php echo $string['product']['price']; ?>" required/></td>     
@@ -41,7 +41,7 @@
 
 		while($row = mysqli_fetch_array($result)) {
 			echo '<tr>';
-			echo '<form action="../actions/product_update.php" method="POST" enctype="multipart/form-data">';
+			echo '<form action="../actions/product_update" method="POST" enctype="multipart/form-data">';
 			echo '<input type="hidden" name="id" value="' . $row['id'] . '">';
 			echo '<td>';
 			echo '<a href="product?id=' . $row['id'] . '"><img class="thumbnail" src="' . get_thumbnail($row['id'], 0) . '"/></a>';
@@ -70,24 +70,16 @@
 			echo '</select>';
 			echo '</td>';
 
-			$cmd = "SELECT warehouse.quantity, sizes.name FROM warehouse, sizes WHERE warehouse.product=" . $row['id'] . " AND sizes.id=warehouse.size ORDER BY warehouse.id DESC LIMIT " . $size_count;
-			$wh_result = mysqli_query($connect, $cmd) or die(mysqli_error($connect));
-
-			while($wh = mysqli_fetch_array($wh_result)) {
-					echo '<td>';
-    				echo '<input class="number" name="qty_' . $wh['name']. '" value="' . $wh['quantity'] . '" type="number" id="qty_' . $wh['name'] . '" placeholder="' . $wh['name'] . '" />';
-					echo '</td>';	
-			}
-
-			if(mysqli_num_rows($wh_result) == 0) {
-				$cmd = "SELECT * FROM sizes";
-				$sizes = mysqli_query($connect, $cmd);
+			$cmd = "SELECT * FROM sizes";
+			$sizes = mysqli_query($connect, $cmd);
 			
-				while($size = mysqli_fetch_array($sizes)) {
-					echo '<td>';
-    				echo '<input class="number" name="qty_' . $size['name']. '" type="number" id="qty_' . $size['name'] . '" placeholder="' . $size['name'] . '" />';
-					echo '</td>';
-				}
+			while($size = mysqli_fetch_array($sizes)) {
+				$cmd = "SELECT quantity FROM warehouse WHERE product=" . $row['id'] . " AND size=" . $size['id'] . " ORDER BY id DESC LIMIT " . $size_count;	
+				$qty = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
+
+				echo '<td>';
+    			echo '<input class="number" name="qty_' . $size['name']. '" value="' . $qty . '" type="number" id="qty_' . $size['name'] . '" placeholder="' . $size['name'] . '" />';
+				echo '</td>';
 			}
 
 			$desc_rs = get_description($row['id'], 'rs');

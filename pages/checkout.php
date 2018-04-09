@@ -9,7 +9,7 @@
             <div class="main">
                 <h1><?php echo $string["checkout"]["header"]; ?></h1>
 
-                <form action="../actions/checkout.php" method="POST">
+                <form action="../actions/checkout" method="POST">
                     <input name="first" type="text" maxlength="50" placeholder="<?php echo $string['checkout']['inputs']['first']; ?>" autofocus required>
                     <input name="last" type="text" maxlength="50" placeholder="<?php echo $string['checkout']['inputs']['last']; ?>" required>
                     <input name="email" type="email" maxlength="50" placeholder="<?php echo $string['checkout']['inputs']['email']; ?>" required>

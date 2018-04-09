@@ -2,7 +2,7 @@
     require("../logic/config.php"); 
 	
 	if(!params_ok(["id"], "GET")) {
-		header("Location: shop.php");
+		header("location: shop");
 		exit;	
 	}
 
@@ -57,7 +57,7 @@
 						echo '<p>' . $desc . '</p>';
 					}
 
-					echo '<form class="bordered" action="../actions/cart_add.php" method="GET">';
+					echo '<form class="bordered" action="../actions/cart_add" method="GET">';
                     
 					echo '<h2> ' . get_price($row['price']) . '</h2>';
 
@@ -105,7 +105,7 @@
                     echo '<input class="button" type="submit" value="' . $string["product"]["buy"] . '"/>';
 					echo '</form>';
 
-					echo '<form action="../actions/comment_add.php" method="POST">';
+					echo '<form action="../actions/comment_add" method="POST">';
 					echo '<input type="text" name="name" placeholder="' . $string['product']['name'] . '" required/>';
 					echo '<input type="text" name="comment" placeholder="' . $string['product']['comment'] . '" required/>';
 					echo '<input type="hidden" name="product" value="' . $product . '"/>';

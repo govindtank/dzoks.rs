@@ -1,6 +1,6 @@
 <?php
  	require("../logic/config.php");
-	
+
 	if(!params_ok(["id", "size", "qty"], "GET")) {
 		if(isset($_GET['id'])) {
 			error($string['status']['requiredFields']);

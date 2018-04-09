@@ -31,7 +31,7 @@
 				$qty = get_quantity($key, $row['id'], $connect);
 
 				if($qty > 0) {
-					echo '<a class="button green" href="../actions/product_sell.php?size=' . $key . '&id=' . $row['id'] . '">' . $string['product']['sell'] . '</a>';	
+					echo '<a class="button green" href="../actions/product_sell?size=' . $key . '&id=' . $row['id'] . '">' . $string['product']['sell'] . '</a>';	
 				}else {
 					echo '<p>' . $string["status"]["soldout"] . '</p>';
 				}
@@ -39,7 +39,7 @@
 				echo '</td>';
 			}
 			
-			echo '<td><form action="../actions/product_gift.php" method="GET">';
+			echo '<td><form action="../actions/product_gift" method="GET">';
 			echo '<input name="id" type="hidden" value="' . $row['id'] . '"/>';
 
 			echo '<select name="size" required>';

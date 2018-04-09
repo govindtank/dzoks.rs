@@ -6,7 +6,7 @@
 
 	if(!params_ok(["id", "name", "price", "collection", "description-rs", "description-en"], "POST")) {	
 		error($string['status']['productNotUpdated']);
-		header("location: ../pages/manage.php");
+		header("location: ../pages/manage");
 		exit;
 	}
 
@@ -73,7 +73,7 @@
         				break;
     				default:
 						error($string['status']['productNotUpdated']);
-						header("location: ../pages/manage.php");
+						header("location: ../pages/manage");
 						exit;	
 				}
 
@@ -100,6 +100,10 @@
   		} 
 	}
 	
+	$cmd = "DELETE FROM warehouse WHERE product=$id";
+	mysqli_query($connect, $cmd) or die(mysqli_error($connect));
+
+	
 	$cmd = "SELECT * FROM sizes";
 	$result = mysqli_query($connect, $cmd);
 
@@ -117,5 +121,5 @@
 	}
 
 	success($string['status']['productUpdated']);
-	header("Location: ../pages/manage?type=1");
+	header("location: ../pages/manage?type=1");
 ?>

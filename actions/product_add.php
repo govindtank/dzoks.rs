@@ -6,7 +6,7 @@
 
 	if(!params_ok(["name", "price", "collection", "description-rs", "description-en"], "POST")) {	
 		error($string['status']['productNotAdded']);
-		header("location: ../pages/manage.php");
+		header("location: ../pages/manage");
 		exit;
 	}
 
@@ -114,5 +114,5 @@
 	}
 
 	success($string['status']['productAdded']);
-	header("Location: ../pages/manage?type=1");
+	header("location: ../pages/manage?type=1");
 ?>

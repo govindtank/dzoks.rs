@@ -18,7 +18,7 @@
 				echo '<td><a class="button red" href="../actions/comment_accept?accepted=0&id=' . $row['id'] .'">' . $string['manage']['decline'] . '</a></td>';
 			}
 
-			echo '<td><form action="../actions/comment_reply.php" method="GET">';
+			echo '<td><form action="../actions/comment_reply" method="GET">';
 			echo '<input name="id" type="hidden" value="' . $row['id'] . '"/>';
 				
 			$cmd = "SELECT comment FROM comments WHERE reply_to=" . $row['id'];

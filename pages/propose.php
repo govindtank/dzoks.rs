@@ -11,7 +11,7 @@
 				<div class="center">
                 	<p><?php echo $string["propose"]["text"]; ?></p>
 				</div>
-                <form class="separated" action="../actions/propose.php" method="POST" enctype="multipart/form-data">  
+                <form class="separated" action="../actions/propose" method="POST" enctype="multipart/form-data">  
                     <input name="name" type="text" size="30" placeholder="<?php echo $string['propose']['name']; ?>" autofocus required/>
                     <input name="email" type="text" size="30" placeholder="<?php echo $string['propose']['email']; ?>" required/>
                     <input name="sock_name" type="text" size="30" placeholder="<?php echo $string['propose']['sock_name']; ?>" required/>

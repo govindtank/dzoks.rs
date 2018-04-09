@@ -1,6 +1,6 @@
 <h1><?php echo $string["manage"]["orders"]; ?></h1>
 <table>	
-	<form action="../actions/contact_newsletter.php" method="POST" enctype="multipart/form-data">  
+	<form action="../actions/contact_newsletter" method="POST" enctype="multipart/form-data">  
 		<td class="no-border"><input name="message" type="file" required/></td>
 		<td class="no-border"><input class="button" type="submit" value="<?php echo $string['manage']['send']; ?>"/></td>
 	</form>

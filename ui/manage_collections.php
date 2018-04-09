@@ -1,7 +1,7 @@
 <h1><?php echo $string["manage"]["collections"]; ?></h1>
 <table>	
 	<tr>
-		<form action="../actions/collection_add.php" method="POST">
+		<form action="../actions/collection_add" method="POST">
     		<td class="no-border"><input name="name" type="text" size="30" placeholder="<?php echo $string['manage']['name']; ?>" required/></td>
         	<td class="no-border"><input class="button" type="submit" value="<?php echo $string['manage']['add']; ?>"/></td>
 		</form>
@@ -12,7 +12,7 @@
 
 		while($row = mysqli_fetch_array($result)) {
 			echo '<tr>';
-			echo '<form action="../actions/collection_update.php" method="POST">';
+			echo '<form action="../actions/collection_update" method="POST">';
             echo '<input type="hidden" name="id" value="' . $row['id'] . '">';
 			echo '<td><input type="text" name="name" placeholder="' . $string['manage']['name'] . '" value="' . $row['name'] . '" /></td>';
 			echo '<td><input type="submit" class="button" value="' . $string['manage']['save'] . '"/></td>';

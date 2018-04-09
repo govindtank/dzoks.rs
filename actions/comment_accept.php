@@ -22,5 +22,5 @@
 		success($string['status']['commentDeclined']);
 	}
 
-	header("Location: ../pages/manage?type=3");
+	header("location: ../pages/manage?type=3");
 ?>

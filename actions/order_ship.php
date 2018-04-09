@@ -35,5 +35,5 @@
 
 	mail($email, $subject, $message, $headers);
 
-	header("Location: ../pages/manage?type=2");
+	header("location: ../pages/manage?type=2");
 ?>

@@ -6,7 +6,7 @@
 	
 	if(!is_uploaded_file($_FILES['message']['tmp_name'])) {	
 		error($string['status']['messageNotSent']);
-		header("Location: ../pages/manage?type=4");
+		header("location: ../pages/manage?type=4");
 		exit;	
 	}
 
@@ -35,5 +35,5 @@
 	mail($receivers, $subject, $message, $headers);
 
 	success($string['status']['messageSent']);
-	header("Location: ../pages/manage?type=4");
+	header("location: ../pages/manage?type=4");
 ?>

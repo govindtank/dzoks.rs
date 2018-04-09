@@ -207,7 +207,7 @@
    	}
 
 	function get_quantity($size, $id, $connect) {
-		$cmd = "SELECT quantity FROM warehouse WHERE product=" . $id . " AND size=" . $size . " ORDER BY warehouse.id DESC";
+		$cmd = "SELECT quantity FROM warehouse WHERE product=" . $id . " AND size=" . $size . " ORDER BY id DESC";
 
 		return mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
 	}
@@ -267,7 +267,7 @@
 		if(isset($_COOKIE['id'])) {
 			return $_COOKIE['id'];
 		}
-
+		
 		$cookie = generate_random_string(15);
 		setcookie('id', $cookie, time() + 604800, '/', $_SERVER["SERVER_NAME"], 0); 
 		
