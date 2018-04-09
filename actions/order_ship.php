@@ -27,6 +27,7 @@
 
 	$message = get_mail("order_ship", $lang);
 	$message = str_replace("{{id}}", $purchase, $message);
+	$message = str_replace("{{email}}", $store_email, $message);
 	
 	$sender = $store_email;
 	$subject = "[" . $store_name . "] Shipped";
