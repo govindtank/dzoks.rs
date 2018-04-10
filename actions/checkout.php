@@ -11,7 +11,7 @@
 	$inputs[] = "validationInput";
 
 	if(!params_ok($inputs, "POST")) {	
-		error($string['status']['orderNotPlaced']);
+		error($string['status']['requiredFields']);
 		header("location: ../pages/checkout");
 		exit;	
 	}
@@ -24,13 +24,14 @@
     $zip = strip($_POST['zip']);
     $city = strip($_POST['city']);
     $country = strip($_POST['country']);
+    $payment_method = strip($_POST['payment']);
 	$validationCheck = strip($_POST['validationCheck']); 
 	$validationInput = strip($_POST['validationInput']); 
 	       
 	if($validationInput != $validationCheck) {
 		error($string['status']['validationNotCorrect']);
 		header("location: ../pages/checkout");
-		exit();
+		exit;
 	}
 
 	$message = "Order details\n\n";
@@ -41,21 +42,22 @@
 	$message .= "ZIP: $zip \n";
 	$message .= "City: $city \n";
 	$message .= "Country: $country \n";
+	$message .= "Payment method: $payment_method \n";
 	$message .= "Products\n\n";
 	
 	$hash = generate_random_string(32);
 	
-	$cmd = "INSERT INTO purchases (hash, first_name, last_name, email, phone, address, zip, city, country, ip, date_submitted) VALUES('$hash', '$firstName', '$lastName', '$email', '$phone', '$address', '$zip', '$city', '$country', '$ip', now())";
+	$cmd = "INSERT INTO purchases (hash, first_name, last_name, email, phone, address, zip, city, country, method, ip, date_submitted) VALUES('$hash', '$firstName', '$lastName', '$email', '$phone', '$address', '$zip', '$city', '$country', '$payment_method', '$ip', now())";
 	mysqli_query($connect, $cmd);
 
 	$cmd = "SELECT id FROM purchases WHERE hash='$hash'";
 	$purchase = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
 
-	$cmd = "UPDATE cart SET purchase=$purchase, checked=1 WHERE user='$id' AND checked=0";
-	mysqli_query($connect, $cmd) or die(mysqli_error($connect));
+	$cmd = "UPDATE cart SET purchase='$purchase', checked=1 WHERE user='$id' AND checked=0";
+	mysqli_query($connect, $cmd);
 
-	$cmd = "SELECT * FROM cart WHERE paurchase=" . $purchase;
-	$result = mysqli_query($connect, $cmd) or die(mysqli_error($connect));
+	$cmd = "SELECT * FROM cart WHERE purchase=" . $purchase;
+	$result = mysqli_query($connect, $cmd);
 
 	while($row = mysqli_fetch_array($result)) {
 		$cmd = "SELECT quantity FROM warehouse WHERE product=" . $row['product'] . " AND size=" . $row['size'];

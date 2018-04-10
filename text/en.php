@@ -51,7 +51,11 @@
                 , "zip" => "Zip code"
                 , "city" => "City"
                 , "country" => "Country"
+                , "payment" => "Payment method"
             ]
+            , "onlinePayment" => "Online"
+            , "cashPayment" => "Cash"
+            , "methods" => ["online" => "Online", "cash" => "Cash"]
         ]
         , "product" => [
               "invalid" => "We don't have that pair."
@@ -93,6 +97,7 @@
             , "name" => "Name"
             , "sock_name" => "Sock name"
             , "email" => "Email"
+            , "photo" => "Add photo"
             , "description" => "Description"
             , "send" => "Propose"
         ]  

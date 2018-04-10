@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: Apr 09, 2018 at 02:15 AM
+-- Generation Time: Apr 10, 2018 at 02:28 AM
 -- Server version: 5.5.42-log
 -- PHP Version: 7.0.0
 
@@ -152,6 +152,25 @@ INSERT INTO `logins` (`id`, `user`, `timestamp`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `methods`
+--
+
+CREATE TABLE `methods` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `methods`
+--
+
+INSERT INTO `methods` (`id`, `name`) VALUES
+(1, 'cash'),
+(2, 'online');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `products`
 --
 
@@ -233,6 +252,7 @@ CREATE TABLE `purchases` (
   `zip` varchar(5) COLLATE utf8_bin NOT NULL,
   `city` varchar(30) COLLATE utf8_bin NOT NULL,
   `country` varchar(5) COLLATE utf8_bin NOT NULL,
+  `method` int(11) NOT NULL,
   `ip` varchar(20) COLLATE utf8_bin NOT NULL,
   `confirmed` tinyint(1) NOT NULL DEFAULT '0',
   `shipped` tinyint(1) NOT NULL DEFAULT '0',
@@ -243,21 +263,21 @@ CREATE TABLE `purchases` (
 -- Dumping data for table `purchases`
 --
 
-INSERT INTO `purchases` (`id`, `hash`, `date_submitted`, `first_name`, `last_name`, `email`, `phone`, `address`, `zip`, `city`, `country`, `ip`, `confirmed`, `shipped`, `subscribed`) VALUES
-(11, 'cm5WdRbVuEtTq2kWDVRNTEPOXHCiGpVS', '2018-03-11 23:51:59', 'laa', 'ertyui', 'jelic.ecloga@gmail.com', '123', 'adresa', '37000', 'ks', 'sr', '', 1, 0, 1),
-(12, 'TXqpJpBL0KwYtq3o0A5TmuqJb0CkOoPH', '2018-02-03 01:54:54', 'Lazar', 'Jelic', 'jelic.ecloga@gmail.com', '0614437010', 'Adresa', '37000', 'Krusevac', 'Srbij', '', 1, 1, 1),
-(13, '65FIQFtnDWOHlOiqIEV9o690rXpgFLwM', '2018-02-23 09:21:42', 'askdjkah', 'aksjdajksdn', 'akjsdn@ansjkf.com', '82123123', 'ashd', '23232', 'asdjnn', 'AR', '', 0, 0, 0),
-(14, 'yZbEKNFZtYiVEkIiETl8NUk2Y04R26zA', '2018-01-29 23:05:12', 'kbh', 'hb', 'asdasd@asf.com', 'jh', '1231', '22222', 'asd', 'AG', '', 0, 0, 1),
-(15, 'ydloWt1JxIkSg9ulTaP9UHGjMjJ8hk6P', '2018-02-25 20:51:43', 'lazar', 'jelic', 'jelic.ecloga@asmdk', '5678', 'ajhsdb', '21312', 'ashjdb', 'SN', '', 1, 1, 1),
-(16, 'S7PGWg8hfDrTKjFN0bFxgJE4FjZMZQHR', '2018-02-06 02:02:17', 'qwert', 'sdfgh', 'asgd@aksf.com', '57', 'hjasd', '21312', 'bajsdhb', 'BL', '', 1, 1, 1),
-(17, 'subrZ35A0hYQRWvex5BXayU0c1uBqWHS', '2018-02-06 02:02:19', 'Lazar', 'Jelka', 'jelic.ecloga@gmail.com', '0614437010', 'Vasilija Velikog', '37000', 'Krusevac', 'BL', '', 1, 0, 1),
-(18, 'AzWWK4tnKwUAXeOqHxw9aqcN5RfT2x6C', '2018-02-01 23:52:35', 'sdaskd', 'qknakjsn', 'aksjdn@ajsd.com', '123123', 'asndk', '12312', 'kansdk', 'AF', '', 0, 0, 1),
-(19, 'JyU8ryEOxKBnWRqy69VRA51SRr1sfOPZ', '2018-02-23 09:21:56', 'Michael', 'Jordan', 'michaelj@gmail.com', '1235124123', 'Smith street 3', '32354', 'Chicago', 'US', '::1', 0, 0, 0),
-(20, 'bU6lzkejMYSfSgZfi1NByemmyvmAuYWF', '2018-02-14 12:10:33', 'la', 'aksd', 'ajnsjkd@nfakj.com', '12379183', 'anksd', '12312', 'kansd', 'AF', '::1', 0, 0, 1),
-(21, 'oaTO7B27mODwSCzIvZM4ABz5C5LrQiEf', '2018-02-14 12:11:01', 'la', 'aksd', 'ajnsjkd@nfakj.com', '12379183', 'anksd', '12312', 'kansd', 'AF', '::1', 0, 0, 1),
-(22, 'sy4Aa7IxWm3OZCxuCkydW8jye5Z5nElQ', '2018-02-14 12:11:03', 'la', 'aksd', 'ajnsjkd@nfakj.com', '12379183', 'anksd', '12312', 'kansd', 'AF', '::1', 0, 0, 1),
-(23, 'GDEZBK5bnda19EfpPTEpmBHABqJ7Tj1z', '2018-02-14 12:11:25', 'la', 'aksd', 'ajnsjkd@nfakj.com', '12379183', 'anksd', '12312', 'kansd', 'AF', '::1', 0, 0, 1),
-(24, 'Yl8oNxBADplD9dAvd3fptxHAnJkmkryi', '2018-02-14 12:12:42', 'la', 'aksd', 'ajnsjkd@nfakj.com', '12379183', 'anksd', '12312', 'kansd', 'AF', '::1', 1, 0, 1);
+INSERT INTO `purchases` (`id`, `hash`, `date_submitted`, `first_name`, `last_name`, `email`, `phone`, `address`, `zip`, `city`, `country`, `method`, `ip`, `confirmed`, `shipped`, `subscribed`) VALUES
+(11, 'cm5WdRbVuEtTq2kWDVRNTEPOXHCiGpVS', '2018-04-10 00:25:42', 'laa', 'ertyui', 'jelic.ecloga@gmail.com', '123', 'adresa', '37000', 'ks', 'sr', 1, '', 1, 0, 1),
+(12, 'TXqpJpBL0KwYtq3o0A5TmuqJb0CkOoPH', '2018-04-10 00:25:42', 'Lazar', 'Jelic', 'jelic.ecloga@gmail.com', '0614437010', 'Adresa', '37000', 'Krusevac', 'Srbij', 1, '', 1, 1, 1),
+(13, '65FIQFtnDWOHlOiqIEV9o690rXpgFLwM', '2018-04-10 00:25:42', 'askdjkah', 'aksjdajksdn', 'akjsdn@ansjkf.com', '82123123', 'ashd', '23232', 'asdjnn', 'AR', 1, '', 0, 0, 0),
+(14, 'yZbEKNFZtYiVEkIiETl8NUk2Y04R26zA', '2018-04-10 00:25:42', 'kbh', 'hb', 'asdasd@asf.com', 'jh', '1231', '22222', 'asd', 'AG', 1, '', 0, 0, 1),
+(15, 'ydloWt1JxIkSg9ulTaP9UHGjMjJ8hk6P', '2018-04-10 00:25:42', 'lazar', 'jelic', 'jelic.ecloga@asmdk', '5678', 'ajhsdb', '21312', 'ashjdb', 'SN', 1, '', 1, 1, 1),
+(16, 'S7PGWg8hfDrTKjFN0bFxgJE4FjZMZQHR', '2018-04-10 00:25:42', 'qwert', 'sdfgh', 'asgd@aksf.com', '57', 'hjasd', '21312', 'bajsdhb', 'BL', 1, '', 1, 1, 1),
+(17, 'subrZ35A0hYQRWvex5BXayU0c1uBqWHS', '2018-04-10 00:25:42', 'Lazar', 'Jelka', 'jelic.ecloga@gmail.com', '0614437010', 'Vasilija Velikog', '37000', 'Krusevac', 'BL', 1, '', 1, 0, 1),
+(18, 'AzWWK4tnKwUAXeOqHxw9aqcN5RfT2x6C', '2018-04-10 00:25:42', 'sdaskd', 'qknakjsn', 'aksjdn@ajsd.com', '123123', 'asndk', '12312', 'kansdk', 'AF', 1, '', 0, 0, 1),
+(19, 'JyU8ryEOxKBnWRqy69VRA51SRr1sfOPZ', '2018-04-10 00:25:42', 'Michael', 'Jordan', 'michaelj@gmail.com', '1235124123', 'Smith street 3', '32354', 'Chicago', 'US', 1, '::1', 0, 0, 0),
+(20, 'bU6lzkejMYSfSgZfi1NByemmyvmAuYWF', '2018-04-10 00:25:42', 'la', 'aksd', 'ajnsjkd@nfakj.com', '12379183', 'anksd', '12312', 'kansd', 'AF', 1, '::1', 0, 0, 1),
+(21, 'oaTO7B27mODwSCzIvZM4ABz5C5LrQiEf', '2018-04-10 00:25:42', 'la', 'aksd', 'ajnsjkd@nfakj.com', '12379183', 'anksd', '12312', 'kansd', 'AF', 1, '::1', 0, 0, 1),
+(22, 'sy4Aa7IxWm3OZCxuCkydW8jye5Z5nElQ', '2018-04-10 00:25:42', 'la', 'aksd', 'ajnsjkd@nfakj.com', '12379183', 'anksd', '12312', 'kansd', 'AF', 1, '::1', 0, 0, 1),
+(23, 'GDEZBK5bnda19EfpPTEpmBHABqJ7Tj1z', '2018-04-10 00:25:42', 'la', 'aksd', 'ajnsjkd@nfakj.com', '12379183', 'anksd', '12312', 'kansd', 'AF', 1, '::1', 0, 0, 1),
+(24, 'Yl8oNxBADplD9dAvd3fptxHAnJkmkryi', '2018-04-10 00:25:42', 'la', 'aksd', 'ajnsjkd@nfakj.com', '12379183', 'anksd', '12312', 'kansd', 'AF', 1, '::1', 1, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -401,6 +421,12 @@ ALTER TABLE `logins`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `methods`
+--
+ALTER TABLE `methods`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -419,7 +445,8 @@ ALTER TABLE `proposals`
 --
 ALTER TABLE `purchases`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `hash` (`hash`);
+  ADD UNIQUE KEY `hash` (`hash`),
+  ADD KEY `method` (`method`);
 
 --
 -- Indexes for table `sales`
@@ -474,6 +501,11 @@ ALTER TABLE `comments`
 ALTER TABLE `logins`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 --
+-- AUTO_INCREMENT for table `methods`
+--
+ALTER TABLE `methods`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
@@ -521,6 +553,12 @@ ALTER TABLE `cart`
 ALTER TABLE `comments`
   ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`product`) REFERENCES `products` (`id`),
   ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`reply_to`) REFERENCES `comments` (`id`);
+
+--
+-- Constraints for table `purchases`
+--
+ALTER TABLE `purchases`
+  ADD CONSTRAINT `purchases_ibfk_1` FOREIGN KEY (`method`) REFERENCES `methods` (`id`);
 
 --
 -- Constraints for table `sales`

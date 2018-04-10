@@ -17,7 +17,7 @@
                     <input name="address" type="text" maxlength="50" placeholder="<?php echo $string['checkout']['inputs']['address']; ?>" required>
                     <input name="city" type="text" maxlength="50" placeholder="<?php echo $string['checkout']['inputs']['city']; ?>" required>
                     <input name="zip" type="text" maxlength="5" placeholder="<?php echo $string['checkout']['inputs']['zip']; ?>" required>
-
+										
 					<?php
 						require("../ui/country_select.php");
 
@@ -26,6 +26,28 @@
                         
                         $sum = $a + $b;
                     ?>
+
+					<p><?php echo $string['checkout']['inputs']['payment']; ?></p>
+				
+					<?php
+						echo '<div class="input-wrapper">';
+						echo '<div class="input-group">';
+					
+						$cmd = "SELECT * FROM methods";
+						$result = mysqli_query($connect, $cmd);
+
+						while($method = mysqli_fetch_array($result)) {		
+							echo '<div class="radio-input">';
+							echo '<label for="method-' . $method["id"] . '">';
+               		    	echo '<input type="radio" name="payment" id="method-' . $method["id"] . '" value="' . $method["id"] . '"/>';   
+							echo '<span>' . $string["checkout"]["methods"][$method["name"]] . '</span>';
+							echo '</label>';
+							echo '</div>';
+						}
+					
+						echo '</div>';
+						echo '</div>';
+					?>
                     
                     <input type="hidden" name="validationCheck" value="<?php echo $sum; ?>">
                     <input name="validationInput" type="text" size="30" placeholder="<?php echo $string['status']['validation'] . $a . " + " . $b . "?" ; ?>" required/>

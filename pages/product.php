@@ -61,12 +61,12 @@
                     
 					echo '<h2> ' . get_price($row['price']) . '</h2>';
 
-					$cmd = "SELECT * FROM sizes";
-					$result = mysqli_query($connect, $cmd);
-
 					echo '<div class="input-wrapper">';
 					echo '<div class="input-group">';
 					
+					$cmd = "SELECT * FROM sizes";
+					$result = mysqli_query($connect, $cmd);
+
 					while($size = mysqli_fetch_array($result)) {		
 						$qty = get_quantity($size["id"], $product, $connect);
 

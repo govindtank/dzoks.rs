@@ -23,7 +23,7 @@ $(document).ready(function() {
 
 		xhttp.send();
 	});
- });
+});
 
 function navClick() {
 	$("#nav").click(function() {
