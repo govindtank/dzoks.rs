@@ -13,9 +13,6 @@
           , "manage" => "Manage"
           , "ok" => "Okay"
         ]
-        , "index" => [
-		 	"enter" => "Enter"
-        ]
         , "login" => [
               "header" => "Login"
             , "username" => "Username"
