@@ -1,14 +1,13 @@
 <?php
 	require("../logic/config.php");
 
-	if(!params_ok(["name", "sock_name", "email", "description", "validationCheck", "validationInput"], "POST")) {	
+	if(!params_ok(["name", "email", "description", "validationCheck", "validationInput"], "POST")) {	
 		error($string['status']['designNotProposed']);
 		header("location: ../pages/propose");
 		exit;	
 	}
 
     $name = strip($_POST['name']);
-    $sockName = strip($_POST['sock_name']);
     $email = strip($_POST['email']);
 	$description = strip($_POST['description']); 
 	$validationCheck = strip($_POST['validationCheck']); 
@@ -41,7 +40,7 @@
 			exit;	
 		}
 
-		$cmd = "INSERT INTO proposals (name, sock_name, email, description, date_submitted) VALUES('$name', '$sockName', '$email', '$description', now())";
+		$cmd = "INSERT INTO proposals (name, email, description, date_submitted) VALUES('$name', '$email', '$description', now())";
 		mysqli_query($connect, $cmd);
 
 		$cmd = "SELECT id FROM proposals ORDER BY id DESC LIMIT 1";

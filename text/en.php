@@ -95,7 +95,7 @@
             , "sock_name" => "Sock name"
             , "email" => "Email"
             , "photo" => "Add photo"
-            , "description" => "Description"
+            , "description" => "Sock description"
             , "send" => "Propose"
         ]  
 		, "manage" => [

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: Apr 10, 2018 at 02:28 AM
+-- Generation Time: Apr 26, 2018 at 08:27 PM
 -- Server version: 5.5.42-log
 -- PHP Version: 7.0.0
 
@@ -51,7 +51,7 @@ CREATE TABLE `cart` (
   `quantity` int(11) NOT NULL,
   `purchase` int(11) DEFAULT NULL,
   `checked` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `cart`
@@ -60,7 +60,9 @@ CREATE TABLE `cart` (
 INSERT INTO `cart` (`id`, `user`, `product`, `size`, `quantity`, `purchase`, `checked`) VALUES
 (10, 'sUSzLW10R2lcQxQ', 37, 2, 1, NULL, 0),
 (11, 'sUSzLW10R2lcQxQ', 38, 1, 3, NULL, 0),
-(12, 'NIGPDiD5C7kMV23', 38, 2, 2, NULL, 0);
+(12, 'NIGPDiD5C7kMV23', 38, 2, 2, NULL, 0),
+(13, 'L82CsTyaPusPeId', 38, 2, 1, 25, 1),
+(14, 'U9JtP7tMgM8D6gv', 1, 1, 1, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -158,7 +160,7 @@ INSERT INTO `logins` (`id`, `user`, `timestamp`) VALUES
 CREATE TABLE `methods` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `methods`
@@ -218,7 +220,6 @@ CREATE TABLE `proposals` (
   `name` varchar(30) COLLATE utf8_bin NOT NULL,
   `email` varchar(30) COLLATE utf8_bin NOT NULL,
   `description` text COLLATE utf8_bin NOT NULL,
-  `sock_name` varchar(30) COLLATE utf8_bin NOT NULL,
   `date_submitted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -226,13 +227,13 @@ CREATE TABLE `proposals` (
 -- Dumping data for table `proposals`
 --
 
-INSERT INTO `proposals` (`id`, `name`, `email`, `description`, `sock_name`, `date_submitted`) VALUES
-(1, 'laza', 'jelic@laza.com', 'this is the best', '0', '2018-02-23 15:56:45'),
-(2, 'milos', 'asd@sklf.com', 'ajhs aksdahkjs dabjhsd vasgdasdsa kdfgasjajsdfvadsfjahsdbf asdfkasjndfjk as', 'qwerTttY', '2018-02-23 16:03:04'),
-(3, 'milos', 'asd@sklf.com', 'ajhs aksdahkjs dabjhsd vasgdasdsa kdfgasjajsdfvadsfjahsdbf asdfkasjndfjk as', 'qwerTttY', '2018-02-23 16:03:28'),
-(4, 'milos', 'asd@sklf.com', 'ajhs aksdahkjs dabjhsd vasgdasdsa kdfgasjajsdfvadsfjahsdbf asdfkasjndfjk as', 'qwerTttY', '2018-02-23 16:03:51'),
-(5, 'ana', 'asdjka@ajs.com', 'as bdaks jdansdksa dhabs', 'new sock', '2018-02-23 16:22:29'),
-(6, 'name', 'ajsd@asjd.com', 'akhs jda', 'gahsjdk', '2018-02-23 16:24:13');
+INSERT INTO `proposals` (`id`, `name`, `email`, `description`, `date_submitted`) VALUES
+(1, 'laza', 'jelic@laza.com', 'this is the best', '2018-02-23 15:56:45'),
+(2, 'milos', 'asd@sklf.com', 'ajhs aksdahkjs dabjhsd vasgdasdsa kdfgasjajsdfvadsfjahsdbf asdfkasjndfjk as', '2018-02-23 16:03:04'),
+(3, 'milos', 'asd@sklf.com', 'ajhs aksdahkjs dabjhsd vasgdasdsa kdfgasjajsdfvadsfjahsdbf asdfkasjndfjk as', '2018-02-23 16:03:28'),
+(4, 'milos', 'asd@sklf.com', 'ajhs aksdahkjs dabjhsd vasgdasdsa kdfgasjajsdfvadsfjahsdbf asdfkasjndfjk as', '2018-02-23 16:03:51'),
+(5, 'ana', 'asdjka@ajs.com', 'as bdaks jdansdksa dhabs', '2018-02-23 16:22:29'),
+(6, 'name', 'ajsd@asjd.com', 'akhs jda', '2018-02-23 16:24:13');
 
 -- --------------------------------------------------------
 
@@ -257,7 +258,7 @@ CREATE TABLE `purchases` (
   `confirmed` tinyint(1) NOT NULL DEFAULT '0',
   `shipped` tinyint(1) NOT NULL DEFAULT '0',
   `subscribed` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `purchases`
@@ -277,7 +278,9 @@ INSERT INTO `purchases` (`id`, `hash`, `date_submitted`, `first_name`, `last_nam
 (21, 'oaTO7B27mODwSCzIvZM4ABz5C5LrQiEf', '2018-04-10 00:25:42', 'la', 'aksd', 'ajnsjkd@nfakj.com', '12379183', 'anksd', '12312', 'kansd', 'AF', 1, '::1', 0, 0, 1),
 (22, 'sy4Aa7IxWm3OZCxuCkydW8jye5Z5nElQ', '2018-04-10 00:25:42', 'la', 'aksd', 'ajnsjkd@nfakj.com', '12379183', 'anksd', '12312', 'kansd', 'AF', 1, '::1', 0, 0, 1),
 (23, 'GDEZBK5bnda19EfpPTEpmBHABqJ7Tj1z', '2018-04-10 00:25:42', 'la', 'aksd', 'ajnsjkd@nfakj.com', '12379183', 'anksd', '12312', 'kansd', 'AF', 1, '::1', 0, 0, 1),
-(24, 'Yl8oNxBADplD9dAvd3fptxHAnJkmkryi', '2018-04-10 00:25:42', 'la', 'aksd', 'ajnsjkd@nfakj.com', '12379183', 'anksd', '12312', 'kansd', 'AF', 1, '::1', 1, 0, 1);
+(24, 'Yl8oNxBADplD9dAvd3fptxHAnJkmkryi', '2018-04-10 00:25:42', 'la', 'aksd', 'ajnsjkd@nfakj.com', '12379183', 'anksd', '12312', 'kansd', 'AF', 1, '::1', 1, 0, 1),
+(25, 'IVlAIccBnocOSdQ029DU9pS8TXO0XSzF', '2018-04-10 00:31:16', 'LAZICA', 'jelic', 'asd@as.com', '12312', 'asd', '38', 'jk', 'DK', 1, '::1', 0, 0, 1),
+(26, 'B714eV1ONaccbgtP6eO1jNLc4v4Q1fQC', '2018-04-10 00:31:29', 'LAZICA', 'jelic', 'asd@as.com', '12312', 'asd', '38', 'jk', 'DK', 1, '::1', 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -484,7 +487,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `collections`
 --
@@ -504,7 +507,7 @@ ALTER TABLE `logins`
 -- AUTO_INCREMENT for table `methods`
 --
 ALTER TABLE `methods`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `products`
 --
@@ -519,7 +522,7 @@ ALTER TABLE `proposals`
 -- AUTO_INCREMENT for table `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `sales`
 --

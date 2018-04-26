@@ -95,7 +95,7 @@
             , "sock_name" => "Име чарапе"
             , "email" => "Имејл"
             , "photo" => "Додај фотку"
-            , "description" => "Опис"
+            , "description" => "Опис чарапа"
             , "send" => "Предложи"
         ]  
 		, "manage" => [

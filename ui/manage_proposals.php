@@ -8,7 +8,6 @@
 			echo '<tr>';
 			echo '<td>' . $row['name'] . '</td>';
 			echo '<td>' . $row['email'] . '</td>';
-			echo '<td>' . $row['sock_name'] . '</td>';
 			echo '<td>' . $row['description'] . '</td>';
 			echo '<td>' . $row['date_submitted'] . '</td>';
 			

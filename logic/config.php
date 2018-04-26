@@ -14,7 +14,8 @@
 	$store_name = "DZOKS";
 	$store_url = "https://www.dzoks.rs";
 	$store_email = "office@dzoks.rs";
-	$store_instagram = "dzoks.rs";
+	$store_instagram = "dzoks_official";
+
 
 	require("../logic/connect.php");
     require("../logic/get_lang.php");

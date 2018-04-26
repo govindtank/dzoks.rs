@@ -22,7 +22,7 @@
 		echo '</div>';
 	}*/
 					
-	for($i = 0; $i < 5; $i++) {
+	for($i = 0; $i < 8; $i++) {
 		echo '<div class="item" data-sr>';
 		echo '<a href="../img/random.jpg">';
 		echo '<img class="item-image" src="../img/random.jpg" />';
