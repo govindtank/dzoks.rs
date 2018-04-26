@@ -22,12 +22,20 @@
 		success($string['status']['orderReturned']);
 	}
 
-	$cmd = "SELECT email FROM purchases WHERE id=" . $purchase;
-	$email = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
+	$cmd = "SELECT email, hash FROM purchases WHERE id=" . $purchase;
+	
+	$result = mysqli_fetch_array(mysqli_query($connect, $cmd));
+	$email = $row[0];
+	$hash = $row[1];
 
 	$message = get_mail("order_ship", $lang);
-	$message = str_replace("{{id}}", $purchase, $message);
-	$message = str_replace("{{email}}", $store_email, $message);
+
+	$newsletter_title = "";
+	$newsletter_content = "";
+
+	$message = str_replace("{{unsubscribe_url}}", $unsubscribe_url . $hash, $message);
+	$message = str_replace("{{newsletter_title}}", $newsletter_title, $message);
+	$message = str_replace("{{newsletter_content}}", $newsletter_content, $message);
 	
 	$sender = $store_email;
 	$subject = "[" . $store_name . "] Shipped";

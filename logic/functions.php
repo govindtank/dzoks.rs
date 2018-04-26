@@ -4,8 +4,22 @@
     }
 
 	function get_mail($action, $lang) {
+		global $store_name,
+			$store_url,
+			$store_email,
+			$store_phone,
+			$store_instagram,
+			$unsubscribe_url,
+			$newsletter_img;
+
 		$body = file_get_contents("../text/mail/" . $lang . "/" . $action . ".html");
-		$body = str_replace("{{css}}", file_get_contents("../css/mail.css"), $body);
+		$body = str_replace("{{id}}", $purchase, $body);
+		$body = str_replace("{{email}}", $store_email, $body);
+		$body = str_replace("{{store_name}}", $store_name, $body);
+		$body = str_replace("{{store_url}}", $store_url, $body);
+		$body = str_replace("{{store_email}}", $store_email, $body);
+		$body = str_replace("{{store_phone}}", $store_phone, $body);
+		$body = str_replace("{{newsletter_img}}", $newsletter_img, $body);
 	
 		return $body;
 	}

@@ -10,30 +10,24 @@
 		exit;	
 	}
 
-	$message = file_get_contents($_FILES['message']['tmp_name']);
-
-	$receivers = [];
-	$hashes = [];
-
-	$cmd = "SELECT email FROM purchases WHERE subscribed=1 GROUP BY email";
+	$cmd = "SELECT email, hash FROM purchases WHERE subscribed=1 GROUP BY email";
 	$result = mysqli_query($connect, $cmd);
 
 	while($row = mysqli_fetch_array($result)) {	
-	    $receivers[] = $row['email'];
-	    $hashes[] = $row['hash'];
+		$receiver = $row[0];
+		$hash = $row[1];
+	
+		$sender = $store_email;
+		$subject = "[" . $store_name . "] Newsletter";
+		$headers = "From: " . $sender . "\r\n";
+		$headers .= "To: " . $receivers . "\r\n";
+
+		$message = file_get_contents($_FILES['message']['tmp_name']);
+		$message = str_replace("{{unsubscribe_url}}", $unsubscribe_url . $hash, $message);
+
+		mail($receiver, $subject, $message, $headers);
 	}
 	
-	$receivers = implode(", ", $receivers);
-
-	$sender = $store_email;
-	$subject = "[" . $store_name . "] Newsletter";
-	$headers = "From: " . $sender . "\r\n";
-	$headers .= "To: " . $receivers . "\r\n";
-
-	$message .= $string['status']['unsubscribeLink'] . $store_url . "/actions/unsubscribe?h=" . $hash;
-
-	mail($receivers, $subject, $message, $headers);
-
 	success($string['status']['messageSent']);
 	header("location: ../pages/manage?type=4");
 ?>
