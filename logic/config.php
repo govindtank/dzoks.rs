@@ -11,8 +11,10 @@
 	$id = get_id();
 	$ip = get_ip();
 
-	$store_name = "DZOKS d.o.o.";
-	$store_url = "https://www.dzoks.rs";
+	$store_name = "ЏОКС д.о.о.";
+	$store_number = "00000000";
+	$store_vat = "000000000";
+	$store_url = "http://www.dzoks.rs";
 	$store_email = "office@dzoks.rs";
 	$store_phone = "+381613129241";
 	$store_instagram = "dzoks_official";
