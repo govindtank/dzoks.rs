@@ -21,7 +21,7 @@
 
                 $total = 0;
 				
-				$cmd = "SELECT * FROM cart WHERE user='$id'";
+				$cmd = "SELECT * FROM cart WHERE user='$id' && checked=0";
 				$result = mysqli_query($connect, $cmd);
 				
 				while($row = mysqli_fetch_array($result)) {

@@ -74,6 +74,11 @@ a:hover {
   opacity: 0.25;
 }
 
+.hidden,
+.hidden * {
+	display: none;
+}
+
 .main {
     width: 100%;
 	min-height: calc(100% - 8.5em);

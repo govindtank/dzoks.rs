@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: Apr 26, 2018 at 08:27 PM
+-- Generation Time: Apr 28, 2018 at 02:51 PM
 -- Server version: 5.5.42-log
 -- PHP Version: 7.0.0
 
@@ -51,7 +51,7 @@ CREATE TABLE `cart` (
   `quantity` int(11) NOT NULL,
   `purchase` int(11) DEFAULT NULL,
   `checked` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `cart`
@@ -62,7 +62,12 @@ INSERT INTO `cart` (`id`, `user`, `product`, `size`, `quantity`, `purchase`, `ch
 (11, 'sUSzLW10R2lcQxQ', 38, 1, 3, NULL, 0),
 (12, 'NIGPDiD5C7kMV23', 38, 2, 2, NULL, 0),
 (13, 'L82CsTyaPusPeId', 38, 2, 1, 25, 1),
-(14, 'U9JtP7tMgM8D6gv', 1, 1, 1, NULL, 0);
+(14, 'U9JtP7tMgM8D6gv', 1, 1, 1, NULL, 0),
+(15, 'dGyGXicnb5qJLIq', 38, 2, 1, NULL, 0),
+(16, 'jQbfWeeoehV2J8l', 38, 2, 1, NULL, 0),
+(17, 'vTW2n3UQtGjoXJa', 38, 2, 1, NULL, 0),
+(18, 'z4o0btMPk6ClkQw', 38, 2, 1, NULL, 0),
+(19, 'BbB2JjGznuM0lnI', 38, 2, 1, 27, 1);
 
 -- --------------------------------------------------------
 
@@ -244,9 +249,7 @@ INSERT INTO `proposals` (`id`, `name`, `email`, `description`, `date_submitted`)
 CREATE TABLE `purchases` (
   `id` int(11) NOT NULL,
   `hash` varchar(32) COLLATE utf8_bin NOT NULL,
-  `date_submitted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `first_name` varchar(30) COLLATE utf8_bin NOT NULL,
-  `last_name` varchar(30) COLLATE utf8_bin NOT NULL,
+  `name` varchar(100) COLLATE utf8_bin DEFAULT NULL,
   `email` varchar(30) COLLATE utf8_bin NOT NULL,
   `phone` varchar(20) COLLATE utf8_bin NOT NULL,
   `address` varchar(30) COLLATE utf8_bin NOT NULL,
@@ -255,32 +258,34 @@ CREATE TABLE `purchases` (
   `country` varchar(5) COLLATE utf8_bin NOT NULL,
   `method` int(11) NOT NULL,
   `ip` varchar(20) COLLATE utf8_bin NOT NULL,
+  `date_submitted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `confirmed` tinyint(1) NOT NULL DEFAULT '0',
   `shipped` tinyint(1) NOT NULL DEFAULT '0',
   `subscribed` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `purchases`
 --
 
-INSERT INTO `purchases` (`id`, `hash`, `date_submitted`, `first_name`, `last_name`, `email`, `phone`, `address`, `zip`, `city`, `country`, `method`, `ip`, `confirmed`, `shipped`, `subscribed`) VALUES
-(11, 'cm5WdRbVuEtTq2kWDVRNTEPOXHCiGpVS', '2018-04-10 00:25:42', 'laa', 'ertyui', 'jelic.ecloga@gmail.com', '123', 'adresa', '37000', 'ks', 'sr', 1, '', 1, 0, 1),
-(12, 'TXqpJpBL0KwYtq3o0A5TmuqJb0CkOoPH', '2018-04-10 00:25:42', 'Lazar', 'Jelic', 'jelic.ecloga@gmail.com', '0614437010', 'Adresa', '37000', 'Krusevac', 'Srbij', 1, '', 1, 1, 1),
-(13, '65FIQFtnDWOHlOiqIEV9o690rXpgFLwM', '2018-04-10 00:25:42', 'askdjkah', 'aksjdajksdn', 'akjsdn@ansjkf.com', '82123123', 'ashd', '23232', 'asdjnn', 'AR', 1, '', 0, 0, 0),
-(14, 'yZbEKNFZtYiVEkIiETl8NUk2Y04R26zA', '2018-04-10 00:25:42', 'kbh', 'hb', 'asdasd@asf.com', 'jh', '1231', '22222', 'asd', 'AG', 1, '', 0, 0, 1),
-(15, 'ydloWt1JxIkSg9ulTaP9UHGjMjJ8hk6P', '2018-04-10 00:25:42', 'lazar', 'jelic', 'jelic.ecloga@asmdk', '5678', 'ajhsdb', '21312', 'ashjdb', 'SN', 1, '', 1, 1, 1),
-(16, 'S7PGWg8hfDrTKjFN0bFxgJE4FjZMZQHR', '2018-04-10 00:25:42', 'qwert', 'sdfgh', 'asgd@aksf.com', '57', 'hjasd', '21312', 'bajsdhb', 'BL', 1, '', 1, 1, 1),
-(17, 'subrZ35A0hYQRWvex5BXayU0c1uBqWHS', '2018-04-10 00:25:42', 'Lazar', 'Jelka', 'jelic.ecloga@gmail.com', '0614437010', 'Vasilija Velikog', '37000', 'Krusevac', 'BL', 1, '', 1, 0, 1),
-(18, 'AzWWK4tnKwUAXeOqHxw9aqcN5RfT2x6C', '2018-04-10 00:25:42', 'sdaskd', 'qknakjsn', 'aksjdn@ajsd.com', '123123', 'asndk', '12312', 'kansdk', 'AF', 1, '', 0, 0, 1),
-(19, 'JyU8ryEOxKBnWRqy69VRA51SRr1sfOPZ', '2018-04-10 00:25:42', 'Michael', 'Jordan', 'michaelj@gmail.com', '1235124123', 'Smith street 3', '32354', 'Chicago', 'US', 1, '::1', 0, 0, 0),
-(20, 'bU6lzkejMYSfSgZfi1NByemmyvmAuYWF', '2018-04-10 00:25:42', 'la', 'aksd', 'ajnsjkd@nfakj.com', '12379183', 'anksd', '12312', 'kansd', 'AF', 1, '::1', 0, 0, 1),
-(21, 'oaTO7B27mODwSCzIvZM4ABz5C5LrQiEf', '2018-04-10 00:25:42', 'la', 'aksd', 'ajnsjkd@nfakj.com', '12379183', 'anksd', '12312', 'kansd', 'AF', 1, '::1', 0, 0, 1),
-(22, 'sy4Aa7IxWm3OZCxuCkydW8jye5Z5nElQ', '2018-04-10 00:25:42', 'la', 'aksd', 'ajnsjkd@nfakj.com', '12379183', 'anksd', '12312', 'kansd', 'AF', 1, '::1', 0, 0, 1),
-(23, 'GDEZBK5bnda19EfpPTEpmBHABqJ7Tj1z', '2018-04-10 00:25:42', 'la', 'aksd', 'ajnsjkd@nfakj.com', '12379183', 'anksd', '12312', 'kansd', 'AF', 1, '::1', 0, 0, 1),
-(24, 'Yl8oNxBADplD9dAvd3fptxHAnJkmkryi', '2018-04-10 00:25:42', 'la', 'aksd', 'ajnsjkd@nfakj.com', '12379183', 'anksd', '12312', 'kansd', 'AF', 1, '::1', 1, 0, 1),
-(25, 'IVlAIccBnocOSdQ029DU9pS8TXO0XSzF', '2018-04-10 00:31:16', 'LAZICA', 'jelic', 'asd@as.com', '12312', 'asd', '38', 'jk', 'DK', 1, '::1', 0, 0, 1),
-(26, 'B714eV1ONaccbgtP6eO1jNLc4v4Q1fQC', '2018-04-10 00:31:29', 'LAZICA', 'jelic', 'asd@as.com', '12312', 'asd', '38', 'jk', 'DK', 1, '::1', 0, 0, 1);
+INSERT INTO `purchases` (`id`, `hash`, `name`, `email`, `phone`, `address`, `zip`, `city`, `country`, `method`, `ip`, `date_submitted`, `confirmed`, `shipped`, `subscribed`) VALUES
+(11, 'cm5WdRbVuEtTq2kWDVRNTEPOXHCiGpVS', 'laa ertyui', 'jelic.ecloga@gmail.com', '123', 'adresa', '37000', 'ks', 'sr', 1, '', '2018-04-28 12:47:46', 1, 0, 1),
+(12, 'TXqpJpBL0KwYtq3o0A5TmuqJb0CkOoPH', 'Lazar Jelic', 'jelic.ecloga@gmail.com', '0614437010', 'Adresa', '37000', 'Krusevac', 'Srbij', 1, '', '2018-04-28 12:47:46', 1, 1, 1),
+(13, '65FIQFtnDWOHlOiqIEV9o690rXpgFLwM', 'askdjkah aksjdajksdn', 'akjsdn@ansjkf.com', '82123123', 'ashd', '23232', 'asdjnn', 'AR', 1, '', '2018-04-28 12:47:46', 0, 0, 0),
+(14, 'yZbEKNFZtYiVEkIiETl8NUk2Y04R26zA', 'kbh hb', 'asdasd@asf.com', 'jh', '1231', '22222', 'asd', 'AG', 1, '', '2018-04-28 12:47:46', 0, 0, 1),
+(15, 'ydloWt1JxIkSg9ulTaP9UHGjMjJ8hk6P', 'lazar jelic', 'jelic.ecloga@asmdk', '5678', 'ajhsdb', '21312', 'ashjdb', 'SN', 1, '', '2018-04-28 12:47:46', 1, 1, 1),
+(16, 'S7PGWg8hfDrTKjFN0bFxgJE4FjZMZQHR', 'qwert sdfgh', 'asgd@aksf.com', '57', 'hjasd', '21312', 'bajsdhb', 'BL', 1, '', '2018-04-28 12:47:46', 1, 1, 1),
+(17, 'subrZ35A0hYQRWvex5BXayU0c1uBqWHS', 'Lazar Jelka', 'jelic.ecloga@gmail.com', '0614437010', 'Vasilija Velikog', '37000', 'Krusevac', 'BL', 1, '', '2018-04-28 12:47:46', 1, 0, 1),
+(18, 'AzWWK4tnKwUAXeOqHxw9aqcN5RfT2x6C', 'sdaskd qknakjsn', 'aksjdn@ajsd.com', '123123', 'asndk', '12312', 'kansdk', 'AF', 1, '', '2018-04-28 12:47:46', 0, 0, 1),
+(19, 'JyU8ryEOxKBnWRqy69VRA51SRr1sfOPZ', 'Michael Jordan', 'michaelj@gmail.com', '1235124123', 'Smith street 3', '32354', 'Chicago', 'US', 1, '::1', '2018-04-28 12:47:46', 0, 0, 0),
+(20, 'bU6lzkejMYSfSgZfi1NByemmyvmAuYWF', 'la aksd', 'ajnsjkd@nfakj.com', '12379183', 'anksd', '12312', 'kansd', 'AF', 1, '::1', '2018-04-28 12:47:46', 0, 0, 1),
+(21, 'oaTO7B27mODwSCzIvZM4ABz5C5LrQiEf', 'la aksd', 'ajnsjkd@nfakj.com', '12379183', 'anksd', '12312', 'kansd', 'AF', 1, '::1', '2018-04-28 12:47:46', 0, 0, 1),
+(22, 'sy4Aa7IxWm3OZCxuCkydW8jye5Z5nElQ', 'la aksd', 'ajnsjkd@nfakj.com', '12379183', 'anksd', '12312', 'kansd', 'AF', 1, '::1', '2018-04-28 12:47:46', 0, 0, 1),
+(23, 'GDEZBK5bnda19EfpPTEpmBHABqJ7Tj1z', 'la aksd', 'ajnsjkd@nfakj.com', '12379183', 'anksd', '12312', 'kansd', 'AF', 1, '::1', '2018-04-28 12:47:46', 0, 0, 1),
+(24, 'Yl8oNxBADplD9dAvd3fptxHAnJkmkryi', 'la aksd', 'ajnsjkd@nfakj.com', '12379183', 'anksd', '12312', 'kansd', 'AF', 1, '::1', '2018-04-28 12:47:46', 1, 0, 1),
+(25, 'IVlAIccBnocOSdQ029DU9pS8TXO0XSzF', 'LAZICA jelic', 'asd@as.com', '12312', 'asd', '38', 'jk', 'DK', 1, '::1', '2018-04-28 12:47:46', 0, 0, 1),
+(26, 'B714eV1ONaccbgtP6eO1jNLc4v4Q1fQC', 'LAZICA jelic', 'asd@as.com', '12312', 'asd', '38', 'jk', 'DK', 1, '::1', '2018-04-28 12:47:46', 0, 0, 1),
+(27, 'Ilbn74onYN8Nyis5ZUMr6MXt8OT4Je8s', 'Lazar Jelic', 'jelic.ecloga@gmail.com', '381614437010', 'Vasilija Velikog 5/13', '37000', 'Krusevac', 'ES', 1, '::1', '2018-04-28 12:49:15', 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -487,7 +492,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `collections`
 --
@@ -522,7 +527,7 @@ ALTER TABLE `proposals`
 -- AUTO_INCREMENT for table `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `sales`
 --

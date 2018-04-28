@@ -2,12 +2,12 @@
     <?php echo '<p>&copy; ' . date("Y") . ' ' . $store_name .'</p>'; ?>
 
 	<div class="sponsors">
-		<img src="../img/visa.png"/>
-		<img src="../img/mastercard.png"/>
-		<img src="../img/maestro.png"/>
-		<img src="../img/american-express.png"/>
-		<img src="../img/visa-verified.png"/>
-		<img src="../img/secure-code.png"/>
+		<img class="hidden" src="../img/visa.png"/>
+		<img class="hidden" src="../img/mastercard.png"/>
+		<img class="hidden" src="../img/maestro.png"/>
+		<img class="hidden" src="../img/american-express.png"/>
+		<img class="hidden" src="../img/visa-verified.png"/>
+		<img class="hidden" src="../img/secure-code.png"/>
 		
 		<a href="http://ecloga.org"><img src="../img/ecloga.png"></a>
 	</div>

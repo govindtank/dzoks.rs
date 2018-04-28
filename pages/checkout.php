@@ -10,8 +10,7 @@
                 <h1><?php echo $string["checkout"]["header"]; ?></h1>
 
                 <form action="../actions/checkout" method="POST">
-                    <input name="first" type="text" maxlength="50" placeholder="<?php echo $string['checkout']['inputs']['first']; ?>" autofocus required>
-                    <input name="last" type="text" maxlength="50" placeholder="<?php echo $string['checkout']['inputs']['last']; ?>" required>
+                    <input name="name" type="text" maxlength="100" placeholder="<?php echo $string['checkout']['inputs']['name']; ?>" autofocus required>
                     <input name="email" type="email" maxlength="50" placeholder="<?php echo $string['checkout']['inputs']['email']; ?>" required>
                     <input name="phone" type="text" maxlength="20" placeholder="<?php echo $string['checkout']['inputs']['phone']; ?>" required>
                     <input name="address" type="text" maxlength="50" placeholder="<?php echo $string['checkout']['inputs']['address']; ?>" required>
@@ -25,12 +24,10 @@
                         $b = rand(1, 9 - $a);
                         
                         $sum = $a + $b;
-                    ?>
 
-					<p><?php echo $string['checkout']['inputs']['payment']; ?></p>
-				
-					<?php
-						echo '<div class="input-wrapper">';
+						echo '<p class="hidden">' . $string['checkout']['inputs']['payment'] . '</p>';
+	
+						echo '<div class="hidden input-wrapper">';
 						echo '<div class="input-group">';
 					
 						$cmd = "SELECT * FROM methods";
@@ -39,7 +36,15 @@
 						while($method = mysqli_fetch_array($result)) {		
 							echo '<div class="radio-input">';
 							echo '<label for="method-' . $method["id"] . '">';
-               		    	echo '<input type="radio" name="payment" id="method-' . $method["id"] . '" value="' . $method["id"] . '"/>';   
+               		    	
+							echo '<input type="radio" name="payment" id="method-' . $method["id"] . '" value="' . $method["id"] . '"';
+							
+							if($method["id"] == 1) {
+								echo ' checked';
+							}
+
+							echo '/>';   
+							
 							echo '<span>' . $string["checkout"]["methods"][$method["name"]] . '</span>';
 							echo '</label>';
 							echo '</div>';

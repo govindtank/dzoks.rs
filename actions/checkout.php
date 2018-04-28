@@ -16,8 +16,7 @@
 		exit;	
 	}
 
-    $firstName = strip($_POST['first']);
-    $lastName = strip($_POST['last']);
+    $name = strip($_POST['name']);
     $email = strip($_POST['email']);
     $phone = strip($_POST['phone']);
     $address = strip($_POST['address']);
@@ -35,7 +34,7 @@
 	}
 
 	$message = "Order details\n\n";
-	$message .= "Name: $firstName $lastName \n";
+	$message .= "Name: $name \n";
 	$message .= "Email: $email \n";
 	$message .= "Phone: $phone \n";
 	$message .= "Address: $address \n";
@@ -47,7 +46,7 @@
 	
 	$hash = generate_random_string(32);
 	
-	$cmd = "INSERT INTO purchases (hash, first_name, last_name, email, phone, address, zip, city, country, method, ip, date_submitted) VALUES('$hash', '$firstName', '$lastName', '$email', '$phone', '$address', '$zip', '$city', '$country', '$payment_method', '$ip', now())";
+	$cmd = "INSERT INTO purchases (hash, name, email, phone, address, zip, city, country, method, ip, date_submitted) VALUES('$hash', '$name', '$email', '$phone', '$address', '$zip', '$city', '$country', '$payment_method', '$ip', now())";
 	mysqli_query($connect, $cmd);
 
 	$cmd = "SELECT id FROM purchases WHERE hash='$hash'";

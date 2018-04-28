@@ -40,8 +40,7 @@
               "header" => "We need some details"
             , "submit" => "Send them"
             , "inputs" => [
-                  "first" => "First name"
-                , "last" => "Last name"
+                  "name" => "Full name"
                 , "email" => "Email"
                 , "phone" => "Phone number"
                 , "address" => "Address"

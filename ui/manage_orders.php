@@ -13,7 +13,7 @@
 				echo '<tr>';
 			}
 
-			echo '<td>' . $row['first_name'] . ' ' . $row['last_name'] . '</td>';
+			echo '<td>' . $row['name'] . '</td>';
 			echo '<td>' . $row['email'] . '</td>';
 			echo '<td>' . $row['phone'] . '</td>';
 			echo '<td>' . $row['address'] . '</td>';
