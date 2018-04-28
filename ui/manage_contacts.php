@@ -1,4 +1,4 @@
-<h1><?php echo $string["manage"]["orders"]; ?></h1>
+<h1><?php echo $string["manage"]["contacts"]; ?></h1>
 <table>	
 	<form action="../actions/contact_newsletter" method="POST" enctype="multipart/form-data">  
 		<td class="no-border"><input name="message" type="file" required/></td>

@@ -126,6 +126,8 @@
 			, "level1" => "Sell products"
 			, "level2" => "Manage stuff"
 			, "level3" => "Manage users"
+			, "shippingCompany" => "Company"
+			, "shippingNumber" => "Number"
         ]
 		, "status" => [
 			  "productNotAddedToCart" => "Product has not been added to cart"
@@ -180,8 +182,6 @@
 			, "soldout" => "SOLD OUT"
             , "validation" => "What's "
             , "checkEmail" => "Please confirm this purchase by clicking on the link in the email we've sent you"
-			, "orderLink" => "Please click on the following link to confirm this order: "
-			, "unsubscribeLink" => "Please click on the following link to unsubscibe from mailing list: "
 			, "orderNotMarked" => "Order not marked"
 			, "orderShipped" => "Order marked as shipped"
 			, "orderReturned" => "Order marked as returned"
@@ -196,6 +196,10 @@
 		, "error" => [
 			  "header" => "Psst! Existence of this page has been kept as a secret for centuries."
 			, "action" => "Go home"
+		]
+		, "mail" => [
+			  "confirmation" => "Confirmation"
+			, "shipped" => "Shipped"
 		]
     ];
 ?>

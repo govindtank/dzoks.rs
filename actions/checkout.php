@@ -33,6 +33,35 @@
 		exit;
 	}
 
+	$message = get_mail("checkout", $lang);
+
+/*
+	$file_tmp_name = $_FILES['my_file']['tmp_name'];
+    $file_name = $_FILES['my_file']['name'];
+    $file_size = $_FILES['my_file']['size'];
+    $file_type = $_FILES['my_file']['type'];
+    $file_error = $_FILES['my_file']['error'];
+
+    if($file_error > 0) {
+        die('Upload error or No files uploaded');
+    }
+    
+	$handle = fopen($file_tmp_name, "r");
+    $content = fread($handle, $file_size);
+    fclose($handle);
+    $encoded_content = chunk_split(base64_encode($content));
+
+    $boundary = md5("sanwebe");
+    $headers = "MIME-Version: 1.0\r\n"; 
+         
+    $body .= "--$boundary\r\n";
+    $body .="Content-Type: $file_type; name=".$file_name."\r\n";
+    $body .="Content-Disposition: attachment; filename=".$file_name."\r\n";
+    $body .="Content-Transfer-Encoding: base64\r\n";
+    $body .="X-Attachment-Id: ".rand(1000,99999)."\r\n\r\n"; 
+    $body .= $encoded_content; 
+*/
+
 	$message = "Order details\n\n";
 	$message .= "Name: $name \n";
 	$message .= "Email: $email \n";
@@ -79,10 +108,15 @@
 
 		$message .= $name . "\t" . $size . "\t" . $row['size'] . " " . $row['quantity'] . "x" . $price . "\n";
 	}
-		
+	
+	$mail_title = $string['mail']['confirmation'];
+	$confirmation_url = $store_url . "/actions/confirm?h=" . $hash;
+
+	$message = str_replace("{{mail_title}}", $mail_title, $message);
+	$message = str_replace("{{confirm_url}}", $confirmation_url, $message);
+
 	$sender = $store_email;
 	$subject = "[" . $store_name . "] Confirmation";
-	$message .= $string['status']['clickLink'] . $store_url . "/actions/confirm?h=" . $hash;
 	$headers = "From: " . $sender . "\r\n";
 	$headers .= "To: " . $email . "\r\n";
 

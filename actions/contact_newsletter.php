@@ -23,7 +23,6 @@
 		$headers .= "To: " . $receivers . "\r\n";
 
 		$message = file_get_contents($_FILES['message']['tmp_name']);
-		$message = str_replace("{{unsubscribe_url}}", $unsubscribe_url . $hash, $message);
 
 		mail($receiver, $subject, $message, $headers);
 	}

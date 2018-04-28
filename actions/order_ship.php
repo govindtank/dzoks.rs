@@ -17,32 +17,44 @@
 	mysqli_query($connect, $cmd);
 
 	if($shipped == 1) {
+		if(!params_ok(["shipping_company", "shipping_number"], "GET")) {
+			error($string['status']['orderNotMarked']);
+			header("location: ../pages/manage?type=2");
+			exit;
+		}
+
+		$shipping_company = $_GET['shipping_company'];
+		$shipping_number = $_GET['shipping_number'];
+		
+		$cmd = "SELECT email, hash FROM purchases WHERE id=" . $purchase;
+		$row = mysqli_fetch_array(mysqli_query($connect, $cmd));
+		
+		$email = $row[0];
+		$hash = $row[1];
+
+		$message = get_mail("order_ship", $lang);
+
+		$mail_title = $string['mail']['shipped'];
+
+		$message = str_replace("{{shipping_company}}", $shipping_company, $message);
+		$message = str_replace("{{shipping_number}}", $shipping_number, $message);
+	
+		$message = str_replace("{{mail_title}}", $mail_title, $message);
+	
+		$sender = $store_email;
+		$subject = "[" . $store_name . "] Shipped";
+		$headers = "From: " . $sender . "\r\n";
+		$headers .= "To: " . $email . "\r\n";
+
+		mail($email, $subject, $message, $headers);
+	
+		$cmd = "UPDATE purchases SET shipping_company='$shipping_company', shipping_number='$shipping_number' WHERE id=" . $purchase;
+		mysqli_query($connect, $cmd) or die(mysqli_error($connect));
+
 		success($string['status']['orderShipped']);
 	}else {
 		success($string['status']['orderReturned']);
 	}
-
-	$cmd = "SELECT email, hash FROM purchases WHERE id=" . $purchase;
-	
-	$result = mysqli_fetch_array(mysqli_query($connect, $cmd));
-	$email = $row[0];
-	$hash = $row[1];
-
-	$message = get_mail("order_ship", $lang);
-
-	$newsletter_title = "";
-	$newsletter_content = "";
-
-	$message = str_replace("{{unsubscribe_url}}", $unsubscribe_url . $hash, $message);
-	$message = str_replace("{{newsletter_title}}", $newsletter_title, $message);
-	$message = str_replace("{{newsletter_content}}", $newsletter_content, $message);
-	
-	$sender = $store_email;
-	$subject = "[" . $store_name . "] Shipped";
-	$headers = "From: " . $sender . "\r\n";
-	$headers .= "To: " . $email . "\r\n";
-
-	mail($email, $subject, $message, $headers);
 
 	header("location: ../pages/manage?type=2");
 ?>

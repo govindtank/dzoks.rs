@@ -47,17 +47,17 @@
 		
 		if($totalQuantity > 0) {
         	echo '<tr class="bordered">';
-			echo '<td><b>' . $string["manage"]["totalQuantity"] . '</b></td>';
+			echo '<td>' . $string["manage"]["totalQuantity"] . '</td>';
 			echo '<td><b>' . $totalQuantity . '</b></td>';
 			echo '</tr>';
 	
 			echo '<tr class="bordered">';
-			echo '<td><b>' . $string["manage"]["totalPrice"] . '</b></td>';
+			echo '<td>' . $string["manage"]["totalPrice"] . '</td>';
 			echo '<td><b>' . get_price($totalPrice) . '</b></td>';
 			echo '</tr>';
 			
 			echo '<tr class="bordered">';
-			echo '<td><b>' . $string["manage"]["totalQuantityBySize"] . '</b></td>';
+			echo '<td>' . $string["manage"]["totalQuantityBySize"] . '</td>';
 			echo '</tr>';
 		
 			$cmd = "SELECT * FROM sizes";

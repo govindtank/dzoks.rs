@@ -1,0 +1,1 @@
+Your order has been shipped via {{shipping_company}}. Package tracking number is {{shipping_number}}.

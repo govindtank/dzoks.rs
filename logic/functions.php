@@ -6,20 +6,27 @@
 	function get_mail($action, $lang) {
 		global $store_name,
 			$store_url,
+			$store_number,
+			$store_vat,
 			$store_email,
 			$store_phone,
 			$store_instagram,
 			$unsubscribe_url,
-			$newsletter_img;
-
-		$body = file_get_contents("../text/mail/" . $lang . "/" . $action . ".html");
-		$body = str_replace("{{id}}", $purchase, $body);
+			$mail_img;
+	
+		$body = file_get_contents("../ui/mail.html");
 		$body = str_replace("{{email}}", $store_email, $body);
 		$body = str_replace("{{store_name}}", $store_name, $body);
+		$body = str_replace("{{store_number}}", $store_number, $body);
+		$body = str_replace("{{store_vat}}", $store_vat, $body);
 		$body = str_replace("{{store_url}}", $store_url, $body);
 		$body = str_replace("{{store_email}}", $store_email, $body);
 		$body = str_replace("{{store_phone}}", $store_phone, $body);
-		$body = str_replace("{{newsletter_img}}", $newsletter_img, $body);
+		$body = str_replace("{{unsubscribe_url}}", $unsubscribe_url, $body);
+		$body = str_replace("{{mail_img}}", $mail_img, $body);
+		
+		$content = file_get_contents("../text/mail/" . $action . "." . $lang);
+		$body = str_replace("{{mail_content}}", $content, $body);
 	
 		return $body;
 	}

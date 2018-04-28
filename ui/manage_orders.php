@@ -21,15 +21,25 @@
 			echo '<td>' . $row['zip'] . '</td>';
 			echo '<td>' . $row['country'] . '</td>';
 			echo '<td>' . $row['ip'] . '</td>';
+			echo '<td>' . $row['shipping_company'] . '</td>';
+			echo '<td>' . $row['shipping_number'] . '</td>';
 			echo '<td>' . $row['date_submitted'] . '</td>';
 
-			if($row['confirmed'] == 1 && $row['shipped'] == 1)  {
-				echo '<td><a class="button" href="../actions/order_ship.php?shipped=0&id=' . $row['id'] .'">' . $string['manage']['unship'] . '</a></td>';
-			}else if($row['confirmed'] == 1 && $row['shipped'] == 0)  {
-				echo '<td><a class="button" href="../actions/order_ship.php?shipped=1&id=' . $row['id'] .'">' . $string['manage']['ship'] . '</a></td>';
-			}
-			
 			echo '</tr>';
+			
+			if($row['confirmed'] == 1 && $row['shipped'] == 1)  {
+				echo '<tr class="red"><td><a class="button center" href="../actions/order_ship?shipped=0&id=' . $row['id'] .'">' . $string['manage']['unship'] . '</a></td></tr>';
+			}else if($row['confirmed'] == 1 && $row['shipped'] == 0)  {	
+				echo '<tr class="green">';
+				echo '<form action="../actions/order_ship" method="GET">';
+           		echo '<input type="hidden" name="id" value="' . $row['id'] . '">';
+           		echo '<input type="hidden" name="shipped" value="1">';
+				echo '<td><input name="shipping_company" type="text" size="30" value="' . $row['shipping_company'] . '" placeholder="' . $string["manage"]["shippingCompany"] . '" required/></td>';
+				echo '<td><input name="shipping_number" type="text" size="30" value="' . $row['shipping_number'] . '" placeholder="' . $string["manage"]["shippingNumber"] . '" required/></td>';
+				echo '<td><input type="submit" class="button" value="' . $string['manage']['ship'] . '"/></td>';
+				echo '</form>';
+				echo '</tr>';
+			}
 		}
 	?>			
 </table>
