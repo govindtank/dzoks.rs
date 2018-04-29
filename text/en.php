@@ -195,6 +195,7 @@
 			, "largeFile" => "File is too large"
 			, "notImage" => "File is not an image"
 			, "notAuthorized" => "Not authorized"
+			, "zipError" => "Cannot create ZIP archive"
 		]
 		, "error" => [
 			  "header" => "Psst! Existence of this page has been kept as a secret for centuries."

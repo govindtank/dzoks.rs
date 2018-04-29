@@ -1,0 +1,107 @@
+<html>
+<head><meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<style type="text/css">
+span.cls_003{font-family:"Century",serif;font-size:32.0px;color:rgb(166,165,166);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_003{font-family:"Century",serif;font-size:32.0px;color:rgb(166,165,166);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_005{font-family:"Century",serif;font-size:8.9px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_005{font-family:"Century",serif;font-size:8.9px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_012{font-family:"Century",serif;font-size:8.9px;color:rgb(0,0,255);font-weight:normal;font-style:normal;text-decoration: underline}
+div.cls_012{font-family:"Century",serif;font-size:8.9px;color:rgb(0,0,255);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_002{font-family:"Century",serif;font-size:9.9px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_002{font-family:"Century",serif;font-size:9.9px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_008{font-family:"Century Schoolbook Bold",serif;font-size:9.9px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_008{font-family:"Century Schoolbook Bold",serif;font-size:9.9px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_007{font-family:"Century Schoolbook Bold",serif;font-size:12.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_007{font-family:"Century Schoolbook Bold",serif;font-size:12.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_010{font-family:"Century Schoolbook Italic",serif;font-size:9.9px;color:rgb(0,0,0);font-weight:normal;font-style:italic;text-decoration: none}
+div.cls_010{font-family:"Century Schoolbook Italic",serif;font-size:9.9px;color:rgb(0,0,0);font-weight:normal;font-style:italic;text-decoration: none}
+span.cls_011{font-family:"Century",serif;font-size:8.0px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_011{font-family:"Century",serif;font-size:8.0px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+</style>
+</head>
+<body>
+<div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:595px;height:842px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="{{invoice_template}}" width=595 height=842></div>
+<div style="position:absolute;right:60px;top:79.20px" class="cls_003"><span class="cls_003">РАЧУН</span></div>
+<div style="position:absolute;right:60px;top:129.36px" class="cls_005"><span class="cls_005">Датум: {{date}}</span></div>
+<div style="position:absolute;right:60px;top:141.36px" class="cls_005"><span class="cls_005">Број: {{invoice}}</span></div>
+<div style="position:absolute;left:60px;top:169.20px" class="cls_005"><span class="cls_005">{{store_name}}</span></div>
+<div style="position:absolute;right:60px;top:169.20px" class="cls_005"><span class="cls_005">{{name}}</span></div>
+<div style="position:absolute;left:60px;top:180.24px" class="cls_005"><span class="cls_005">МБ: {{store_number}}</span></div>
+<div style="position:absolute;right:60px;top:181.44px" class="cls_005"><span class="cls_005">{{address}}</span></div>
+<div style="position:absolute;left:60px;top:191.28px" class="cls_005"><span class="cls_005">ПИБ: {{store_vat}}</span></div>
+<div style="position:absolute;right:60px;top:193.44px" class="cls_005"><span class="cls_005">{{zip}} {{city}}</span></div>
+<div style="position:absolute;left:60px;top:202.32px" class="cls_012"><span class="cls_012">{{store_email}}</span></div>
+<div style="position:absolute;right:60px;top:205.68px" class="cls_005"><span class="cls_005">{{country}}</span></div>
+<div style="position:absolute;left:60px;top:213.36px" class="cls_012"><span class="cls_012">{{store_phone}}</span></div>
+<div style="position:absolute;right:60px;top:217.92px" class="cls_005"><span class="cls_005">{{phone}}</span></div>
+<div style="position:absolute;left:60px;top:224.40px" class="cls_012"><span class="cls_012"> </span><A HREF="{{store_url}}">{{store_url}}</A></div>
+<div style="position:absolute;right:60px;top:229.92px" class="cls_005"><span class="cls_005">{{email}}</span></div>
+<div style="position:absolute;left:64.78px;top:276.48px" class="cls_002"><span class="cls_002">Шифра</span></div>
+<div style="position:absolute;left:196.16px;top:276.48px" class="cls_002"><span class="cls_002">Назив</span></div>
+<div style="position:absolute;left:323.42px;top:276.48px" class="cls_002"><span class="cls_002">Количина</span></div>
+<div style="position:absolute;left:389.42px;top:276.48px" class="cls_002"><span class="cls_002">Јединична цена</span></div>
+<div style="position:absolute;left:489.52px;top:276.48px" class="cls_002"><span class="cls_002">Износ</span></div>
+<div style="position:absolute;left:63.42px;top:296.88px" class="cls_002"><span class="cls_002">{{1_id}}</span></div>
+<div style="position:absolute;left:112.08px;top:296.88px" class="cls_002"><span class="cls_002">{{1_name}}</span></div>
+<div style="position:absolute;right:232px;top:295.44px" class="cls_005"><span class="cls_005">{{1_qty}}</span></div>
+<div style="position:absolute;right:137px;top:296.64px" class="cls_005"><span class="cls_005">{{1_price}}</span></div>
+<div style="position:absolute;right:60px;top:296.64px" class="cls_005"><span class="cls_005">{{1_total}}</span></div>
+<div style="position:absolute;left:63.42px;top:316.08px" class="cls_002"><span class="cls_002">{{2_id}}</span></div>
+<div style="position:absolute;left:112.08px;top:316.08px" class="cls_002"><span class="cls_002">{{2_name}}</span></div>
+<div style="position:absolute;right:232px;top:314.64px" class="cls_005"><span class="cls_005">{{2_qty}}</span></div>
+<div style="position:absolute;right:137px;top:315.84px" class="cls_005"><span class="cls_005">{{2_price}}</span></div>
+<div style="position:absolute;right:60px;top:315.84px" class="cls_005"><span class="cls_005">{{2_total}}</span></div>
+<div style="position:absolute;right:232px;top:333.84px" class="cls_005"><span class="cls_005">{{3_qty}}</span></div>
+<div style="position:absolute;right:137px;top:335.04px" class="cls_005"><span class="cls_005">{{3_price}}</span></div>
+<div style="position:absolute;right:60px;top:335.04px" class="cls_005"><span class="cls_005">{{3_total}}</span></div>
+<div style="position:absolute;left:63.42px;top:335.28px" class="cls_002"><span class="cls_002">{{3_id}}</span></div>
+<div style="position:absolute;left:112.08px;top:335.28px" class="cls_002"><span class="cls_002">{{3_name}}</span></div>
+<div style="position:absolute;left:63.42px;top:354.48px" class="cls_002"><span class="cls_002">{{4_id}}</span></div>
+<div style="position:absolute;left:112.08px;top:354.48px" class="cls_002"><span class="cls_002">{{4_name}}</span></div>
+<div style="position:absolute;right:232px;top:353.04px" class="cls_005"><span class="cls_005">{{4_qty}}</span></div>
+<div style="position:absolute;right:137px;top:354.24px" class="cls_005"><span class="cls_005">{{4_price}}</span></div>
+<div style="position:absolute;right:60px;top:354.24px" class="cls_005"><span class="cls_005">{{4_total}}</span></div>
+<div style="position:absolute;left:63.42px;top:373.68px" class="cls_002"><span class="cls_002">{{5_id}}</span></div>
+<div style="position:absolute;left:112.08px;top:373.68px" class="cls_002"><span class="cls_002">{{5_name}}</span></div>
+<div style="position:absolute;right:232px;top:372.24px" class="cls_005"><span class="cls_005">{{5_qty}}</span></div>
+<div style="position:absolute;right:137px;top:373.44px" class="cls_005"><span class="cls_005">{{5_price}}</span></div>
+<div style="position:absolute;right:60px;top:373.44px" class="cls_005"><span class="cls_005">{{5_total}}</span></div>
+<div style="position:absolute;left:63.42px;top:392.88px" class="cls_002"><span class="cls_002">{{6_id}}</span></div>
+<div style="position:absolute;left:112.08px;top:392.88px" class="cls_002"><span class="cls_002">{{6_name}}</span></div>
+<div style="position:absolute;right:232px;top:391.44px" class="cls_005"><span class="cls_005">{{6_qty}}</span></div>
+<div style="position:absolute;right:137px;top:392.64px" class="cls_005"><span class="cls_005">{{6_price}}</span></div>
+<div style="position:absolute;right:60px;top:392.64px" class="cls_005"><span class="cls_005">{{6_total}}</span></div>
+<div style="position:absolute;left:63.42px;top:412.08px" class="cls_002"><span class="cls_002">{{7_id}}</span></div>
+<div style="position:absolute;left:112.08px;top:412.08px" class="cls_002"><span class="cls_002">{{7_name}}</span></div>
+<div style="position:absolute;right:232px;top:410.64px" class="cls_005"><span class="cls_005">{{7_qty}}</span></div>
+<div style="position:absolute;right:137px;top:411.84px" class="cls_005"><span class="cls_005">{{7_price}}</span></div>
+<div style="position:absolute;right:60px;top:411.84px" class="cls_005"><span class="cls_005">{{7_total}}</span></div>
+<div style="position:absolute;right:232px;top:429.84px" class="cls_005"><span class="cls_005">{{8_qty}}</span></div>
+<div style="position:absolute;right:137px;top:431.04px" class="cls_005"><span class="cls_005">{{8_price}}</span></div>
+<div style="position:absolute;right:60px;top:431.04px" class="cls_005"><span class="cls_005">{{8_total}}</span></div>
+<div style="position:absolute;left:63.42px;top:431.28px" class="cls_002"><span class="cls_002">{{8_id}}</span></div>
+<div style="position:absolute;left:112.08px;top:431.28px" class="cls_002"><span class="cls_002">{{8_name}}</span></div>
+<div style="position:absolute;left:63.42px;top:450.48px" class="cls_002"><span class="cls_002">{{9_id}}</span></div>
+<div style="position:absolute;left:112.08px;top:450.48px" class="cls_002"><span class="cls_002">{{9_name}}</span></div>
+<div style="position:absolute;right:232px;top:449.04px" class="cls_005"><span class="cls_005">{{9_qty}}</span></div>
+<div style="position:absolute;right:137px;top:450.24px" class="cls_005"><span class="cls_005">{{9_price}}</span></div>
+<div style="position:absolute;right:60px;top:450.24px" class="cls_005"><span class="cls_005">{{9_total}}</span></div>
+<div style="position:absolute;left:60px;top:469.68px" class="cls_002"><span class="cls_002">{{10_id}}</span></div>
+<div style="position:absolute;left:112.08px;top:469.68px" class="cls_002"><span class="cls_002">{{10_name}}</span></div>
+<div style="position:absolute;right:232px;top:468.24px" class="cls_005"><span class="cls_005">{{10_qty}}</span></div>
+<div style="position:absolute;right:137px;top:469.44px" class="cls_005"><span class="cls_005">{{10_price}}</span></div>
+<div style="position:absolute;right:60px;top:469.44px" class="cls_005"><span class="cls_005">{{10_total}}</span></div>
+<div style="position:absolute;left:379.68px;top:488.88px" class="cls_002"><span class="cls_002">Укупно</span></div>
+<div style="position:absolute;right:60px;top:488.64px" class="cls_005"><span class="cls_005">{{total}}</span></div>
+<div style="position:absolute;left:379.68px;top:508.08px" class="cls_002"><span class="cls_002">ПДВ</span></div>
+<div style="position:absolute;right:60px;top:507.84px" class="cls_005"><span class="cls_005">{{tax}}</span></div>
+<div style="position:absolute;left:379.68px;top:525.84px" class="cls_008"><span class="cls_008">Свеукупно</span></div>
+<div style="position:absolute;right:60px;top:527.28px" class="cls_005"><span class="cls_005">{{total_tax}}</span></div>
+<div style="position:absolute;left:60px;top:669.12px" class="cls_002"><span class="cls_002">_______________________</span></div>
+<div style="position:absolute;left:60px;top:686.40px" class="cls_010"><span class="cls_010">(печат и потпис продавца)</span></div>
+<div style="position:absolute;left:60px;top:773.52px" class="cls_011"><span class="cls_011">* Куповином наших производа сте се претплатили на наш мејл њјузлетер</span></div>
+</div>
+</body>
+</html>

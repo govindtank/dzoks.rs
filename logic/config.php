@@ -10,7 +10,7 @@
 
 	$id = get_id();
 	$ip = get_ip();
-
+	
 	$store_name = "ЏОКС д.о.о.";
 	$store_url = "http://www.dzoks.rs";
 	$store_number = "00000000";
@@ -18,12 +18,21 @@
 	$store_email = "office@dzoks.rs";
 	$store_phone = "+381613129241";
 	$store_instagram = "dzoks_official";
+	$confirmation_url = $store_url . "/actions/confirm?h=";
 	$unsubscribe_url = $store_url . "/actions/unsubscribe?h=";
 	$mail_img = "https://www.dzoks.rs/img/mail.png";
+	$letter_signature = "Лазар Јелић, директор";
 
-	$confirmation_path = "../text/mail/attach/potvrda.html";
-	$invoice_path = "../text/mail/attach/racun.html";
-	$letter_path = "../text/mail/attach/pismo.html";
+	$mail_path = "../ui/mail.html";
+	
+	$confirmation_path = "../text/mail/attach/potvrda/index.html";
+	$invoice_path = "../text/mail/attach/racun/index.html";
+	$letter_path = "../text/mail/attach/pismo/index.html";
+
+	// TODO upload templates to dzoks server
+	$confirmation_template = "https://i.imgur.com/l5PX7ZL.png";
+	$invoice_template = "https://i.imgur.com/UGiC7DB.png";
+	$letter_template = "https://i.imgur.com/R5CaONm.png";
 
 	$max_cart_count = 10;
 	$tax_rate = 0.2;

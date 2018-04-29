@@ -32,7 +32,7 @@
 		$email = $row[0];
 		$hash = $row[1];
 
-		$message = get_mail("order_ship", $lang);
+		$message = get_mail($mail_path);
 
 		$mail_title = $string['mail']['shipped'];
 
@@ -40,6 +40,7 @@
 		$message = str_replace("{{shipping_number}}", $shipping_number, $message);
 	
 		$message = str_replace("{{mail_title}}", $mail_title, $message);
+		$message = str_replace("{{unsubscribe_url}}", $unsubscribe_url . $hash, $message);
 	
 		$sender = $store_email;
 		$subject = "[" . $store_name . "] Shipped";

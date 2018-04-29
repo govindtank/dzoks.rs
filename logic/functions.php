@@ -3,8 +3,11 @@
 		return mysqli_real_escape_string($GLOBALS['connect'], htmlspecialchars(strip_tags(trim($var))));
     }
 
-	function get_mail($action, $lang) {
-		global $store_name,
+	function get_mail($path) {
+		global $lang,
+			$date_format,
+			$page,
+			$store_name,
 			$store_url,
 			$store_number,
 			$store_vat,
@@ -12,23 +15,35 @@
 			$store_phone,
 			$store_instagram,
 			$unsubscribe_url,
-			$mail_img;
+			$mail_img,
+			$letter_signature,
+			$confirmation_template,
+			$invoice_template,
+			$letter_template;
 	
-		$body = file_get_contents("../ui/mail.html");
+		$body = file_get_contents($path);
 
-		$body = str_replace("{{email}}", $store_email, $body);
+		$body = str_replace("{{date}}", date($date_format), $body);
+		$body = str_replace("{{store_email}}", $store_email, $body);
 		$body = str_replace("{{store_name}}", $store_name, $body);
 		$body = str_replace("{{store_number}}", $store_number, $body);
 		$body = str_replace("{{store_vat}}", $store_vat, $body);
 		$body = str_replace("{{store_url}}", $store_url, $body);
 		$body = str_replace("{{store_email}}", $store_email, $body);
 		$body = str_replace("{{store_phone}}", $store_phone, $body);
-		$body = str_replace("{{unsubscribe_url}}", $unsubscribe_url, $body);
 		$body = str_replace("{{mail_img}}", $mail_img, $body);
-		
-		$content = file_get_contents("../text/mail/" . $action . "." . $lang);
-		$body = str_replace("{{mail_content}}", $content, $body);
-	
+		$body = str_replace("{{letter_signature}}", $letter_signature, $body);
+		$body = str_replace("{{confirmation_template}}", $confirmation_template, $body);
+		$body = str_replace("{{invoice_template}}", $invoice_template, $body);
+		$body = str_replace("{{letter_template}}", $letter_template, $body);
+
+		$content_path = "../text/mail/" . $page . "." . $lang;
+
+		if(file_exists($content_path)) {
+			$content = file_get_contents($content_path);
+			$body = str_replace("{{mail_content}}", $content, $body);
+		}		
+
 		return $body;
 	}
 

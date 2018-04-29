@@ -33,16 +33,15 @@
 		exit;
 	}
 
-	$message = get_mail("checkout", $lang);
+	$message = get_mail($mail_path);
 
 	$hash = generate_random_string(32);
 	
 	$cmd = "INSERT INTO purchases (hash, name, email, phone, address, zip, city, country, method, ip, date_submitted) VALUES('$hash', '$name', '$email', '$phone', '$address', '$zip', '$city', '$country', '$payment_method', '$ip', now())";
 	mysqli_query($connect, $cmd);
 
-	$confirm = file_get_contents($confirm_path);
+	$confirm = get_mail($confirmation_path);
 
-	$confirm = str_replace("{{date}}", date($date_format), $confirm);
 	$confirm = str_replace("{{name}}", $name, $confirm);
 	$confirm = str_replace("{{address}}", $address, $confirm);
 	$confirm = str_replace("{{zip}}", $zip, $confirm);
@@ -52,15 +51,16 @@
 	$confirm = str_replace("{{email}}", $email, $confirm);
 
 	$cmd = "SELECT id FROM purchases WHERE hash='$hash'";
-	$purchase = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
+	$order_id = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
 
-	$cmd = "UPDATE cart SET purchase='$purchase', checked=1 WHERE user='$id' AND checked=0";
+	$cmd = "UPDATE cart SET purchase='$order_id', checked=1 WHERE user='$id' AND checked=0";
 	mysqli_query($connect, $cmd);
 	
-	$cmd = "SELECT * FROM cart WHERE purchase=" . $purchase;
+	$cmd = "SELECT * FROM cart WHERE purchase=" . $order_id;
 	$result = mysqli_query($connect, $cmd);
 
 	$i = 0;
+	$total = 0;
 
 	while($row = mysqli_fetch_array($result)) {
 		$i++;
@@ -88,11 +88,11 @@
 	
 		$total += $product_qty * $product_price;
 
-		$invoice = str_replace("{{" . $i . "_id}}", $product_id, $invoice);
-		$invoice = str_replace("{{" . $i . "_name}}", $product_name . " - " . $product_size, $invoice);
-		$invoice = str_replace("{{" . $i . "_qty}}", $product_qty, $invoice);
-		$invoice = str_replace("{{" . $i . "_price}}", $product_price, $invoice);
-		$invoice = str_replace("{{" . $i . "_total}}", get_price($product_qty * $product_price), $invoice);
+		$confirm = str_replace("{{" . $i . "_id}}", $product_id, $confirm);
+		$confirm = str_replace("{{" . $i . "_name}}", $product_name . " - " . $product_size, $confirm);
+		$confirm = str_replace("{{" . $i . "_qty}}", $product_qty, $confirm);
+		$confirm = str_replace("{{" . $i . "_price}}", $product_price, $confirm);
+		$confirm = str_replace("{{" . $i . "_total}}", get_price($product_qty * $product_price), $confirm);
 	}
 
 	while($i < 10) {
@@ -112,17 +112,48 @@
 	$confirm = str_replace("{{total_tax}}", get_price($total + $tax), $confirm);
 
 	$mail_title = $string['mail']['confirmation'];
-	$confirmation_url = $store_url . "/actions/confirm?h=" . $hash;
 
 	$message = str_replace("{{mail_title}}", $mail_title, $message);
-	$message = str_replace("{{confirm_url}}", $confirmation_url, $message);
+	$message = str_replace("{{confirmation_url}}", $confirmation_url . $hash, $message);
+	$message = str_replace("{{unsubscribe_url}}", $unsubscribe_url . $hash, $message);
+
+	$message = str_replace("\n", " \n ", $message);
+	$message = str_replace("\r", " \r ", $message);
+
+	$confirm = str_replace("\n", " \n ", $confirm);
+	$confirm = str_replace("\r", " \r ", $confirm);
+
+    $uid = md5(uniqid(time()));
+	$filename = "confirmation.html";
 
 	$sender = $store_email;
 	$subject = "[" . $store_name . "] Confirmation";
+
 	$headers = "From: " . $sender . "\r\n";
 	$headers .= "To: " . $email . "\r\n";
+ 	$headers .= "MIME-Version: 1.0\r\n";
+  
+ 	$headers .= "Content-Type: multipart/mixed; boundary=\"" . $uid . "\"\r\n";
+ 	$headers .= "--" . $uid . "\r\n";
 
-	mail($email, $subject, $message, $headers);
+	$headers .= "Content-type:text/plain; charset=iso-8859-1\r\n";
+ 	$headers .= "Content-Transfer-Encoding: 7bit\r\n";
+ 	$headers .= $message . "\r\n";
+ 	$headers .= "--" . $uid . "\r\n";
+
+	$headers .= "Content-Type: application/octet-stream; name=\"" . $filename . "\"\r\n";
+ 	$headers .= "Content-Transfer-Encoding: 7bit\r\n";
+ 	$headers .= "Content-Disposition: attachment; filename=\"" . $filename . "\"\r\n";
+ 	$headers .= $confirm . "\r\n";
+	$headers .= "--" . $uid . "--";
+
+	$result = mail($email, $subject, "", $headers);
+
+	if($result != true) {
+		error($string['status']['orderNotPlaced']);
+		header("location: ../pages/home");
+		exit;
+	}
 
 	success($string['status']['checkEmail']);
 	header("location: ../pages/home");

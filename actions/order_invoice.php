@@ -24,9 +24,8 @@
 	$phone = $purchase['phone'];
 	$email = $purchase['email'];
 	
-	$invoice = file_get_contents($invoice_path);
+	$invoice = get_mail($invoice_path);
 
-	$invoice = str_replace("{{date}}", date($date_format), $invoice);
 	$invoice = str_replace("{{invoice}}", $invoice_id, $invoice);
 	$invoice = str_replace("{{name}}", $name, $invoice);
 	$invoice = str_replace("{{address}}", $address, $invoice);
@@ -81,6 +80,9 @@
 	$invoice = str_replace("{{total}}", get_price($total), $invoice);
 	$invoice = str_replace("{{tax}}", get_price($tax), $invoice);
 	$invoice = str_replace("{{total_tax}}", get_price($total + $tax), $invoice);
+
+	header('Content-disposition: attachment; filename=invoice_' . $order_id . '.html');
+	header('Content-type: text/html');
 
 	echo $invoice;
 ?>

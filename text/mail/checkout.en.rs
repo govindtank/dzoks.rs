@@ -1,1 +1,0 @@
-Please, click on the following link to confirm this order: {{confirmation_url}}
