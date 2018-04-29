@@ -15,6 +15,7 @@
 			$mail_img;
 	
 		$body = file_get_contents("../ui/mail.html");
+
 		$body = str_replace("{{email}}", $store_email, $body);
 		$body = str_replace("{{store_name}}", $store_name, $body);
 		$body = str_replace("{{store_number}}", $store_number, $body);

@@ -21,6 +21,15 @@
 	$unsubscribe_url = $store_url . "/actions/unsubscribe?h=";
 	$mail_img = "https://www.dzoks.rs/img/mail.png";
 
+	$confirmation_path = "../text/mail/attach/potvrda.html";
+	$invoice_path = "../text/mail/attach/racun.html";
+	$letter_path = "../text/mail/attach/pismo.html";
+
+	$max_cart_count = 10;
+	$tax_rate = 0.2;
+
+	$date_format = "d. m. Y.";
+
 	require("../logic/connect.php");
     require("../logic/get_lang.php");
 ?>

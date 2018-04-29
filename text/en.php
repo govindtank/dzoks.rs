@@ -128,6 +128,8 @@
 			, "level3" => "Manage users"
 			, "shippingCompany" => "Company"
 			, "shippingNumber" => "Number"
+			, "letters" => "Generate letters"
+			, "invoice" => "Generate invoice"
         ]
 		, "status" => [
 			  "productNotAddedToCart" => "Product has not been added to cart"
@@ -178,6 +180,7 @@
 			, "incorrectCredentials" => "Incorrect credentials"
 			, "cookiesAlert" => "We use cookies to improve your experience. By continuing to visit this site you accept such use."
 			, "bigQuantity" => "We don't have that many socks"
+			, "bigCount" => "Maximum number of items in cart exceeded limit"
 			, "new" => "NEW"
 			, "soldout" => "SOLD OUT"
             , "validation" => "What's "

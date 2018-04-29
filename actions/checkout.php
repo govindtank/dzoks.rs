@@ -35,61 +35,37 @@
 
 	$message = get_mail("checkout", $lang);
 
-/*
-	$file_tmp_name = $_FILES['my_file']['tmp_name'];
-    $file_name = $_FILES['my_file']['name'];
-    $file_size = $_FILES['my_file']['size'];
-    $file_type = $_FILES['my_file']['type'];
-    $file_error = $_FILES['my_file']['error'];
-
-    if($file_error > 0) {
-        die('Upload error or No files uploaded');
-    }
-    
-	$handle = fopen($file_tmp_name, "r");
-    $content = fread($handle, $file_size);
-    fclose($handle);
-    $encoded_content = chunk_split(base64_encode($content));
-
-    $boundary = md5("sanwebe");
-    $headers = "MIME-Version: 1.0\r\n"; 
-         
-    $body .= "--$boundary\r\n";
-    $body .="Content-Type: $file_type; name=".$file_name."\r\n";
-    $body .="Content-Disposition: attachment; filename=".$file_name."\r\n";
-    $body .="Content-Transfer-Encoding: base64\r\n";
-    $body .="X-Attachment-Id: ".rand(1000,99999)."\r\n\r\n"; 
-    $body .= $encoded_content; 
-*/
-
-	$message = "Order details\n\n";
-	$message .= "Name: $name \n";
-	$message .= "Email: $email \n";
-	$message .= "Phone: $phone \n";
-	$message .= "Address: $address \n";
-	$message .= "ZIP: $zip \n";
-	$message .= "City: $city \n";
-	$message .= "Country: $country \n";
-	$message .= "Payment method: $payment_method \n";
-	$message .= "Products\n\n";
-	
 	$hash = generate_random_string(32);
 	
 	$cmd = "INSERT INTO purchases (hash, name, email, phone, address, zip, city, country, method, ip, date_submitted) VALUES('$hash', '$name', '$email', '$phone', '$address', '$zip', '$city', '$country', '$payment_method', '$ip', now())";
 	mysqli_query($connect, $cmd);
+
+	$confirm = file_get_contents($confirm_path);
+
+	$confirm = str_replace("{{date}}", date($date_format), $confirm);
+	$confirm = str_replace("{{name}}", $name, $confirm);
+	$confirm = str_replace("{{address}}", $address, $confirm);
+	$confirm = str_replace("{{zip}}", $zip, $confirm);
+	$confirm = str_replace("{{city}}", $city, $confirm);
+	$confirm = str_replace("{{country}}", $country, $confirm);
+	$confirm = str_replace("{{phone}}", $phone, $confirm);
+	$confirm = str_replace("{{email}}", $email, $confirm);
 
 	$cmd = "SELECT id FROM purchases WHERE hash='$hash'";
 	$purchase = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
 
 	$cmd = "UPDATE cart SET purchase='$purchase', checked=1 WHERE user='$id' AND checked=0";
 	mysqli_query($connect, $cmd);
-
+	
 	$cmd = "SELECT * FROM cart WHERE purchase=" . $purchase;
 	$result = mysqli_query($connect, $cmd);
 
+	$i = 0;
+
 	while($row = mysqli_fetch_array($result)) {
+		$i++;
+
 		$cmd = "SELECT quantity FROM warehouse WHERE product=" . $row['product'] . " AND size=" . $row['size'];
-	
 		$qty = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
 
 		if($row['quantity'] > $qty) {
@@ -98,17 +74,43 @@
 			exit;
 		}
 
-		$cmd = "SELECT name, price FROM products WHERE id=" . $row['product'];
-		$product = mysqli_fetch_array(mysqli_query($connect, $cmd));
-		$name = $product['name'];
-		$price = get_price($product['price']);
-		
 		$cmd = "SELECT name FROM sizes WHERE id=" . $row['size'];
-		$size = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
+		$product_size = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
 
-		$message .= $name . "\t" . $size . "\t" . $row['size'] . " " . $row['quantity'] . "x" . $price . "\n";
-	}
+		$cmd = "SELECT id, name, price FROM products WHERE id=" . $row['product'];
+		$product = mysqli_fetch_array(mysqli_query($connect, $cmd));
+
+		$product_qty = $row['quantity'];
+		
+		$product_id = $product['id'];
+		$product_name = $product['name'];
+		$product_price = get_price($product['price']);
 	
+		$total += $product_qty * $product_price;
+
+		$invoice = str_replace("{{" . $i . "_id}}", $product_id, $invoice);
+		$invoice = str_replace("{{" . $i . "_name}}", $product_name . " - " . $product_size, $invoice);
+		$invoice = str_replace("{{" . $i . "_qty}}", $product_qty, $invoice);
+		$invoice = str_replace("{{" . $i . "_price}}", $product_price, $invoice);
+		$invoice = str_replace("{{" . $i . "_total}}", get_price($product_qty * $product_price), $invoice);
+	}
+
+	while($i < 10) {
+		$i++;
+
+		$confirm = str_replace("{{" . $i . "_id}}", "", $confirm);
+		$confirm = str_replace("{{" . $i . "_name}}", "", $confirm);
+		$confirm = str_replace("{{" . $i . "_qty}}", "", $confirm);
+		$confirm = str_replace("{{" . $i . "_price}}", "", $confirm);
+		$confirm = str_replace("{{" . $i . "_total}}", "", $confirm);
+	}
+
+	$tax = $total * $tax_rate; 
+
+	$confirm = str_replace("{{total}}", get_price($total), $confirm);
+	$confirm = str_replace("{{tax}}", get_price($tax), $confirm);
+	$confirm = str_replace("{{total_tax}}", get_price($total + $tax), $confirm);
+
 	$mail_title = $string['mail']['confirmation'];
 	$confirmation_url = $store_url . "/actions/confirm?h=" . $hash;
 

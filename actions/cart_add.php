@@ -13,7 +13,16 @@
 		exit;
 	}
 
-    $product = strip($_GET["id"]);
+	$cmd = "SELECT COUNT(*) FROM cart WHERE user='$id'";
+	$count = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
+
+	if($count >= $max_cart_count) {
+		error($string['status']['bigCount']);
+		header("location: ../pages/shop.php");
+		exit;
+	}
+    
+	$product = strip($_GET["id"]);
     $size = strip($_GET["size"]);
     $qty = strip($_GET["qty"]);
 

@@ -28,16 +28,24 @@
 			echo '</tr>';
 			
 			if($row['confirmed'] == 1 && $row['shipped'] == 1)  {
-				echo '<tr class="red"><td><a class="button center" href="../actions/order_ship?shipped=0&id=' . $row['id'] .'">' . $string['manage']['unship'] . '</a></td></tr>';
+				echo '<tr class="red">';
+				echo '<td><a class="button center" href="../actions/order_ship?shipped=0&id=' . $row['id'] .'">' . $string['manage']['unship'] . '</a></td>';
+				echo '</tr>';
 			}else if($row['confirmed'] == 1 && $row['shipped'] == 0)  {	
+				$order_id = $row['id'];
+				
 				echo '<tr class="green">';
+				
 				echo '<form action="../actions/order_ship" method="GET">';
-           		echo '<input type="hidden" name="id" value="' . $row['id'] . '">';
+           		echo '<input type="hidden" name="id" value="' . $order_id . '">';
            		echo '<input type="hidden" name="shipped" value="1">';
 				echo '<td><input name="shipping_company" type="text" size="30" value="' . $row['shipping_company'] . '" placeholder="' . $string["manage"]["shippingCompany"] . '" required/></td>';
 				echo '<td><input name="shipping_number" type="text" size="30" value="' . $row['shipping_number'] . '" placeholder="' . $string["manage"]["shippingNumber"] . '" required/></td>';
 				echo '<td><input type="submit" class="button" value="' . $string['manage']['ship'] . '"/></td>';
 				echo '</form>';
+				
+				echo '<td><a class="button center" href="../actions/order_invoice?id=' . $order_id . '">' . $string['manage']['invoice'] . '</a></td>';
+				
 				echo '</tr>';
 			}
 		}
