@@ -31,7 +31,12 @@
 	$headers = "From: " . $sender . "\r\n";
 	$headers .= "To: " . $receiver . "\r\n";
 	
-	$message = "We have received you email and we will try to answer it as soon as possible.";
+	$message = get_mail($mail_path);
+	
+	$mail_title = $string['mail']['contact'];
+	
+	$message = str_replace("{{mail_title}}", $mail_title, $message);
+	$message = str_replace("{{unsubscribe_url}}", "", $message);
 
 	mail($email, $subject, $message, $headers);
 

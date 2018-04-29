@@ -22,7 +22,7 @@
 		$headers = "From: " . $sender . "\r\n";
 		$headers .= "To: " . $receivers . "\r\n";
 
-		$message = file_get_contents($_FILES['message']['tmp_name']);
+		$message = get_mail(file_get_contents($_FILES['message']['tmp_name']));
 
 		mail($receiver, $subject, $message, $headers);
 	}

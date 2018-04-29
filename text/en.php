@@ -49,14 +49,12 @@
                 , "country" => "Country"
                 , "payment" => "Payment method"
             ]
-            , "onlinePayment" => "Online"
-            , "cashPayment" => "Cash"
             , "methods" => ["online" => "Online", "cash" => "Cash"]
         ]
         , "product" => [
               "invalid" => "We don't have that pair."
             , "continue" => "Try another"
-            , "reply" => "DZOKS team"
+            , "reply" => "ЏОКС team"
             , "noComments" => "No comments"
             , "noCommentsText" => "Be the first to say something about these awesome socks"
             , "name" => "Name"
@@ -91,9 +89,7 @@
               "header" => "Design your own"
             , "text" => "Propose custom socks and get them for free if others like them"
             , "name" => "Name"
-            , "sock_name" => "Sock name"
             , "email" => "Email"
-            , "photo" => "Add photo"
             , "description" => "Sock description"
             , "send" => "Propose"
         ]  
@@ -101,7 +97,7 @@
               "save" => "Save"
             , "add" => "Add"
             , "back" => "Back"
-            , "reply" => "reply"
+            , "reply" => "Reply"
             , "ship" => "Ship"
             , "unship" => "Return"
             , "accept" => "Accept"
@@ -146,12 +142,11 @@
 			, "productGifted" => "Product has been gifted"
 			, "productNotAdded" => "Product has not been added"
 			, "productAdded" => "Product has been added"
-			, "productNotCommented" => "Commented has not been posted"
-			, "productCommented" => "Commented has been posted and it is waiting for approval"
+			, "productNotCommented" => "Comment has not been posted"
+			, "productCommented" => "Comment waiting for approval"
 			, "alreadyCommented" => "You have already left a comment"
 			, "replyNotAdded" => "Reply has not been added" 
 			, "replyAdded" => "Reply has been added" 
-			, "productNotUpdated" => "Product has not been updated"
 			, "productNotUpdated" => "Product has not been updated"
 			, "productUpdated" => "Product has been updated"
 			, "collectionNotAdded" => "Collection has not been added"
@@ -204,6 +199,7 @@
 		, "mail" => [
 			  "confirmation" => "Confirmation"
 			, "shipped" => "Shipped"
+			, "contact" => "Contact"
 		]
     ];
 ?>
