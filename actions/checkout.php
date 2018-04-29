@@ -1,6 +1,12 @@
 <?php
 	require("../logic/config.php");
 
+	if($shop_restricted == true) {
+		error($string['status']['requiredFields']);
+		header("location: ../pages/checkout");
+		exit;	
+	}
+
 	$inputs = [];
 
     foreach($string["checkout"]["inputs"] as $key => $value) {

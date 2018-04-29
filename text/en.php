@@ -191,6 +191,7 @@
 			, "notImage" => "File is not an image"
 			, "notAuthorized" => "Not authorized"
 			, "zipError" => "Cannot create ZIP archive"
+			, "showRestricted" => "Shopping feature is currently restricted"
 		]
 		, "error" => [
 			  "header" => "Psst! Existence of this page has been kept as a secret for centuries."

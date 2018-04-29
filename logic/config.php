@@ -39,6 +39,8 @@
 
 	$date_format = "d. m. Y.";
 
+	$shop_restricted = false;
+
 	require("../logic/connect.php");
     require("../logic/get_lang.php");
 ?>
