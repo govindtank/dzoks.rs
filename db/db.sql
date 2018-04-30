@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: Apr 29, 2018 at 05:34 AM
+-- Generation Time: Apr 30, 2018 at 02:59 AM
 -- Server version: 5.5.42-log
 -- PHP Version: 7.0.0
 
@@ -51,7 +51,7 @@ CREATE TABLE `cart` (
   `quantity` int(11) NOT NULL,
   `purchase` int(11) DEFAULT NULL,
   `checked` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `cart`
@@ -68,8 +68,11 @@ INSERT INTO `cart` (`id`, `user`, `product`, `size`, `quantity`, `purchase`, `ch
 (17, 'vTW2n3UQtGjoXJa', 38, 2, 1, NULL, 0),
 (18, 'z4o0btMPk6ClkQw', 37, 2, 2, 1001, 0),
 (19, 'BbB2JjGznuM0lnI', 38, 2, 1, 27, 1),
-(20, 'Z4SYh4ySsrqD8Jw', 38, 1, 4, 28, 1),
-(21, 'Z4SYh4ySsrqD8Jw', 38, 2, 3, 1001, 1);
+(20, 'Z4SYh4ySsrqD8Jw', 38, 1, 5, 28, 1),
+(21, 'Z4SYh4ySsrqD8Jw', 38, 2, 4, 1001, 1),
+(22, 'KnxFZk9itJlE34O', 38, 1, 2, 1099, 1),
+(23, 'rR2VZbCwtLifjyq', 38, 1, 1, NULL, 0),
+(24, 'C016ufhlq7jNa4e', 38, 2, 1, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -116,9 +119,9 @@ INSERT INTO `comments` (`id`, `name`, `comment`, `product`, `ip`, `accepted`, `r
 (11, 'asd', '123', 37, '::1', 1, NULL),
 (12, 'asd', 'asd', 2, '::1', 1, NULL),
 (13, 'yo', 'asd', 39, '::1', 0, NULL),
-(14, 'asd', 'asd', 34, '::1', 1, NULL),
+(14, 'asd', 'asd', 34, '::1', 0, NULL),
 (15, 'brat', 'znaci sve kul ali mi se ne svidja boja ako moze sledeci put pink neka da bude znaci tebra molim te', 3, '::1', 1, NULL),
-(16, 'johnny', 'jack and johnny calling', 45, '::1', 1, NULL),
+(16, 'johnny', 'jack and johnny calling', 45, '::1', 0, NULL),
 (17, 'a', 'tr', 32, '::1', 0, NULL),
 (18, 'q', 'thank you', NULL, '::1', 0, 7),
 (19, 'head', 'yo yo ma niga', NULL, '::1', 0, 11),
@@ -134,7 +137,7 @@ CREATE TABLE `logins` (
   `id` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `logins`
@@ -158,7 +161,12 @@ INSERT INTO `logins` (`id`, `user`, `timestamp`) VALUES
 (15, 4, '2018-03-11 23:51:48'),
 (16, 4, '2018-04-08 23:19:03'),
 (17, 4, '2018-04-28 22:09:10'),
-(18, 4, '2018-04-28 22:23:05');
+(18, 4, '2018-04-28 22:23:05'),
+(19, 4, '2018-04-29 23:49:03'),
+(20, 4, '2018-04-29 23:53:18'),
+(21, 4, '2018-04-29 23:53:32'),
+(22, 4, '2018-04-30 00:23:04'),
+(23, 4, '2018-04-30 00:46:01');
 
 -- --------------------------------------------------------
 
@@ -178,6 +186,25 @@ CREATE TABLE `methods` (
 INSERT INTO `methods` (`id`, `name`) VALUES
 (1, 'cash'),
 (2, 'online');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notifications`
+--
+
+CREATE TABLE `notifications` (
+  `id` int(11) NOT NULL,
+  `key` varchar(50) NOT NULL,
+  `message` text NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `notifications`
+--
+
+INSERT INTO `notifications` (`id`, `key`, `message`) VALUES
+(1, 'shop_restricted', 'Show has been restricted');
 
 -- --------------------------------------------------------
 
@@ -268,7 +295,7 @@ CREATE TABLE `purchases` (
   `confirmed` tinyint(1) NOT NULL DEFAULT '0',
   `shipped` tinyint(1) NOT NULL DEFAULT '0',
   `subscribed` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=1002 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=1100 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `purchases`
@@ -276,7 +303,7 @@ CREATE TABLE `purchases` (
 
 INSERT INTO `purchases` (`id`, `hash`, `name`, `email`, `phone`, `address`, `zip`, `city`, `country`, `method`, `ip`, `shipping_company`, `shipping_number`, `date_submitted`, `confirmed`, `shipped`, `subscribed`) VALUES
 (11, 'cm5WdRbVuEtTq2kWDVRNTEPOXHCiGpVS', 'laa ertyui', 'jelic.ecloga@gmail.com', '123', 'adresa', '37000', 'ks', 'sr', 1, '', '', '', '2018-04-29 00:47:53', 1, 0, 1),
-(12, 'TXqpJpBL0KwYtq3o0A5TmuqJb0CkOoPH', 'Lazar Jelic', 'jelic.ecloga@gmail.com', '0614437010', 'Adresa', '37000', 'Krusevac', 'Srbij', 1, '', 'PostExpress', 'RS6182398123PE', '2018-04-29 01:33:39', 1, 0, 1),
+(12, 'TXqpJpBL0KwYtq3o0A5TmuqJb0CkOoPH', 'Lazar Jelic', 'jelic.ecloga@gmail.com', '0614437010', 'Adresa', '37000', 'Krusevac', 'Srbij', 1, '', 'PostExpress', 'RS6182398123PE', '2018-04-29 23:53:35', 1, 0, 1),
 (13, '65FIQFtnDWOHlOiqIEV9o690rXpgFLwM', 'askdjkah aksjdajksdn', 'akjsdn@ansjkf.com', '82123123', 'ashd', '23232', 'asdjnn', 'AR', 1, '', '', '', '2018-04-28 12:47:46', 0, 0, 0),
 (14, 'yZbEKNFZtYiVEkIiETl8NUk2Y04R26zA', 'kbh hb', 'asdasd@asf.com', 'jh', '1231', '22222', 'asd', 'AG', 1, '', '', '', '2018-04-28 12:47:46', 0, 0, 1),
 (15, 'ydloWt1JxIkSg9ulTaP9UHGjMjJ8hk6P', 'lazar jelic', 'jelic.ecloga@asmdk', '5678', 'ajhsdb', '21312', 'ashjdb', 'SN', 1, '', '', '', '2018-04-29 02:16:38', 1, 0, 1),
@@ -294,7 +321,105 @@ INSERT INTO `purchases` (`id`, `hash`, `name`, `email`, `phone`, `address`, `zip
 (27, 'Ilbn74onYN8Nyis5ZUMr6MXt8OT4Je8s', 'Lazar Jelic', 'jelic.ecloga@gmail.com', '381614437010', 'Vasilija Velikog 5/13', '37000', 'Krusevac', 'ES', 1, '::1', '', '', '2018-04-28 12:49:15', 0, 0, 1),
 (28, 'jxeGCNKqmUkSYcU7FPO5zhOvQJeWPnw9', 'asd akjsdn', 'akjsnd@akfnsm.com', '45678', 'jahsd', '67889', 'ahusjd', 'DZ', 1, '::1', '', '', '2018-04-28 23:17:26', 0, 0, 1),
 (29, 's66ZSAtmAHRrSeltGYkfg4boYNrmeBzH', 'asd akjsdn', 'akjsnd@akfnsm.com', '45678', 'jahsd', '67889', 'ahusjd', 'DZ', 1, '::1', '', '', '2018-04-28 23:17:54', 0, 0, 1),
-(1001, 'DxR1rJu8m09HUdsA5rR14IXhCLrVcrtQ', 'asjdh', 'ajksdnajks@aksd.com', '6789', 'absndj', '21312', 'jnjasd', 'DZ', 1, '::1', '', '', '2018-04-29 02:26:53', 1, 0, 1);
+(1001, 'DxR1rJu8m09HUdsA5rR14IXhCLrVcrtQ', 'asjdh', 'ajksdnajks@aksd.com', '6789', 'absndj', '21312', 'jnjasd', 'DZ', 1, '::1', 'BalkanEkspres', '12398', '2018-04-29 23:52:08', 1, 1, 1),
+(1002, 'IGj0DggUkkkXTrpXj4dFqa3CnTrBc8bU', 'lazica jelkica', 'jkasd@sakd.om', '12371', 'absnd', '56789', 'jad', 'NA', 1, '::1', '', '', '2018-04-29 15:06:28', 0, 0, 1),
+(1003, '9VFdUdwJOjGf0xb8BScDca4JysIA6dbf', 'lazica jelkica', 'jkasd@sakd.om', '12371', 'absnd', '56789', 'jad', 'NA', 1, '::1', '', '', '2018-04-29 15:07:02', 0, 0, 1),
+(1004, 'H442fcWC7w4FTjmfuXyamrwwbbSTfq8W', 'lazica jelkica', 'jkasd@sakd.om', '12371', 'absnd', '56789', 'jad', 'NA', 1, '::1', '', '', '2018-04-29 15:07:30', 0, 0, 1),
+(1005, 'zu2Re3mxAoOupWeiHZZVEiZTK8Pyzm28', 'lazica jelkica', 'jkasd@sakd.om', '12371', 'absnd', '56789', 'jad', 'NA', 1, '::1', '', '', '2018-04-29 15:07:37', 0, 0, 1),
+(1006, 'Pt295jKJJR1hAWD0NMOs8o8TWnS3rbDg', 'lazica jelkica', 'jkasd@sakd.om', '12371', 'absnd', '56789', 'jad', 'NA', 1, '::1', '', '', '2018-04-29 15:07:43', 0, 0, 1),
+(1007, 'EGpK0atK2v1CsFDfrrHAQQuNenQGyuWd', 'lazica jelkica', 'jkasd@sakd.om', '12371', 'absnd', '56789', 'jad', 'NA', 1, '::1', '', '', '2018-04-29 15:07:45', 0, 0, 1),
+(1008, 'fY2dMebWIks5thY4dSlcURI3KOCDMaU2', 'lazica jelkica', 'jkasd@sakd.om', '12371', 'absnd', '56789', 'jad', 'NA', 1, '::1', '', '', '2018-04-29 15:08:32', 0, 0, 1),
+(1009, 'PUYAsUd411e7L8UkpxwCutvevujdWUqL', 'lazica jelkica', 'jkasd@sakd.om', '12371', 'absnd', '56789', 'jad', 'NA', 1, '::1', '', '', '2018-04-29 15:09:21', 0, 0, 1),
+(1010, 'udYJpUmxrqdlKzBew9pTBVqN6iGlJPid', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:11:08', 0, 0, 1),
+(1011, 'Q5059mCKKreantt5ss16L10w9Q4Id7Q3', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:11:48', 0, 0, 1),
+(1012, 'bmXbxrWzXYcpDPE4hmE7d8UrvL74f4hq', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:12:21', 0, 0, 1),
+(1013, '8WfVbrSTMlZfCXjPQF1LxJPhyrVlCPnL', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:13:38', 0, 0, 1),
+(1014, 'OplhjzllAzsmHnG7VdJpGeDbIXoFRPqF', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:17:46', 0, 0, 1),
+(1015, 'VsKcn5wH3q8snrxA7XKaA841Kh9VbYq7', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:18:45', 0, 0, 1),
+(1016, 's44ZNTju8j2ksEdEhpOm9nORYU599e0C', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:20:18', 0, 0, 1),
+(1017, '2gXsbkZDLcYvMzJjJ8cl4D8bVPxEEPSH', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:20:53', 0, 0, 1),
+(1018, 'dQ8mdL7Ycl8AOBGg4HnQIomRfqzsyqwL', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:21:17', 0, 0, 1),
+(1019, 'rfCYGyxDwJ3azIeQ5TXi2SKyDRCTWUkn', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:41:27', 0, 0, 1),
+(1020, 'MDHX5zRRUQ6wOqmE5nqD7fVFGQ0jFo4r', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:42:08', 0, 0, 1),
+(1021, 'eMXyliTWRmizKYGFbp4SEI3nFs2whtcw', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:42:44', 0, 0, 1),
+(1022, 'rbjOgPvjfEMD6jddhYoR7tSRK2MW1c3s', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:43:02', 0, 0, 1),
+(1023, 'j4C7XVB6fDrHhElz4aVdxJ5vDaFNpFqJ', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:43:52', 0, 0, 1),
+(1024, '1Lp6lhXf84MWu8BAw2dDh8jYZjhEIm6J', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:44:03', 0, 0, 1),
+(1025, 'f94AsYxkkPU5OAK00PSFxW2do4KGxWdN', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:44:20', 0, 0, 1),
+(1026, 'nnhEcNYssK5y4jMlhbcoE5fo82l9foCC', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:44:40', 0, 0, 1),
+(1027, 'faLEoBT77bMdeSOcoLw5x6Lq2uHNZWIf', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:44:49', 0, 0, 1),
+(1028, 'EWyUEklIFPha3lOQbKns2rAitlnMqXN5', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:45:01', 0, 0, 1),
+(1029, 'idQ2RyLg3OUb63hH5QG5kMGfZswxm9KE', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:45:11', 0, 0, 1),
+(1030, '6P9ha9UVmTq9t9sciFxniGyev6TaVMR1', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:45:22', 0, 0, 1),
+(1031, 'K2QIXrPd5gUnVgWZrRdZBjveua2UPsDA', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:45:49', 0, 0, 1),
+(1032, '9WlQvTt2Dxccfr2kl0DnSnVwfypbsJzB', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:46:00', 0, 0, 1),
+(1033, 'GUrcNVfrssDITG3fHGCA3y6j6wuyg49X', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:46:04', 0, 0, 1),
+(1034, 'hF8vqftDACdpeUGiB39ksvbHWLaucGgt', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:46:12', 0, 0, 1),
+(1035, '7wQtNOIWTvSnDuY9wcMOk5Mjp3Y8p4Sx', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:46:20', 0, 0, 1),
+(1036, '6iozgVTBKNGzoqzpgr4Nn70MbKtJHGwO', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:46:33', 0, 0, 1),
+(1037, 'LUhYHfr90wI4Qup8FCwjHMIQP3Z4sCHe', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:46:41', 0, 0, 1),
+(1038, '7uTv6MDdYprchfpF0VKx1wY40FR0CAfJ', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:46:49', 0, 0, 1),
+(1039, 'Tm0yHlgmbyweUl555ty8U8qouOaVLY0F', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:46:59', 0, 0, 1),
+(1040, 'C1jMbdHy77HAhaNAQlX91wnwChHx3yzF', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:48:03', 0, 0, 1),
+(1041, 'vtitV8G1oBokRljjdxiORN3lX5gNyTo3', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:48:48', 0, 0, 1),
+(1042, 'YB9MxpdZRRILyL0frCPvaWOhsjPJnZGm', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:49:03', 0, 0, 1),
+(1043, 'BQ98fm86eQRMCS23vRzGOoXhIM06LGsn', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:49:06', 0, 0, 1),
+(1044, 'lpYMEspf4DFixlB9pKtRgFzcqJHDqX7L', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:49:49', 0, 0, 1),
+(1045, 'n6x2yWhCAWV7iwgHhJyxp8JPSqtioA4M', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:49:52', 0, 0, 1),
+(1046, 'BI0oxJkqedORIM1fYO3jUPDjTCsjGkQh', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:50:32', 0, 0, 1),
+(1047, '3RGAB11PfPHYCIdBwhVr7zL0bdjSxaaA', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:50:36', 0, 0, 1),
+(1048, 'YUofPhQA5w9uXJUdaZ1y61liMP1uwyjv', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:55:05', 0, 0, 1),
+(1049, 'wYceeEnea6i1AI9glGA3tiTimTmOv322', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:55:23', 0, 0, 1),
+(1050, '2fggTEu4KN6lwfBRVbUouNHQG3Fc7Iea', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:55:27', 0, 0, 1),
+(1051, '58ebVRpThQ5y6ud6qXEsuCwuiouUZKE4', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:56:33', 0, 0, 1),
+(1052, 'STgNLFG2wMAChOJHMn9gZGLi4gc40R8S', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:56:36', 0, 0, 1),
+(1053, 'l0d2luox2VLWgR2llAufJUEdIP8uN998', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:57:27', 0, 0, 1),
+(1054, 'mBHd9stdhoonsG4xxLDRxj7xLE48NPMa', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:57:33', 0, 0, 1),
+(1055, 'ASrL68jdg1NxbB71W5aXByuePbMTKlyk', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:59:19', 0, 0, 1),
+(1056, 'e05l9pypqmWBX4DT9NRLmlZcxM5h7EBm', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:59:22', 0, 0, 1),
+(1057, 'nHwjPckdNJxF5RYiph6g4aC2gSPOMdR9', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 15:59:30', 0, 0, 1),
+(1058, 'wCvMZDSduK06C2a7TJNH8KYQxZXjGqGd', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:00:55', 0, 0, 1),
+(1059, 'GBOey6R82Mgljw2AgB8FJRvBiYUHzYtf', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:02:34', 0, 0, 1),
+(1060, '2QbDSct82a6FTkhqBcRJMCJXP3PndZXf', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:02:50', 0, 0, 1),
+(1061, 'tHKjZAU473z4NthXsiwzkSR7HTCdsVIV', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:02:59', 0, 0, 1),
+(1062, 'XvqR9VWUI3ffiQ6e21CwPknvn2IvKXFI', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:04:22', 0, 0, 1),
+(1063, 'LpGw5mzC9aeqYY7Klh1lXMD22Q62HfVt', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:12:05', 0, 0, 1),
+(1064, 'anbwRz3UuPRLGT72uBhdwWreLzIyJSHT', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:12:29', 0, 0, 1),
+(1065, 'ruoAXROegdBITGfqrTiYcpwY3B6RqT1R', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:12:55', 0, 0, 1),
+(1066, 'EHHN6gcwD97BdLvmzm8VI77fTdw1R7ow', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:13:35', 0, 0, 1),
+(1067, 'UotKAOXoxv4Cn3VNk14pcGrszhglv8vq', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:14:12', 0, 0, 1),
+(1068, '2bZ1PRejCepegzmaj9SsURjrRgKxGrKI', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:14:29', 0, 0, 1),
+(1069, 'Ahu9nliq8yMs5O2lpb192wLlvF34Exke', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:14:35', 0, 0, 1),
+(1070, 'Q9SJmmRowY4qilQUyIDkkniaq7yE7vTX', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:14:51', 0, 0, 1),
+(1071, 'CtfB39Gbdgf0KxYcPvManDh5xUiZP1Vs', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:15:01', 0, 0, 1),
+(1072, 's6AB1xvKALZSB66D8JaX4xtrAbXk8D3A', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:15:12', 0, 0, 1),
+(1073, 'FB0KYzm7JBxIzFtVXugVhTXjK4mskhVZ', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:15:24', 0, 0, 1),
+(1074, 'fSp6ss1XiSIYMQ0griuXeWc0wUyfNg82', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:15:38', 0, 0, 1),
+(1075, 'oqslhhAyubgnSwOjp6iCwPAzqHrRBtJZ', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:15:51', 0, 0, 1),
+(1076, 'P5jVmwrZFzATk6gUsoPawXpqbWr24QzT', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:16:12', 0, 0, 1),
+(1077, 'wYa7M8wkDAX1ESPYUTn6APz96PvBY01v', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:16:25', 0, 0, 1),
+(1078, 'CJJsBYLddbruLNF4XywRpPjg64NMvyv8', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:16:34', 0, 0, 1),
+(1079, 'OOncaFDidpKieNEDYGN1cynIeqNSX76M', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:16:43', 0, 0, 1),
+(1080, 'FMH18ypFxu5QPWKoFoJ0M1ad9IRgeLeU', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:17:12', 0, 0, 1),
+(1081, 'ua4ykKJx1ZyLwwYl1KwpoOuVINVxORZj', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:17:23', 0, 0, 1),
+(1082, 'JDcKaIvLtuE5BLJJuTGyr901lYmuBp5l', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:17:37', 0, 0, 1),
+(1083, 'SVKRv7YfIvXibrd8Vu3dn1w86TAravq3', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:18:08', 0, 0, 1),
+(1084, '9y9B1ayj2hiO7j5zCAwQwIR2DqiqGrtP', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:18:22', 0, 0, 1),
+(1085, 'TbkbtVJX60lZx9jWfBzLqalRSNItgrsa', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:18:34', 0, 0, 1),
+(1086, 'WTOipgi5PTZaZf4rDTCaR2A2Y153REWN', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:18:40', 0, 0, 1),
+(1087, 'ZbCMj97XJ4ZoWOmRHKXiAwrGmWikXjQX', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:18:47', 0, 0, 1),
+(1088, 'hfASem5rxxWilBni9UazKuQQyDC4c7dt', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:18:54', 0, 0, 1),
+(1089, 'VtZ59Dom29FhXkUV0HXdgkWuLJmJRsvM', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:19:10', 0, 0, 1),
+(1090, 'WvS58hsbq8sntnjt5gHlBDQnnc6eFC0B', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:19:14', 0, 0, 1),
+(1091, 'yVVHulm1PsRFpC441N4NPf0YYSfdDt7b', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:21:18', 0, 0, 1),
+(1092, '23SmOBUPBsB7Yzt0jZpHNUDwHz4wq4Qt', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:23:39', 0, 0, 1),
+(1093, '2i5d0AYu5DzGojqSc7rEgsFCr163rbot', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:24:31', 0, 0, 1),
+(1094, 'rbUWiSb1o9jAAxJw1NJpPgxV97nkDOn5', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:25:27', 0, 0, 1),
+(1095, '0Cr1M0lPhDEpWJYykvpQehTSHcjnDMdD', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:26:10', 0, 0, 1),
+(1096, 'CNl5I53P5oOCx7zNJ9zajV1bIJEZa79N', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:27:28', 0, 0, 1),
+(1097, 'xL6X1o2Ri11hh5JVZl5RoFTmHYqzDnna', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:50:34', 0, 0, 1),
+(1098, 'nOlBar2IZZ1kAoCKiNj3haTQNvUZD7t1', 'Lazarrr', 'jelic.ecloga@gmail.com', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:50:54', 0, 0, 1),
+(1099, 'AcqMxYEWIVhIwLVXZzqWAh1dk9gH3OPD', 'jhakhsd', 'AS@s.comasd', '7890', 'nams,d', '21312', 'aksjdn', 'LK', 1, '::1', '', '', '2018-04-29 23:40:19', 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -444,6 +569,12 @@ ALTER TABLE `methods`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -501,7 +632,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `collections`
 --
@@ -516,12 +647,17 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `logins`
 --
 ALTER TABLE `logins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `methods`
 --
 ALTER TABLE `methods`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `notifications`
+--
+ALTER TABLE `notifications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `products`
 --
@@ -536,7 +672,7 @@ ALTER TABLE `proposals`
 -- AUTO_INCREMENT for table `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1002;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1100;
 --
 -- AUTO_INCREMENT for table `sales`
 --
