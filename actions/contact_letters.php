@@ -31,7 +31,7 @@
 		$letter = str_replace("{{address}}", $address, $letter);
 		$letter = str_replace("{{zip}}", $zip_number, $letter);
 		$letter = str_replace("{{city}}", $city, $letter);
-		$letter = str_replace("{{country}}", $country, $letter);
+		$letter = str_replace("{{country}}", get_country($country), $letter);
     
     	$zip->addFromString("letter_" . $order_id . ".html", $letter);
 	}

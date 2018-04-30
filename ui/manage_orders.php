@@ -5,6 +5,12 @@
 		$result = mysqli_query($connect, $cmd);
 
 		while($row = mysqli_fetch_array($result)) {	
+			$date = $row['date_submitted'];
+			
+			if(isset($_SESSION['min_date']) && $date < $_SESSION['min_date']) {
+				continue;
+			}
+
 			if($row['confirmed'] == 1 && $row['shipped'] == 1)  {
 				echo '<tr class="red">';
 			}else if($row['confirmed'] == 1 && $row['shipped'] == 0)  {
@@ -23,7 +29,7 @@
 			echo '<td>' . $row['ip'] . '</td>';
 			echo '<td>' . $row['shipping_company'] . '</td>';
 			echo '<td>' . $row['shipping_number'] . '</td>';
-			echo '<td>' . $row['date_submitted'] . '</td>';
+			echo '<td>' . $date . '</td>';
 
 			echo '</tr>';
 			

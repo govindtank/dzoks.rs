@@ -3,6 +3,18 @@
 		return mysqli_real_escape_string($GLOBALS['connect'], htmlspecialchars(strip_tags(trim($var))));
     }
 
+	function get_country($code) {
+		require("../ui/country_list.php");
+
+		foreach($country_list as $key => $value) {
+			if(strcasecmp($key, $code) == 0) {
+				return $value;
+			}
+		}
+
+		return $code;
+	}
+
 	function get_mail($path) {
 		global $lang,
 			$date_format,

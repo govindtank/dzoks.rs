@@ -23,8 +23,8 @@
 			exit;
 		}
 
-		$shipping_company = $_GET['shipping_company'];
-		$shipping_number = $_GET['shipping_number'];
+		$shipping_company = strip($_GET['shipping_company']);
+		$shipping_number = strip($_GET['shipping_number']);
 		
 		$cmd = "SELECT email, hash FROM purchases WHERE id=" . $purchase;
 		$row = mysqli_fetch_array(mysqli_query($connect, $cmd));

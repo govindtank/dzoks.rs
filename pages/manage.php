@@ -56,9 +56,16 @@
 					}
 									
 					echo '<a class="button center" href="../pages/manage">' . $string['manage']['back'] . '</a>';
-				}else {
+				}else {	
 					echo '<div class="center">';
 					echo '<h1>' . $string["manage"]["header"] . '</h1>';
+					
+					echo '<form action="../logic/set_config.php" method="POST">';
+					echo '<input name="page" type="hidden" value="' . $page . '"/>';
+					echo '<input name="min_date" type="text" value="' . date("Y-m-d H:m:s") . '" placeholder="' . $string['manage']['minDate']. '" required />';
+					echo '<input type="submit" class="button" value="' . $string['manage']['save'] . '" />';
+					echo '</form>';
+					
 					echo '<a class="button center" href="manage?type=0">' . $string["manage"]["collections"] . '</a>';
 					echo '<a class="button center" href="manage?type=1">' . $string["manage"]["products"] . '</a>';
 					echo '<a class="button center" href="manage?type=2">' . $string["manage"]["orders"] . '</a>';

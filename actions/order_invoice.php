@@ -10,7 +10,7 @@
 		exit;	
 	}
 
-	$order_id = $_GET['id'];
+	$order_id = strip($_GET['id']);
 
 	$cmd = "SELECT * FROM purchases WHERE id='$order_id'";
 	$purchase = mysqli_fetch_array(mysqli_query($connect, $cmd));
@@ -31,7 +31,7 @@
 	$invoice = str_replace("{{address}}", $address, $invoice);
 	$invoice = str_replace("{{zip}}", $zip, $invoice);
 	$invoice = str_replace("{{city}}", $city, $invoice);
-	$invoice = str_replace("{{country}}", $country, $invoice);
+	$invoice = str_replace("{{country}}", get_country($country), $invoice);
 	$invoice = str_replace("{{phone}}", $phone, $invoice);
 	$invoice = str_replace("{{email}}", $email, $invoice);
 	

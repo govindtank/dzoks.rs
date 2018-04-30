@@ -2,8 +2,8 @@
 	require("../logic/config.php");
 
 	if($shop_restricted == true) {
-		error($string['status']['requiredFields']);
-		header("location: ../pages/checkout");
+		error($string['status']['shopRestricted']);
+		header("location: ../pages/cart");
 		exit;	
 	}
 
@@ -52,7 +52,7 @@
 	$confirm = str_replace("{{address}}", $address, $confirm);
 	$confirm = str_replace("{{zip}}", $zip, $confirm);
 	$confirm = str_replace("{{city}}", $city, $confirm);
-	$confirm = str_replace("{{country}}", $country, $confirm);
+	$confirm = str_replace("{{country}}", get_country($country), $confirm);
 	$confirm = str_replace("{{phone}}", $phone, $confirm);
 	$confirm = str_replace("{{email}}", $email, $confirm);
 

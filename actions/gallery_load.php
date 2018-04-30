@@ -1,5 +1,6 @@
 <?php
 	require('../logic/config.php');
+	require('../logic/instagram.php');
 
 	if(!isset($_GET['o']) || !isset($_GET['l'])) {
 		exit;

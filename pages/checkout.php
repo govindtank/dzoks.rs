@@ -2,8 +2,8 @@
 	require("../logic/config.php");
 	
 	if($shop_restricted == true) {
-		error($string['status']['requiredFields']);
-		header("location: ../pages/checkout");
+		error($string['status']['shopRestricted']);
+		header("location: ../pages/cart");
 		exit;	
 	}
 ?>
@@ -26,7 +26,16 @@
                     <input name="zip" type="text" maxlength="5" placeholder="<?php echo $string['checkout']['inputs']['zip']; ?>" required>
 										
 					<?php
-						require("../ui/country_select.php");
+						echo '<select name="country" required>';
+						echo'<option selected disabled value="">' . $string['checkout']['inputs']['country'] . '</option>';
+	
+						require("../ui/country_list.php");
+						
+						foreach($country_list as $key => $value) {
+							echo '<option value="' . $key . '">' . $value . '</option>';
+						}
+
+						echo '</select>';
 
                         $a = rand(1, 8);
                         $b = rand(1, 9 - $a);

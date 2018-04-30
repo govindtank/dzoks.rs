@@ -9,6 +9,12 @@
 		$result = mysqli_query($connect, $cmd);
 
 		while($row = mysqli_fetch_array($result)) {	
+			$date = $row['date_submitted'];
+			
+			if(isset($_SESSION['min_date']) && $date < $_SESSION['min_date']) {
+				continue;
+			}
+
 			if($row['gifted'] == 1)  {
 				echo '<tr class="red">';
 			}else {
@@ -41,7 +47,7 @@
 			
 			echo '<td>' . $admin . '</td>';
 
-			echo '<td>' . $row['date_submitted'] . '</td>';
+			echo '<td>' . $date . '</td>';
 			echo '</tr>';
 		}
 		

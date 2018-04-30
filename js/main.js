@@ -38,18 +38,22 @@ function navClick() {
 function toggleHeader(scrollTop) {
 	if(scrollTop > 0) {
 		if(lastScrollTop < scrollTop) {
-	   		$("header, .fab").addClass("scrolling");
+	   		$("header").addClass("scrolling");
 	   		$(".status").removeClass("open");
 		}else {
-	   		$("header, .fab").removeClass("scrolling");
+	   		$("header").removeClass("scrolling");
 	   		$(".status").addClass("open");
 		}
 	}
 
+	if(isScrolledIntoView($(".banner"))) {
+		$(".fab").css("opacity", "1");			
+	}else {
+		$(".fab").css("opacity", "0");			
+	}
+
 	if(isScrolledIntoView($("footer"))) {
 		$(".fab").css("opacity", "0");			
-	}else {
-		$(".fab").css("opacity", "1");			
 	}
 
 	lastScrollTop = scrollTop;
