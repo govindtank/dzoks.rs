@@ -14,6 +14,8 @@
 	}
 
 	function instagram_images() {
+		global $store_instagram;
+
 		// TODO Add access token
 		$access_token = 'YOUR ACCESS TOKEN';
 		$user_search = instagram_connect("https://api.instagram.com/v1/users/search?q=" . $store_instagram . "&access_token=" . $access_token);
