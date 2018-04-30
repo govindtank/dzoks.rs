@@ -12,16 +12,21 @@ $(document).ready(function() {
 	   	
 	$(".status").addClass("open");
 
-	$("#acceptCookies").click(function() {
-    	var xhttp = new XMLHttpRequest();
-		xhttp.open("GET", "../actions/cookies_accept.php", true);
+	$(".notifyButton").click(function() {
+		var btn = $(this);
+    	
+		var params = btn.attr('myKey') + "=" + btn.attr('myValue');	
+
+		var xhttp = new XMLHttpRequest();
+		xhttp.open("POST", "../logic/set_config.php", true);
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhttp.onreadystatechange = function() {
 			if(this.readyState == 4 && this.status == 200) {
-				$(".status-alert").remove();	
+				btn.parent().closest('div').remove();	
 			}
 		}
 
-		xhttp.send();
+		xhttp.send(params);
 	});
 });
 

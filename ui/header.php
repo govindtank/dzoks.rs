@@ -54,7 +54,19 @@
 	}else if(!isset($_SESSION['cookies_accepted'])) {
 		echo '<div class="status status-alert">';
 		echo '<p>' . $string['status']['cookiesAlert'] . '</p>';
-		echo '<a class="button center" id="acceptCookies">' . $string['header']['ok'] . '</a>';
+		echo '<a class="button center notifyButton" myKey="cookies_accepted" myValue="true">' . $string['header']['ok'] . '</a>';
 		echo '</div>';
 	}	
+
+	$cmd = "SELECT * FROM notifications";
+	$result = mysqli_query($connect, $cmd);
+
+	while($row = mysqli_fetch_array($result)) {
+		if(!isset($_SESSION[$row['key']])) {
+			echo '<div class="status status-alert">';
+			echo '<p>' . $row['message'] . '</p>';
+			echo '<a class="button center notifyButton" myKey="' . $row['key'] . '" myValue="1">' . $string['header']['ok'] . '</a>';
+			echo '</div>';
+		}
+	}
 ?>
