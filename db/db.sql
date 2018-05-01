@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: Apr 30, 2018 at 02:59 AM
+-- Generation Time: May 01, 2018 at 09:13 PM
 -- Server version: 5.5.42-log
 -- PHP Version: 7.0.0
 
@@ -51,7 +51,7 @@ CREATE TABLE `cart` (
   `quantity` int(11) NOT NULL,
   `purchase` int(11) DEFAULT NULL,
   `checked` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `cart`
@@ -69,10 +69,34 @@ INSERT INTO `cart` (`id`, `user`, `product`, `size`, `quantity`, `purchase`, `ch
 (18, 'z4o0btMPk6ClkQw', 37, 2, 2, 1001, 0),
 (19, 'BbB2JjGznuM0lnI', 38, 2, 1, 27, 1),
 (20, 'Z4SYh4ySsrqD8Jw', 38, 1, 5, 28, 1),
-(21, 'Z4SYh4ySsrqD8Jw', 38, 2, 4, 1001, 1),
+(21, 'Z4SYh4ySsrqD8Jw', 38, 2, 5, 1001, 1),
 (22, 'KnxFZk9itJlE34O', 38, 1, 2, 1099, 1),
 (23, 'rR2VZbCwtLifjyq', 38, 1, 1, NULL, 0),
-(24, 'C016ufhlq7jNa4e', 38, 2, 1, NULL, 0);
+(24, 'C016ufhlq7jNa4e', 38, 2, 1, NULL, 0),
+(25, 'gP1H7nLEvDzS5fs', 38, 1, 1, NULL, 0),
+(27, 'gP1H7nLEvDzS5fs', 52, 2, 3, NULL, 0),
+(28, 'PmQhbZ5NHzqvDT1', 38, 2, 4, 1100, 1),
+(29, 'fLV4a58nv3xmxVo', 38, 2, 2, 1101, 1),
+(30, 'fLV4a58nv3xmxVo', 37, 2, 2, 1101, 1),
+(31, 'glPl1wFCEM0R4rk', 38, 2, 3, 1102, 1),
+(32, 'glPl1wFCEM0R4rk', 37, 2, 1, 1103, 1),
+(33, 'glPl1wFCEM0R4rk', 38, 1, 1, 1103, 1),
+(34, 'glPl1wFCEM0R4rk', 37, 1, 1, NULL, 0),
+(35, '5FUt99SPcSQFpml', 38, 1, 1, 1104, 1),
+(36, '5FUt99SPcSQFpml', 37, 2, 2, 1105, 1),
+(37, '5FUt99SPcSQFpml', 38, 2, 2, 1105, 1),
+(38, '5FUt99SPcSQFpml', 49, 2, 1, NULL, 0),
+(39, 'PWjhJ3ex2dRvEC9', 38, 2, 2, 1106, 1),
+(40, 'PWjhJ3ex2dRvEC9', 37, 2, 1, NULL, 0),
+(41, 'EIBGIxMtU9nhLpg', 38, 2, 1, 1107, 1),
+(42, 'EIBGIxMtU9nhLpg', 37, 2, 1, 1107, 1),
+(43, 'EIBGIxMtU9nhLpg', 38, 1, 1, NULL, 0),
+(44, 'EIBGIxMtU9nhLpg', 38, 2, 1, NULL, 0),
+(45, 'EIBGIxMtU9nhLpg', 37, 1, 1, NULL, 0),
+(46, 'EIBGIxMtU9nhLpg', 37, 2, 3, NULL, 0),
+(48, 'XCaYgqB3NbgTV49', 54, 2, 4, NULL, 0),
+(49, 'nH6cDaJaAAzorsZ', 54, 1, 10, NULL, 0),
+(50, 'nH6cDaJaAAzorsZ', 54, 2, 3, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -107,25 +131,28 @@ CREATE TABLE `comments` (
   `ip` varchar(20) COLLATE utf8_bin NOT NULL,
   `accepted` tinyint(1) NOT NULL DEFAULT '0',
   `reply_to` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `comments`
 --
 
 INSERT INTO `comments` (`id`, `name`, `comment`, `product`, `ip`, `accepted`, `reply_to`) VALUES
-(7, 'laza', 'stvarno kul carape', 38, '0', 1, NULL),
-(10, 'ana', 'asd', 38, '::1', 1, NULL),
-(11, 'asd', '123', 37, '::1', 1, NULL),
-(12, 'asd', 'asd', 2, '::1', 1, NULL),
-(13, 'yo', 'asd', 39, '::1', 0, NULL),
-(14, 'asd', 'asd', 34, '::1', 0, NULL),
-(15, 'brat', 'znaci sve kul ali mi se ne svidja boja ako moze sledeci put pink neka da bude znaci tebra molim te', 3, '::1', 1, NULL),
-(16, 'johnny', 'jack and johnny calling', 45, '::1', 0, NULL),
-(17, 'a', 'tr', 32, '::1', 0, NULL),
-(18, 'q', 'thank you', NULL, '::1', 0, 7),
-(19, 'head', 'yo yo ma niga', NULL, '::1', 0, 11),
-(20, 'head', 'another reply', NULL, '::1', 0, 10);
+(7, 'laza', 'komentar 1', 38, '0', 1, NULL),
+(10, 'marko', 'komentar 2', 38, '::1', 1, NULL),
+(11, 'ana', 'komentar 3', 37, '::1', 1, NULL),
+(12, 'zarko', 'komentar 4', 2, '::1', 1, NULL),
+(13, 'jovana', 'komentar 5', 39, '::1', 0, NULL),
+(14, 'milica', 'komentar 6', 34, '::1', 0, NULL),
+(15, 'brat', 'komentar 7', 3, '::1', 1, NULL),
+(16, 'johnny', 'komentar 8', 45, '::1', 1, NULL),
+(18, 'q', 'reply 2', NULL, '::1', 0, 7),
+(19, 'q', 'reply 3', NULL, '::1', 0, 11),
+(20, 'q', 'reply 4', NULL, '::1', 0, 11),
+(21, 'q', 'reply 5', NULL, '::1', 0, 20),
+(22, 'q', 'reply 6', NULL, '::1', 0, 16),
+(23, 'Yooo', 'hello hello', 54, '::1', 1, NULL),
+(24, 'q', 'good day', NULL, '::1', 0, 23);
 
 -- --------------------------------------------------------
 
@@ -137,7 +164,7 @@ CREATE TABLE `logins` (
   `id` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `logins`
@@ -166,7 +193,9 @@ INSERT INTO `logins` (`id`, `user`, `timestamp`) VALUES
 (20, 4, '2018-04-29 23:53:18'),
 (21, 4, '2018-04-29 23:53:32'),
 (22, 4, '2018-04-30 00:23:04'),
-(23, 4, '2018-04-30 00:46:01');
+(23, 4, '2018-04-30 00:46:01'),
+(24, 4, '2018-05-01 14:05:31'),
+(25, 4, '2018-05-01 18:58:52');
 
 -- --------------------------------------------------------
 
@@ -295,7 +324,7 @@ CREATE TABLE `purchases` (
   `confirmed` tinyint(1) NOT NULL DEFAULT '0',
   `shipped` tinyint(1) NOT NULL DEFAULT '0',
   `subscribed` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=1100 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=1108 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `purchases`
@@ -321,7 +350,7 @@ INSERT INTO `purchases` (`id`, `hash`, `name`, `email`, `phone`, `address`, `zip
 (27, 'Ilbn74onYN8Nyis5ZUMr6MXt8OT4Je8s', 'Lazar Jelic', 'jelic.ecloga@gmail.com', '381614437010', 'Vasilija Velikog 5/13', '37000', 'Krusevac', 'ES', 1, '::1', '', '', '2018-04-28 12:49:15', 0, 0, 1),
 (28, 'jxeGCNKqmUkSYcU7FPO5zhOvQJeWPnw9', 'asd akjsdn', 'akjsnd@akfnsm.com', '45678', 'jahsd', '67889', 'ahusjd', 'DZ', 1, '::1', '', '', '2018-04-28 23:17:26', 0, 0, 1),
 (29, 's66ZSAtmAHRrSeltGYkfg4boYNrmeBzH', 'asd akjsdn', 'akjsnd@akfnsm.com', '45678', 'jahsd', '67889', 'ahusjd', 'DZ', 1, '::1', '', '', '2018-04-28 23:17:54', 0, 0, 1),
-(1001, 'DxR1rJu8m09HUdsA5rR14IXhCLrVcrtQ', 'asjdh', 'ajksdnajks@aksd.com', '6789', 'absndj', '21312', 'jnjasd', 'DZ', 1, '::1', 'BalkanEkspres', '12398', '2018-04-29 23:52:08', 1, 1, 1),
+(1001, 'DxR1rJu8m09HUdsA5rR14IXhCLrVcrtQ', 'asjdh', 'ajksdnajks@aksd.com', '6789', 'absndj', '21312', 'jnjasd', 'DZ', 1, '::1', 'BalkanEkspres', '12398', '2018-05-01 14:33:31', 1, 0, 1),
 (1002, 'IGj0DggUkkkXTrpXj4dFqa3CnTrBc8bU', 'lazica jelkica', 'jkasd@sakd.om', '12371', 'absnd', '56789', 'jad', 'NA', 1, '::1', '', '', '2018-04-29 15:06:28', 0, 0, 1),
 (1003, '9VFdUdwJOjGf0xb8BScDca4JysIA6dbf', 'lazica jelkica', 'jkasd@sakd.om', '12371', 'absnd', '56789', 'jad', 'NA', 1, '::1', '', '', '2018-04-29 15:07:02', 0, 0, 1),
 (1004, 'H442fcWC7w4FTjmfuXyamrwwbbSTfq8W', 'lazica jelkica', 'jkasd@sakd.om', '12371', 'absnd', '56789', 'jad', 'NA', 1, '::1', '', '', '2018-04-29 15:07:30', 0, 0, 1),
@@ -419,7 +448,15 @@ INSERT INTO `purchases` (`id`, `hash`, `name`, `email`, `phone`, `address`, `zip
 (1096, 'CNl5I53P5oOCx7zNJ9zajV1bIJEZa79N', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:27:28', 0, 0, 1),
 (1097, 'xL6X1o2Ri11hh5JVZl5RoFTmHYqzDnna', 'Lazarrr', 'jashd@sdf.om', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:50:34', 0, 0, 1),
 (1098, 'nOlBar2IZZ1kAoCKiNj3haTQNvUZD7t1', 'Lazarrr', 'jelic.ecloga@gmail.com', '56789', 'amsndjas', '51263', 'hasdn', 'MO', 1, '::1', '', '', '2018-04-29 16:50:54', 0, 0, 1),
-(1099, 'AcqMxYEWIVhIwLVXZzqWAh1dk9gH3OPD', 'jhakhsd', 'AS@s.comasd', '7890', 'nams,d', '21312', 'aksjdn', 'LK', 1, '::1', '', '', '2018-04-29 23:40:19', 0, 0, 1);
+(1099, 'AcqMxYEWIVhIwLVXZzqWAh1dk9gH3OPD', 'jhakhsd', 'AS@s.comasd', '7890', 'nams,d', '21312', 'aksjdn', 'LK', 1, '::1', '', '', '2018-04-29 23:40:19', 0, 0, 1),
+(1100, '3vB6CxRoz9fNJRsoQYRQmtcykMsxlkJp', 'Proba', 'dfgh@sad.com', '12312', 'asjdn', '12311', 'krusevac', 'LK', 1, '::1', '', '', '2018-05-01 14:51:33', 0, 0, 1),
+(1101, 'bI35vVhzM5Gnfn8oVf4NL0zi34hjkzEv', 'asdbn', 'naksjnd@ajksd.com', '123123', 'akjsdn', '11111', 'hjb', 'AF', 1, '::1', '', '', '2018-05-01 15:09:18', 0, 0, 1),
+(1102, 'qSxarMKXOYZjtrKEsO241YvROczpHXp8', 'ahsbdjn', 'kjansd@amlsd.com', '6789', 'nasd', '12312', 'habsd', 'AF', 1, '::1', '', '', '2018-05-01 15:11:07', 0, 0, 1),
+(1103, 'bOmwMj05GWL9TMP9ofTLSIOj4q3J7Hdi', 'lazica', 'asd@asd.com', '899766', 'vas veli', '11000', 'begiska', 'RU', 1, '::1', '', '', '2018-05-01 15:13:01', 0, 0, 1),
+(1104, 'guJ3Fo4hvvVii6CBujpTYyU12CGk0eKg', 'la', 'asd@asd.com', '5678', 'asdm,n', '12123', 'asd', 'NO', 1, '::1', '', '', '2018-05-01 15:14:39', 0, 0, 1),
+(1105, 'SeJ0hYow22InbP4OSi3wQARqeSHZ07LS', 'asd', 'askjd@d.com', '12312', 'jansd', '12312', 'asdj213123', 'BL', 1, '::1', '', '', '2018-05-01 15:15:08', 0, 0, 1),
+(1106, 'SaO310V6LmmTnC2ZrWhu3V0U5UtLGtTy', 'dfgh', 'kasnd@a.com', '5678', 'abskd', '12313', 'jasknd', 'AD', 1, '::1', '', '', '2018-05-01 15:18:32', 0, 0, 1),
+(1107, 'XH6TLhYTEuXcRv7fLt57uCM7hy88DAtA', 'Laz', 'jbhsd@dmc.com', '123', 'hjasd', 'j2312', 'jad', 'PY', 1, '::1', '', '', '2018-05-01 15:23:39', 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -435,7 +472,7 @@ CREATE TABLE `sales` (
   `gifted` tinyint(1) NOT NULL DEFAULT '0',
   `admin` int(11) NOT NULL,
   `date_submitted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `sales`
@@ -447,7 +484,8 @@ INSERT INTO `sales` (`id`, `product`, `size`, `note`, `gifted`, `admin`, `date_s
 (3, 1, 1, '', 0, 4, '0000-00-00 00:00:00'),
 (4, 1, 1, '', 0, 4, '2018-04-08 23:19:33'),
 (5, 53, 2, '', 0, 4, '2018-04-08 23:20:01'),
-(6, 1, 1, 'asddd', 1, 4, '2018-04-08 23:20:15');
+(6, 1, 1, 'asddd', 1, 4, '2018-04-08 23:20:15'),
+(7, 1, 1, '', 0, 4, '2018-05-01 14:35:12');
 
 -- --------------------------------------------------------
 
@@ -490,8 +528,6 @@ INSERT INTO `warehouse` (`id`, `product`, `size`, `quantity`) VALUES
 (2, 37, 2, 985),
 (3, 38, 1, 100),
 (4, 38, 2, 150),
-(5, 45, 1, 2312),
-(6, 45, 2, 12312),
 (7, 49, 1, 123),
 (8, 49, 2, 1234),
 (9, 52, 1, 123),
@@ -512,12 +548,10 @@ INSERT INTO `warehouse` (`id`, `product`, `size`, `quantity`) VALUES
 (24, 54, 2, 13),
 (25, 54, 1, 11),
 (26, 54, 2, 13),
-(27, 1, 1, 114),
+(27, 1, 1, 113),
 (28, 1, 2, 0),
 (29, 45, 1, 0),
 (30, 45, 2, 12312),
-(31, 45, 1, 0),
-(32, 45, 2, 0),
 (33, 38, 1, 100),
 (34, 38, 2, 150);
 
@@ -632,7 +666,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=51;
 --
 -- AUTO_INCREMENT for table `collections`
 --
@@ -642,12 +676,12 @@ ALTER TABLE `collections`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `logins`
 --
 ALTER TABLE `logins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `methods`
 --
@@ -672,12 +706,12 @@ ALTER TABLE `proposals`
 -- AUTO_INCREMENT for table `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1100;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1108;
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `sizes`
 --

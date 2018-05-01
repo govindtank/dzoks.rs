@@ -34,7 +34,8 @@
 	$invoice_template = "https://i.imgur.com/UGiC7DB.png";
 	$letter_template = "https://i.imgur.com/R5CaONm.png";
 
-	$max_cart_count = 10;
+	$max_cart_items = 10;
+	$max_item_qty = 10;
 	$tax_rate = 0.2;
 
 	$date_format = "d. m. Y.";

@@ -175,7 +175,8 @@
 			, "incorrectCredentials" => "Incorrect credentials"
 			, "cookiesAlert" => "We use cookies to improve your experience. By continuing to visit this site you accept such use."
 			, "bigQuantity" => "We don't have that many socks"
-			, "bigCount" => "Maximum number of items in cart exceeded limit"
+			, "maxCartItems" => "Maximum number of items in cart exceeded limit"
+			, "maxItemQuantity" => "Maximum item quantity exceeded limit"
 			, "new" => "NEW"
 			, "soldout" => "SOLD OUT"
             , "checkEmail" => "Please confirm this purchase by clicking on the link in the email we've sent you"
@@ -191,6 +192,7 @@
 			, "notAuthorized" => "Not authorized"
 			, "zipError" => "Cannot create ZIP archive"
 			, "shopRestricted" => "Shopping feature is currently restricted"
+			, "wait" => "Bro please wait..."
 		]
 		, "error" => [
 			  "header" => "Psst! Existence of this page has been kept as a secret for centuries."

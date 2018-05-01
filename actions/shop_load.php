@@ -8,8 +8,8 @@
 	$offset = strip($_GET['o']);
 	$limit = strip($_GET['l']);
 
-	$cmd = 'SELECT * FROM products LIMIT ' . $limit . ' OFFSET ' . $offset;
-	$result = mysqli_query($connect, $cmd);
+	$cmd = 'SELECT * FROM products ORDER BY id DESC LIMIT ' . $limit . ' OFFSET ' . $offset;
+	$result = mysqli_query($connect, $cmd) or die(mysqli_error($connect));
 
 	while($row = mysqli_fetch_array($result)) {
     	echo '<div class="item" data-sr>';

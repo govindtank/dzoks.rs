@@ -22,15 +22,19 @@ function loadData() {
     	type: 'GET',
     	url: fetchUrl,
     	success: function(data){
+			if(offset == 0) {
+				$('.main').empty();	
+			}
+
 			$('.main').append(data);
 			sr.reveal('.item', {
 				opacity: 0.75,
 				duration: 750,
 			});
+		
+			offset += limit;
         }
 	});
-
-	offset += limit;
 }
 
 $(document).ready(function() {
