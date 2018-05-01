@@ -28,7 +28,7 @@
 			foreach($sizes as $key => $value) {
 				echo '<td>';
 				
-				$qty = get_quantity($key, $row['id'], $connect);
+				$qty = get_quantity($key, $row['id']);
 
 				if($qty > 0) {
 					echo '<a class="button green" href="../actions/product_sell?size=' . $key . '&id=' . $row['id'] . '">' . $string['product']['sell'] . '</a>';	
@@ -46,7 +46,7 @@
 			echo '<option disabled value="">' . $string['product']['size'] . '</option>';
 
 			foreach($sizes as $key => $value) {
-				$qty = get_quantity($key, $row['id'], $connect);
+				$qty = get_quantity($key, $row['id']);
 
 				if($qty == 0) {
 					continue;	

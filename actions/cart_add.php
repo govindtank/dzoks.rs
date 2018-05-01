@@ -30,7 +30,7 @@
 	$result = mysqli_query($connect, $cmd);
 
 	if(mysqli_num_rows($result) == 0) {
-		checkQuantity($qty, $size, $product, $connect, $string);
+		checkQuantity($qty, $size, $product);
 
 		$cmd = "INSERT INTO cart (product, size, quantity, user) VALUES('$product', '$size', '$qty', '$id')";
 	}else {
@@ -38,7 +38,7 @@
 			$qty += $row['quantity'];
 		}
 
-		checkQuantity($qty, $size, $product, $connect, $string);
+		checkQuantity($qty, $size, $product);
 
 		$cmd = "UPDATE cart SET quantity='$qty' WHERE product='$product' AND size='$size' AND user='$id' AND checked=0";
 	}

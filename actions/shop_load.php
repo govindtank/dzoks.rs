@@ -17,18 +17,8 @@
                     	
 		echo '<img class="item-image" src="' . get_thumbnail($row["id"], 0). '"/>';
 		echo '<img class="item-overlay" src="' . get_thumbnail($row["id"], 1). '"/>';
-		
-		$qty_total = 0;
-
-		$cmd = "SELECT warehouse.quantity, sizes.name FROM warehouse, sizes WHERE product=" . $row['id'];
-
-		$wh_result = mysqli_query($connect, $cmd);
 			
-		while($wh = mysqli_fetch_array($wh_result)) {
-			$qty_total += $wh['quantity'];
-		}
-
-		if($qty_total == 0) {
+		if(get_quantity_total($row['id']) == 0) {
 			echo '<div class="item-marker">';
 			echo '<p class="soldout">' . $string["status"]["soldout"] . '</p>';
 			echo '</div>';

@@ -255,14 +255,26 @@
 		return preg_replace("/[^0-9.]/", "", $converted[1][0]);
    	}
 
-	function get_quantity($size, $id, $connect) {
+	function get_quantity($size, $id) {
+		global $connect;
+
 		$cmd = "SELECT quantity FROM warehouse WHERE product=" . $id . " AND size=" . $size . " ORDER BY id DESC";
 
 		return mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
 	}
+	
+	function get_quantity_total($id) {
+		global $connect;
+		
+		$cmd = "SELECT SUM(quantity) FROM warehouse WHERE product=" . $id . " ORDER BY id DESC";
 
-	function checkQuantity($asked, $size, $id, $connect, $string) {	
-		$having = get_quantity($size, $id, $connect);
+		return mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
+	}
+
+	function checkQuantity($asked, $size, $id) {
+		global $connect, $string;
+
+		$having = get_quantity($size, $id);
 
 		if($asked > $having) {
 			error($string['status']['bigQuantity']);	

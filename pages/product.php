@@ -70,7 +70,7 @@
 					$result = mysqli_query($connect, $cmd);
 
 					while($size = mysqli_fetch_array($result)) {		
-						$qty = get_quantity($size["id"], $product, $connect);
+						$qty = get_quantity($size["id"], $product);
 
 						echo '<div class="radio-input">';
 						echo '<label ';
