@@ -15,7 +15,7 @@
 	$headers = "From: " . $email . "\r\n";
 	$headers .= "To: " . $store_email . "\r\n";
 
-	mail($receiver, $subject, $message, $headers);
+	mail($store_email, $subject, $message, $headers);
 
 	$subject = "[" . $store_name . "] Contact";
 	$headers = "From: " . $store_email . "\r\n";
