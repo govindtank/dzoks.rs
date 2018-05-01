@@ -52,21 +52,22 @@
 		echo '</div>';
 		unset($_SESSION['order']);
 	}else if(!isset($_SESSION['cookies_accepted'])) {
+
 		echo '<div class="status status-alert">';
 		echo '<p>' . $string['status']['cookiesAlert'] . '</p>';
 		echo '<a class="button center notifyButton" myKey="cookies_accepted" myValue="true">' . $string['header']['ok'] . '</a>';
 		echo '</div>';
-	}	
+	}else {
+		$cmd = "SELECT * FROM notifications";
+		$result = mysqli_query($connect, $cmd);
 
-	$cmd = "SELECT * FROM notifications";
-	$result = mysqli_query($connect, $cmd);
-
-	while($notify = mysqli_fetch_array($result)) {
-		if(!isset($_SESSION[$notify['key']])) {
-			echo '<div class="status status-notify">';
-			echo '<p>' . $notify['message'] . '</p>';
-			echo '<a class="button center notifyButton" myKey="' . $notify['key'] . '" myValue="1">' . $string['header']['ok'] . '</a>';
-			echo '</div>';
+		while($notify = mysqli_fetch_array($result)) {
+			if(!isset($_SESSION[$notify['key']])) {
+				echo '<div class="status status-notify">';
+				echo '<p>' . $notify['message'] . '</p>';
+				echo '<a class="button center notifyButton" myKey="' . $notify['key'] . '" myValue="1">' . $string['header']['ok'] . '</a>';
+				echo '</div>';
+			}
 		}
-	}
+	}	
 ?>

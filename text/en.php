@@ -38,7 +38,7 @@
         ]
         , "checkout" => [
               "header" => "We need some details"
-            , "submit" => "Send them"
+            , "submit" => "Submit"
             , "inputs" => [
                   "name" => "Full name"
                 , "email" => "Email"
@@ -96,6 +96,7 @@
 		, "manage" => [
               "save" => "Save"
             , "add" => "Add"
+            , "filter" => "Filter"
             , "back" => "Back"
             , "reply" => "Reply"
             , "ship" => "Ship"
@@ -202,6 +203,7 @@
 			  "confirmation" => "Confirmation"
 			, "shipped" => "Shipped"
 			, "contact" => "Contact"
+			, "newsletter" => "Newsletter"
 		]
     ];
 ?>

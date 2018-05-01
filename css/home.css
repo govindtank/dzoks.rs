@@ -69,6 +69,7 @@
 
 .caption-open,
 .scroll-up {
+	white-space: nowrap;
 	transform: skew(0, -15deg) scale(1, 2);
     -webkit-transform: skew(0, -15deg) scale(1, 2);
     -moz-transform: skew(0, -15deg) scale(1, 2);

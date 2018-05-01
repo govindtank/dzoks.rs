@@ -20,7 +20,8 @@
 	$store_instagram = "dzoks_official";
 	$confirmation_url = $store_url . "/actions/confirm?h=";
 	$unsubscribe_url = $store_url . "/actions/unsubscribe?h=";
-	$mail_img = "https://www.dzoks.rs/img/mail.png";
+	// TODO upload mail img to dzoks server
+	$mail_img = "https://i.imgur.com/f0ukHtU.png";
 	$letter_signature = "Лазар Јелић, директор";
 
 	$mail_path = "../ui/mail.html";

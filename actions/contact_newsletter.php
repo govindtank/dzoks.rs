@@ -4,7 +4,9 @@
 	check_login($connect, $string);
 	check_level(2, $connect, $string);
 	
-	if(!is_uploaded_file($_FILES['message']['tmp_name'])) {	
+	$content_path = $_FILES['message']['tmp_name'];
+	
+	if(!is_uploaded_file($content_path)) {	
 		error($string['status']['messageNotSent']);
 		header("location: ../pages/manage?type=4");
 		exit;	
@@ -17,12 +19,17 @@
 		$receiver = $row[0];
 		$hash = $row[1];
 	
-		$sender = $store_email;
 		$subject = "[" . $store_name . "] Newsletter";
-		$headers = "From: " . $sender . "\r\n";
-		$headers .= "To: " . $receivers . "\r\n";
+		$headers = "From: " . $store_email . "\r\n";
+		$headers .= "To: " . $receiver . "\r\n";
 
-		$message = get_mail(file_get_contents($_FILES['message']['tmp_name']));
+		$message = get_mail($mail_path);
+		$message = str_replace("{{mail_title}}", $string["mail"]["newsletter"], $message);
+		$message = str_replace("{{unsubscribe_url}}", $hash, $message);
+		
+		if(file_exists($content_path)) {
+			$message = str_replace("{{mail_content}}", get_mail($content_path), $message);
+		}		
 
 		mail($receiver, $subject, $message, $headers);
 	}

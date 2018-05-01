@@ -63,7 +63,7 @@
 					echo '<form action="../logic/set_config.php" method="POST">';
 					echo '<input name="page" type="hidden" value="' . $page . '"/>';
 					echo '<input name="min_date" type="text" value="' . date("Y-m-d H:m:s") . '" placeholder="' . $string['manage']['minDate']. '" required />';
-					echo '<input type="submit" class="button" value="' . $string['manage']['save'] . '" />';
+					echo '<input type="submit" class="button" value="' . $string['manage']['filter'] . '" />';
 					echo '</form>';
 					
 					echo '<a class="button center" href="manage?type=0">' . $string["manage"]["collections"] . '</a>';

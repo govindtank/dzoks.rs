@@ -7,7 +7,7 @@ $(document).ready(function() {
   
 	$("#nav").click(function() {
         $(this).toggleClass("open");
-	   	$(".status").toggleClass("open");
+		$(".status").removeClass("open");
     });
 	   	
 	$(".status").addClass("open");
@@ -30,16 +30,6 @@ $(document).ready(function() {
 	});
 });
 
-function navClick() {
-	$("#nav").click(function() {
-       	$(this).toggleClass("open");
-		$(".status").toggleClass("open");
-    });
-	   	
-	$(".status").addClass("open");
-	$("nav li").addClass("shake shake-basic shake-hover");
-}
-
 function toggleHeader(scrollTop) {
 	if(scrollTop > 0) {
 		if(lastScrollTop < scrollTop) {
@@ -51,7 +41,7 @@ function toggleHeader(scrollTop) {
 		}
 	}
 
-	if(isScrolledIntoView($(".banner"))) {
+	if($(".banner").length && isScrolledIntoView($(".banner"))) {
 		$(".fab").css("opacity", "1");			
 	}else {
 		$(".fab").css("opacity", "0");			
@@ -144,7 +134,7 @@ function isScrolledIntoView(elem) {
     var docViewTop = $(window).scrollTop();
     var docViewBottom = docViewTop + $(window).height();
 
-    var elemTop = $(elem).offset().top;
+    var elemTop = elem.offset().top;
 
     return ((elemTop <= docViewBottom) && (elemTop >= docViewTop));
 }
