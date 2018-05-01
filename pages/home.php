@@ -38,7 +38,7 @@
   				</div>
 			</div>	
   			<div class="banner">
-  				<?php echo $string['home']['banner']; ?>
+  				</span><?php echo $string['home']['banner']; ?></span>
 			</div>
 		</div>
 		<div class="fab shake shake-basic shake-hover">

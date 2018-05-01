@@ -76,11 +76,7 @@ a:hover {
 
 .hidden,
 .hidden * {
-	opacity: 0;
-	visibility: hidden;
 	display: none;
-	width: 0;
-	height: 0;
 }
 
 .main {

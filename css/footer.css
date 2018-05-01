@@ -14,18 +14,19 @@ footer p {
 	font-size: 1em;
 }
 
-.sponsors {
-    position: relative;
-    float: right;
-}
-
-.sponsors img {
+footer img {
 	height: 1.5em;
 	margin: 0.5em;
 }
 
-.sponsors a {
+footer a {
 	right: 0.5em;
+    float: right;
+}
+
+.sponsors {
+	position: relative;
+    float: right;
 }
 
 @media screen and (max-width: 720px) {
@@ -34,31 +35,15 @@ footer p {
 		min-height: 100%;	
 	}
 
-	footer p {
-		left: 34%;
-		margin: 0 auto;
-		text-align: center;
-	}
-
-	.sponsors {
+	.sponsors :not(.hidden) {
+		display: block;
 		width: 100%;
 		text-align: center;
 	}
 
 	.sponsors img {
-		float: none;
 		display: inline-block;
 		height: 1em;
 		margin: 0.5em;
-	}
-
-	.sponsors a {
-		display: block;	
-	}
-
-	.sponsors a img {
-		height: 1.5em;
-		margin: 0;
-		margin-bottom: 0.5em;
 	}
 }
