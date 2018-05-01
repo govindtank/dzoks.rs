@@ -4,8 +4,19 @@
 		$totalPrice = 0;
 		$totalQuantity = 0;
 		$totalSizes = [];
-
-		$cmd = "SELECT * FROM sales";
+	
+		$cmd = "SELECT sales.note, sales.gifted, sales.date_submitted,
+			products.id AS product_id,
+			products.price AS product_price,
+			sizes.name AS size_name,
+			admins.username AS admin_name
+			FROM sales
+			INNER JOIN products
+			ON products.id=sales.product
+			INNER JOIN sizes
+			ON sizes.id=sales.size
+			INNER JOIN admins
+			ON admins.id=sales.admin";
 		$result = mysqli_query($connect, $cmd);
 
 		while($row = mysqli_fetch_array($result)) {	
@@ -20,32 +31,21 @@
 			}else {
 				echo '<tr class="green">';
 			}
-			
-			$cmd = "SELECT price FROM products WHERE id=" . $row['product'];
-			$price = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
-			
-			$totalPrice += $price;
+		
+			$totalPrice += $row['product_price'];
 			$totalQuantity++;
 
-			if(array_key_exists($row['size'], $totalSizes)) {
-				$totalSizes[$row['size']]++;
+			if(array_key_exists($row['size_name'], $totalSizes)) {
+				$totalSizes[$row['size_name']]++;
 			}else {
-				$totalSizes[$row['size']] = 1;
+				$totalSizes[$row['size_name']] = 1;
 			}
 
-			echo '<td><a href="product?id=' . $row['product'] . '"><img class="thumbnail" src="' . get_thumbnail($row['product'], 0) . '"/></a></td>';
-			echo '<td>' . get_price($price) . '</td>';
+			echo '<td><a href="product?id=' . $row['product_id'] . '"><img class="thumbnail" src="' . get_thumbnail($row['product_id'], 0) . '"/></a></td>';
+			echo '<td>' . get_price($row['product_price']) . '</td>';
 			echo '<td>' . $row['note'] . '</td>';
-
-			$cmd = "SELECT name FROM sizes WHERE id=" . $row['size'];
-			$size = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
-
-			echo '<td>' . $size . '</td>';
-
-			$cmd = "SELECT username FROM admins WHERE id=" . $row['admin'];
-			$admin = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
-			
-			echo '<td>' . $admin . '</td>';
+			echo '<td>' . $row['size_name'] . '</td>';
+			echo '<td>' . $row['admin_name'] . '</td>';
 
 			echo '<td>' . $date . '</td>';
 			echo '</tr>';
@@ -65,16 +65,11 @@
 			echo '<tr class="bordered">';
 			echo '<td>' . $string["manage"]["totalQuantityBySize"] . '</td>';
 			echo '</tr>';
-		
-			$cmd = "SELECT * FROM sizes";
-			$result = mysqli_query($connect, $cmd);	
-		
-			while($row = mysqli_fetch_array($result)) {
-				$sizes[$row['id']] = $row['name'];
-			
+
+			foreach($totalSizes as $key => $value) {	
 				echo '<tr>';
-				echo '<td>' . $row['name'] .'</td>';
-				echo '<td>' . $totalSizes[$row['id']] . '</td>';
+				echo '<td>' . $key .'</td>';
+				echo '<td>' . $value . '</td>';
 				echo '</tr>';
 			}
         }

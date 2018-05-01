@@ -32,9 +32,14 @@
 
 	$hash = generate_random_string(32);
 	
-	$cmd = "INSERT INTO purchases (hash, name, email, phone, address, zip, city, country, method, ip, date_submitted) VALUES('$hash', '$name', '$email', '$phone', '$address', '$zip', '$city', '$country', '$payment_method', '$ip', now())";
+	$cmd = "INSERT INTO purchases
+	(hash, name, email, phone, address, zip, city, country, method, ip, date_submitted)
+	VALUES('$hash', '$name', '$email', '$phone', '$address', '$zip', '$city', '$country', '$payment_method', '$ip', now())";
 	mysqli_query($connect, $cmd);
 
+	$cmd = "SELECT id FROM purchases WHERE hash='$hash'";
+	$order_id = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
+	
 	$confirm = get_mail($confirmation_path);
 
 	$confirm = str_replace("{{name}}", $name, $confirm);
@@ -44,9 +49,6 @@
 	$confirm = str_replace("{{country}}", get_country($country), $confirm);
 	$confirm = str_replace("{{phone}}", $phone, $confirm);
 	$confirm = str_replace("{{email}}", $email, $confirm);
-
-	$cmd = "SELECT id FROM purchases WHERE hash='$hash'";
-	$order_id = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
 
 	$cmd = "UPDATE cart SET purchase='$order_id', checked=1 WHERE user='$id' AND checked=0";
 	mysqli_query($connect, $cmd);
@@ -60,17 +62,19 @@
 	while($row = mysqli_fetch_array($result)) {
 		$i++;
 
-		$cmd = "SELECT quantity FROM warehouse WHERE product=" . $row['product'] . " AND size=" . $row['size'];
+		$cmd = "SELECT warehouse.quantity, sizes.name
+		FROM warehouse
+		INNER JOIN sizes
+		ON sizes.id=warehouse.size
+		WHERE product=" . $row['product'] . " AND size=" . $row['size'];
 		$qty = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
+		$product_size = mysqli_fetch_array(mysqli_query($connect, $cmd))[1];
 
 		if($row['quantity'] > $qty) {
 			error($string['status']['bigQuantity']);
 			header("location: ../pages/cart");
 			exit;
 		}
-
-		$cmd = "SELECT name FROM sizes WHERE id=" . $row['size'];
-		$product_size = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
 
 		$cmd = "SELECT id, name, price FROM products WHERE id=" . $row['product'];
 		$product = mysqli_fetch_array(mysqli_query($connect, $cmd));

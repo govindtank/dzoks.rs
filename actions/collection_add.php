@@ -13,7 +13,6 @@
 	$name = strip($_POST['name']);
 
 	$cmd = "INSERT INTO collections (`name`) VALUES('$name')";
-	
 	mysqli_query($connect, $cmd);
 
 	success($string['status']['collectionAdded']);

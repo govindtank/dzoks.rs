@@ -1,15 +1,15 @@
 <h1><?php echo $string["manage"]["warehouse"]; ?></h1>
 <table>	
 	<?php
+		echo '<td class="no-border"></td>';
+		echo '<td class="no-border"></td>';
+		echo '<td class="no-border"></td>';
+		
 		$cmd = "SELECT * FROM sizes";
 		$result = mysqli_query($connect, $cmd);	
 		
 		$sizes = [];
 
-		echo '<td class="no-border"></td>';
-		echo '<td class="no-border"></td>';
-		echo '<td class="no-border"></td>';
-		
 		while($row = mysqli_fetch_array($result)) {
 			$sizes[$row['id']] = $row['name'];
 			

@@ -14,7 +14,6 @@
 	$name = strip($_POST['name']);
 
 	$cmd = "UPDATE collections SET name='" . $name . "' WHERE id=" . $id;
-	
 	mysqli_query($connect, $cmd);
 
 	success($string['status']['collectionUpdated']);

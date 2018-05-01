@@ -1,7 +1,13 @@
 <h1><?php echo $string["manage"]["comments"]; ?></h1>
 <table>	
 	<?php
-		$cmd = "SELECT * FROM comments";
+		$cmd = "SELECT
+			review.id, review.name, review.comment, review.accepted, review.product, review.ip,
+			reply.comment AS reply
+			FROM comments review
+			LEFT JOIN comments reply
+			ON reply.reply_to=review.id
+			WHERE review.reply_to IS NULL";
 		$result = mysqli_query($connect, $cmd);
 
 		while($row = mysqli_fetch_array($result)) {	
@@ -21,10 +27,7 @@
 			echo '<td><form action="../actions/comment_reply" method="GET">';
 			echo '<input name="id" type="hidden" value="' . $row['id'] . '"/>';
 				
-			$cmd = "SELECT comment FROM comments WHERE reply_to=" . $row['id'];
-			$reply = mysqli_fetch_array(mysqli_query($connect, $cmd))[0];
-			
-			echo '<input name="reply" type="text" value="' . $reply . '" placeholder="' . $string['manage']['reply'] . '" required />';
+			echo '<input name="reply" type="text" value="' . $row['reply'] . '" placeholder="' . $string['manage']['reply'] . '" required />';
 			echo '<input type="submit" class="button green" value="' . $string['manage']['add'] . '" />';
 			echo '</form></td>';
 			
