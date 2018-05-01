@@ -14,14 +14,22 @@
             require("../ui/meta.php");
             require("../ui/link.php");
         
-			$cmd = "SELECT * FROM products WHERE id='$product'";
+			$cmd = "SELECT
+				products.id AS product_id,
+				products.name AS product_name,
+				products.price AS product_price,
+				collections.name AS collection_name
+				FROM products
+				INNER JOIN collections
+				ON products.collection=collections.id
+				WHERE products.id='$product'";
 			$result = mysqli_query($connect, $cmd);
 			$row = mysqli_fetch_array($result);
 
-			if(mysqli_num_rows($result)) {
-				echo '<title>' . $row['name'] . '</title>';
-			}else {
+			if(is_null($row)) {
 				require("../ui/title.php");
+			}else {
+				echo '<title>' . $row["product_name"] . '</title>';
 			}
         ?>
 		<link rel="stylesheet" href="../css/product.css">
@@ -31,7 +39,7 @@
         
         <div class="main padded">
             <?php 
-				if(mysqli_num_rows($result) == 1){	
+				if(!is_null($row)) {
 					echo '<div class="sp-wrap">';
 
 					foreach(get_all_product_images($product) as $image) {
@@ -41,15 +49,9 @@
 					echo '</div>';
 
                     echo '<div class="options">';
-					echo '<h2>' . $row['name'] . '</h1>';
+					echo '<h2>' . $row["product_name"] . '</h1>';
 
-					$cmd = "SELECT name FROM collections WHERE id=" . $row['collection'];
-					$result = mysqli_query($connect, $cmd);
-					$collection = mysqli_fetch_array($result)[0];
-					
-					if(!is_null($collection) && !empty($collection)) {
-						echo '<p><i>' . $collection . '</i></p>';
-					}
+					echo '<p><i>' . $row["collection_name"] . '</i></p>';
                 	
 					$desc = get_description($product, NULL);
 
@@ -59,7 +61,7 @@
 
 					echo '<form class="bordered" action="../actions/cart_add" method="GET">';
                     
-					echo '<h2> ' . get_price($row['price']) . '</h2>';
+					echo '<h2> ' . get_price($row["product_price"]) . '</h2>';
 
 					echo '<div class="input-wrapper">';
 					echo '<div class="input-group">';
@@ -114,8 +116,14 @@
 
 					echo '<div class="comments">';
 					
-					$cmd = "SELECT * FROM comments WHERE product=" . $product . " AND accepted=1";
-					$result = mysqli_query($connect, $cmd);
+					$cmd = "SELECT
+						review.name, review.comment,
+						reply.comment AS reply
+						FROM comments review
+						LEFT JOIN comments reply
+						ON reply.reply_to=review.id
+						WHERE review.product=" . $product . " AND review.accepted=1";
+						$result = mysqli_query($connect, $cmd);
 
 					if(mysqli_num_rows($result) == 0) {
 						echo '<div class="comment">';
@@ -124,22 +132,15 @@
 						echo '</div>';
 					}else {
 						while($row = mysqli_fetch_array($result)) {
-							if($row['accepted'] == 0) {
-								continue;	
-							}
-
 							echo '<div class="comment">';
 							echo '<p><b>' . $row["name"] . '</b></p>';
 							echo '<p>' . $row["comment"] . '</p>';
 							echo '</div>';
 
-							$cmd = "SELECT comment FROM comments WHERE reply_to=" . $row['id'];
-							$reply = mysqli_query($connect, $cmd);
-			
-							if(mysqli_num_rows($reply) > 0) {
+							if(!is_null($row['reply'])) {
 								echo '<div class="comment comment-reply">';
 								echo '<p><b>' . $string['product']['reply'] . '</b></p>';
-								echo '<p>' . mysqli_fetch_array($reply)[0] . '</p>';
+								echo '<p>' . $row['reply'] . '</p>';
 								echo '</div>';
 							}
 						}

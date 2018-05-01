@@ -61,11 +61,11 @@
 	$cmd = "SELECT * FROM notifications";
 	$result = mysqli_query($connect, $cmd);
 
-	while($row = mysqli_fetch_array($result)) {
-		if(!isset($_SESSION[$row['key']])) {
-			echo '<div class="status status-alert">';
-			echo '<p>' . $row['message'] . '</p>';
-			echo '<a class="button center notifyButton" myKey="' . $row['key'] . '" myValue="1">' . $string['header']['ok'] . '</a>';
+	while($notify = mysqli_fetch_array($result)) {
+		if(!isset($_SESSION[$notify['key']])) {
+			echo '<div class="status status-notify">';
+			echo '<p>' . $notify['message'] . '</p>';
+			echo '<a class="button center notifyButton" myKey="' . $notify['key'] . '" myValue="1">' . $string['header']['ok'] . '</a>';
 			echo '</div>';
 		}
 	}

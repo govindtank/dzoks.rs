@@ -10,38 +10,34 @@
         <div class="main">       
             <table>
             <?php 
-				$sizes = [];
-
-				$cmd = "SELECT * FROM sizes";
-				$result = mysqli_query($connect, $cmd);
-
-				while($row = mysqli_fetch_array($result)) {
-					$sizes[$row['id']] = $row['name'];
-				}
-
                 $total = 0;
 				
-				$cmd = "SELECT * FROM cart WHERE user='$id' && checked=0";
+				$cmd = "SELECT
+					cart.id AS cart_id,
+					cart.quantity AS cart_quantity,
+					sizes.name AS size_name,
+					products.id AS product_id,
+					products.name AS product_name,
+					products.price AS product_price
+					FROM cart
+					INNER JOIN sizes
+					ON cart.size=sizes.id
+					INNER JOIN products
+					ON cart.product=products.id
+					WHERE cart.user='$id' && cart.checked=0";
 				$result = mysqli_query($connect, $cmd);
-				
+
 				while($row = mysqli_fetch_array($result)) {
-					$id = $row['product'];
-
-					$cmd = "SELECT name, price FROM products WHERE id=" . $id;
-					$product = mysqli_fetch_array(mysqli_query($connect, $cmd));
-					$name = $product['name'];
-					$price = $product['price'];
-
             	    echo '<tr>';
-					echo '<td><a href="product?id=' . $id . '"><img class="thumbnail" src="' . get_thumbnail($id, 0) . '"/></a></td>';
-                  	echo '<td><a href="product?id=' . $id . '">' . $name . '</a></td>';
+					echo '<td><a href="product?id=' . $row["product_id"] . '"><img class="thumbnail" src="' . get_thumbnail($row["product_id"], 0) . '"/></a></td>';
+                  	echo '<td><a href="product?id=' . $row["product_id"] . '">' . $row["product_name"] . '</a></td>';
 
-                	$total += $row['quantity'] * $price;
+                	$total += $row['cart_quantity'] * $row["product_price"];
                 
-					$url = '../actions/cart_remove?id=' . $row['id']; 
+					$url = '../actions/cart_remove?id=' . $row['cart_id']; 
 
-                    echo '<td>' . $string["product"]["sizes"][$sizes[$row["size"]]] . '</td>';
-					echo '<td>' . get_price($price) . ' x ' . $row['quantity'] . '</td>';
+                    echo '<td>' . $string["product"]["sizes"][$row["size_name"]] . '</td>';
+					echo '<td>' . get_price($row["product_price"]) . ' x ' . $row['cart_quantity'] . '</td>';
 					echo '<td><a class="button button-shrink" href="'. $url . '">X</a></td>';
 					echo '</tr>';
                 }

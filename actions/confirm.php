@@ -3,7 +3,7 @@
 
 	if(!isset($_GET['h'])) {
 		error($string['status']['orderNotPlaced']);
-		header("location: ../pages/home.php");
+		header("location: ../pages/home");
 		exit;	
 	}
 
@@ -22,7 +22,7 @@
 
 		if($row['quantity'] > $qty) {
 			error($string['status']['bigQuantity']);
-			header("location: ../pages/cart.php");
+			header("location: ../pages/cart");
 			exit;
 		}
 
@@ -39,5 +39,5 @@
 	mysqli_query($connect, $cmd);
 
 	order($string['status']['orderPlaced']);
-	header("location: ../pages/home.php");
+	header("location: ../pages/home");
 ?>

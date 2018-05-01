@@ -3,5 +3,5 @@
 
 	$_SESSION["lang"] = strip($_GET["lang"]);
    	
-	header("location: ../pages/" . strip($_GET["page"]) . ".php");
+	header("location: ../pages/" . strip($_GET["page"]));
 ?>

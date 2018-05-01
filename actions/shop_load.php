@@ -22,7 +22,7 @@
 
 		$cmd = "SELECT warehouse.quantity, sizes.name FROM warehouse, sizes WHERE product=" . $row['id'];
 
-		$wh_result = mysqli_query($connect, $cmd) or die(mysqli_error($connect));
+		$wh_result = mysqli_query($connect, $cmd);
 			
 		while($wh = mysqli_fetch_array($wh_result)) {
 			$qty_total += $wh['quantity'];

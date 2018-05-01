@@ -13,9 +13,6 @@
     	$inputs[] = $key;
 	}
 
-	$inputs[] = "validationCheck";
-	$inputs[] = "validationInput";
-
 	if(!params_ok($inputs, "POST")) {	
 		error($string['status']['requiredFields']);
 		header("location: ../pages/checkout");
@@ -30,14 +27,6 @@
     $city = strip($_POST['city']);
     $country = strip($_POST['country']);
     $payment_method = strip($_POST['payment']);
-	$validationCheck = strip($_POST['validationCheck']); 
-	$validationInput = strip($_POST['validationInput']); 
-	       
-	if($validationInput != $validationCheck) {
-		error($string['status']['validationNotCorrect']);
-		header("location: ../pages/checkout");
-		exit;
-	}
 
 	$message = get_mail($mail_path);
 

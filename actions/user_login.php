@@ -3,7 +3,7 @@
 
 	if(!params_ok(["username", "password"], "POST")) {	
 		error($string['status']['requiredFields']);
-		header("location: ../pages/login.php");
+		header("location: ../pages/login");
 		exit;	
 	}
 
@@ -18,15 +18,15 @@
 
 	while($row = mysqli_fetch_array($result)) {
 		$cmd = "INSERT INTO logins (user, timestamp) VALUES('" . $row['id'] . "', now())";
-		mysqli_query($connect, $cmd) or die(mysqli_error($connect));
+		mysqli_query($connect, $cmd);
 
     	$_SESSION['username'] = $row['username'];
         	
-		header("location: ../pages/manage.php");
+		header("location: ../pages/manage");
 		exit;
 	}
 
 	unset($_SESSION['username']);
 	error($string['status']['incorrectCredentials']);
-	header("location: ../pages/login.php");
+	header("location: ../pages/login");
 ?>

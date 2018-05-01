@@ -3,7 +3,7 @@
 
 	if(!params_ok(["name", "comment"], "POST")) {	
 		error($string['status']['productNotCommented']);
-		header("location: ../pages/shop.php");
+		header("location: ../pages/shop");
 		exit;	
 	}
 
@@ -16,7 +16,7 @@
 
 	if(mysqli_num_rows($result) > 0) {	
 		error($string['status']['alreadyCommented']);
-		header("location: ../pages/product.php?id=" . $product);
+		header("location: ../pages/product?id=" . $product);
 		exit;	
 	}
 
@@ -25,5 +25,5 @@
 	mysqli_query($connect, $cmd);
 
 	success($string['status']['productCommented']);
-	header("location: ../pages/product.php?id=" . $product);
+	header("location: ../pages/product?id=" . $product);
 ?>

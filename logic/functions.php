@@ -266,7 +266,7 @@
 
 		if($asked > $having) {
 			error($string['status']['bigQuantity']);	
-			header("location: ../pages/product.php?id=" . $id);
+			header("location: ../pages/product?id=" . $id);
 			exit;
 		}		
 	}

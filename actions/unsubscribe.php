@@ -3,7 +3,7 @@
 
 	if(!isset($_GET['h'])) {
 		error($string['status']['notUnsubscribed']);
-		header("location: ../pages/home.php");
+		header("location: ../pages/home");
 		exit;	
 	}
 
@@ -16,5 +16,5 @@
 	mysqli_query($connect, $cmd);
 
 	order($string['status']['unsubscribed']);
-	header("location: ../pages/home.php");
+	header("location: ../pages/home");
 ?>

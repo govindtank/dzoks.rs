@@ -44,6 +44,10 @@ header {
 	margin-bottom: 0.5em;	
 }
 
+.status-notify {
+	background: #3498db;
+}
+
 .status-alert {
 	background: var(--color-dark);
 }

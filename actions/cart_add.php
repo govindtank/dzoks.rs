@@ -4,10 +4,10 @@
 	if(!params_ok(["id", "size", "qty"], "GET")) {
 		if(isset($_GET['id'])) {
 			error($string['status']['requiredFields']);
-			header("location: ../pages/product.php?id=" . strip($_GET['id']));
+			header("location: ../pages/product?id=" . strip($_GET['id']));
 		}else {
 			error($string['status']['productNotAddedToCart']);
-			header("location: ../pages/shop.php");
+			header("location: ../pages/shop");
 		}
 
 		exit;
@@ -18,7 +18,7 @@
 
 	if($count >= $max_cart_count) {
 		error($string['status']['bigCount']);
-		header("location: ../pages/shop.php");
+		header("location: ../pages/shop");
 		exit;
 	}
     
@@ -43,8 +43,8 @@
 		$cmd = "INSERT INTO cart (product, size, quantity, user) VALUES('$product', '$size', '$qty', '$id')";
 	}
 
-	mysqli_query($connect, $cmd) or die(mysqli_error($connect));
+	mysqli_query($connect, $cmd);
 
 	success($string['status']['productAddedToCart']);
-	header("location: ../pages/product.php?id=" . $product);
+	header("location: ../pages/product?id=" . $product);
 ?>

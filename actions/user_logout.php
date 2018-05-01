@@ -4,5 +4,5 @@
 	unset($_SESSION['username']);
 	
 	success($string['status']['userLoggedOut']);
-	header("location: ../pages/login.php");
+	header("location: ../pages/login");
 ?>

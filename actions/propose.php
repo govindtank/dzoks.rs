@@ -1,7 +1,7 @@
 <?php
 	require("../logic/config.php");
 
-	if(!params_ok(["name", "email", "description", "validationCheck", "validationInput"], "POST")) {	
+	if(!params_ok(["name", "email", "description"], "POST")) {	
 		error($string['status']['designNotProposed']);
 		header("location: ../pages/propose");
 		exit;	
@@ -10,15 +10,7 @@
     $name = strip($_POST['name']);
     $email = strip($_POST['email']);
 	$description = strip($_POST['description']); 
-	$validationCheck = strip($_POST['validationCheck']); 
-	$validationInput = strip($_POST['validationInput']); 
 	       
-	if($validationInput != $validationCheck) {
-		error($string['status']['validationNotCorrect']);
-		header("location: ../pages/contact.php");
-		exit();
-	}
-
 	$cmd = "SELECT id FROM proposals WHERE email='$email'";
 	
 	if(mysqli_num_rows(mysqli_query($connect, $cmd)) > 0) {

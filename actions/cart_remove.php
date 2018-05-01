@@ -3,15 +3,15 @@
 
 	if(!params_ok(["id"], "GET")) {
 		error($string['status']['productNotRemovedFromCart']);
-		header("location: ../pages/cart.php");
+		header("location: ../pages/cart");
 		exit;
 	}
 
-	$id = strip($_GET['id']);
+	$product = strip($_GET['id']);
 
-	$cmd = "DELETE FROM cart WHERE id=$id";
+	$cmd = "DELETE FROM cart WHERE id=$product";
 	mysqli_query($connect, $cmd);
 
 	success($string['status']['productRemovedFromCart']);
-	header("location: ../pages/cart.php");
+	header("location: ../pages/cart");
 ?>

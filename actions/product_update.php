@@ -101,7 +101,7 @@
 	}
 	
 	$cmd = "DELETE FROM warehouse WHERE product=$id";
-	mysqli_query($connect, $cmd) or die(mysqli_error($connect));
+	mysqli_query($connect, $cmd);
 
 	
 	$cmd = "SELECT * FROM sizes";

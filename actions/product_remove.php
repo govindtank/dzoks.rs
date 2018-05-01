@@ -6,7 +6,7 @@
 
 	if(!params_ok(["id"], "GET")) {
 		error($string['status']['productNotRemoved']);
-		header("location: ../pages/manage.php?type=1");
+		header("location: ../pages/manage?type=1");
 		exit;
 	}
 

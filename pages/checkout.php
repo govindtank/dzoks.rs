@@ -37,11 +37,6 @@
 
 						echo '</select>';
 
-                        $a = rand(1, 8);
-                        $b = rand(1, 9 - $a);
-                        
-                        $sum = $a + $b;
-
 						echo '<p class="hidden">' . $string['checkout']['inputs']['payment'] . '</p>';
 	
 						echo '<div class="hidden input-wrapper">';
@@ -70,9 +65,6 @@
 						echo '</div>';
 						echo '</div>';
 					?>
-                    
-                    <input type="hidden" name="validationCheck" value="<?php echo $sum; ?>">
-                    <input name="validationInput" type="text" size="30" placeholder="<?php echo $string['status']['validation'] . $a . " + " . $b . "?" ; ?>" required/>
                     
                     <input class="button" type="submit" value="<?php echo $string['checkout']['submit']; ?>" />
                 </form>

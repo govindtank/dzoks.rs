@@ -50,7 +50,7 @@
 		mail($email, $subject, $message, $headers);
 	
 		$cmd = "UPDATE purchases SET shipping_company='$shipping_company', shipping_number='$shipping_number' WHERE id=" . $purchase;
-		mysqli_query($connect, $cmd) or die(mysqli_error($connect));
+		mysqli_query($connect, $cmd);
 
 		success($string['status']['orderShipped']);
 	}else {

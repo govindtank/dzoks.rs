@@ -5,5 +5,5 @@
 		$_SESSION[strip($key)] = strip($value);
 	}
 	
-	header("location: ../pages/" . $_POST['page'] . ".php");
+	header("location: ../pages/" . strip($_POST["page"]));
 ?>
