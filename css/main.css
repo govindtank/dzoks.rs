@@ -62,6 +62,12 @@ a {
     padding-bottom: 0.3em;
 }
 
+p, a, span, h1, h2 {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+
 a:hover {
 	opacity: 0.5;	
 }
