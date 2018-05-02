@@ -108,7 +108,8 @@
 
 	$confirm = str_replace("{{total}}", get_price($total), $confirm);
 	$confirm = str_replace("{{tax}}", get_price($tax), $confirm);
-	$confirm = str_replace("{{total_tax}}", get_price($total + $tax), $confirm);
+	$confirm = str_replace("{{shipping}}", get_price($shipping_cost), $confirm);
+	$confirm = str_replace("{{total_tax}}", get_price($total + $tax + $shipping_cost), $confirm);
 
 	$mail_title = $string['mail']['confirmation'];
 

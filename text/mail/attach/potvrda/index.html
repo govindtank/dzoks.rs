@@ -13,6 +13,8 @@ span.cls_008{font-family:"Century Schoolbook Bold",serif;font-size:9.9px;color:r
 div.cls_008{font-family:"Century Schoolbook Bold",serif;font-size:9.9px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
 span.cls_007{font-family:"Century Schoolbook Bold",serif;font-size:12.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
 div.cls_007{font-family:"Century Schoolbook Bold",serif;font-size:12.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_010{font-family:"Century Schoolbook Italic",serif;font-size:9.9px;color:rgb(0,0,0);font-weight:normal;font-style:italic;text-decoration: none}
+div.cls_010{font-family:"Century Schoolbook Italic",serif;font-size:9.9px;color:rgb(0,0,0);font-weight:normal;font-style:italic;text-decoration: none}
 span.cls_011{font-family:"Century",serif;font-size:8.0px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
 div.cls_011{font-family:"Century",serif;font-size:8.0px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
 </style>
@@ -21,8 +23,9 @@ div.cls_011{font-family:"Century",serif;font-size:8.0px;color:rgb(0,0,0);font-we
 <div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:595px;height:842px;border-style:outset;overflow:hidden">
 <div style="position:absolute;left:0px;top:0px">
 <img src="{{invoice_template}}" width=595 height=842></div>
-<div style="position:absolute;right:60px;top:79.20px" class="cls_003"><span class="cls_003">ПОТВРДА</span></div>
+<div style="position:absolute;right:60px;top:79.20px" class="cls_003"><span class="cls_003">РАЧУН</span></div>
 <div style="position:absolute;right:60px;top:129.36px" class="cls_005"><span class="cls_005">Датум: {{date}}</span></div>
+<div style="position:absolute;right:60px;top:141.36px" class="cls_005"><span class="cls_005">Број: {{invoice}}</span></div>
 <div style="position:absolute;left:60px;top:169.20px" class="cls_005"><span class="cls_005">{{store_name}}</span></div>
 <div style="position:absolute;right:60px;top:169.20px" class="cls_005"><span class="cls_005">{{name}}</span></div>
 <div style="position:absolute;left:60px;top:180.24px" class="cls_005"><span class="cls_005">МБ: {{store_number}}</span></div>
@@ -94,8 +97,12 @@ div.cls_011{font-family:"Century",serif;font-size:8.0px;color:rgb(0,0,0);font-we
 <div style="position:absolute;right:60px;top:488.64px" class="cls_005"><span class="cls_005">{{total}}</span></div>
 <div style="position:absolute;left:379.68px;top:508.08px" class="cls_002"><span class="cls_002">ПДВ</span></div>
 <div style="position:absolute;right:60px;top:507.84px" class="cls_005"><span class="cls_005">{{tax}}</span></div>
-<div style="position:absolute;left:379.68px;top:525.84px" class="cls_008"><span class="cls_008">Свеукупно</span></div>
-<div style="position:absolute;right:60px;top:527.28px" class="cls_005"><span class="cls_005">{{total_tax}}</span></div>
+<div style="position:absolute;left:379.68px;top:527.28px" class="cls_002"><span class="cls_002">Поштарина</span></div>
+<div style="position:absolute;right:60px;top:527.04px" class="cls_005"><span class="cls_005">{{shipping}}</span></div>
+<div style="position:absolute;left:379.68px;top:546.72px" class="cls_008"><span class="cls_008">Свеукупно</span></div>
+<div style="position:absolute;right:60px;top:546.48px" class="cls_005"><span class="cls_005">{{total_tax}}</span></div>
+<div style="position:absolute;left:60px;top:688.32px" class="cls_002"><span class="cls_002">___________________________</span></div>
+<div style="position:absolute;left:60px;top:705.60px" class="cls_010"><span class="cls_010">(печат и потпис продавца)</span></div>
 <div style="position:absolute;left:60px;top:773.52px" class="cls_011"><span class="cls_011">* Куповином наших производа сте се претплатили на наш мејл њјузлетер</span></div>
 </div>
 </body>

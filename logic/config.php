@@ -1,6 +1,8 @@
 <?php
     session_start();
 
+	// NOTE all prices should be defined in RSD
+
 	// TODO uncomment before release
 	//ini_set('display_errors', 'off');
 
@@ -31,8 +33,8 @@
 	$letter_path = "../text/mail/attach/pismo/index.html";
 
 	// TODO upload templates to dzoks server
-	$confirmation_template = "https://i.imgur.com/l5PX7ZL.png";
-	$invoice_template = "https://i.imgur.com/UGiC7DB.png";
+	$confirmation_template = "https://i.imgur.com/4Z9olM9.jpg";
+	$invoice_template = "https://i.imgur.com/b7NpfsR.jpg";
 	$letter_template = "https://i.imgur.com/R5CaONm.png";
 
 	$max_cart_items = 10;
@@ -40,6 +42,8 @@
 	$tax_rate = 0.2;
 
 	$date_format = "d. m. Y.";
+
+	$shipping_cost = 300;
 
 	$shop_restricted = false;
 

@@ -79,7 +79,8 @@
 
 	$invoice = str_replace("{{total}}", get_price($total), $invoice);
 	$invoice = str_replace("{{tax}}", get_price($tax), $invoice);
-	$invoice = str_replace("{{total_tax}}", get_price($total + $tax), $invoice);
+	$invoice = str_replace("{{shipping}}", get_price($shipping_cost), $invoice);
+	$invoice = str_replace("{{total_tax}}", get_price($total + $tax + $shipping_cost), $invoice);
 
 	header('Content-disposition: attachment; filename=invoice_' . $order_id . '.html');
 	header('Content-type: text/html');
