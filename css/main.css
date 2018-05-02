@@ -4,8 +4,13 @@
 }
 
 :root {
-  --color-dark: #000;
-  --color-light: #f5f6fa;
+  --color-dark: #000000;
+  --color-light: #ffffff;
+  --color-pink: #ee0979;
+  --color-purple: #3f5efb;
+  --color-red: #e74c3c;
+  --color-green: #27ae60;
+  --color-dimmed: rgba(0, 0, 0, 0.4);
 }
   
 *,
@@ -24,7 +29,9 @@ html {
 	max-height: 100% !important;
     padding: 0;
     margin: 0;
-	background-color: var(--color-dark); 
+	background: linear-gradient(var(--color-pink), var(--color-purple));
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 	color: var(--color-light);
 }
 

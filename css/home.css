@@ -16,7 +16,7 @@
 	position: relative;
 	padding: 5em;		
 	text-align: center;
-	background: linear-gradient(to right, #EE0979, #3F5EFB);
+	background: linear-gradient(to right, var(--color-pink), var(--color-purple));
 }
 
 .bgimg-1 {
@@ -83,9 +83,6 @@
     font-family: Impact;
 	font-size: 4em;
 	padding: 0.35em;
-  	background: -webkit-linear-gradient(left, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af);
- 	background: -o-linear-gradient(left, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af);
-  	background: -moz-linear-gradient(left, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af);
   	background: linear-gradient(to right, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af); 
 }
 

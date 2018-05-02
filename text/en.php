@@ -193,7 +193,7 @@
 			, "notAuthorized" => "Not authorized"
 			, "zipError" => "Cannot create ZIP archive"
 			, "shopRestricted" => "Shopping feature is currently restricted"
-			, "wait" => "Bro please wait..."
+			, "wait" => "Wait bro :)"
 		]
 		, "error" => [
 			  "header" => "Psst! Existence of this page has been kept as a secret for centuries."

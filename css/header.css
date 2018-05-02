@@ -18,7 +18,7 @@ header {
 }
 
 .scrolling {
-	background-color: rgba(0, 0, 0, 0.63);
+	background: var(--color-dimmed);
 }
 
 .status {
@@ -30,26 +30,22 @@ header {
 }
 
 .status-error {
-	background: #e74c3c;
+	background: var(--color-red);
 }
 
 .status-success,
 .status-order {
-	background: #27ae60;
+	background: var(--color-green);
 }
 
+.status-notify,
+.status-alert {
+	background: var(--color-dark);
+}
 .status-order img {
 	width: 200px;
 	height: 200px;
 	margin-bottom: 0.5em;	
-}
-
-.status-notify {
-	background: #3498db;
-}
-
-.status-alert {
-	background: var(--color-dark);
 }
 
 .status p {

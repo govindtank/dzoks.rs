@@ -38,20 +38,18 @@
 	pointer-events: none;
 }
 
+.item-marker p {
+	background: var(--color-light);
+	color: var(--color-dark);
+}
+
 .item-marker .info {
 	position: absolute;
 	width: 100%;
 	margin: 0;
 	bottom: 0;
-	background: rgba(0, 0, 0, 0.5);
-}
-
-.item-marker .new {
-	background: #27ae60;
-}
-
-.item-marker .soldout {
-	background: #e74c3c;
+	background: var(--color-dimmed);
+	color: var(--color-light);
 }
 
 .item-overlay:hover,
