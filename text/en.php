@@ -128,6 +128,8 @@
 			, "letters" => "Generate letters"
 			, "invoice" => "Generate invoice"
             , "minDate" => "Starting date - dd.mm.yyyy"
+            , "valid" => "Mark valid"
+            , "invalid" => "Mark invalid"
         ]
 		, "status" => [
 			  "productNotAddedToCart" => "Product has not been added to cart"
@@ -184,6 +186,8 @@
 			, "orderNotMarked" => "Order not marked"
 			, "orderShipped" => "Order marked as shipped"
 			, "orderReturned" => "Order marked as returned"
+			, "orderInvalid" => "Order marked as invalid"
+			, "orderValid" => "Order marked as valid"
 			, "commentNotMarked" => "Comment not marked"
 			, "commentAccepted" => "Comment accepted"
 			, "commentDeclined" => "Comment declined"
@@ -202,6 +206,7 @@
 		, "mail" => [
 			  "confirmation" => "Confirmation"
 			, "shipped" => "Shipped"
+			, "invalid" => "Order invalid"
 			, "contact" => "Contact"
 			, "newsletter" => "Newsletter"
 		]

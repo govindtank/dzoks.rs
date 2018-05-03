@@ -52,6 +52,12 @@
 				
 				echo '<td><a class="button center" href="../actions/order_invoice?id=' . $order_id . '">' . $string['manage']['invoice'] . '</a></td>';
 				
+				if($row['valid'] == 1) {
+					echo '<td><a class="button center" href="../actions/order_invalid?valid=0&id=' . $row['id'] .'">' . $string['manage']['invalid'] . '</a></td>';
+				}else {
+					echo '<td><a class="button center" href="../actions/order_invalid?valid=1&id=' . $row['id'] .'">' . $string['manage']['valid'] . '</a></td>';
+				}
+				
 				echo '</tr>';
 			}
 		}
