@@ -31,6 +31,7 @@
 			<div class="bgimg bgimg-close">
   				<div class="note">
 					<span><?php echo $string['home']['caption-close']; ?></span>
+					<br/>
 					<a class="button" href="../pages/shop"><?php echo $string['home']['shop']; ?></a>
   				</div>
   				<div class="centered scroll-up">

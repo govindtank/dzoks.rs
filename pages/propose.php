@@ -13,7 +13,7 @@
 				</div>
                 <form class="separated" action="../actions/propose" method="POST" enctype="multipart/form-data">  
                     <input name="name" type="text" size="30" placeholder="<?php echo $string['propose']['name']; ?>" autofocus required/>
-                    <input name="email" type="text" size="30" placeholder="<?php echo $string['propose']['email']; ?>" required/>
+                    <input name="email" type="email" size="30" placeholder="<?php echo $string['propose']['email']; ?>" required/>
                     <textarea name="description" rows="10" cols="30" placeholder="<?php echo $string['propose']['description']; ?>" required></textarea>
 					<input name="photo" id="photo" type="file" required/>
 					<input class="button" type="submit" value="<?php echo $string['propose']['send']; ?>" />

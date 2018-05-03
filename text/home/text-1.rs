@@ -1,1 +1,1 @@
-Baki, gledaj ovako. Znaci ovo ti je kompanija koja prodaje obicne carape za nenormalno veliku cenu, ali bar to radi s ljubavlju. Phasellus blandit risus vitae dui gravida euismod.
+Баки мој, вероватно мислиш да се Бог седмог дана одмарао? Управо ту грешиш. Стварао је ову првокласну тканину кој ће начинити да се табан баца врло лагано.
