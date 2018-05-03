@@ -8,7 +8,11 @@
             <ul>
                 <?php
                     $items = ["home", "gallery", "shop", "cart", "info", "contact"];
-                    
+      
+					if($gallery_restricted) {
+						unset($items[1]);
+					}
+
                     foreach($items as $item) {
                         echo '<li><a href="../pages/' . $item .'" class="';
 						echo 'shake shake-basic shake-hover';
@@ -30,7 +34,7 @@
                         ?>
                     </li>
                     <li>
-                        <a href="https://www.instagram.com/<?php echo $store_instagram; ?>/">
+                        <a href="https://www.instagram.com/<?php echo $store_instagram_username; ?>/">
                             <img class="header-icon" src="../img/instagram.png">
                         </a>
                     </li>

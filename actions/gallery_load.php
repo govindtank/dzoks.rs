@@ -1,6 +1,5 @@
 <?php
 	require('../logic/config.php');
-	require('../logic/instagram.php');
 
 	if(!isset($_GET['o']) || !isset($_GET['l'])) {
 		exit;
@@ -9,16 +8,27 @@
 	$offset = strip($_GET['o']);
 	$limit = strip($_GET['l']);
 
-	$images = instagram_images();
+	$out = [];
+	$data = "";
+	$max_id = $offset;
+	
+	$images = get_instagram_images($limit);
 
-	foreach($images as $key => $value) {
-		echo '<div class="item" data-sr>';
-		echo '<a href="' . $key . '">';
-		echo '<img class="item-image" src="' . $value . '" />';
-		echo '<div class="item-overlay">';
-		echo '<div class="tint hover"></div>';
-		echo '</div>';
-		echo '</a>';
-		echo '</div>';
+	foreach($images as $id => $urls) {
+		$data .= '<div class="item" data-sr>';
+		$data .= '<a href="' . $urls[0] . '">';
+		$data .= '<img class="item-image" src="' . $urls[1] . '" />';
+		$data .= '<div class="item-overlay">';
+		$data .= '<div class="tint hover"></div>';
+		$data .= '</div>';
+		$data .= '</a>';
+		$data .= '</div>';	
+
+		$max_id = $id;
 	}
+
+	$out['images'] = $data;
+	$out['offset'] = $max_id;
+
+	echo json_encode($out);
 ?>

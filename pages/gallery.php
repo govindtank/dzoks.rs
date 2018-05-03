@@ -1,6 +1,10 @@
 <?php
 	require("../logic/config.php");
-	require("../logic/instagram.php");
+
+	if($gallery_restricted) {
+		header("location: ../pages/home");
+		exit;
+	}
 ?>
 <html>
     <head>

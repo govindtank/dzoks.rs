@@ -14,6 +14,26 @@
 
 		return $code;
 	}
+	
+	function get_instagram_images($limit) {
+		require("../vendor/autoload.php");
+
+		global $store_instagram_username,
+			$store_instagram_password;
+		$images = [];
+		
+		// TODO cache images
+		$instagram = \InstagramScraper\Instagram::withCredentials($store_instagram_username, $store_instagram_password);
+		$instagram->login();
+		// TODO get media by username not tag
+		$medias = $instagram->getMediasByTag('yolo', intval($limit));
+
+		foreach($medias as $media) {
+			$images[$media->getId()] = [$media->getLink(), $media->getImageThumbnailUrl()];
+		}
+
+		return $images; 
+	} 
 
 	function get_mail($path) {
 		global $lang,
@@ -25,8 +45,6 @@
 			$store_vat,
 			$store_email,
 			$store_phone,
-			$store_instagram,
-			$unsubscribe_url,
 			$mail_img,
 			$letter_signature,
 			$confirmation_template,

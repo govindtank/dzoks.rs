@@ -19,7 +19,8 @@
 	$store_vat = "000000000";
 	$store_email = "office@dzoks.rs";
 	$store_phone = "+381613129241";
-	$store_instagram = "dzoks_official";
+	$store_instagram_username = "jackyjohnny70";
+	$store_instagram_password = "jackyjohnny69";
 	$confirmation_url = $store_url . "/actions/confirm?h=";
 	$unsubscribe_url = $store_url . "/actions/unsubscribe?h=";
 	// TODO upload mail img to dzoks server
@@ -46,6 +47,7 @@
 	$shipping_cost = 300;
 
 	$shop_restricted = false;
+	$gallery_restricted = false;
 
 	require("../logic/connect.php");
     require("../logic/get_lang.php");
