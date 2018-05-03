@@ -18,15 +18,12 @@
 	function get_instagram_images($limit) {
 		require("../vendor/autoload.php");
 
-		global $store_instagram_username,
-			$store_instagram_password;
+		global $store_instagram_username;
+
 		$images = [];
 		
-		// TODO cache images
-		$instagram = \InstagramScraper\Instagram::withCredentials($store_instagram_username, $store_instagram_password);
-		$instagram->login();
-		// TODO get media by username not tag
-		$medias = $instagram->getMediasByTag('yolo', intval($limit));
+		$instagram = new \InstagramScraper\Instagram();
+		$medias = $instagram->getMedias($store_instagram_username, intval($limit));
 
 		foreach($medias as $media) {
 			$images[$media->getId()] = [$media->getLink(), $media->getImageThumbnailUrl()];
