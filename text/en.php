@@ -99,7 +99,7 @@
             , "filter" => "Filter"
             , "back" => "Back"
             , "name" => "Name"
-            , "message" => "Message"
+            , "message" => "Message (multiple languages)"
             , "reply" => "Reply"
             , "ship" => "Ship"
             , "unship" => "Return"
