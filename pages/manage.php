@@ -15,7 +15,7 @@
 				if(isset($_GET['type'])) {
 					$type = strip($_GET['type']);
 
-					$levels = [2, 2, 1, 2, 2, 3, 2, 1, 2];
+					$levels = [2, 2, 1, 2, 2, 3, 2, 1, 2, 2];
 
 					if($type >= 0 && $type < count($levels)) {
 						if(is_authorized($levels[$type], $connect, $string)) {
@@ -47,6 +47,9 @@
 								case 8:
 									require("../ui/manage_sales.php");
 									break;
+								case 9:
+									require("../ui/manage_notifications.php");
+									break;
 							}
 						}else {
 							echo '<h1>' . $string["status"]["notAuthorized"] . '</h1>';
@@ -61,7 +64,7 @@
 					echo '<h1>' . $string["manage"]["header"] . '</h1>';
 					
 					echo '<form action="../logic/set_config.php" method="POST">';
-					echo '<input name="page" type="hidden" value="' . $page . '"/>';
+					echo '<input name="page" type="hidden" value="' . $page . '" autofocus/>';
 					echo '<input name="min_date" type="text" value="' . date("Y-m-d H:m:s") . '" placeholder="' . $string['manage']['minDate']. '" required />';
 					echo '<input type="submit" class="button" value="' . $string['manage']['filter'] . '" />';
 					echo '</form>';
@@ -75,6 +78,7 @@
 					echo '<a class="button center" href="manage?type=6">' . $string["manage"]["proposals"] . '</a>';
 					echo '<a class="button center" href="manage?type=7">' . $string["manage"]["warehouse"] . '</a>';
 					echo '<a class="button center" href="manage?type=8">' . $string["manage"]["sales"] . '</a>';
+					echo '<a class="button center" href="manage?type=9">' . $string["manage"]["notifications"] . '</a>';
 					echo '<a class="button center" href="../actions/user_logout">' . $string["manage"]["logout"] . '</a>';
 					echo '</div>';
 				}

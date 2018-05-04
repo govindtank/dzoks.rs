@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: May 03, 2018 at 02:29 PM
+-- Generation Time: May 05, 2018 at 12:44 AM
 -- Server version: 5.5.42-log
 -- PHP Version: 7.0.0
 
@@ -51,7 +51,7 @@ CREATE TABLE `cart` (
   `quantity` int(11) NOT NULL,
   `purchase` int(11) DEFAULT NULL,
   `checked` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `cart`
@@ -100,7 +100,9 @@ INSERT INTO `cart` (`id`, `user`, `product`, `size`, `quantity`, `purchase`, `ch
 (51, 'mnnGsmOC2dfHF18', 1, 1, 1, NULL, 0),
 (52, 'sBBpAf0X9xjbZNH', 54, 2, 1, NULL, 0),
 (53, 'u4xeCyv4EVBfr74', 54, 1, 1, NULL, 0),
-(54, '5iyK91dJH2WjeWS', 54, 2, 1, NULL, 0);
+(54, '5iyK91dJH2WjeWS', 54, 2, 1, NULL, 0),
+(55, 'siwuNWY3i9QQpUe', 37, 2, 1, NULL, 0),
+(56, 'kwQMO9nAxmMq8nm', 45, 2, 1, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -135,7 +137,7 @@ CREATE TABLE `comments` (
   `ip` varchar(20) COLLATE utf8_bin NOT NULL,
   `accepted` tinyint(1) NOT NULL DEFAULT '0',
   `reply_to` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `comments`
@@ -156,7 +158,8 @@ INSERT INTO `comments` (`id`, `name`, `comment`, `product`, `ip`, `accepted`, `r
 (21, 'q', 'reply 5', NULL, '::1', 0, 20),
 (22, 'q', 'reply 6', NULL, '::1', 0, 16),
 (23, 'Yooo', 'hello hello', 54, '::1', 1, NULL),
-(24, 'q', 'good day', NULL, '::1', 0, 23);
+(24, 'q', 'good day', NULL, '::1', 0, 23),
+(25, 'q', 'desi brate', NULL, '::1', 0, 10);
 
 -- --------------------------------------------------------
 
@@ -168,7 +171,7 @@ CREATE TABLE `logins` (
   `id` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `logins`
@@ -203,7 +206,25 @@ INSERT INTO `logins` (`id`, `user`, `timestamp`) VALUES
 (26, 4, '2018-05-01 19:46:33'),
 (27, 4, '2018-05-02 22:24:02'),
 (28, 4, '2018-05-02 22:24:12'),
-(29, 4, '2018-05-03 12:03:37');
+(29, 4, '2018-05-03 12:03:37'),
+(30, 4, '2018-05-03 21:31:45'),
+(31, 4, '2018-05-04 01:35:04'),
+(32, 4, '2018-05-04 01:41:58'),
+(33, 4, '2018-05-04 01:42:15'),
+(34, 4, '2018-05-04 01:42:32'),
+(35, 4, '2018-05-04 01:43:24'),
+(36, 4, '2018-05-04 01:44:08'),
+(37, 4, '2018-05-04 01:45:24'),
+(38, 4, '2018-05-04 01:46:42'),
+(39, 4, '2018-05-04 02:24:58'),
+(40, 4, '2018-05-04 02:25:29'),
+(41, 4, '2018-05-04 02:32:43'),
+(42, 4, '2018-05-04 09:06:08'),
+(43, 4, '2018-05-04 09:06:24'),
+(44, 4, '2018-05-04 17:34:48'),
+(45, 4, '2018-05-04 17:38:05'),
+(46, 4, '2018-05-04 17:39:39'),
+(47, 4, '2018-05-04 22:26:10');
 
 -- --------------------------------------------------------
 
@@ -232,16 +253,16 @@ INSERT INTO `methods` (`id`, `name`) VALUES
 
 CREATE TABLE `notifications` (
   `id` int(11) NOT NULL,
-  `key` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
   `message` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `notifications`
 --
 
-INSERT INTO `notifications` (`id`, `key`, `message`) VALUES
-(1, 'shop_restricted', 'Show has been restricted');
+INSERT INTO `notifications` (`id`, `name`, `message`) VALUES
+(1, 'shop_restricted', 'Shop has been restricted for couple of hours');
 
 -- --------------------------------------------------------
 
@@ -340,7 +361,7 @@ CREATE TABLE `purchases` (
 --
 
 INSERT INTO `purchases` (`id`, `hash`, `name`, `email`, `phone`, `address`, `zip`, `city`, `country`, `method`, `ip`, `shipping_company`, `shipping_number`, `date_submitted`, `confirmed`, `shipped`, `valid`, `subscribed`) VALUES
-(11, 'cm5WdRbVuEtTq2kWDVRNTEPOXHCiGpVS', 'laa ertyui', 'jelic.ecloga@gmail.com', '123', 'adresa', '37000', 'ks', 'sr', 1, '', '', '', '2018-04-29 00:47:53', 1, 0, 0, 1),
+(11, 'cm5WdRbVuEtTq2kWDVRNTEPOXHCiGpVS', 'laa ertyui', 'jelic.ecloga@gmail.com', '123', 'adresa', '37000', 'ks', 'sr', 1, '', '', '', '2018-05-04 02:12:30', 1, 0, 1, 1),
 (12, 'TXqpJpBL0KwYtq3o0A5TmuqJb0CkOoPH', 'Lazar Jelic', 'jelic.ecloga@gmail.com', '0614437010', 'Adresa', '37000', 'Krusevac', 'Srbij', 1, '', 'PostExpress', 'RS6182398123PE', '2018-04-29 23:53:35', 1, 0, 0, 1),
 (13, '65FIQFtnDWOHlOiqIEV9o690rXpgFLwM', 'askdjkah aksjdajksdn', 'akjsdn@ansjkf.com', '82123123', 'ashd', '23232', 'asdjnn', 'AR', 1, '', '', '', '2018-04-28 12:47:46', 0, 0, 0, 0),
 (14, 'yZbEKNFZtYiVEkIiETl8NUk2Y04R26zA', 'kbh hb', 'asdasd@asf.com', 'jh', '1231', '22222', 'asd', 'AG', 1, '', '', '', '2018-04-28 12:47:46', 0, 0, 0, 1),
@@ -481,7 +502,7 @@ CREATE TABLE `sales` (
   `gifted` tinyint(1) NOT NULL DEFAULT '0',
   `admin` int(11) NOT NULL,
   `date_submitted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `sales`
@@ -494,7 +515,11 @@ INSERT INTO `sales` (`id`, `product`, `size`, `note`, `gifted`, `admin`, `date_s
 (4, 1, 1, '', 0, 4, '2018-04-08 23:19:33'),
 (5, 53, 2, '', 0, 4, '2018-04-08 23:20:01'),
 (6, 1, 1, 'asddd', 1, 4, '2018-04-08 23:20:15'),
-(7, 1, 1, '', 0, 4, '2018-05-01 14:35:12');
+(7, 1, 1, '', 0, 4, '2018-05-01 14:35:12'),
+(8, 1, 1, '', 0, 4, '2018-05-04 02:00:29'),
+(9, 53, 2, '', 0, 4, '2018-05-04 02:00:32'),
+(10, 53, 1, '', 0, 4, '2018-05-04 02:00:34'),
+(11, 53, 1, 'sdasd', 0, 4, '2018-05-04 02:00:44');
 
 -- --------------------------------------------------------
 
@@ -535,18 +560,18 @@ CREATE TABLE `warehouse` (
 INSERT INTO `warehouse` (`id`, `product`, `size`, `quantity`) VALUES
 (1, 37, 1, 1),
 (2, 37, 2, 985),
-(3, 38, 1, 100),
+(3, 38, 1, 88),
 (4, 38, 2, 150),
 (7, 49, 1, 123),
 (8, 49, 2, 1234),
 (9, 52, 1, 123),
 (10, 52, 2, 123),
-(11, 53, 1, 100),
-(12, 53, 2, 49),
-(13, 53, 1, 100),
-(14, 53, 2, 49),
-(15, 53, 1, 100),
-(16, 53, 2, 49),
+(11, 53, 1, 98),
+(12, 53, 2, 48),
+(13, 53, 1, 98),
+(14, 53, 2, 48),
+(15, 53, 1, 98),
+(16, 53, 2, 48),
 (17, 54, 1, 11),
 (18, 54, 2, 13),
 (19, 54, 1, 11),
@@ -557,11 +582,11 @@ INSERT INTO `warehouse` (`id`, `product`, `size`, `quantity`) VALUES
 (24, 54, 2, 13),
 (25, 54, 1, 11),
 (26, 54, 2, 13),
-(27, 1, 1, 113),
+(27, 1, 1, 112),
 (28, 1, 2, 0),
 (29, 45, 1, 0),
 (30, 45, 2, 12312),
-(33, 38, 1, 100),
+(33, 38, 1, 88),
 (34, 38, 2, 150);
 
 --
@@ -675,7 +700,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=57;
 --
 -- AUTO_INCREMENT for table `collections`
 --
@@ -685,12 +710,12 @@ ALTER TABLE `collections`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `logins`
 --
 ALTER TABLE `logins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=48;
 --
 -- AUTO_INCREMENT for table `methods`
 --
@@ -700,7 +725,7 @@ ALTER TABLE `methods`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `products`
 --
@@ -720,7 +745,7 @@ ALTER TABLE `purchases`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `sizes`
 --

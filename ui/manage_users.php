@@ -2,7 +2,7 @@
 <table>	
 	<tr>
 		<form action="../actions/user_add" method="POST">
-			<td class="no-border"><input name="username" type="text" size="30" placeholder="<?php echo $string['login']['username']; ?>" required/></td>
+			<td class="no-border"><input name="username" type="text" size="30" placeholder="<?php echo $string['login']['username']; ?>" autofocus required/></td>
             <td class="no-border"><input name="password" type="password" size="30" placeholder="<?php echo $string['login']['password']; ?>" required/></td>
 			<td class="no-border">
 				<select name="level" required>

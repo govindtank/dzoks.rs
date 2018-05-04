@@ -1,7 +1,7 @@
 <h1><?php echo $string["manage"]["contacts"]; ?></h1>
 <table>	
 	<form action="../actions/contact_newsletter" method="POST" enctype="multipart/form-data">  
-		<td class="no-border"><input name="message" type="file" required/></td>
+		<td class="no-border"><input name="message" type="file" autofocus required/></td>
 		<td class="no-border"><input class="button" type="submit" value="<?php echo $string['manage']['send']; ?>"/></td>
 		<td class="no-border"><a class="button green" href="../actions/contact_letters"><?php echo $string['manage']['letters']; ?></a></td>
 	</form>

@@ -108,7 +108,7 @@
 					echo '</form>';
 
 					echo '<form action="../actions/comment_add" method="POST">';
-					echo '<input type="text" name="name" placeholder="' . $string['product']['name'] . '" required/>';
+					echo '<input type="text" name="name" placeholder="' . $string['product']['name'] . '" autofocus required/>';
 					echo '<input type="text" name="comment" placeholder="' . $string['product']['comment'] . '" required/>';
 					echo '<input type="hidden" name="product" value="' . $product . '"/>';
 					echo '<input type="submit" class="button" value="' . $string['product']['post'] . '" />';

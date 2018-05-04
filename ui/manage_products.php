@@ -2,7 +2,7 @@
 <table>	
 	<tr>
 		<form action="../actions/product_add" method="POST" enctype="multipart/form-data">  
-			<td class="no-border"><input name="photos[]" type="file" multiple required/></td>
+			<td class="no-border"><input name="photos[]" type="file" multiple autofocus required/></td>
     		<td class="no-border"><input name="name" type="text" maxlength="50" placeholder="<?php echo $string['product']['name']; ?>" required/></td>
     		<td class="no-border"><input name="price" type="number" class="number" step="0.01" placeholder="<?php echo $string['product']['price']; ?>" required/></td>     
 			<td class="no-border">

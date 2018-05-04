@@ -66,11 +66,12 @@
 		$result = mysqli_query($connect, $cmd);
 
 		while($notify = mysqli_fetch_array($result)) {
-			if(!isset($_SESSION[$notify['key']])) {
+			if(!isset($_SESSION[$notify['name']])) {
 				echo '<div class="status status-notify">';
 				echo '<p>' . $notify['message'] . '</p>';
-				echo '<a class="button center notifyButton" myKey="' . $notify['key'] . '" myValue="1">' . $string['header']['ok'] . '</a>';
+				echo '<a class="button center notifyButton" myKey="' . $notify['name'] . '" myValue="1">' . $string['header']['ok'] . '</a>';
 				echo '</div>';
+				break;
 			}
 		}
 	}	

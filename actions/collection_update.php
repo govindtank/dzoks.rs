@@ -10,10 +10,10 @@
 		exit;	
 	}
 
-	$id = strip($_POST['id']);
+	$collection_id = strip($_POST['id']);
 	$name = strip($_POST['name']);
 
-	$cmd = "UPDATE collections SET name='" . $name . "' WHERE id=" . $id;
+	$cmd = "UPDATE collections SET name='" . $name . "' WHERE id=" . $collection_id;
 	mysqli_query($connect, $cmd);
 
 	success($string['status']['collectionUpdated']);

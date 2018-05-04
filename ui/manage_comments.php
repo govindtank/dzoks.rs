@@ -25,7 +25,7 @@
 			}
 
 			echo '<td><form action="../actions/comment_reply" method="GET">';
-			echo '<input name="id" type="hidden" value="' . $row['id'] . '"/>';
+			echo '<input name="id" type="hidden" value="' . $row['id'] . '" autofocus/>';
 				
             echo '<textarea name="reply" rows="5" cols="10" placeholder="' . $string['manage']['reply'] . '" required>' . $row['reply'] . '</textarea>';
 			echo '<input type="submit" class="button green" value="' . $string['manage']['add'] . '" />';
