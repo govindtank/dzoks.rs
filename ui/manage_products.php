@@ -30,8 +30,8 @@
 					echo '</td>';
 				}
 			?>
-    		<td class="no-border"><textarea name="description-rs" rows="10" cols="30" placeholder="<?php echo $string['product']['description']['rs']; ?>" required></textarea></td>
-    		<td class="no-border"><textarea name="description-en" rows="10" cols="30" placeholder="<?php echo $string['product']['description']['en']; ?>" required></textarea></td>
+    		<td class="no-border"><textarea name="description-rs" rows="5" cols="10" placeholder="<?php echo $string['product']['description']['rs']; ?>" required></textarea></td>
+    		<td class="no-border"><textarea name="description-en" rows="5" cols="10" placeholder="<?php echo $string['product']['description']['en']; ?>" required></textarea></td>
 			<td class="no-border"><input class="button" type="submit" value="<?php echo $string['manage']['add']; ?>"/></td>
 		</form>
 	</tr>
@@ -85,11 +85,11 @@
 			$desc_rs = get_description($row['id'], 'rs');
 			$desc_en = get_description($row['id'], 'en');
 
-    		echo '<td><textarea name="description-rs" rows="10" cols="30" placeholder="' . $string['product']['description']['rs'] . '">' . $desc_rs . '</textarea></td>';
-    		echo '<td><textarea name="description-en" rows="10" cols="30" placeholder="' . $string['product']['description']['en'] . '">' . $desc_en . '</textarea></td>';
+    		echo '<td><textarea name="description-rs" rows="5" cols="10" placeholder="' . $string['product']['description']['rs'] . '">' . $desc_rs . '</textarea></td>';
+    		echo '<td><textarea name="description-en" rows="5" cols="10" placeholder="' . $string['product']['description']['en'] . '">' . $desc_en . '</textarea></td>';
 
-			echo '<td><input type="submit" class="button" value="' . $string['manage']['save'] . '"/></td>';
-			echo '<td><a class="button button-shrink" href="../actions/product_remove.php?id=' . $row['id'] . '">X</a></td>';
+			echo '<td><input type="submit" class="button green" value="' . $string['manage']['save'] . '"/></td>';
+			echo '<td><a class="button button-shrink red" href="../actions/product_remove.php?id=' . $row['id'] . '">X</a></td>';
 			echo '</form>';
 			echo '</tr>';
 		}

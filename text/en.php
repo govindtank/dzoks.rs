@@ -121,7 +121,7 @@
 			, "name" => "Name"
 			, "level" => "Level"
 			, "level1" => "Sell products"
-			, "level2" => "Manage stuff"
+			, "level2" => "Manage products"
 			, "level3" => "Manage users"
 			, "shippingCompany" => "Company"
 			, "shippingNumber" => "Number"

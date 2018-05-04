@@ -57,8 +57,8 @@
 .banner span,
 .note span {
   	color: var(--color-light);
-  	font-size: 28px;
-	letter-spacing: 2px;
+  	font-size: 1.5em;
+	letter-spacing: 0.1em;
 }
 
 .note p,

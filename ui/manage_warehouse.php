@@ -31,6 +31,7 @@
 				$qty = get_quantity($key, $row['id']);
 
 				if($qty > 0) {
+					echo '<p>' . $qty . '</p>';
 					echo '<a class="button green" href="../actions/product_sell?size=' . $key . '&id=' . $row['id'] . '">' . $string['product']['sell'] . '</a>';	
 				}else {
 					echo '<p>' . $string["status"]["soldout"] . '</p>';

@@ -43,8 +43,8 @@
 			}
 
 			echo '</td>';
-			echo '<td><input type="submit" class="button" value="' . $string['manage']['save'] . '"/></td>';
-			echo '<td><a class="button button-shrink" href="../actions/user_remove?id=' . $row['id'] . '">X</a></td>';
+			echo '<td><input type="submit" class="button green" value="' . $string['manage']['save'] . '"/></td>';
+			echo '<td><a class="button button-shrink red" href="../actions/user_remove?id=' . $row['id'] . '">X</a></td>';
 			echo '</form>';
 			echo '</tr>';
 		}
