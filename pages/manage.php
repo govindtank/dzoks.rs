@@ -24,10 +24,20 @@
 									require("../ui/manage_collections.php");
 									break;
 								case 1:
-									require("../ui/manage_products.php");
+									if(params_ok(["id"], "GET")) {	
+										require("../ui/manage_products_details.php");
+									}else {
+										require("../ui/manage_products.php");
+									}
+
 									break;
 								case 2:
-									require("../ui/manage_orders.php");
+									if(params_ok(["id"], "GET")) {	
+										require("../ui/manage_orders_details.php");
+									}else {
+										require("../ui/manage_orders.php");
+									}
+
 									break;
 								case 3:
 									require("../ui/manage_comments.php");

@@ -105,6 +105,10 @@ a:hover {
 	padding-right: 10%;
 }
 
+.align-left {
+    text-align: left;
+}
+
 h1 {
 	font-size: 2em;
     text-align: center;
