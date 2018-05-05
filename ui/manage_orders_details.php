@@ -68,10 +68,10 @@
 		
 		if($row['confirmed'] == 1 && $row['shipped'] == 0) {	
 			if($row['valid'] == 1) {
-				echo '<td class="no-border"><a class="button center" href="../actions/order_invalid?valid=0&id=' . $row['id'] .'">' . $string['manage']['invalid'] . '</a></td>';
-				echo '<td class="no-border"><a class="button center" href="../actions/order_invoice?id=' . $row['id'] . '">' . $string['manage']['invoice'] . '</a></td>';
+				echo '<td class="no-border"><a class="button center red" href="../actions/order_invalid?valid=0&id=' . $row['id'] .'">' . $string['manage']['invalid'] . '</a></td>';
+				echo '<td class="no-border"><a class="button center green" href="../actions/order_invoice?id=' . $row['id'] . '">' . $string['manage']['invoice'] . '</a></td>';
 			}else {
-				echo '<td class="no-border"><a class="button center" href="../actions/order_invalid?valid=1&id=' . $row['id'] .'">' . $string['manage']['valid'] . '</a></td>';
+				echo '<td class="no-border"><a class="button center green" href="../actions/order_invalid?valid=1&id=' . $row['id'] .'">' . $string['manage']['valid'] . '</a></td>';
 			}	
 		}	
 		

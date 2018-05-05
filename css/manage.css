@@ -44,3 +44,9 @@ td > textarea {
 	width: 4em;
 	height: 4em;
 }
+
+.big-img {
+	width: 100%;
+	height: auto;
+	margin: 2em auto;
+}
