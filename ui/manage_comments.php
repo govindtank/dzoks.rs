@@ -13,7 +13,7 @@
 		while($row = mysqli_fetch_array($result)) {	
 			echo '<tr>';
 
-			echo '<td><a href="product?id=' . $row['product'] . '"><img class="thumbnail" src="' . get_thumbnail($row['product'], 0) . '"/></a></td>';
+			echo '<td><a href="product?id=' . $row['product'] . '"><img alt="Product image" class="thumbnail" src="' . get_thumbnail($row['product'], 0) . '"/></a></td>';
 			echo '<td>' . $row['name'] . '</td>';
 			echo '<td>' . $row['comment'] . '</td>';
 			echo '<td>' . $row['ip'] . '</td>';

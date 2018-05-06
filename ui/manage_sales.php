@@ -41,7 +41,7 @@
 				$totalSizes[$row['size_name']] = 1;
 			}
 
-			echo '<td><a href="product?id=' . $row['product_id'] . '"><img class="thumbnail" src="' . get_thumbnail($row['product_id'], 0) . '"/></a></td>';
+			echo '<td><a href="product?id=' . $row['product_id'] . '"><img alt="Product image" class="thumbnail" src="' . get_thumbnail($row['product_id'], 0) . '"/></a></td>';
 			echo '<td>' . get_price($row['product_price']) . '</td>';
 			echo '<td>' . $row['note'] . '</td>';
 			echo '<td>' . $row['size_name'] . '</td>';

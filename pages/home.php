@@ -43,7 +43,7 @@
 			</div>
 		</div>
 		<div class="fab shake shake-basic shake-hover">
-			<a href="../pages/propose"><img src="../img/fab.png"/></a>
+			<a href="../pages/propose"><img alt="Floating button" src="../img/fab.png"/></a>
 		</div>
 
         <?php require("../ui/footer.php"); ?>

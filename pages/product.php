@@ -43,7 +43,7 @@
 					echo '<div class="sp-wrap">';
 
 					foreach(get_all_product_images($product) as $image) {
-						echo '<a href="' . $image .'"><img src="' . $image . '" alt=""></a>';
+						echo '<a href="' . $image .'"><img alt="Product image" src="' . $image . '" alt=""></a>';
 					}
 
 					echo '</div>';

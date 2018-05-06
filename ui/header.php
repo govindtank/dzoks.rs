@@ -1,7 +1,7 @@
 <header>
     <div id="wrap">
         <a href="home.php" class="shake shake-basic shake-constant">
-			<img id="logo-small" src="../img/logo.png"/>
+			<img alt="Company logo" id="logo-small" src="../img/logo.png"/>
 			<div class="tint"></div>
 		</a>
         <nav id="nav">
@@ -27,15 +27,15 @@
                     <li>
                         <?php
                             if(strcmp($lang, "en") == 0) {
-                                echo '<a href="../logic/set_lang.php?lang=rs&page=' . $page . '"><img class="header-icon" src="../img/rs.png" /></a>';
+                                echo '<a href="../logic/set_lang.php?lang=rs&page=' . $page . '"><img alt="Serbian language" class="header-icon" src="../img/rs.png" /></a>';
                             }else if(strcmp($lang, "rs") == 0) {
-                                echo '<a href="../logic/set_lang.php?lang=en&page=' . $page . '"><img class="header-icon" src="../img/en.png" /></a>';
+                                echo '<a href="../logic/set_lang.php?lang=en&page=' . $page . '"><img alt="English language" class="header-icon" src="../img/en.png" /></a>';
                             }
                         ?>
                     </li>
                     <li>
                         <a href="https://www.instagram.com/<?php echo $store_instagram_username; ?>/">
-                            <img class="header-icon" src="../img/instagram.png">
+                            <img alt="Instagram logo" class="header-icon" src="../img/instagram.png">
                         </a>
                     </li>
             </ul>
@@ -52,7 +52,7 @@
 	}else if(isset($_SESSION['order'])) {
 		echo '<div class="status status-order">';
 		echo '<p>' . $_SESSION['order'] . '</p>';
-		echo '<img src="../img/ordered.gif" />';
+		echo '<img alt="Successful order" src="../img/ordered.gif" />';
 		echo '</div>';
 		unset($_SESSION['order']);
 	}else if(!isset($_SESSION['cookies_accepted'])) {

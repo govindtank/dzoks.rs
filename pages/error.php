@@ -7,7 +7,7 @@
     <body>
         <div class="center-both">
 			<h1><?php echo $string["error"]["header"]; ?></h1>
-            <img class="" src="../img/error.gif" />
+            <img alt="Error image" class="" src="../img/error.gif" />
         	<a href="home" class="button center"><?php echo $string["error"]["action"]; ?></a>
         </div>
         

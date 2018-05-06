@@ -29,7 +29,7 @@
 
 				while($row = mysqli_fetch_array($result)) {
             	    echo '<tr>';
-					echo '<td><a href="product?id=' . $row["product_id"] . '"><img class="thumbnail" src="' . get_thumbnail($row["product_id"], 0) . '"/></a></td>';
+					echo '<td><a href="product?id=' . $row["product_id"] . '"><img alt="Product image" class="thumbnail" src="' . get_thumbnail($row["product_id"], 0) . '"/></a></td>';
                   	echo '<td><a href="product?id=' . $row["product_id"] . '">' . $row["product_name"] . '</a></td>';
 
                 	$total += $row['cart_quantity'] * $row["product_price"];

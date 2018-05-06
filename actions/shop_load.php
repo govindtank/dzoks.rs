@@ -19,8 +19,8 @@
     	$data .= '<div class="item" data-sr>';
 		$data .= '<a href="product?id=' . $row['id'] . '">';
                     	
-		$data .= '<img class="item-image" src="' . get_thumbnail($row["id"], 0). '"/>';
-		$data .= '<img class="item-overlay" src="' . get_thumbnail($row["id"], 1). '"/>';
+		$data .= '<img alt="Product image" class="item-image" src="' . get_thumbnail($row["id"], 0). '"/>';
+		$data .= '<img alt="Product image when hovered" class="item-overlay" src="' . get_thumbnail($row["id"], 1). '"/>';
 			
 		if(get_quantity_total($row['id']) == 0) {
 			$data .= '<div class="item-marker">';

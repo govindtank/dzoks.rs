@@ -17,7 +17,7 @@
 	foreach($images as $id => $urls) {
 		$data .= '<div class="item" data-sr>';
 		$data .= '<a href="' . $urls[0] . '">';
-		$data .= '<img class="item-image" src="' . $urls[1] . '" />';
+		$data .= '<img alt="Gallery image" class="item-image" src="' . $urls[1] . '" />';
 		$data .= '<div class="item-overlay">';
 		$data .= '<div class="tint hover"></div>';
 		$data .= '</div>';

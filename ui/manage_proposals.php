@@ -19,7 +19,7 @@
 
 			$path = get_first_file("../proposals/" . $row['id']);
 
-			echo '<td><a href="' . $path .'"><img class="thumbnail" src="' . $path . '" /></a></td>';
+			echo '<td><a href="' . $path .'"><img alt="Image attachment" class="thumbnail" src="' . $path . '" /></a></td>';
 			echo '</tr>';
 		}
 	?>			

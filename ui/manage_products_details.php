@@ -7,7 +7,7 @@
 
 		echo '<input type="hidden" name="id" value="' . $row['id'] . '">';
 		
-		echo '<a href="product?id=' . $row['id'] . '"><img class="big-img" src="' . get_thumbnail($row['id'], 0) . '"/></a>';
+		echo '<a href="product?id=' . $row['id'] . '"><img alt="Product image" class="big-img" src="' . get_thumbnail($row['id'], 0) . '"/></a>';
 		echo '<input name="photos[]" type="file" multiple/>';
 		echo '<input name="name" type="text" maxlength="50" value="' . $row['name'] . '" placeholder="' . $string['product']['name'] . '" required/>';
 		echo '<input name="price" type="number" class="number" step="0.01" placeholder="' . $string['product']['price'] . '" value="' . $row['price'] . '" required/>';
